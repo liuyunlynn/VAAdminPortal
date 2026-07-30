@@ -95,17 +95,32 @@ namespace VAAdminPortalAPI.Services
             return data ?? new MockDataStore();
         }
 
-        public AllOverviewModel GetAllOverview()
+        public AllOverviewModel GetAllOverview(AiVirtualAssistantRegistrationQueryModel queryModel)
         {
-            var registrations = DataStore.Value.AiVirtualAssistantRegistrations;
+            IEnumerable<AiVirtualAssistantRegistrationModel> registrations =
+                DataStore.Value.AiVirtualAssistantRegistrations;
+
+            if (queryModel.StartDate.HasValue)
+            {
+                registrations = registrations.Where(r => r.CreatedDateTime >= queryModel.StartDate.Value);
+            }
+
+            if (queryModel.EndDate.HasValue)
+            {
+                registrations = registrations.Where(r => r.CreatedDateTime <= queryModel.EndDate.Value);
+            }
+
+            var filteredRegistrations = registrations.ToList();
 
             return new AllOverviewModel
             {
-                TotalRegistrationsCount = registrations.Count,
-                ValidationPassedCount = registrations.Count(r => r.ValidationStatus == ValidationStatus.Passed),
-                PendingReviewCount = registrations.Count(r =>
-                    r.ValidationStatus == ValidationStatus.Pending || r.LegalStatus == LegalStatus.Pending),
-                AttestedAssistantsCount = registrations.Count(r => r.Verification == BotVerificationLevel.Attested)
+                TotalRegistrationsCount = filteredRegistrations.Count,
+                ValidationPassedCount = filteredRegistrations.Count(r => r.ValidationStatus == ValidationStatus.Passed),
+                LegalPassedCount = filteredRegistrations.Count(r => r.LegalStatus == LegalStatus.Passed),
+                ValidationPendingCount = filteredRegistrations.Count(r => r.ValidationStatus == ValidationStatus.Pending),
+                LegalPendingCount = filteredRegistrations.Count(r => r.LegalStatus == LegalStatus.Pending),
+                AttestedAssistantsCount = filteredRegistrations.Count(r => r.Verification == BotVerificationLevel.Attested),
+                VerifiedCount = filteredRegistrations.Count(r => r.Verified)
             };
         }
 

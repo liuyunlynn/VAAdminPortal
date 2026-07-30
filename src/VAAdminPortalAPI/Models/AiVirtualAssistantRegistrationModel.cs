@@ -97,5 +97,8 @@ namespace VAAdminPortalAPI.Models
         [JsonPropertyName("legalStatus")]
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public LegalStatus LegalStatus { get; set; }
+
+        [JsonPropertyName("verified")]
+        public bool Verified => ValidationStatus == ValidationStatus.Passed && LegalStatus == LegalStatus.Passed;
     }
 }

@@ -25,10 +25,11 @@ namespace VAAdminPortalAPI.Controllers
             return Ok(response);
         }
 
-        [HttpGet(Name = "GetAllOverview")]
-        public async Task<ActionResult> GetAllOverview()
+        [HttpPost(Name = "GetAllOverview")]
+        public async Task<ActionResult> GetAllOverview(
+            [FromQuery] AiVirtualAssistantRegistrationQueryModel queryModel)
         {
-            var overview = _adminService.GetAllOverview();
+            var overview = _adminService.GetAllOverview(queryModel);
             var response = new Response<AllOverviewModel>(overview);
             return Ok(response);
         }

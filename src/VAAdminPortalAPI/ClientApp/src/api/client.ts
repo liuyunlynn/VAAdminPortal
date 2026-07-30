@@ -30,9 +30,17 @@ export async function getAdminInfo(id: string): Promise<AdminInfo> {
   return unwrap<AdminInfo>(res);
 }
 
-export async function getAllOverview(): Promise<AllOverview> {
-  const res = await fetch(`${BASE}/Admin/GetAllOverview`, {
-    method: 'GET',
+export async function getAllOverview(
+  startDate?: string | null,
+  endDate?: string | null,
+): Promise<AllOverview> {
+  const params = new URLSearchParams();
+  if (startDate) params.set('startDate', startDate);
+  if (endDate) params.set('endDate', endDate);
+  const queryString = params.size > 0 ? `?${params.toString()}` : '';
+
+  const res = await fetch(`${BASE}/Admin/GetAllOverview${queryString}`, {
+    method: 'POST',
     headers: { Accept: 'application/json' },
   });
   return unwrap<AllOverview>(res);

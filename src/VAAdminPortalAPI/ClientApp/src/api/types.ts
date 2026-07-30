@@ -28,8 +28,11 @@ export interface AdminInfo {
 export interface AllOverview {
   totalRegistrationsCount: number;
   validationPassedCount: number;
-  pendingReviewCount: number;
+  legalPassedCount: number;
+  validationPendingCount: number;
+  legalPendingCount: number;
   attestedAssistantsCount: number;
+  verifiedCount: number;
 }
 
 export interface LegalEntity {

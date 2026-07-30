@@ -82,7 +82,7 @@ const useStyles = makeStyles({
   },
   kpiRow: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
     gap: '16px',
   },
   kpiCard: {
@@ -91,9 +91,43 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     gap: '6px',
   },
+  primaryKpiCard: {
+    borderTop: `3px solid ${tokens.colorBrandStroke1}`,
+  },
   kpiValue: {
     fontSize: '30px',
     fontWeight: 700,
+  },
+  kpiHint: {
+    color: tokens.colorNeutralForeground3,
+  },
+  statusMetrics: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: '16px',
+    marginTop: '4px',
+  },
+  statusMetric: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '2px',
+  },
+  statusValue: {
+    fontSize: '24px',
+    fontWeight: 700,
+  },
+  overviewHeader: {
+    display: 'flex',
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+    gap: '16px',
+    flexWrap: 'wrap',
+  },
+  overviewFilters: {
+    display: 'flex',
+    alignItems: 'flex-end',
+    gap: '8px',
+    flexWrap: 'wrap',
   },
   filters: {
     display: 'flex',
@@ -164,6 +198,9 @@ export default function DashboardPage() {
   const [submittedQuery, setSubmittedQuery] = useState<RegistrationQuery>({});
   const [overview, setOverview] = useState<AllOverview | null>(null);
   const [overviewError, setOverviewError] = useState<string | null>(null);
+  const [overviewStartDate, setOverviewStartDate] = useState('');
+  const [overviewEndDate, setOverviewEndDate] = useState('');
+  const [overviewLoading, setOverviewLoading] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -207,6 +244,22 @@ export default function DashboardPage() {
     setPageIndex(0);
     dispatch(fetchRegistrations({ ...query, pageIndex: 0, pageSize }));
     dispatch(fetchRegistrationCharts(query));
+  };
+
+  const handleOverviewQuery = () => {
+    const overviewStart = overviewStartDate ? `${overviewStartDate}T00:00:00.000Z` : null;
+    const overviewEnd = overviewEndDate ? `${overviewEndDate}T23:59:59.999Z` : null;
+
+    setOverviewError(null);
+    setOverviewLoading(true);
+    getAllOverview(overviewStart, overviewEnd)
+      .then(setOverview)
+      .catch((requestError: unknown) => {
+        setOverviewError(
+          requestError instanceof Error ? requestError.message : 'Failed to load overview.',
+        );
+      })
+      .finally(() => setOverviewLoading(false));
   };
 
   const handlePageChange = (nextPageIndex: number) => {
@@ -258,28 +311,95 @@ export default function DashboardPage() {
           </MessageBar>
         )}
 
+        <div className={styles.overviewHeader}>
+          <div>
+            <Subtitle1>Overview</Subtitle1>
+            <Body1 style={{ display: 'block', color: tokens.colorNeutralForeground3 }}>
+              Leave both dates empty to show all-time data.
+            </Body1>
+          </div>
+          <div className={styles.overviewFilters}>
+            <Field label="Start date">
+              <Input
+                className={styles.dateInput}
+                type="date"
+                value={overviewStartDate}
+                max={overviewEndDate || undefined}
+                onChange={(_, d) => setOverviewStartDate(d.value)}
+              />
+            </Field>
+            <Field label="End date">
+              <Input
+                className={styles.dateInput}
+                type="date"
+                value={overviewEndDate}
+                min={overviewStartDate || undefined}
+                onChange={(_, d) => setOverviewEndDate(d.value)}
+              />
+            </Field>
+            <Button
+              icon={<ArrowClockwiseRegular />}
+              onClick={handleOverviewQuery}
+              disabled={overviewLoading}
+            >
+              {overviewLoading ? 'Loading' : 'Apply'}
+            </Button>
+          </div>
+        </div>
+
         <div className={styles.kpiRow}>
           <Card className={styles.kpiCard}>
             <Caption1>Total registrations</Caption1>
             <span className={styles.kpiValue}>{overview?.totalRegistrationsCount ?? 0}</span>
+            <Caption1 className={styles.kpiHint}>All submitted assistants</Caption1>
           </Card>
-          <Card className={styles.kpiCard}>
-            <Caption1>Validation passed</Caption1>
+          <Card className={`${styles.kpiCard} ${styles.primaryKpiCard}`}>
+            <Caption1>Fully verified</Caption1>
             <span className={styles.kpiValue} style={{ color: '#107c10' }}>
-              {overview?.validationPassedCount ?? 0}
+              {overview?.verifiedCount ?? 0}
             </span>
+            <Caption1 className={styles.kpiHint}>Validation and legal passed</Caption1>
           </Card>
           <Card className={styles.kpiCard}>
-            <Caption1>Pending review</Caption1>
-            <span className={styles.kpiValue} style={{ color: '#f7a501' }}>
-              {overview?.pendingReviewCount ?? 0}
-            </span>
+            <Caption1>Validation review</Caption1>
+            <div className={styles.statusMetrics}>
+              <div className={styles.statusMetric}>
+                <span className={styles.statusValue} style={{ color: '#107c10' }}>
+                  {overview?.validationPassedCount ?? 0}
+                </span>
+                <Caption1 className={styles.kpiHint}>Passed</Caption1>
+              </div>
+              <div className={styles.statusMetric}>
+                <span className={styles.statusValue} style={{ color: '#b45309' }}>
+                  {overview?.validationPendingCount ?? 0}
+                </span>
+                <Caption1 className={styles.kpiHint}>Pending</Caption1>
+              </div>
+            </div>
+          </Card>
+          <Card className={styles.kpiCard}>
+            <Caption1>Legal review</Caption1>
+            <div className={styles.statusMetrics}>
+              <div className={styles.statusMetric}>
+                <span className={styles.statusValue} style={{ color: '#107c10' }}>
+                  {overview?.legalPassedCount ?? 0}
+                </span>
+                <Caption1 className={styles.kpiHint}>Passed</Caption1>
+              </div>
+              <div className={styles.statusMetric}>
+                <span className={styles.statusValue} style={{ color: '#b45309' }}>
+                  {overview?.legalPendingCount ?? 0}
+                </span>
+                <Caption1 className={styles.kpiHint}>Pending</Caption1>
+              </div>
+            </div>
           </Card>
           <Card className={styles.kpiCard}>
             <Caption1>Attested assistants</Caption1>
             <span className={styles.kpiValue} style={{ color: '#4f6bed' }}>
               {overview?.attestedAssistantsCount ?? 0}
             </span>
+            <Caption1 className={styles.kpiHint}>Highest verification level</Caption1>
           </Card>
         </div>
 
