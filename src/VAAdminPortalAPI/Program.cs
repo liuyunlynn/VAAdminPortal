@@ -28,10 +28,17 @@ namespace VAAdminPortalAPI
 
             app.UseHttpsRedirection();
 
+            // Serve the built React SPA (wwwroot/index.html and its assets).
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
             app.UseAuthorization();
 
 
             app.MapControllers();
+
+            // Return index.html for client-side routes that are not API endpoints.
+            app.MapFallbackToFile("index.html");
 
             app.Run();
         }
