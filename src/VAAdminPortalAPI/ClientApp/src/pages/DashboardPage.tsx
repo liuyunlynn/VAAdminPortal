@@ -209,6 +209,7 @@ const VALIDATION_OPTIONS: (ValidationStatus | 'All')[] = [
   'Failed',
 ];
 const LEGAL_OPTIONS: (LegalStatus | 'All')[] = ['All', 'NotStarted', 'Pending', 'Passed', 'Failed'];
+const REVIEW_RESULT_OPTIONS = ['All', 'Fully passed', 'Not fully passed'] as const;
 const PAGE_SIZE_OPTIONS = [10, 20, 50, 100];
 
 const dropdownWidth = (labels: string[]) => `${Math.max(...labels.map((label) => label.length)) + 6}ch`;
@@ -218,6 +219,7 @@ const VALIDATION_DROPDOWN_WIDTH = dropdownWidth(
 const LEGAL_DROPDOWN_WIDTH = dropdownWidth(
   LEGAL_OPTIONS.map((option) => (option === 'All' ? 'All legal' : option)),
 );
+const REVIEW_RESULT_DROPDOWN_WIDTH = dropdownWidth([...REVIEW_RESULT_OPTIONS]);
 const PAGE_SIZE_DROPDOWN_WIDTH = dropdownWidth(PAGE_SIZE_OPTIONS.map(String));
 
 export default function DashboardPage() {
@@ -233,6 +235,7 @@ export default function DashboardPage() {
   const [search, setSearch] = useState('');
   const [validation, setValidation] = useState<ValidationStatus | 'All'>('All');
   const [legal, setLegal] = useState<LegalStatus | 'All'>('All');
+  const [reviewResult, setReviewResult] = useState<(typeof REVIEW_RESULT_OPTIONS)[number]>('All');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [pageSize, setPageSize] = useState(10);
@@ -278,6 +281,7 @@ export default function DashboardPage() {
     searchTerm: search.trim() || null,
     validationStatus: validation === 'All' ? null : validation,
     legalStatus: legal === 'All' ? null : legal,
+    fullyPassed: reviewResult === 'All' ? null : reviewResult === 'Fully passed',
   });
 
   const handleQuery = () => {
@@ -462,6 +466,27 @@ export default function DashboardPage() {
           <Toolbar className={styles.filterToolbar}>
             <div className={styles.filters}>
               <Field label="Validation status">
+                <Field label="Review result">
+                  <Dropdown
+                    style={{
+                      width: REVIEW_RESULT_DROPDOWN_WIDTH,
+                      minWidth: REVIEW_RESULT_DROPDOWN_WIDTH,
+                    }}
+                    value={reviewResult}
+                    selectedOptions={[reviewResult]}
+                    onOptionSelect={(_, d) =>
+                      setReviewResult(
+                        (d.optionValue as (typeof REVIEW_RESULT_OPTIONS)[number]) ?? 'All',
+                      )
+                    }
+                  >
+                    {REVIEW_RESULT_OPTIONS.map((option) => (
+                      <Option key={option} value={option}>
+                        {option}
+                      </Option>
+                    ))}
+                  </Dropdown>
+                </Field>
                 <Dropdown
                   style={{
                     width: VALIDATION_DROPDOWN_WIDTH,

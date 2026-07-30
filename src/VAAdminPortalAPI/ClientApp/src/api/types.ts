@@ -93,4 +93,5 @@ export interface RegistrationQuery {
   searchTerm?: string | null;
   validationStatus?: ValidationStatus | null;
   legalStatus?: LegalStatus | null;
+  fullyPassed?: boolean | null;
 }

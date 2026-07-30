@@ -57,6 +57,7 @@ export async function getRegistrations(
   if (query.searchTerm) params.set('searchTerm', query.searchTerm);
   if (query.validationStatus) params.set('validationStatus', query.validationStatus);
   if (query.legalStatus) params.set('legalStatus', query.legalStatus);
+  if (query.fullyPassed != null) params.set('fullyPassed', String(query.fullyPassed));
 
   const res = await fetch(
     `${BASE}/Admin/GetAiVirtualAssistantRegistrations?${params.toString()}`,

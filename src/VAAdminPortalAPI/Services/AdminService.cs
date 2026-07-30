@@ -52,6 +52,11 @@ namespace VAAdminPortalAPI.Services
                     query = query.Where(r => r.LegalStatus == queryModel.LegalStatus.Value);
                 }
 
+                if (queryModel.FullyPassed.HasValue)
+                {
+                    query = query.Where(r => r.Verified == queryModel.FullyPassed.Value);
+                }
+
                 if (!string.IsNullOrWhiteSpace(queryModel.SearchTerm))
                 {
                     var term = queryModel.SearchTerm.Trim();

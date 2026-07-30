@@ -24,5 +24,8 @@ namespace VAAdminPortalAPI.Models
 
         [JsonPropertyName("legalStatus")]
         public LegalStatus? LegalStatus { get; set; }
+
+        [JsonPropertyName("fullyPassed")]
+        public bool? FullyPassed { get; set; }
     }
 }
