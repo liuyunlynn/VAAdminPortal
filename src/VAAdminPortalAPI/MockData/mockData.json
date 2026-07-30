@@ -1,0 +1,4109 @@
+{
+  "adminInfo": {
+    "id": "admin-001",
+    "name": "John Doe",
+    "email": "johndoe@example.com"
+  },
+  "aiVirtualAssistantRegistrations": [
+    {
+      "id": "e5fd3966-8987-4938-a9dd-4612b93a2bad",
+      "appId": "cf48a38d-2f71-4a9a-987a-8dd1353e10a0",
+      "tenantId": "fa400ff0-0e5a-4eee-9f5c-0a6dcb46a039",
+      "displayName": "Litware Inc Virtual Assistant",
+      "domain": "litware.fr",
+      "logoUrl": "https://litware.fr/logo.png",
+      "privacyStatementUrl": "https://litware.fr/privacy",
+      "verification": "None",
+      "createdDateTime": "2026-07-27T03:20:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Litware Inc",
+        "addressLine1": "2733 Main St",
+        "addressLine2": "Suite 662",
+        "city": "Paris",
+        "stateProvince": "Ile-de-France",
+        "country": "France",
+        "countryCode": "FR",
+        "zipCode": "75001",
+        "legalIdentifier": "EIN-87-5250853",
+        "nonDisclosureAgreementNumber": "NDA-3249"
+      },
+      "primaryContact": {
+        "name": "Taylor Davis",
+        "email": "taylor.davis@litware.fr",
+        "phone": "+1-905-796-3763",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Avery Martinez",
+        "email": "tech0@litware.fr"
+      },
+      "programManagerContact": {
+        "name": "Cameron Smith",
+        "email": "pm0@litware.fr"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/1",
+      "validationStatus": "NotStarted",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "f761e9f0-57e4-4eec-9349-d5a5a2f675c4",
+      "appId": "01af7b04-5075-400f-b346-40f6d74ffe42",
+      "tenantId": "d24a42f6-e4a1-42b3-9529-604d4b0faba5",
+      "displayName": "Skyler Smith Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2026-07-19T23:44:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Skyler Smith",
+        "addressLine1": "7835 Main St",
+        "addressLine2": null,
+        "city": "Berlin",
+        "stateProvince": "Berlin",
+        "country": "Germany",
+        "countryCode": "DE",
+        "zipCode": "10115",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Alex Williams",
+        "email": "alex.williams@example.com",
+        "phone": "+1-624-221-2557",
+        "title": "Founder"
+      },
+      "technicalContact": {
+        "name": "Jamie Kumar",
+        "email": "tech1@example.com"
+      },
+      "programManagerContact": {
+        "name": "Riley Miller",
+        "email": "pm1@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/2",
+      "validationStatus": "Pending",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "aced7c95-838f-4a09-b31c-75150a163ab9",
+      "appId": "8d385a1e-2d23-47d3-890e-5f6ac3a93d28",
+      "tenantId": "4b571459-e12c-4aa1-8a0f-e0d83a8fe280",
+      "displayName": "Contoso Ltd Virtual Assistant",
+      "domain": "contoso.com",
+      "logoUrl": "https://contoso.com/logo.png",
+      "privacyStatementUrl": "https://contoso.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2026-07-15T10:25:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Contoso Ltd",
+        "addressLine1": "2095 Main St",
+        "addressLine2": null,
+        "city": "Redmond",
+        "stateProvince": "WA",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "98052",
+        "legalIdentifier": "EIN-37-7647592",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Morgan Martinez",
+        "email": "morgan.martinez@contoso.com",
+        "phone": "+1-886-606-2837",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Casey Johnson",
+        "email": "tech2@contoso.com"
+      },
+      "programManagerContact": {
+        "name": "Drew Martinez",
+        "email": "pm2@contoso.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/3",
+      "validationStatus": "Passed",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "575077cf-3a94-403c-b366-cd94a0d81ae7",
+      "appId": "af382e5b-8534-44ac-83e5-38e533feac23",
+      "tenantId": "0e16a4b2-c348-4372-994b-c233dabd542f",
+      "displayName": "Devon Johnson Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2026-07-03T13:04:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Devon Johnson",
+        "addressLine1": "159 Main St",
+        "addressLine2": "Suite 424",
+        "city": "Portland",
+        "stateProvince": "OR",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "97201",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Taylor Johnson",
+        "email": "taylor.johnson@example.com",
+        "phone": "+1-585-689-9096",
+        "title": "CEO"
+      },
+      "technicalContact": {
+        "name": "Quinn Muller",
+        "email": "tech3@example.com"
+      },
+      "programManagerContact": {
+        "name": "Casey Martinez",
+        "email": "pm3@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/4",
+      "validationStatus": "Failed",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "997f199f-1a81-44a3-b272-b03b729c3a83",
+      "appId": "85bb0076-137c-4790-a2ab-3c9d36cde7dd",
+      "tenantId": "9dbb5f29-62aa-42e7-bf44-11ad2ab7b03c",
+      "displayName": "Northwind Traders Virtual Assistant",
+      "domain": "northwind.co.uk",
+      "logoUrl": "https://northwind.co.uk/logo.png",
+      "privacyStatementUrl": "https://northwind.co.uk/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2026-06-27T04:53:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Northwind Traders",
+        "addressLine1": "9161 Main St",
+        "addressLine2": null,
+        "city": "London",
+        "stateProvince": "England",
+        "country": "United Kingdom",
+        "countryCode": "GB",
+        "zipCode": "EC1A 1BB",
+        "legalIdentifier": "EIN-49-6206077",
+        "nonDisclosureAgreementNumber": "NDA-4032"
+      },
+      "primaryContact": {
+        "name": "Harper Davis",
+        "email": "harper.davis@northwind.co.uk",
+        "phone": "+1-676-458-7564",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Jamie Kumar",
+        "email": "tech4@northwind.co.uk"
+      },
+      "programManagerContact": {
+        "name": "Quinn Muller",
+        "email": "pm4@northwind.co.uk"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/5",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "5059110e-0ac7-4b50-99be-0b2aa1418cc6",
+      "appId": "42731209-c272-4522-8047-d9904765eb19",
+      "tenantId": "9cc70549-5e3a-4c8a-b96e-79c32dfa7b80",
+      "displayName": "Sam Davis Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Attested",
+      "createdDateTime": "2026-06-22T21:19:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Sam Davis",
+        "addressLine1": "9047 Main St",
+        "addressLine2": null,
+        "city": "Mumbai",
+        "stateProvince": "MH",
+        "country": "India",
+        "countryCode": "IN",
+        "zipCode": "400001",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Riley Kumar",
+        "email": "riley.kumar@example.com",
+        "phone": "+1-274-580-8397",
+        "title": "CEO"
+      },
+      "technicalContact": {
+        "name": "Harper Williams",
+        "email": "tech5@example.com"
+      },
+      "programManagerContact": {
+        "name": "Quinn Martinez",
+        "email": "pm5@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/6",
+      "validationStatus": "Pending",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "2b958bb9-6d2b-488f-ab3e-317863a38999",
+      "appId": "3fb0b3dd-586d-4e9b-9af6-c5517ab8608b",
+      "tenantId": "6541d04c-b74e-452e-ba02-c4f96fd8ef49",
+      "displayName": "Northwind Traders Virtual Assistant",
+      "domain": "northwind.co.uk",
+      "logoUrl": "https://northwind.co.uk/logo.png",
+      "privacyStatementUrl": "https://northwind.co.uk/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2026-06-14T20:21:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Northwind Traders",
+        "addressLine1": "6289 Main St",
+        "addressLine2": "Suite 898",
+        "city": "London",
+        "stateProvince": "England",
+        "country": "United Kingdom",
+        "countryCode": "GB",
+        "zipCode": "EC1A 1BB",
+        "legalIdentifier": "EIN-39-8131845",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Riley Williams",
+        "email": "riley.williams@northwind.co.uk",
+        "phone": "+1-514-305-8773",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Alex Chen",
+        "email": "tech6@northwind.co.uk"
+      },
+      "programManagerContact": {
+        "name": "Drew Nakamura",
+        "email": "pm6@northwind.co.uk"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/7",
+      "validationStatus": "Passed",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "896db3a7-ca21-4aa2-981c-63ff126f6390",
+      "appId": "684c1898-28fe-42c6-acdc-8e5667abc110",
+      "tenantId": "aa1f6b59-eb84-4093-8fd0-d215b4602d68",
+      "displayName": "Morgan Rodriguez Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2026-06-06T19:58:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Morgan Rodriguez",
+        "addressLine1": "2915 Main St",
+        "addressLine2": null,
+        "city": "Mumbai",
+        "stateProvince": "MH",
+        "country": "India",
+        "countryCode": "IN",
+        "zipCode": "400001",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Quinn Martinez",
+        "email": "quinn.martinez@example.com",
+        "phone": "+1-420-469-1261",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Harper Rodriguez",
+        "email": "tech7@example.com"
+      },
+      "programManagerContact": {
+        "name": "Harper Williams",
+        "email": "pm7@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/8",
+      "validationStatus": "Failed",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "b9c3b319-08d4-4bed-92f9-c2d9d25ee1a5",
+      "appId": "aca01f88-60ba-4088-8fd8-f8a9b1d01163",
+      "tenantId": "c34016f8-a254-482c-933e-7383339e8009",
+      "displayName": "Northwind Traders Virtual Assistant",
+      "domain": "northwind.co.uk",
+      "logoUrl": "https://northwind.co.uk/logo.png",
+      "privacyStatementUrl": "https://northwind.co.uk/privacy",
+      "verification": "Attested",
+      "createdDateTime": "2026-05-29T16:37:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Northwind Traders",
+        "addressLine1": "6861 Main St",
+        "addressLine2": null,
+        "city": "London",
+        "stateProvince": "England",
+        "country": "United Kingdom",
+        "countryCode": "GB",
+        "zipCode": "EC1A 1BB",
+        "legalIdentifier": "EIN-45-4025087",
+        "nonDisclosureAgreementNumber": "NDA-9060"
+      },
+      "primaryContact": {
+        "name": "Sam Garcia",
+        "email": "sam.garcia@northwind.co.uk",
+        "phone": "+1-461-596-6497",
+        "title": "Engineering Lead"
+      },
+      "technicalContact": {
+        "name": "Cameron Brown",
+        "email": "tech8@northwind.co.uk"
+      },
+      "programManagerContact": {
+        "name": "Riley Jones",
+        "email": "pm8@northwind.co.uk"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/9",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "e5addbaf-7e25-4821-a1e0-d090cf80f65d",
+      "appId": "489fd2fd-8262-4373-86a2-53f1fb0f163d",
+      "tenantId": "b563cd34-9a7d-4998-8b7d-acbd97988ad6",
+      "displayName": "Drew Brown Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2026-05-24T07:42:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Drew Brown",
+        "addressLine1": "425 Main St",
+        "addressLine2": "Suite 619",
+        "city": "Austin",
+        "stateProvince": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "73301",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Jordan Jones",
+        "email": "jordan.jones@example.com",
+        "phone": "+1-366-585-4419",
+        "title": "Compliance Officer"
+      },
+      "technicalContact": {
+        "name": "Devon Kumar",
+        "email": "tech9@example.com"
+      },
+      "programManagerContact": {
+        "name": "Jamie Williams",
+        "email": "pm9@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/10",
+      "validationStatus": "Pending",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "918ca96b-da1f-4424-af05-6556a5c7cc37",
+      "appId": "455e861f-0ebd-40df-9042-751ceced449f",
+      "tenantId": "4b6ee0a2-cee7-42b6-83ae-b850478d43e7",
+      "displayName": "Humongous Insurance Virtual Assistant",
+      "domain": "humongousinsurance.in",
+      "logoUrl": "https://humongousinsurance.in/logo.png",
+      "privacyStatementUrl": "https://humongousinsurance.in/privacy",
+      "verification": "Attested",
+      "createdDateTime": "2026-05-14T03:07:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Humongous Insurance",
+        "addressLine1": "6187 Main St",
+        "addressLine2": null,
+        "city": "Mumbai",
+        "stateProvince": "MH",
+        "country": "India",
+        "countryCode": "IN",
+        "zipCode": "400001",
+        "legalIdentifier": "EIN-82-2875686",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Jamie Williams",
+        "email": "jamie.williams@humongousinsurance.in",
+        "phone": "+1-511-636-9860",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Skyler Kumar",
+        "email": "tech10@humongousinsurance.in"
+      },
+      "programManagerContact": {
+        "name": "Quinn Smith",
+        "email": "pm10@humongousinsurance.in"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/11",
+      "validationStatus": "Passed",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "3a00b30e-7a71-464c-b3b1-acac78791089",
+      "appId": "a53134fc-57ad-4303-a09d-1cabe3e7cf0f",
+      "tenantId": "ec7daf13-984a-48e3-81e2-1f7f92476fa6",
+      "displayName": "Taylor Davis Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Attested",
+      "createdDateTime": "2026-05-06T05:01:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Taylor Davis",
+        "addressLine1": "8369 Main St",
+        "addressLine2": null,
+        "city": "Redmond",
+        "stateProvince": "WA",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "98052",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Skyler Rodriguez",
+        "email": "skyler.rodriguez@example.com",
+        "phone": "+1-882-679-4159",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Devon Martinez",
+        "email": "tech11@example.com"
+      },
+      "programManagerContact": {
+        "name": "Riley Muller",
+        "email": "pm11@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/12",
+      "validationStatus": "Failed",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "b7bae820-45ba-4f9e-9a4e-0d942baabd2e",
+      "appId": "8efee463-88f2-4cfd-8eb2-500d4b0748b1",
+      "tenantId": "ed40a9b4-a4b8-405f-905a-49ad006a55a4",
+      "displayName": "Litware Inc Virtual Assistant",
+      "domain": "litware.fr",
+      "logoUrl": "https://litware.fr/logo.png",
+      "privacyStatementUrl": "https://litware.fr/privacy",
+      "verification": "None",
+      "createdDateTime": "2026-05-02T03:51:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Litware Inc",
+        "addressLine1": "855 Main St",
+        "addressLine2": "Suite 682",
+        "city": "Paris",
+        "stateProvince": "Ile-de-France",
+        "country": "France",
+        "countryCode": "FR",
+        "zipCode": "75001",
+        "legalIdentifier": "EIN-75-9603476",
+        "nonDisclosureAgreementNumber": "NDA-8915"
+      },
+      "primaryContact": {
+        "name": "Riley Smith",
+        "email": "riley.smith@litware.fr",
+        "phone": "+1-572-765-2306",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Taylor Smith",
+        "email": "tech12@litware.fr"
+      },
+      "programManagerContact": {
+        "name": "Casey Miller",
+        "email": "pm12@litware.fr"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/13",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "27378c06-dd2c-456f-ae89-58fbce43867f",
+      "appId": "5fbb1483-ef08-447d-bcb8-a8e3f85a0c63",
+      "tenantId": "0f675736-b3c9-4327-adc1-59b3aeb883dc",
+      "displayName": "Quinn Kumar Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2026-04-22T19:21:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Quinn Kumar",
+        "addressLine1": "4690 Main St",
+        "addressLine2": null,
+        "city": "Sydney",
+        "stateProvince": "NSW",
+        "country": "Australia",
+        "countryCode": "AU",
+        "zipCode": "2000",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Avery Miller",
+        "email": "avery.miller@example.com",
+        "phone": "+1-567-540-3987",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Taylor Davis",
+        "email": "tech13@example.com"
+      },
+      "programManagerContact": {
+        "name": "Casey Davis",
+        "email": "pm13@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/14",
+      "validationStatus": "Pending",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "fb64d18a-8359-4f56-813e-6359392ec588",
+      "appId": "47dbafeb-15e7-4ea6-84a8-226233506675",
+      "tenantId": "9169f757-b1ed-4ed9-96d1-a4aeed5abde7",
+      "displayName": "Proseware Inc Virtual Assistant",
+      "domain": "proseware.com",
+      "logoUrl": "https://proseware.com/logo.png",
+      "privacyStatementUrl": "https://proseware.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2026-04-15T13:52:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Proseware Inc",
+        "addressLine1": "9432 Main St",
+        "addressLine2": null,
+        "city": "Sydney",
+        "stateProvince": "NSW",
+        "country": "Australia",
+        "countryCode": "AU",
+        "zipCode": "2000",
+        "legalIdentifier": "EIN-16-8835897",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Alex Williams",
+        "email": "alex.williams@proseware.com",
+        "phone": "+1-544-601-1889",
+        "title": "Compliance Officer"
+      },
+      "technicalContact": {
+        "name": "Alex Garcia",
+        "email": "tech14@proseware.com"
+      },
+      "programManagerContact": {
+        "name": "Morgan Martinez",
+        "email": "pm14@proseware.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/15",
+      "validationStatus": "Passed",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "dfe64308-6332-46d5-8329-a3b9b369c54f",
+      "appId": "c22c198a-38e7-4db4-a9e4-5dd5cfc888a6",
+      "tenantId": "b4f8e667-8fc9-4096-9d4e-51a23416a50b",
+      "displayName": "Jordan Muller Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2026-04-07T08:13:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Jordan Muller",
+        "addressLine1": "5271 Main St",
+        "addressLine2": "Suite 259",
+        "city": "Sydney",
+        "stateProvince": "NSW",
+        "country": "Australia",
+        "countryCode": "AU",
+        "zipCode": "2000",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Avery Kumar",
+        "email": "avery.kumar@example.com",
+        "phone": "+1-262-276-1536",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Drew Martinez",
+        "email": "tech15@example.com"
+      },
+      "programManagerContact": {
+        "name": "Avery Muller",
+        "email": "pm15@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/16",
+      "validationStatus": "Failed",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "14ddc460-d1f3-415e-9cc2-9044c8a1e73a",
+      "appId": "fa886d71-71d1-432f-b261-9735a5880fde",
+      "tenantId": "950db932-4c25-4bd4-86b4-9b71bfa445db",
+      "displayName": "Contoso Ltd Virtual Assistant",
+      "domain": "contoso.com",
+      "logoUrl": "https://contoso.com/logo.png",
+      "privacyStatementUrl": "https://contoso.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2026-04-02T15:43:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Contoso Ltd",
+        "addressLine1": "2050 Main St",
+        "addressLine2": null,
+        "city": "Redmond",
+        "stateProvince": "WA",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "98052",
+        "legalIdentifier": "EIN-94-9568880",
+        "nonDisclosureAgreementNumber": "NDA-3396"
+      },
+      "primaryContact": {
+        "name": "Skyler Davis",
+        "email": "skyler.davis@contoso.com",
+        "phone": "+1-614-888-9418",
+        "title": "Compliance Officer"
+      },
+      "technicalContact": {
+        "name": "Cameron Kumar",
+        "email": "tech16@contoso.com"
+      },
+      "programManagerContact": {
+        "name": "Casey Miller",
+        "email": "pm16@contoso.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/17",
+      "validationStatus": "NotStarted",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "4d081421-e0ca-46db-abe5-d2d7f753821f",
+      "appId": "decf9370-7a0e-4238-baba-24426c8b4735",
+      "tenantId": "5a68e57a-93b3-4112-92eb-6813698370d1",
+      "displayName": "Avery Martinez Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Attested",
+      "createdDateTime": "2026-03-24T10:02:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Avery Martinez",
+        "addressLine1": "3087 Main St",
+        "addressLine2": null,
+        "city": "Tokyo",
+        "stateProvince": "Tokyo",
+        "country": "Japan",
+        "countryCode": "JP",
+        "zipCode": "100-0001",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Harper Chen",
+        "email": "harper.chen@example.com",
+        "phone": "+1-705-734-8782",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Devon Jones",
+        "email": "tech17@example.com"
+      },
+      "programManagerContact": {
+        "name": "Devon Garcia",
+        "email": "pm17@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/18",
+      "validationStatus": "Pending",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "ae51a1ac-fa33-4065-947b-914685ba3940",
+      "appId": "9ccce0ea-96f7-481f-84bc-3208ae4fd6ab",
+      "tenantId": "17d8ed97-c147-4432-b9a8-ef19f33eb035",
+      "displayName": "Tailspin Toys Virtual Assistant",
+      "domain": "tailspintoys.com",
+      "logoUrl": "https://tailspintoys.com/logo.png",
+      "privacyStatementUrl": "https://tailspintoys.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2026-03-17T03:23:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Tailspin Toys",
+        "addressLine1": "1509 Main St",
+        "addressLine2": "Suite 358",
+        "city": "Toronto",
+        "stateProvince": "ON",
+        "country": "Canada",
+        "countryCode": "CA",
+        "zipCode": "M5H 2N2",
+        "legalIdentifier": "EIN-96-5379804",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Skyler Martinez",
+        "email": "skyler.martinez@tailspintoys.com",
+        "phone": "+1-419-704-7940",
+        "title": "Compliance Officer"
+      },
+      "technicalContact": {
+        "name": "Quinn Williams",
+        "email": "tech18@tailspintoys.com"
+      },
+      "programManagerContact": {
+        "name": "Skyler Nakamura",
+        "email": "pm18@tailspintoys.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/19",
+      "validationStatus": "Passed",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "48b478e5-de31-4209-89d6-d1d2e4860a70",
+      "appId": "49d470c1-317b-4eff-9308-bb386e30a3ce",
+      "tenantId": "a172c223-aee3-4144-a340-43ffdd3afde8",
+      "displayName": "Jamie Johnson Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2026-03-11T02:20:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Jamie Johnson",
+        "addressLine1": "6159 Main St",
+        "addressLine2": null,
+        "city": "Sydney",
+        "stateProvince": "NSW",
+        "country": "Australia",
+        "countryCode": "AU",
+        "zipCode": "2000",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Sam Miller",
+        "email": "sam.miller@example.com",
+        "phone": "+1-773-614-1389",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Jordan Johnson",
+        "email": "tech19@example.com"
+      },
+      "programManagerContact": {
+        "name": "Sam Kumar",
+        "email": "pm19@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/20",
+      "validationStatus": "Failed",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "9fbe03d7-bbb7-4c36-a1b4-5a5b1ee25d5e",
+      "appId": "ad71d3c0-3d94-4a99-a869-b59036c1ce5a",
+      "tenantId": "43400928-5e29-41eb-bd19-6212d30575c1",
+      "displayName": "Humongous Insurance Virtual Assistant",
+      "domain": "humongousinsurance.in",
+      "logoUrl": "https://humongousinsurance.in/logo.png",
+      "privacyStatementUrl": "https://humongousinsurance.in/privacy",
+      "verification": "Attested",
+      "createdDateTime": "2026-03-01T21:59:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Humongous Insurance",
+        "addressLine1": "2697 Main St",
+        "addressLine2": null,
+        "city": "Mumbai",
+        "stateProvince": "MH",
+        "country": "India",
+        "countryCode": "IN",
+        "zipCode": "400001",
+        "legalIdentifier": "EIN-87-6634843",
+        "nonDisclosureAgreementNumber": "NDA-9180"
+      },
+      "primaryContact": {
+        "name": "Casey Martinez",
+        "email": "casey.martinez@humongousinsurance.in",
+        "phone": "+1-910-476-1898",
+        "title": "Engineering Lead"
+      },
+      "technicalContact": {
+        "name": "Morgan Miller",
+        "email": "tech20@humongousinsurance.in"
+      },
+      "programManagerContact": {
+        "name": "Casey Brown",
+        "email": "pm20@humongousinsurance.in"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/21",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "9446cc47-0568-4f6d-ac85-ed60b8d3faf3",
+      "appId": "baefbd97-a924-4943-8a48-1a3dc9878a8c",
+      "tenantId": "ba2b5824-82a9-4a90-8880-be758b9a0aed",
+      "displayName": "Avery Miller Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2026-02-23T21:14:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Avery Miller",
+        "addressLine1": "1166 Main St",
+        "addressLine2": "Suite 152",
+        "city": "Portland",
+        "stateProvince": "OR",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "97201",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Quinn Nakamura",
+        "email": "quinn.nakamura@example.com",
+        "phone": "+1-226-472-3161",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Harper Rodriguez",
+        "email": "tech21@example.com"
+      },
+      "programManagerContact": {
+        "name": "Skyler Jones",
+        "email": "pm21@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/22",
+      "validationStatus": "Pending",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "165aca42-b6c8-4bde-af1c-b129683c61b8",
+      "appId": "f59c9c00-a25a-4394-ba99-8c4b7f04b1ba",
+      "tenantId": "ed8e5486-6e76-47f4-8f5a-20bda1a5839d",
+      "displayName": "Litware Inc Virtual Assistant",
+      "domain": "litware.fr",
+      "logoUrl": "https://litware.fr/logo.png",
+      "privacyStatementUrl": "https://litware.fr/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2026-02-19T06:13:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Litware Inc",
+        "addressLine1": "7855 Main St",
+        "addressLine2": null,
+        "city": "Paris",
+        "stateProvince": "Ile-de-France",
+        "country": "France",
+        "countryCode": "FR",
+        "zipCode": "75001",
+        "legalIdentifier": "EIN-55-2242974",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Sam Williams",
+        "email": "sam.williams@litware.fr",
+        "phone": "+1-265-818-4884",
+        "title": "Founder"
+      },
+      "technicalContact": {
+        "name": "Reese Miller",
+        "email": "tech22@litware.fr"
+      },
+      "programManagerContact": {
+        "name": "Harper Williams",
+        "email": "pm22@litware.fr"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/23",
+      "validationStatus": "Passed",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "1e192ae8-89de-43a0-8bbf-971d515d09ff",
+      "appId": "947b431b-234f-4fbe-84b0-5018294dfa25",
+      "tenantId": "b601de1e-0718-4b33-8f13-56b0601711bf",
+      "displayName": "Avery Martinez Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Attested",
+      "createdDateTime": "2026-02-11T05:46:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Avery Martinez",
+        "addressLine1": "6028 Main St",
+        "addressLine2": null,
+        "city": "Seattle",
+        "stateProvince": "WA",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "98101",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Taylor Martinez",
+        "email": "taylor.martinez@example.com",
+        "phone": "+1-644-364-9298",
+        "title": "Engineering Lead"
+      },
+      "technicalContact": {
+        "name": "Quinn Smith",
+        "email": "tech23@example.com"
+      },
+      "programManagerContact": {
+        "name": "Harper Rodriguez",
+        "email": "pm23@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/24",
+      "validationStatus": "Failed",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "ac540ae5-b387-4b48-bfef-d5cf1ae73416",
+      "appId": "36721b94-0cee-461c-86b7-ead8f8c28450",
+      "tenantId": "da2b67e1-b76f-45a6-ace2-f5ed5a825dd1",
+      "displayName": "Adventure Works Virtual Assistant",
+      "domain": "adventure-works.com",
+      "logoUrl": "https://adventure-works.com/logo.png",
+      "privacyStatementUrl": "https://adventure-works.com/privacy",
+      "verification": "None",
+      "createdDateTime": "2026-02-04T16:18:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Adventure Works",
+        "addressLine1": "8627 Main St",
+        "addressLine2": "Suite 510",
+        "city": "Austin",
+        "stateProvince": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "73301",
+        "legalIdentifier": "EIN-26-6783916",
+        "nonDisclosureAgreementNumber": "NDA-5567"
+      },
+      "primaryContact": {
+        "name": "Reese Brown",
+        "email": "reese.brown@adventure-works.com",
+        "phone": "+1-350-881-1787",
+        "title": "CEO"
+      },
+      "technicalContact": {
+        "name": "Harper Williams",
+        "email": "tech24@adventure-works.com"
+      },
+      "programManagerContact": {
+        "name": "Jamie Davis",
+        "email": "pm24@adventure-works.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/25",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "80cbd255-73c4-46cc-9b76-fda6f77edb7c",
+      "appId": "0d472636-3cdb-4506-b8b6-db1e8a979f26",
+      "tenantId": "e20f94b4-8735-4201-81ab-a84d71f6a4a6",
+      "displayName": "Jamie Martinez Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2026-01-28T00:11:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Jamie Martinez",
+        "addressLine1": "5181 Main St",
+        "addressLine2": null,
+        "city": "Paris",
+        "stateProvince": "Ile-de-France",
+        "country": "France",
+        "countryCode": "FR",
+        "zipCode": "75001",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Riley Williams",
+        "email": "riley.williams@example.com",
+        "phone": "+1-809-556-5366",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Jamie Smith",
+        "email": "tech25@example.com"
+      },
+      "programManagerContact": {
+        "name": "Skyler Garcia",
+        "email": "pm25@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/26",
+      "validationStatus": "Pending",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "76245f71-a19e-43f9-ba48-454a767c91bc",
+      "appId": "31d8c674-e282-4037-874c-4af6c0632301",
+      "tenantId": "513de815-f998-4902-967a-0f282d65c140",
+      "displayName": "Wingtip Toys Virtual Assistant",
+      "domain": "wingtiptoys.de",
+      "logoUrl": "https://wingtiptoys.de/logo.png",
+      "privacyStatementUrl": "https://wingtiptoys.de/privacy",
+      "verification": "Attested",
+      "createdDateTime": "2026-01-20T11:58:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Wingtip Toys",
+        "addressLine1": "9011 Main St",
+        "addressLine2": null,
+        "city": "Berlin",
+        "stateProvince": "Berlin",
+        "country": "Germany",
+        "countryCode": "DE",
+        "zipCode": "10115",
+        "legalIdentifier": "EIN-78-6921275",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Drew Smith",
+        "email": "drew.smith@wingtiptoys.de",
+        "phone": "+1-848-243-6280",
+        "title": "Engineering Lead"
+      },
+      "technicalContact": {
+        "name": "Jamie Davis",
+        "email": "tech26@wingtiptoys.de"
+      },
+      "programManagerContact": {
+        "name": "Jamie Miller",
+        "email": "pm26@wingtiptoys.de"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/27",
+      "validationStatus": "Passed",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "edca7d16-5996-43b7-887c-6950b1084a92",
+      "appId": "f434f113-4a2a-419a-85af-b1d75fe9911a",
+      "tenantId": "b8c8c87e-d18e-4ef4-8ceb-7afa77440368",
+      "displayName": "Alex Martinez Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2026-01-13T07:50:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Alex Martinez",
+        "addressLine1": "9311 Main St",
+        "addressLine2": "Suite 351",
+        "city": "Sydney",
+        "stateProvince": "NSW",
+        "country": "Australia",
+        "countryCode": "AU",
+        "zipCode": "2000",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Riley Chen",
+        "email": "riley.chen@example.com",
+        "phone": "+1-694-922-5159",
+        "title": "CEO"
+      },
+      "technicalContact": {
+        "name": "Cameron Miller",
+        "email": "tech27@example.com"
+      },
+      "programManagerContact": {
+        "name": "Jamie Miller",
+        "email": "pm27@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/28",
+      "validationStatus": "Failed",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "0fd2e1be-afda-4f86-a337-904e3ff400a7",
+      "appId": "a5b17ccd-8f4a-4d01-9a93-44a4186bb0b9",
+      "tenantId": "ac947399-43cf-447f-9529-507b98727b88",
+      "displayName": "Graphic Design Institute Virtual Assistant",
+      "domain": "gd-institute.jp",
+      "logoUrl": "https://gd-institute.jp/logo.png",
+      "privacyStatementUrl": "https://gd-institute.jp/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2026-01-06T06:25:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Graphic Design Institute",
+        "addressLine1": "4793 Main St",
+        "addressLine2": null,
+        "city": "Tokyo",
+        "stateProvince": "Tokyo",
+        "country": "Japan",
+        "countryCode": "JP",
+        "zipCode": "100-0001",
+        "legalIdentifier": "EIN-10-9194465",
+        "nonDisclosureAgreementNumber": "NDA-1560"
+      },
+      "primaryContact": {
+        "name": "Harper Kumar",
+        "email": "harper.kumar@gd-institute.jp",
+        "phone": "+1-612-589-7137",
+        "title": "Engineering Lead"
+      },
+      "technicalContact": {
+        "name": "Cameron Kumar",
+        "email": "tech28@gd-institute.jp"
+      },
+      "programManagerContact": {
+        "name": "Drew Muller",
+        "email": "pm28@gd-institute.jp"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/29",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "11811db3-baf3-4a81-8b85-890823e0e123",
+      "appId": "f5559bf7-6ea1-4156-add7-a44755875272",
+      "tenantId": "4274a76b-6777-4269-89dd-2fec42f07bf2",
+      "displayName": "Harper Kumar Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Attested",
+      "createdDateTime": "2025-12-25T04:51:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Harper Kumar",
+        "addressLine1": "348 Main St",
+        "addressLine2": null,
+        "city": "Zurich",
+        "stateProvince": "ZH",
+        "country": "Switzerland",
+        "countryCode": "CH",
+        "zipCode": "8001",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Jordan Muller",
+        "email": "jordan.muller@example.com",
+        "phone": "+1-592-899-7112",
+        "title": "Compliance Officer"
+      },
+      "technicalContact": {
+        "name": "Riley Kumar",
+        "email": "tech29@example.com"
+      },
+      "programManagerContact": {
+        "name": "Jamie Nakamura",
+        "email": "pm29@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/30",
+      "validationStatus": "Pending",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "0996e262-c451-4996-8a82-f8153562705a",
+      "appId": "3a6c7b9c-d356-45aa-80a8-0880dd6c7a27",
+      "tenantId": "5d71b40c-efd2-4c9a-8c92-d56c2f860fb8",
+      "displayName": "Litware Inc Virtual Assistant",
+      "domain": "litware.fr",
+      "logoUrl": "https://litware.fr/logo.png",
+      "privacyStatementUrl": "https://litware.fr/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2025-12-21T20:38:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Litware Inc",
+        "addressLine1": "1381 Main St",
+        "addressLine2": "Suite 315",
+        "city": "Paris",
+        "stateProvince": "Ile-de-France",
+        "country": "France",
+        "countryCode": "FR",
+        "zipCode": "75001",
+        "legalIdentifier": "EIN-65-4368464",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Quinn Smith",
+        "email": "quinn.smith@litware.fr",
+        "phone": "+1-708-979-4685",
+        "title": "Compliance Officer"
+      },
+      "technicalContact": {
+        "name": "Quinn Smith",
+        "email": "tech30@litware.fr"
+      },
+      "programManagerContact": {
+        "name": "Drew Nakamura",
+        "email": "pm30@litware.fr"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/31",
+      "validationStatus": "Passed",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "a92eb49c-f42c-4f58-8b4e-2eaffb98f960",
+      "appId": "b8c72362-15cb-4263-89c9-56f8d07031fb",
+      "tenantId": "66623b0d-6150-403b-a9d0-38a3ffd1ac9d",
+      "displayName": "Cameron Nakamura Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2025-12-13T14:10:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Cameron Nakamura",
+        "addressLine1": "4646 Main St",
+        "addressLine2": null,
+        "city": "Austin",
+        "stateProvince": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "73301",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Drew Jones",
+        "email": "drew.jones@example.com",
+        "phone": "+1-623-996-2554",
+        "title": "Engineering Lead"
+      },
+      "technicalContact": {
+        "name": "Jordan Martinez",
+        "email": "tech31@example.com"
+      },
+      "programManagerContact": {
+        "name": "Reese Miller",
+        "email": "pm31@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/32",
+      "validationStatus": "Failed",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "2b60da61-f543-4407-b451-492f468701c7",
+      "appId": "bb1dcad5-80ac-4b77-8134-a0adf359818a",
+      "tenantId": "45d6a794-3e4f-42a5-bcfe-f1b298028dbe",
+      "displayName": "Litware Inc Virtual Assistant",
+      "domain": "litware.fr",
+      "logoUrl": "https://litware.fr/logo.png",
+      "privacyStatementUrl": "https://litware.fr/privacy",
+      "verification": "Attested",
+      "createdDateTime": "2025-12-03T14:25:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Litware Inc",
+        "addressLine1": "1813 Main St",
+        "addressLine2": null,
+        "city": "Paris",
+        "stateProvince": "Ile-de-France",
+        "country": "France",
+        "countryCode": "FR",
+        "zipCode": "75001",
+        "legalIdentifier": "EIN-71-7374173",
+        "nonDisclosureAgreementNumber": "NDA-6100"
+      },
+      "primaryContact": {
+        "name": "Taylor Muller",
+        "email": "taylor.muller@litware.fr",
+        "phone": "+1-637-704-9064",
+        "title": "Compliance Officer"
+      },
+      "technicalContact": {
+        "name": "Alex Smith",
+        "email": "tech32@litware.fr"
+      },
+      "programManagerContact": {
+        "name": "Jordan Nakamura",
+        "email": "pm32@litware.fr"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/33",
+      "validationStatus": "NotStarted",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "89e54ed3-8b34-43a9-b7b7-85f43cdc319d",
+      "appId": "3b6a4965-01e5-4c3e-91bd-6cea02d75c0d",
+      "tenantId": "d7666e98-15a4-43d6-b656-73381c1fa1d4",
+      "displayName": "Alex Davis Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2025-12-01T06:22:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Alex Davis",
+        "addressLine1": "8260 Main St",
+        "addressLine2": "Suite 411",
+        "city": "Redmond",
+        "stateProvince": "WA",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "98052",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Alex Garcia",
+        "email": "alex.garcia@example.com",
+        "phone": "+1-358-794-6873",
+        "title": "CEO"
+      },
+      "technicalContact": {
+        "name": "Drew Rodriguez",
+        "email": "tech33@example.com"
+      },
+      "programManagerContact": {
+        "name": "Skyler Rodriguez",
+        "email": "pm33@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/34",
+      "validationStatus": "Pending",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "a31ba287-1bd6-4240-9c9d-102baa0bccba",
+      "appId": "82c7c8ad-42d3-417f-8df1-d46b0377bc05",
+      "tenantId": "e89cdcc7-f91e-4311-b89a-8f35b7b9c058",
+      "displayName": "Tailspin Toys Virtual Assistant",
+      "domain": "tailspintoys.com",
+      "logoUrl": "https://tailspintoys.com/logo.png",
+      "privacyStatementUrl": "https://tailspintoys.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2025-11-20T14:25:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Tailspin Toys",
+        "addressLine1": "7073 Main St",
+        "addressLine2": null,
+        "city": "Toronto",
+        "stateProvince": "ON",
+        "country": "Canada",
+        "countryCode": "CA",
+        "zipCode": "M5H 2N2",
+        "legalIdentifier": "EIN-75-3537433",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Morgan Johnson",
+        "email": "morgan.johnson@tailspintoys.com",
+        "phone": "+1-938-954-4879",
+        "title": "Engineering Lead"
+      },
+      "technicalContact": {
+        "name": "Riley Martinez",
+        "email": "tech34@tailspintoys.com"
+      },
+      "programManagerContact": {
+        "name": "Harper Nakamura",
+        "email": "pm34@tailspintoys.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/35",
+      "validationStatus": "Passed",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "6003b024-b160-454a-9f1d-17feed5a178a",
+      "appId": "e6564854-76c6-494d-b372-24b0b569b505",
+      "tenantId": "09eeeed4-e5f8-4e30-9e97-61e276b07dbd",
+      "displayName": "Riley Nakamura Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Attested",
+      "createdDateTime": "2025-11-13T01:47:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Riley Nakamura",
+        "addressLine1": "9826 Main St",
+        "addressLine2": null,
+        "city": "Portland",
+        "stateProvince": "OR",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "97201",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Taylor Jones",
+        "email": "taylor.jones@example.com",
+        "phone": "+1-604-980-1191",
+        "title": "Engineering Lead"
+      },
+      "technicalContact": {
+        "name": "Cameron Muller",
+        "email": "tech35@example.com"
+      },
+      "programManagerContact": {
+        "name": "Casey Muller",
+        "email": "pm35@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/36",
+      "validationStatus": "Failed",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "9fe27224-1c1a-493d-8cb6-4b55648a5bb7",
+      "appId": "f10c357c-daf7-48f5-bd18-881cc6e34593",
+      "tenantId": "5f3a9bb4-ec8f-42ec-866f-bc5e35d9fc5b",
+      "displayName": "Northwind Traders Virtual Assistant",
+      "domain": "northwind.co.uk",
+      "logoUrl": "https://northwind.co.uk/logo.png",
+      "privacyStatementUrl": "https://northwind.co.uk/privacy",
+      "verification": "None",
+      "createdDateTime": "2025-11-04T16:30:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Northwind Traders",
+        "addressLine1": "2878 Main St",
+        "addressLine2": "Suite 949",
+        "city": "London",
+        "stateProvince": "England",
+        "country": "United Kingdom",
+        "countryCode": "GB",
+        "zipCode": "EC1A 1BB",
+        "legalIdentifier": "EIN-66-3843023",
+        "nonDisclosureAgreementNumber": "NDA-5594"
+      },
+      "primaryContact": {
+        "name": "Sam Brown",
+        "email": "sam.brown@northwind.co.uk",
+        "phone": "+1-491-556-2586",
+        "title": "Engineering Lead"
+      },
+      "technicalContact": {
+        "name": "Devon Martinez",
+        "email": "tech36@northwind.co.uk"
+      },
+      "programManagerContact": {
+        "name": "Avery Nakamura",
+        "email": "pm36@northwind.co.uk"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/37",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "97097688-5535-4a7f-91c6-de440ef49881",
+      "appId": "651a2376-db4f-4ad7-b6a3-daf2e4fc70cb",
+      "tenantId": "3b5daa23-9156-49c5-950d-affa2980e6c4",
+      "displayName": "Skyler Miller Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2025-10-29T13:25:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Skyler Miller",
+        "addressLine1": "4088 Main St",
+        "addressLine2": null,
+        "city": "Paris",
+        "stateProvince": "Ile-de-France",
+        "country": "France",
+        "countryCode": "FR",
+        "zipCode": "75001",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Drew Rodriguez",
+        "email": "drew.rodriguez@example.com",
+        "phone": "+1-338-204-7390",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Riley Smith",
+        "email": "tech37@example.com"
+      },
+      "programManagerContact": {
+        "name": "Taylor Martinez",
+        "email": "pm37@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/38",
+      "validationStatus": "Pending",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "7c24ea41-2793-4146-b9e9-8ca5007ea479",
+      "appId": "ef3708b4-d470-4978-b185-4d5fc7e5e131",
+      "tenantId": "7270a0ba-4d30-48a5-a75e-68502869f25f",
+      "displayName": "Adventure Works Virtual Assistant",
+      "domain": "adventure-works.com",
+      "logoUrl": "https://adventure-works.com/logo.png",
+      "privacyStatementUrl": "https://adventure-works.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2025-10-25T12:19:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Adventure Works",
+        "addressLine1": "2152 Main St",
+        "addressLine2": null,
+        "city": "Austin",
+        "stateProvince": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "73301",
+        "legalIdentifier": "EIN-35-6586000",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Taylor Martinez",
+        "email": "taylor.martinez@adventure-works.com",
+        "phone": "+1-472-479-6543",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Skyler Johnson",
+        "email": "tech38@adventure-works.com"
+      },
+      "programManagerContact": {
+        "name": "Morgan Jones",
+        "email": "pm38@adventure-works.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/39",
+      "validationStatus": "Passed",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "bea65641-ca7a-4e44-95b3-ff193989a34d",
+      "appId": "9a8dcf63-b8fc-401d-abdc-206bb53a1438",
+      "tenantId": "0dd6584b-14ad-476c-a5e1-2bc1b499b6f1",
+      "displayName": "Skyler Muller Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2025-10-16T19:21:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Skyler Muller",
+        "addressLine1": "9403 Main St",
+        "addressLine2": "Suite 464",
+        "city": "Mumbai",
+        "stateProvince": "MH",
+        "country": "India",
+        "countryCode": "IN",
+        "zipCode": "400001",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Cameron Chen",
+        "email": "cameron.chen@example.com",
+        "phone": "+1-500-329-9116",
+        "title": "Engineering Lead"
+      },
+      "technicalContact": {
+        "name": "Taylor Smith",
+        "email": "tech39@example.com"
+      },
+      "programManagerContact": {
+        "name": "Skyler Johnson",
+        "email": "pm39@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/40",
+      "validationStatus": "Failed",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "34bf4fe2-d218-4edc-b73e-05f4a8edbe42",
+      "appId": "77af125c-d84f-4bfc-99ac-dcccb6ff40d7",
+      "tenantId": "5618642a-b079-4e62-b847-1ff448ff26d6",
+      "displayName": "Proseware Inc Virtual Assistant",
+      "domain": "proseware.com",
+      "logoUrl": "https://proseware.com/logo.png",
+      "privacyStatementUrl": "https://proseware.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2025-10-07T09:02:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Proseware Inc",
+        "addressLine1": "5244 Main St",
+        "addressLine2": null,
+        "city": "Sydney",
+        "stateProvince": "NSW",
+        "country": "Australia",
+        "countryCode": "AU",
+        "zipCode": "2000",
+        "legalIdentifier": "EIN-91-8958542",
+        "nonDisclosureAgreementNumber": "NDA-1791"
+      },
+      "primaryContact": {
+        "name": "Avery Martinez",
+        "email": "avery.martinez@proseware.com",
+        "phone": "+1-380-936-4491",
+        "title": "Compliance Officer"
+      },
+      "technicalContact": {
+        "name": "Avery Miller",
+        "email": "tech40@proseware.com"
+      },
+      "programManagerContact": {
+        "name": "Riley Garcia",
+        "email": "pm40@proseware.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/41",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "cf664654-f2fa-47c1-b167-e3f15c54c04c",
+      "appId": "4a1f457d-c972-4281-8347-29b9528550b8",
+      "tenantId": "2bc1e1c9-1f4b-4b9f-8502-a5c81ba125ca",
+      "displayName": "Drew Nakamura Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Attested",
+      "createdDateTime": "2025-09-28T18:25:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Drew Nakamura",
+        "addressLine1": "7288 Main St",
+        "addressLine2": null,
+        "city": "Toronto",
+        "stateProvince": "ON",
+        "country": "Canada",
+        "countryCode": "CA",
+        "zipCode": "M5H 2N2",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Jamie Davis",
+        "email": "jamie.davis@example.com",
+        "phone": "+1-657-526-9973",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Sam Smith",
+        "email": "tech41@example.com"
+      },
+      "programManagerContact": {
+        "name": "Taylor Smith",
+        "email": "pm41@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/42",
+      "validationStatus": "Pending",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "ad3a2976-c539-4f49-87ab-b2eaf4f16e2a",
+      "appId": "4a10f74c-9738-4cc0-89f6-a3779ecfbbd4",
+      "tenantId": "a3ff8d25-00cc-45fd-b89f-b08eb7491509",
+      "displayName": "Fabrikam Inc Virtual Assistant",
+      "domain": "fabrikam.com",
+      "logoUrl": "https://fabrikam.com/logo.png",
+      "privacyStatementUrl": "https://fabrikam.com/privacy",
+      "verification": "Attested",
+      "createdDateTime": "2025-09-24T05:29:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Fabrikam Inc",
+        "addressLine1": "9970 Main St",
+        "addressLine2": "Suite 753",
+        "city": "Seattle",
+        "stateProvince": "WA",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "98101",
+        "legalIdentifier": "EIN-49-4136778",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Jamie Garcia",
+        "email": "jamie.garcia@fabrikam.com",
+        "phone": "+1-799-433-6258",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Jordan Kumar",
+        "email": "tech42@fabrikam.com"
+      },
+      "programManagerContact": {
+        "name": "Sam Johnson",
+        "email": "pm42@fabrikam.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/43",
+      "validationStatus": "Passed",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "d062d1e8-e24b-4066-84c6-04dcb83c65e6",
+      "appId": "d49cf9f5-e50b-4030-bfa3-6795b5ce2920",
+      "tenantId": "eed773de-bac1-41ce-9044-172d26a9e5af",
+      "displayName": "Alex Chen Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2025-09-16T22:23:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Alex Chen",
+        "addressLine1": "8427 Main St",
+        "addressLine2": null,
+        "city": "Zurich",
+        "stateProvince": "ZH",
+        "country": "Switzerland",
+        "countryCode": "CH",
+        "zipCode": "8001",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Devon Williams",
+        "email": "devon.williams@example.com",
+        "phone": "+1-375-977-5059",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Alex Garcia",
+        "email": "tech43@example.com"
+      },
+      "programManagerContact": {
+        "name": "Alex Garcia",
+        "email": "pm43@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/44",
+      "validationStatus": "Failed",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "ee06644f-8925-46cc-860a-7246f27e3ad3",
+      "appId": "8eaa1672-9ac5-44ee-bc64-44f924653a2f",
+      "tenantId": "13e310b5-76ee-4a21-9bfd-d3207050ca4e",
+      "displayName": "Wingtip Toys Virtual Assistant",
+      "domain": "wingtiptoys.de",
+      "logoUrl": "https://wingtiptoys.de/logo.png",
+      "privacyStatementUrl": "https://wingtiptoys.de/privacy",
+      "verification": "Attested",
+      "createdDateTime": "2025-09-09T23:03:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Wingtip Toys",
+        "addressLine1": "1245 Main St",
+        "addressLine2": null,
+        "city": "Berlin",
+        "stateProvince": "Berlin",
+        "country": "Germany",
+        "countryCode": "DE",
+        "zipCode": "10115",
+        "legalIdentifier": "EIN-27-7202412",
+        "nonDisclosureAgreementNumber": "NDA-8135"
+      },
+      "primaryContact": {
+        "name": "Reese Brown",
+        "email": "reese.brown@wingtiptoys.de",
+        "phone": "+1-980-881-8986",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Quinn Davis",
+        "email": "tech44@wingtiptoys.de"
+      },
+      "programManagerContact": {
+        "name": "Skyler Williams",
+        "email": "pm44@wingtiptoys.de"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/45",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "84c4dde2-9dcc-4d78-81c9-8738b4f3b559",
+      "appId": "80d31f5f-9a5b-4146-a343-24540bfd498c",
+      "tenantId": "c0817a40-ef2f-4696-a8e2-8f5254578e6d",
+      "displayName": "Skyler Nakamura Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2025-08-30T18:52:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Skyler Nakamura",
+        "addressLine1": "6716 Main St",
+        "addressLine2": "Suite 669",
+        "city": "Redmond",
+        "stateProvince": "WA",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "98052",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Alex Muller",
+        "email": "alex.muller@example.com",
+        "phone": "+1-272-707-7192",
+        "title": "Compliance Officer"
+      },
+      "technicalContact": {
+        "name": "Alex Kumar",
+        "email": "tech45@example.com"
+      },
+      "programManagerContact": {
+        "name": "Morgan Davis",
+        "email": "pm45@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/46",
+      "validationStatus": "Pending",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "758021d0-d832-4341-9215-2f0671560dfb",
+      "appId": "9a178861-3374-44af-a2a5-c224a15058ee",
+      "tenantId": "bc05b21a-fa54-46b6-b0ad-ef809db775e9",
+      "displayName": "Tailspin Toys Virtual Assistant",
+      "domain": "tailspintoys.com",
+      "logoUrl": "https://tailspintoys.com/logo.png",
+      "privacyStatementUrl": "https://tailspintoys.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2025-08-28T17:06:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Tailspin Toys",
+        "addressLine1": "2056 Main St",
+        "addressLine2": null,
+        "city": "Toronto",
+        "stateProvince": "ON",
+        "country": "Canada",
+        "countryCode": "CA",
+        "zipCode": "M5H 2N2",
+        "legalIdentifier": "EIN-13-8294164",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Harper Davis",
+        "email": "harper.davis@tailspintoys.com",
+        "phone": "+1-231-940-4033",
+        "title": "Founder"
+      },
+      "technicalContact": {
+        "name": "Harper Chen",
+        "email": "tech46@tailspintoys.com"
+      },
+      "programManagerContact": {
+        "name": "Taylor Garcia",
+        "email": "pm46@tailspintoys.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/47",
+      "validationStatus": "Passed",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "50134382-b131-4d8c-98e3-a17a647800c0",
+      "appId": "4841ba64-7099-4541-8498-b8d363062847",
+      "tenantId": "e52d8066-ba50-4202-9246-3e8cde84bb74",
+      "displayName": "Jordan Rodriguez Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Attested",
+      "createdDateTime": "2025-08-17T09:21:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Jordan Rodriguez",
+        "addressLine1": "8825 Main St",
+        "addressLine2": null,
+        "city": "Austin",
+        "stateProvince": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "73301",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Cameron Smith",
+        "email": "cameron.smith@example.com",
+        "phone": "+1-747-699-4757",
+        "title": "Compliance Officer"
+      },
+      "technicalContact": {
+        "name": "Morgan Garcia",
+        "email": "tech47@example.com"
+      },
+      "programManagerContact": {
+        "name": "Jordan Muller",
+        "email": "pm47@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/48",
+      "validationStatus": "Failed",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "2dc31bea-0855-4191-9f31-508ab6f5d6b6",
+      "appId": "397d9069-bf50-4817-b664-e4be278c7f27",
+      "tenantId": "014e9186-c6c5-43c5-85eb-9be49c08bbe3",
+      "displayName": "Northwind Traders Virtual Assistant",
+      "domain": "northwind.co.uk",
+      "logoUrl": "https://northwind.co.uk/logo.png",
+      "privacyStatementUrl": "https://northwind.co.uk/privacy",
+      "verification": "None",
+      "createdDateTime": "2025-08-12T09:24:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Northwind Traders",
+        "addressLine1": "4053 Main St",
+        "addressLine2": "Suite 416",
+        "city": "London",
+        "stateProvince": "England",
+        "country": "United Kingdom",
+        "countryCode": "GB",
+        "zipCode": "EC1A 1BB",
+        "legalIdentifier": "EIN-48-7518937",
+        "nonDisclosureAgreementNumber": "NDA-1725"
+      },
+      "primaryContact": {
+        "name": "Avery Garcia",
+        "email": "avery.garcia@northwind.co.uk",
+        "phone": "+1-697-719-6836",
+        "title": "Founder"
+      },
+      "technicalContact": {
+        "name": "Skyler Miller",
+        "email": "tech48@northwind.co.uk"
+      },
+      "programManagerContact": {
+        "name": "Reese Williams",
+        "email": "pm48@northwind.co.uk"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/49",
+      "validationStatus": "NotStarted",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "86d48f9e-ed29-432c-bf2c-56da0be0163c",
+      "appId": "e853e201-3e1e-42a4-bf81-4757b588315c",
+      "tenantId": "43fe7355-24c7-48fa-ab27-25b696fea46b",
+      "displayName": "Drew Garcia Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2025-08-05T00:05:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Drew Garcia",
+        "addressLine1": "9057 Main St",
+        "addressLine2": null,
+        "city": "Berlin",
+        "stateProvince": "Berlin",
+        "country": "Germany",
+        "countryCode": "DE",
+        "zipCode": "10115",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Sam Nakamura",
+        "email": "sam.nakamura@example.com",
+        "phone": "+1-277-597-8789",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Jamie Kumar",
+        "email": "tech49@example.com"
+      },
+      "programManagerContact": {
+        "name": "Riley Chen",
+        "email": "pm49@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/50",
+      "validationStatus": "Pending",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "d82206a0-019f-4df6-bf58-66dbe303a2ac",
+      "appId": "666d7927-9657-4aef-a48b-3994201ea32f",
+      "tenantId": "01a79e95-516e-4fc2-862a-5e6c77a7ac9b",
+      "displayName": "Tailspin Toys Virtual Assistant",
+      "domain": "tailspintoys.com",
+      "logoUrl": "https://tailspintoys.com/logo.png",
+      "privacyStatementUrl": "https://tailspintoys.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2025-07-24T22:04:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Tailspin Toys",
+        "addressLine1": "2968 Main St",
+        "addressLine2": null,
+        "city": "Toronto",
+        "stateProvince": "ON",
+        "country": "Canada",
+        "countryCode": "CA",
+        "zipCode": "M5H 2N2",
+        "legalIdentifier": "EIN-34-4313256",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Quinn Miller",
+        "email": "quinn.miller@tailspintoys.com",
+        "phone": "+1-415-365-1266",
+        "title": "Compliance Officer"
+      },
+      "technicalContact": {
+        "name": "Taylor Brown",
+        "email": "tech50@tailspintoys.com"
+      },
+      "programManagerContact": {
+        "name": "Alex Kumar",
+        "email": "pm50@tailspintoys.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/51",
+      "validationStatus": "Passed",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "6e75edf0-c120-497c-8170-03e1d191b747",
+      "appId": "a2e5ba71-af05-482d-8419-3e286f7ee7ab",
+      "tenantId": "cee878c6-fd34-4ba2-9434-e10c9f5252b7",
+      "displayName": "Quinn Davis Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2025-07-20T15:22:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Quinn Davis",
+        "addressLine1": "7818 Main St",
+        "addressLine2": "Suite 885",
+        "city": "Seattle",
+        "stateProvince": "WA",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "98101",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Cameron Jones",
+        "email": "cameron.jones@example.com",
+        "phone": "+1-791-732-5333",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Cameron Muller",
+        "email": "tech51@example.com"
+      },
+      "programManagerContact": {
+        "name": "Casey Garcia",
+        "email": "pm51@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/52",
+      "validationStatus": "Failed",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "27e40ad1-eb7f-4f4d-bbb0-4d5fb5674a00",
+      "appId": "c8f9970f-d564-4f3e-bba1-6da7b26cfabf",
+      "tenantId": "980eab1e-419a-41c5-bd63-0947d34b0c62",
+      "displayName": "Tailspin Toys Virtual Assistant",
+      "domain": "tailspintoys.com",
+      "logoUrl": "https://tailspintoys.com/logo.png",
+      "privacyStatementUrl": "https://tailspintoys.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2025-07-14T07:39:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Tailspin Toys",
+        "addressLine1": "7907 Main St",
+        "addressLine2": null,
+        "city": "Toronto",
+        "stateProvince": "ON",
+        "country": "Canada",
+        "countryCode": "CA",
+        "zipCode": "M5H 2N2",
+        "legalIdentifier": "EIN-60-9896387",
+        "nonDisclosureAgreementNumber": "NDA-8832"
+      },
+      "primaryContact": {
+        "name": "Morgan Martinez",
+        "email": "morgan.martinez@tailspintoys.com",
+        "phone": "+1-924-675-5575",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Skyler Brown",
+        "email": "tech52@tailspintoys.com"
+      },
+      "programManagerContact": {
+        "name": "Alex Rodriguez",
+        "email": "pm52@tailspintoys.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/53",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "63c53629-9853-4aa5-bd7c-2fac17eb3934",
+      "appId": "98131c14-e5a7-4871-a929-6f5dee74f9e1",
+      "tenantId": "0c442ba0-2ef4-4b58-8ac1-d6e12b70d385",
+      "displayName": "Taylor Chen Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Attested",
+      "createdDateTime": "2025-07-07T18:50:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Taylor Chen",
+        "addressLine1": "4814 Main St",
+        "addressLine2": null,
+        "city": "Redmond",
+        "stateProvince": "WA",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "98052",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Sam Muller",
+        "email": "sam.muller@example.com",
+        "phone": "+1-773-886-8295",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Skyler Garcia",
+        "email": "tech53@example.com"
+      },
+      "programManagerContact": {
+        "name": "Casey Smith",
+        "email": "pm53@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/54",
+      "validationStatus": "Pending",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "f4b23b94-fa88-4523-a41c-96bd7b66cf02",
+      "appId": "17777994-f89a-4f53-8674-990f06ed7a15",
+      "tenantId": "36d0c7f2-3688-451c-ba65-610d88baf7f6",
+      "displayName": "Fourth Coffee Virtual Assistant",
+      "domain": "fourthcoffee.com",
+      "logoUrl": "https://fourthcoffee.com/logo.png",
+      "privacyStatementUrl": "https://fourthcoffee.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2025-06-26T02:31:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Fourth Coffee",
+        "addressLine1": "6356 Main St",
+        "addressLine2": "Suite 347",
+        "city": "Portland",
+        "stateProvince": "OR",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "97201",
+        "legalIdentifier": "EIN-90-8169008",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Casey Rodriguez",
+        "email": "casey.rodriguez@fourthcoffee.com",
+        "phone": "+1-701-700-5611",
+        "title": "Founder"
+      },
+      "technicalContact": {
+        "name": "Sam Muller",
+        "email": "tech54@fourthcoffee.com"
+      },
+      "programManagerContact": {
+        "name": "Skyler Johnson",
+        "email": "pm54@fourthcoffee.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/55",
+      "validationStatus": "Passed",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "a7d7f97a-e684-4eba-a616-8542037949b9",
+      "appId": "f65c2363-d940-486d-9439-77bf38bddc50",
+      "tenantId": "49649755-c93a-4522-ac82-7376694fe824",
+      "displayName": "Quinn Kumar Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2025-06-22T21:10:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Quinn Kumar",
+        "addressLine1": "8659 Main St",
+        "addressLine2": null,
+        "city": "Mumbai",
+        "stateProvince": "MH",
+        "country": "India",
+        "countryCode": "IN",
+        "zipCode": "400001",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Sam Davis",
+        "email": "sam.davis@example.com",
+        "phone": "+1-527-493-5812",
+        "title": "CEO"
+      },
+      "technicalContact": {
+        "name": "Casey Muller",
+        "email": "tech55@example.com"
+      },
+      "programManagerContact": {
+        "name": "Harper Davis",
+        "email": "pm55@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/56",
+      "validationStatus": "Failed",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "65dae377-e848-49b6-8438-6b7f6c109e7d",
+      "appId": "7d9d8bde-510a-4e12-b61e-75ab22d37ea6",
+      "tenantId": "acee5068-9469-4b73-bfd6-5ae53114d4b8",
+      "displayName": "Proseware Inc Virtual Assistant",
+      "domain": "proseware.com",
+      "logoUrl": "https://proseware.com/logo.png",
+      "privacyStatementUrl": "https://proseware.com/privacy",
+      "verification": "Attested",
+      "createdDateTime": "2025-06-15T21:08:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Proseware Inc",
+        "addressLine1": "9963 Main St",
+        "addressLine2": null,
+        "city": "Sydney",
+        "stateProvince": "NSW",
+        "country": "Australia",
+        "countryCode": "AU",
+        "zipCode": "2000",
+        "legalIdentifier": "EIN-69-3222986",
+        "nonDisclosureAgreementNumber": "NDA-3740"
+      },
+      "primaryContact": {
+        "name": "Casey Jones",
+        "email": "casey.jones@proseware.com",
+        "phone": "+1-365-380-9059",
+        "title": "Founder"
+      },
+      "technicalContact": {
+        "name": "Drew Garcia",
+        "email": "tech56@proseware.com"
+      },
+      "programManagerContact": {
+        "name": "Reese Williams",
+        "email": "pm56@proseware.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/57",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "b6ff54ae-7a44-4196-bf0e-1cad8297452a",
+      "appId": "b80d21db-4add-4a6b-9dfd-8f0e241647bf",
+      "tenantId": "03337634-171d-4cf5-ba45-2999ba0a12fe",
+      "displayName": "Jamie Rodriguez Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2025-06-06T12:32:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Jamie Rodriguez",
+        "addressLine1": "2171 Main St",
+        "addressLine2": "Suite 715",
+        "city": "Sydney",
+        "stateProvince": "NSW",
+        "country": "Australia",
+        "countryCode": "AU",
+        "zipCode": "2000",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Jamie Martinez",
+        "email": "jamie.martinez@example.com",
+        "phone": "+1-848-694-2228",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Taylor Nakamura",
+        "email": "tech57@example.com"
+      },
+      "programManagerContact": {
+        "name": "Jordan Davis",
+        "email": "pm57@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/58",
+      "validationStatus": "Pending",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "bb26eb22-a355-45be-b79f-43909e142165",
+      "appId": "476f276b-4adb-4b80-b98e-93ca256ba776",
+      "tenantId": "fd356890-3804-4554-a1c6-4c2ad4130e0b",
+      "displayName": "Graphic Design Institute Virtual Assistant",
+      "domain": "gd-institute.jp",
+      "logoUrl": "https://gd-institute.jp/logo.png",
+      "privacyStatementUrl": "https://gd-institute.jp/privacy",
+      "verification": "Attested",
+      "createdDateTime": "2025-05-31T23:31:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Graphic Design Institute",
+        "addressLine1": "4763 Main St",
+        "addressLine2": null,
+        "city": "Tokyo",
+        "stateProvince": "Tokyo",
+        "country": "Japan",
+        "countryCode": "JP",
+        "zipCode": "100-0001",
+        "legalIdentifier": "EIN-31-6577572",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Jordan Kumar",
+        "email": "jordan.kumar@gd-institute.jp",
+        "phone": "+1-648-620-8552",
+        "title": "Founder"
+      },
+      "technicalContact": {
+        "name": "Taylor Smith",
+        "email": "tech58@gd-institute.jp"
+      },
+      "programManagerContact": {
+        "name": "Skyler Kumar",
+        "email": "pm58@gd-institute.jp"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/59",
+      "validationStatus": "Passed",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "e330dcf3-db0b-4033-81f4-eb132111fc1b",
+      "appId": "33dcd89c-aaac-41a0-b173-617fb2e12b51",
+      "tenantId": "1e545cc7-0a40-4284-abf1-69f584c42ca9",
+      "displayName": "Jordan Brown Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Attested",
+      "createdDateTime": "2025-05-24T04:33:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Jordan Brown",
+        "addressLine1": "6231 Main St",
+        "addressLine2": null,
+        "city": "Sydney",
+        "stateProvince": "NSW",
+        "country": "Australia",
+        "countryCode": "AU",
+        "zipCode": "2000",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Taylor Jones",
+        "email": "taylor.jones@example.com",
+        "phone": "+1-784-786-9676",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Skyler Nakamura",
+        "email": "tech59@example.com"
+      },
+      "programManagerContact": {
+        "name": "Quinn Kumar",
+        "email": "pm59@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/60",
+      "validationStatus": "Failed",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "c733bda6-1edd-4762-8c95-71213f83b6f8",
+      "appId": "5376fddf-7d46-4f69-ac2a-6b3a472b23c9",
+      "tenantId": "cac5dd6c-11a2-48f1-b027-d66965b3558d",
+      "displayName": "Tailspin Toys Virtual Assistant",
+      "domain": "tailspintoys.com",
+      "logoUrl": "https://tailspintoys.com/logo.png",
+      "privacyStatementUrl": "https://tailspintoys.com/privacy",
+      "verification": "None",
+      "createdDateTime": "2025-05-16T22:30:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Tailspin Toys",
+        "addressLine1": "9688 Main St",
+        "addressLine2": "Suite 971",
+        "city": "Toronto",
+        "stateProvince": "ON",
+        "country": "Canada",
+        "countryCode": "CA",
+        "zipCode": "M5H 2N2",
+        "legalIdentifier": "EIN-75-9799853",
+        "nonDisclosureAgreementNumber": "NDA-3183"
+      },
+      "primaryContact": {
+        "name": "Cameron Brown",
+        "email": "cameron.brown@tailspintoys.com",
+        "phone": "+1-836-256-3700",
+        "title": "Engineering Lead"
+      },
+      "technicalContact": {
+        "name": "Drew Muller",
+        "email": "tech60@tailspintoys.com"
+      },
+      "programManagerContact": {
+        "name": "Reese Chen",
+        "email": "pm60@tailspintoys.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/61",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "81004705-3a1c-49ba-b92c-22142c169dfd",
+      "appId": "aa221073-ebc2-4973-885d-99814f2c11e2",
+      "tenantId": "0a26dac8-acb9-4303-b725-6fc26cf6a613",
+      "displayName": "Harper Kumar Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2025-05-05T09:06:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Harper Kumar",
+        "addressLine1": "419 Main St",
+        "addressLine2": null,
+        "city": "Tokyo",
+        "stateProvince": "Tokyo",
+        "country": "Japan",
+        "countryCode": "JP",
+        "zipCode": "100-0001",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Riley Davis",
+        "email": "riley.davis@example.com",
+        "phone": "+1-494-360-7653",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Drew Brown",
+        "email": "tech61@example.com"
+      },
+      "programManagerContact": {
+        "name": "Reese Jones",
+        "email": "pm61@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/62",
+      "validationStatus": "Pending",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "0e0f964f-63ba-48a1-8d6c-f8123191e77c",
+      "appId": "845c0897-1012-4725-ba97-d0a63e342ebf",
+      "tenantId": "b6b9b323-ec24-4331-b703-0a6a67422159",
+      "displayName": "Contoso Ltd Virtual Assistant",
+      "domain": "contoso.com",
+      "logoUrl": "https://contoso.com/logo.png",
+      "privacyStatementUrl": "https://contoso.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2025-05-03T19:04:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Contoso Ltd",
+        "addressLine1": "3302 Main St",
+        "addressLine2": null,
+        "city": "Redmond",
+        "stateProvince": "WA",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "98052",
+        "legalIdentifier": "EIN-90-7696222",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Harper Jones",
+        "email": "harper.jones@contoso.com",
+        "phone": "+1-380-465-2531",
+        "title": "Engineering Lead"
+      },
+      "technicalContact": {
+        "name": "Devon Martinez",
+        "email": "tech62@contoso.com"
+      },
+      "programManagerContact": {
+        "name": "Reese Kumar",
+        "email": "pm62@contoso.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/63",
+      "validationStatus": "Passed",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "6e6346e3-0a88-4361-8789-d57e9598217e",
+      "appId": "151762a4-6bfa-4268-9f9e-db06908606dd",
+      "tenantId": "c3d338e9-299e-45ef-9115-e2f2af6c807a",
+      "displayName": "Quinn Brown Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2025-04-25T14:47:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Quinn Brown",
+        "addressLine1": "5624 Main St",
+        "addressLine2": "Suite 839",
+        "city": "Portland",
+        "stateProvince": "OR",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "97201",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Harper Williams",
+        "email": "harper.williams@example.com",
+        "phone": "+1-469-926-9522",
+        "title": "Compliance Officer"
+      },
+      "technicalContact": {
+        "name": "Taylor Williams",
+        "email": "tech63@example.com"
+      },
+      "programManagerContact": {
+        "name": "Avery Nakamura",
+        "email": "pm63@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/64",
+      "validationStatus": "Failed",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "5161f98e-951f-4ca3-b090-55f95fff0d0f",
+      "appId": "311cee86-e000-4bd8-a910-a95f1bcb0cb0",
+      "tenantId": "4c241cca-5404-4c9f-9a41-885e71df9b65",
+      "displayName": "Tailspin Toys Virtual Assistant",
+      "domain": "tailspintoys.com",
+      "logoUrl": "https://tailspintoys.com/logo.png",
+      "privacyStatementUrl": "https://tailspintoys.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2025-04-14T22:58:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Tailspin Toys",
+        "addressLine1": "1303 Main St",
+        "addressLine2": null,
+        "city": "Toronto",
+        "stateProvince": "ON",
+        "country": "Canada",
+        "countryCode": "CA",
+        "zipCode": "M5H 2N2",
+        "legalIdentifier": "EIN-66-8863757",
+        "nonDisclosureAgreementNumber": "NDA-2801"
+      },
+      "primaryContact": {
+        "name": "Cameron Garcia",
+        "email": "cameron.garcia@tailspintoys.com",
+        "phone": "+1-261-227-2746",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Harper Nakamura",
+        "email": "tech64@tailspintoys.com"
+      },
+      "programManagerContact": {
+        "name": "Sam Miller",
+        "email": "pm64@tailspintoys.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/65",
+      "validationStatus": "NotStarted",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "8fa91b2c-006b-4c2d-a062-87516ecbdc80",
+      "appId": "1dd5c693-cc65-4e66-8a32-32358bcff38f",
+      "tenantId": "e27f5b22-8e97-43ee-a3a5-15cf171d8293",
+      "displayName": "Avery Brown Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Attested",
+      "createdDateTime": "2025-04-10T07:32:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Avery Brown",
+        "addressLine1": "5353 Main St",
+        "addressLine2": null,
+        "city": "Austin",
+        "stateProvince": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "73301",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Jamie Muller",
+        "email": "jamie.muller@example.com",
+        "phone": "+1-250-915-5596",
+        "title": "Engineering Lead"
+      },
+      "technicalContact": {
+        "name": "Jordan Williams",
+        "email": "tech65@example.com"
+      },
+      "programManagerContact": {
+        "name": "Avery Muller",
+        "email": "pm65@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/66",
+      "validationStatus": "Pending",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "cf247e16-3199-4ab3-9293-235b87412789",
+      "appId": "33f2084c-8ee5-4296-8f5a-b8edcf5a95f2",
+      "tenantId": "2368e86b-bfdd-4d26-8490-37658e8d0467",
+      "displayName": "Adventure Works Virtual Assistant",
+      "domain": "adventure-works.com",
+      "logoUrl": "https://adventure-works.com/logo.png",
+      "privacyStatementUrl": "https://adventure-works.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2025-04-03T18:32:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Adventure Works",
+        "addressLine1": "5232 Main St",
+        "addressLine2": "Suite 503",
+        "city": "Austin",
+        "stateProvince": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "73301",
+        "legalIdentifier": "EIN-16-5457400",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Sam Jones",
+        "email": "sam.jones@adventure-works.com",
+        "phone": "+1-794-306-1215",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Morgan Miller",
+        "email": "tech66@adventure-works.com"
+      },
+      "programManagerContact": {
+        "name": "Devon Nakamura",
+        "email": "pm66@adventure-works.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/67",
+      "validationStatus": "Passed",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "62b3fb6a-c80c-4b94-af5a-f1991a52b164",
+      "appId": "3f3b478f-7dd6-4b6b-b7f2-acbf403fad46",
+      "tenantId": "79edf96d-0e94-4c2d-a914-05bdd0e70d9c",
+      "displayName": "Sam Rodriguez Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2025-03-26T01:49:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Sam Rodriguez",
+        "addressLine1": "5152 Main St",
+        "addressLine2": null,
+        "city": "Paris",
+        "stateProvince": "Ile-de-France",
+        "country": "France",
+        "countryCode": "FR",
+        "zipCode": "75001",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Quinn Kumar",
+        "email": "quinn.kumar@example.com",
+        "phone": "+1-690-474-6909",
+        "title": "Engineering Lead"
+      },
+      "technicalContact": {
+        "name": "Casey Miller",
+        "email": "tech67@example.com"
+      },
+      "programManagerContact": {
+        "name": "Morgan Garcia",
+        "email": "pm67@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/68",
+      "validationStatus": "Failed",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "0d5def77-50a8-4310-94a3-439fcb9e5533",
+      "appId": "1624ebd3-d4eb-4868-93c0-bde5997b7e72",
+      "tenantId": "37be7644-b02c-4e2f-a584-c8138bd6210e",
+      "displayName": "Wingtip Toys Virtual Assistant",
+      "domain": "wingtiptoys.de",
+      "logoUrl": "https://wingtiptoys.de/logo.png",
+      "privacyStatementUrl": "https://wingtiptoys.de/privacy",
+      "verification": "Attested",
+      "createdDateTime": "2025-03-20T12:40:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Wingtip Toys",
+        "addressLine1": "3199 Main St",
+        "addressLine2": null,
+        "city": "Berlin",
+        "stateProvince": "Berlin",
+        "country": "Germany",
+        "countryCode": "DE",
+        "zipCode": "10115",
+        "legalIdentifier": "EIN-31-8030387",
+        "nonDisclosureAgreementNumber": "NDA-1389"
+      },
+      "primaryContact": {
+        "name": "Morgan Garcia",
+        "email": "morgan.garcia@wingtiptoys.de",
+        "phone": "+1-545-859-6957",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Jordan Davis",
+        "email": "tech68@wingtiptoys.de"
+      },
+      "programManagerContact": {
+        "name": "Taylor Williams",
+        "email": "pm68@wingtiptoys.de"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/69",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "011d67ab-8d05-4468-8ed9-3fa29dff6e78",
+      "appId": "02a1d0b3-d22d-454f-b718-2437f192a2e3",
+      "tenantId": "1396a15a-706c-40a2-bec6-d3ab3e900024",
+      "displayName": "Morgan Davis Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2025-03-11T05:26:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Morgan Davis",
+        "addressLine1": "6219 Main St",
+        "addressLine2": "Suite 450",
+        "city": "Tokyo",
+        "stateProvince": "Tokyo",
+        "country": "Japan",
+        "countryCode": "JP",
+        "zipCode": "100-0001",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Jamie Kumar",
+        "email": "jamie.kumar@example.com",
+        "phone": "+1-390-750-9357",
+        "title": "Founder"
+      },
+      "technicalContact": {
+        "name": "Reese Kumar",
+        "email": "tech69@example.com"
+      },
+      "programManagerContact": {
+        "name": "Drew Williams",
+        "email": "pm69@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/70",
+      "validationStatus": "Pending",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "ff2c77a8-4ef4-4729-b7fa-76de3e6d3a25",
+      "appId": "c0106171-3ed5-465f-a937-dbabd8c7fa31",
+      "tenantId": "dfa4dbdb-963e-46ac-8234-1c49edadea27",
+      "displayName": "Northwind Traders Virtual Assistant",
+      "domain": "northwind.co.uk",
+      "logoUrl": "https://northwind.co.uk/logo.png",
+      "privacyStatementUrl": "https://northwind.co.uk/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2025-03-06T02:18:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Northwind Traders",
+        "addressLine1": "2901 Main St",
+        "addressLine2": null,
+        "city": "London",
+        "stateProvince": "England",
+        "country": "United Kingdom",
+        "countryCode": "GB",
+        "zipCode": "EC1A 1BB",
+        "legalIdentifier": "EIN-64-8863539",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Jamie Davis",
+        "email": "jamie.davis@northwind.co.uk",
+        "phone": "+1-451-532-9952",
+        "title": "Founder"
+      },
+      "technicalContact": {
+        "name": "Quinn Smith",
+        "email": "tech70@northwind.co.uk"
+      },
+      "programManagerContact": {
+        "name": "Avery Nakamura",
+        "email": "pm70@northwind.co.uk"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/71",
+      "validationStatus": "Passed",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "b0124798-5b82-420f-826e-0b39c3788119",
+      "appId": "34f0d357-372b-4ccb-9b9b-050bcc502e5c",
+      "tenantId": "07094a9e-6590-4d2a-9d1a-6237d254f377",
+      "displayName": "Jordan Smith Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Attested",
+      "createdDateTime": "2025-02-24T17:10:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Jordan Smith",
+        "addressLine1": "562 Main St",
+        "addressLine2": null,
+        "city": "London",
+        "stateProvince": "England",
+        "country": "United Kingdom",
+        "countryCode": "GB",
+        "zipCode": "EC1A 1BB",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Skyler Rodriguez",
+        "email": "skyler.rodriguez@example.com",
+        "phone": "+1-947-469-6484",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Jamie Kumar",
+        "email": "tech71@example.com"
+      },
+      "programManagerContact": {
+        "name": "Quinn Kumar",
+        "email": "pm71@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/72",
+      "validationStatus": "Failed",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "37668161-441f-4adf-b91b-9f8e5a833d24",
+      "appId": "d9a25a59-2e5b-4412-9f64-c48ea9528092",
+      "tenantId": "d8a267a8-0db5-4625-b413-76e048b7483d",
+      "displayName": "Adventure Works Virtual Assistant",
+      "domain": "adventure-works.com",
+      "logoUrl": "https://adventure-works.com/logo.png",
+      "privacyStatementUrl": "https://adventure-works.com/privacy",
+      "verification": "None",
+      "createdDateTime": "2025-02-18T21:31:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Adventure Works",
+        "addressLine1": "5535 Main St",
+        "addressLine2": "Suite 641",
+        "city": "Austin",
+        "stateProvince": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "73301",
+        "legalIdentifier": "EIN-93-6701893",
+        "nonDisclosureAgreementNumber": "NDA-7653"
+      },
+      "primaryContact": {
+        "name": "Morgan Chen",
+        "email": "morgan.chen@adventure-works.com",
+        "phone": "+1-429-327-1486",
+        "title": "CEO"
+      },
+      "technicalContact": {
+        "name": "Reese Smith",
+        "email": "tech72@adventure-works.com"
+      },
+      "programManagerContact": {
+        "name": "Alex Johnson",
+        "email": "pm72@adventure-works.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/73",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "3be83f5f-99c7-4a30-8553-826f0eab4c70",
+      "appId": "7a92acdd-3807-47aa-a517-9e853603ac36",
+      "tenantId": "3fea0582-2a20-488a-8d93-367a9259f94d",
+      "displayName": "Jamie Miller Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2025-02-12T06:03:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Jamie Miller",
+        "addressLine1": "3759 Main St",
+        "addressLine2": null,
+        "city": "Austin",
+        "stateProvince": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "73301",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Jamie Miller",
+        "email": "jamie.miller@example.com",
+        "phone": "+1-268-991-6178",
+        "title": "CEO"
+      },
+      "technicalContact": {
+        "name": "Taylor Johnson",
+        "email": "tech73@example.com"
+      },
+      "programManagerContact": {
+        "name": "Alex Williams",
+        "email": "pm73@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/74",
+      "validationStatus": "Pending",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "12065668-7a9b-469c-9a60-42df0659b805",
+      "appId": "9cc4467f-f4fb-485e-99cb-ddaa868c5b50",
+      "tenantId": "3951009d-fd6a-4d79-933e-c19cd9a35a27",
+      "displayName": "Fourth Coffee Virtual Assistant",
+      "domain": "fourthcoffee.com",
+      "logoUrl": "https://fourthcoffee.com/logo.png",
+      "privacyStatementUrl": "https://fourthcoffee.com/privacy",
+      "verification": "Attested",
+      "createdDateTime": "2025-01-31T14:48:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Fourth Coffee",
+        "addressLine1": "1167 Main St",
+        "addressLine2": null,
+        "city": "Portland",
+        "stateProvince": "OR",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "97201",
+        "legalIdentifier": "EIN-24-4992352",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Sam Chen",
+        "email": "sam.chen@fourthcoffee.com",
+        "phone": "+1-956-523-1603",
+        "title": "CEO"
+      },
+      "technicalContact": {
+        "name": "Harper Rodriguez",
+        "email": "tech74@fourthcoffee.com"
+      },
+      "programManagerContact": {
+        "name": "Harper Miller",
+        "email": "pm74@fourthcoffee.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/75",
+      "validationStatus": "Passed",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "f7a1962a-0587-493f-9f95-eb461dc3bf49",
+      "appId": "f4e87449-9db6-4730-a722-c450cd7295e0",
+      "tenantId": "c7f127e7-c226-4649-9de9-0f2f39618d4a",
+      "displayName": "Sam Johnson Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2025-01-24T07:50:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Sam Johnson",
+        "addressLine1": "6076 Main St",
+        "addressLine2": "Suite 486",
+        "city": "Berlin",
+        "stateProvince": "Berlin",
+        "country": "Germany",
+        "countryCode": "DE",
+        "zipCode": "10115",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Devon Muller",
+        "email": "devon.muller@example.com",
+        "phone": "+1-422-759-2915",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Drew Nakamura",
+        "email": "tech75@example.com"
+      },
+      "programManagerContact": {
+        "name": "Sam Muller",
+        "email": "pm75@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/76",
+      "validationStatus": "Failed",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "f5e2bc77-c93d-4937-b9f0-4b302d4a15bc",
+      "appId": "61b93794-c2d6-49a6-8daf-3a5d82dc1ac3",
+      "tenantId": "b6b74f26-dd51-4179-9f9d-e60ac460924d",
+      "displayName": "Northwind Traders Virtual Assistant",
+      "domain": "northwind.co.uk",
+      "logoUrl": "https://northwind.co.uk/logo.png",
+      "privacyStatementUrl": "https://northwind.co.uk/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2025-01-16T15:37:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Northwind Traders",
+        "addressLine1": "5104 Main St",
+        "addressLine2": null,
+        "city": "London",
+        "stateProvince": "England",
+        "country": "United Kingdom",
+        "countryCode": "GB",
+        "zipCode": "EC1A 1BB",
+        "legalIdentifier": "EIN-97-7875837",
+        "nonDisclosureAgreementNumber": "NDA-5076"
+      },
+      "primaryContact": {
+        "name": "Sam Garcia",
+        "email": "sam.garcia@northwind.co.uk",
+        "phone": "+1-234-320-1847",
+        "title": "Compliance Officer"
+      },
+      "technicalContact": {
+        "name": "Avery Smith",
+        "email": "tech76@northwind.co.uk"
+      },
+      "programManagerContact": {
+        "name": "Reese Chen",
+        "email": "pm76@northwind.co.uk"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/77",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "71211f46-76cb-4695-8e40-6797c6a424a4",
+      "appId": "d7460f7d-81fe-4cee-9373-2874b63a4ef7",
+      "tenantId": "52271138-d9e1-4dbd-b12d-0607c70aeb1f",
+      "displayName": "Jamie Martinez Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Attested",
+      "createdDateTime": "2025-01-09T02:50:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Jamie Martinez",
+        "addressLine1": "5118 Main St",
+        "addressLine2": null,
+        "city": "Portland",
+        "stateProvince": "OR",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "97201",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Reese Miller",
+        "email": "reese.miller@example.com",
+        "phone": "+1-974-827-6066",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Jamie Williams",
+        "email": "tech77@example.com"
+      },
+      "programManagerContact": {
+        "name": "Devon Muller",
+        "email": "pm77@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/78",
+      "validationStatus": "Pending",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "6c39cc4d-b022-4126-939d-784bdea3880c",
+      "appId": "cd363295-9d36-4501-b7d7-68a2880941a8",
+      "tenantId": "1d68a27b-6278-4660-a91d-2314160460a6",
+      "displayName": "Proseware Inc Virtual Assistant",
+      "domain": "proseware.com",
+      "logoUrl": "https://proseware.com/logo.png",
+      "privacyStatementUrl": "https://proseware.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2025-01-01T17:50:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Proseware Inc",
+        "addressLine1": "992 Main St",
+        "addressLine2": "Suite 241",
+        "city": "Sydney",
+        "stateProvince": "NSW",
+        "country": "Australia",
+        "countryCode": "AU",
+        "zipCode": "2000",
+        "legalIdentifier": "EIN-58-2314598",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Quinn Davis",
+        "email": "quinn.davis@proseware.com",
+        "phone": "+1-996-969-5804",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Jamie Miller",
+        "email": "tech78@proseware.com"
+      },
+      "programManagerContact": {
+        "name": "Casey Brown",
+        "email": "pm78@proseware.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/79",
+      "validationStatus": "Passed",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "318db5db-3564-4382-8e4f-655547e4687f",
+      "appId": "658dc718-b8d3-4064-9485-302675c58c8d",
+      "tenantId": "d526def2-58f3-4fe5-8315-722f03268644",
+      "displayName": "Jordan Muller Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2024-12-30T12:56:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Jordan Muller",
+        "addressLine1": "4284 Main St",
+        "addressLine2": null,
+        "city": "Austin",
+        "stateProvince": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "73301",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Taylor Nakamura",
+        "email": "taylor.nakamura@example.com",
+        "phone": "+1-629-728-9439",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Quinn Davis",
+        "email": "tech79@example.com"
+      },
+      "programManagerContact": {
+        "name": "Jamie Smith",
+        "email": "pm79@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/80",
+      "validationStatus": "Failed",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "09c29de0-ce3e-4650-b02f-087f9b490c89",
+      "appId": "16611a32-a0c0-49f0-a1a2-cd08813fcc65",
+      "tenantId": "bcb4d8f0-043c-49ce-aa3f-0a73981c8e7d",
+      "displayName": "Adventure Works Virtual Assistant",
+      "domain": "adventure-works.com",
+      "logoUrl": "https://adventure-works.com/logo.png",
+      "privacyStatementUrl": "https://adventure-works.com/privacy",
+      "verification": "Attested",
+      "createdDateTime": "2024-12-22T01:14:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Adventure Works",
+        "addressLine1": "2664 Main St",
+        "addressLine2": null,
+        "city": "Austin",
+        "stateProvince": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "73301",
+        "legalIdentifier": "EIN-37-6147884",
+        "nonDisclosureAgreementNumber": "NDA-7745"
+      },
+      "primaryContact": {
+        "name": "Reese Davis",
+        "email": "reese.davis@adventure-works.com",
+        "phone": "+1-347-954-9406",
+        "title": "CEO"
+      },
+      "technicalContact": {
+        "name": "Riley Nakamura",
+        "email": "tech80@adventure-works.com"
+      },
+      "programManagerContact": {
+        "name": "Avery Brown",
+        "email": "pm80@adventure-works.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/81",
+      "validationStatus": "NotStarted",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "670c1fbe-c8f9-4961-a299-965941fcd038",
+      "appId": "7021a07c-49b5-44ae-9377-82fb278f1581",
+      "tenantId": "58439e67-7501-40f6-9dab-ee4ab9b886e3",
+      "displayName": "Reese Muller Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2024-12-11T19:42:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Reese Muller",
+        "addressLine1": "2671 Main St",
+        "addressLine2": "Suite 994",
+        "city": "Redmond",
+        "stateProvince": "WA",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "98052",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Riley Williams",
+        "email": "riley.williams@example.com",
+        "phone": "+1-276-493-2170",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Morgan Brown",
+        "email": "tech81@example.com"
+      },
+      "programManagerContact": {
+        "name": "Harper Brown",
+        "email": "pm81@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/82",
+      "validationStatus": "Pending",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "c35bbd45-3937-44a2-8808-ecb73abde18f",
+      "appId": "eea01668-33e7-472c-80c9-2c7e1f9c330a",
+      "tenantId": "c23e565f-af8e-4671-aac5-4ac22bb5fb53",
+      "displayName": "Adventure Works Virtual Assistant",
+      "domain": "adventure-works.com",
+      "logoUrl": "https://adventure-works.com/logo.png",
+      "privacyStatementUrl": "https://adventure-works.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2024-12-04T18:07:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Adventure Works",
+        "addressLine1": "1317 Main St",
+        "addressLine2": null,
+        "city": "Austin",
+        "stateProvince": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "73301",
+        "legalIdentifier": "EIN-90-5569311",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Avery Martinez",
+        "email": "avery.martinez@adventure-works.com",
+        "phone": "+1-322-834-6878",
+        "title": "CEO"
+      },
+      "technicalContact": {
+        "name": "Jordan Johnson",
+        "email": "tech82@adventure-works.com"
+      },
+      "programManagerContact": {
+        "name": "Harper Martinez",
+        "email": "pm82@adventure-works.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/83",
+      "validationStatus": "Passed",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "ff9a7743-416a-408a-a8d3-b178b4e3ff19",
+      "appId": "b8197c2d-0a15-4edb-9ca8-2828ac5c0d3d",
+      "tenantId": "9765dcf5-b440-4b8b-b404-d0cfc81a0a8e",
+      "displayName": "Quinn Williams Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Attested",
+      "createdDateTime": "2024-11-30T21:10:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Quinn Williams",
+        "addressLine1": "6964 Main St",
+        "addressLine2": null,
+        "city": "Toronto",
+        "stateProvince": "ON",
+        "country": "Canada",
+        "countryCode": "CA",
+        "zipCode": "M5H 2N2",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Riley Jones",
+        "email": "riley.jones@example.com",
+        "phone": "+1-567-477-2187",
+        "title": "Engineering Lead"
+      },
+      "technicalContact": {
+        "name": "Cameron Martinez",
+        "email": "tech83@example.com"
+      },
+      "programManagerContact": {
+        "name": "Quinn Smith",
+        "email": "pm83@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/84",
+      "validationStatus": "Failed",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "6c251fd5-ade2-4816-bd9c-f102c00bcc3d",
+      "appId": "df1bde9e-32cd-46cb-b40b-0a510a78574b",
+      "tenantId": "d09fb5d6-d96a-4c69-9236-3b2bf0948c60",
+      "displayName": "Adventure Works Virtual Assistant",
+      "domain": "adventure-works.com",
+      "logoUrl": "https://adventure-works.com/logo.png",
+      "privacyStatementUrl": "https://adventure-works.com/privacy",
+      "verification": "None",
+      "createdDateTime": "2024-11-21T07:55:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Adventure Works",
+        "addressLine1": "7721 Main St",
+        "addressLine2": "Suite 635",
+        "city": "Austin",
+        "stateProvince": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "73301",
+        "legalIdentifier": "EIN-58-9491328",
+        "nonDisclosureAgreementNumber": "NDA-2695"
+      },
+      "primaryContact": {
+        "name": "Devon Rodriguez",
+        "email": "devon.rodriguez@adventure-works.com",
+        "phone": "+1-205-783-2017",
+        "title": "Founder"
+      },
+      "technicalContact": {
+        "name": "Skyler Davis",
+        "email": "tech84@adventure-works.com"
+      },
+      "programManagerContact": {
+        "name": "Alex Nakamura",
+        "email": "pm84@adventure-works.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/85",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "bc874d9e-c638-4d4d-bf9c-91db00a08eff",
+      "appId": "9277dc54-b76e-4e7d-a5a2-7553abe4d185",
+      "tenantId": "ee80314b-b544-4290-b650-64eb2dc11a9d",
+      "displayName": "Morgan Johnson Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2024-11-11T14:51:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Morgan Johnson",
+        "addressLine1": "3373 Main St",
+        "addressLine2": null,
+        "city": "Mumbai",
+        "stateProvince": "MH",
+        "country": "India",
+        "countryCode": "IN",
+        "zipCode": "400001",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Drew Garcia",
+        "email": "drew.garcia@example.com",
+        "phone": "+1-346-934-9072",
+        "title": "CEO"
+      },
+      "technicalContact": {
+        "name": "Devon Jones",
+        "email": "tech85@example.com"
+      },
+      "programManagerContact": {
+        "name": "Casey Chen",
+        "email": "pm85@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/86",
+      "validationStatus": "Pending",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "3402b6b6-515e-4201-bfe1-94b76c17af7a",
+      "appId": "08e0565f-6eda-4105-9bac-96bd907d421f",
+      "tenantId": "bcd098d5-3be5-4f38-aaac-aa7b8c17e09e",
+      "displayName": "Lucerne Publishing Virtual Assistant",
+      "domain": "lucernepublishing.ch",
+      "logoUrl": "https://lucernepublishing.ch/logo.png",
+      "privacyStatementUrl": "https://lucernepublishing.ch/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2024-11-06T01:50:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Lucerne Publishing",
+        "addressLine1": "7249 Main St",
+        "addressLine2": null,
+        "city": "Zurich",
+        "stateProvince": "ZH",
+        "country": "Switzerland",
+        "countryCode": "CH",
+        "zipCode": "8001",
+        "legalIdentifier": "EIN-31-8304614",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Skyler Muller",
+        "email": "skyler.muller@lucernepublishing.ch",
+        "phone": "+1-912-603-6010",
+        "title": "CTO"
+      },
+      "technicalContact": {
+        "name": "Jordan Kumar",
+        "email": "tech86@lucernepublishing.ch"
+      },
+      "programManagerContact": {
+        "name": "Harper Smith",
+        "email": "pm86@lucernepublishing.ch"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/87",
+      "validationStatus": "Passed",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "6cdf7a2e-b38e-4b6a-97db-28d97dd562b4",
+      "appId": "350833b2-efca-496b-ac09-5b385df3a415",
+      "tenantId": "a026a227-32fc-41e1-9f9a-0bb9f268bee1",
+      "displayName": "Cameron Davis Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2024-10-28T20:21:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Cameron Davis",
+        "addressLine1": "1698 Main St",
+        "addressLine2": "Suite 194",
+        "city": "Portland",
+        "stateProvince": "OR",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "97201",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Riley Rodriguez",
+        "email": "riley.rodriguez@example.com",
+        "phone": "+1-268-563-2286",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Reese Johnson",
+        "email": "tech87@example.com"
+      },
+      "programManagerContact": {
+        "name": "Drew Smith",
+        "email": "pm87@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/88",
+      "validationStatus": "Failed",
+      "legalStatus": "Pending"
+    },
+    {
+      "id": "fbebfacb-ec97-4bd8-83a9-43094d57e3b6",
+      "appId": "be18bcdf-3ecc-4300-90e9-f7bd5837e115",
+      "tenantId": "bba1f922-9e2a-4530-adfc-34e4b4879322",
+      "displayName": "Fabrikam Inc Virtual Assistant",
+      "domain": "fabrikam.com",
+      "logoUrl": "https://fabrikam.com/logo.png",
+      "privacyStatementUrl": "https://fabrikam.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2024-10-20T22:13:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Fabrikam Inc",
+        "addressLine1": "2539 Main St",
+        "addressLine2": null,
+        "city": "Seattle",
+        "stateProvince": "WA",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "98101",
+        "legalIdentifier": "EIN-59-5946106",
+        "nonDisclosureAgreementNumber": "NDA-9887"
+      },
+      "primaryContact": {
+        "name": "Morgan Brown",
+        "email": "morgan.brown@fabrikam.com",
+        "phone": "+1-736-749-4452",
+        "title": "Engineering Lead"
+      },
+      "technicalContact": {
+        "name": "Jamie Johnson",
+        "email": "tech88@fabrikam.com"
+      },
+      "programManagerContact": {
+        "name": "Drew Muller",
+        "email": "pm88@fabrikam.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/89",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "3e244133-23ca-4c1b-acd3-d0b39370fbb1",
+      "appId": "5619f453-1f4f-48f7-a408-eaf65355c884",
+      "tenantId": "b581abbe-7a6e-4861-a498-04c144fc09f2",
+      "displayName": "Alex Nakamura Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Attested",
+      "createdDateTime": "2024-10-14T18:57:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Alex Nakamura",
+        "addressLine1": "4867 Main St",
+        "addressLine2": null,
+        "city": "London",
+        "stateProvince": "England",
+        "country": "United Kingdom",
+        "countryCode": "GB",
+        "zipCode": "EC1A 1BB",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Avery Martinez",
+        "email": "avery.martinez@example.com",
+        "phone": "+1-829-254-8488",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Taylor Muller",
+        "email": "tech89@example.com"
+      },
+      "programManagerContact": {
+        "name": "Harper Martinez",
+        "email": "pm89@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/90",
+      "validationStatus": "Pending",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "328d8cc0-bd7c-4f40-972b-19b3bdfa5ece",
+      "appId": "8aea5505-befe-4351-b2f9-dbe2640bc3a7",
+      "tenantId": "497b0943-d906-4975-9606-e90e560d2169",
+      "displayName": "Fourth Coffee Virtual Assistant",
+      "domain": "fourthcoffee.com",
+      "logoUrl": "https://fourthcoffee.com/logo.png",
+      "privacyStatementUrl": "https://fourthcoffee.com/privacy",
+      "verification": "Attested",
+      "createdDateTime": "2024-10-07T13:59:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Fourth Coffee",
+        "addressLine1": "2419 Main St",
+        "addressLine2": "Suite 711",
+        "city": "Portland",
+        "stateProvince": "OR",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "97201",
+        "legalIdentifier": "EIN-75-6978022",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Casey Kumar",
+        "email": "casey.kumar@fourthcoffee.com",
+        "phone": "+1-331-914-5531",
+        "title": "Compliance Officer"
+      },
+      "technicalContact": {
+        "name": "Reese Brown",
+        "email": "tech90@fourthcoffee.com"
+      },
+      "programManagerContact": {
+        "name": "Skyler Rodriguez",
+        "email": "pm90@fourthcoffee.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/91",
+      "validationStatus": "Passed",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "f900fbf9-bd84-485f-8298-85f51b717c4c",
+      "appId": "a6263c59-071a-49a2-a245-13f802850214",
+      "tenantId": "2661a605-d532-4c41-b11a-fa3ec379431e",
+      "displayName": "Morgan Rodriguez Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2024-09-28T17:27:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Morgan Rodriguez",
+        "addressLine1": "699 Main St",
+        "addressLine2": null,
+        "city": "Redmond",
+        "stateProvince": "WA",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "98052",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Riley Rodriguez",
+        "email": "riley.rodriguez@example.com",
+        "phone": "+1-422-627-1871",
+        "title": "CEO"
+      },
+      "technicalContact": {
+        "name": "Morgan Kumar",
+        "email": "tech91@example.com"
+      },
+      "programManagerContact": {
+        "name": "Taylor Williams",
+        "email": "pm91@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/92",
+      "validationStatus": "Failed",
+      "legalStatus": "Passed"
+    },
+    {
+      "id": "02b89df2-d1e3-40f8-a727-f4c8dba9c032",
+      "appId": "c09a6bb3-8ad5-4537-b2a4-00b10c3bdd38",
+      "tenantId": "bb3cc93e-c5b7-43e0-89f2-96658bb246d3",
+      "displayName": "Fourth Coffee Virtual Assistant",
+      "domain": "fourthcoffee.com",
+      "logoUrl": "https://fourthcoffee.com/logo.png",
+      "privacyStatementUrl": "https://fourthcoffee.com/privacy",
+      "verification": "Attested",
+      "createdDateTime": "2024-09-24T16:57:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Fourth Coffee",
+        "addressLine1": "7219 Main St",
+        "addressLine2": null,
+        "city": "Portland",
+        "stateProvince": "OR",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "97201",
+        "legalIdentifier": "EIN-22-6524588",
+        "nonDisclosureAgreementNumber": "NDA-8267"
+      },
+      "primaryContact": {
+        "name": "Cameron Martinez",
+        "email": "cameron.martinez@fourthcoffee.com",
+        "phone": "+1-306-833-1419",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Riley Rodriguez",
+        "email": "tech92@fourthcoffee.com"
+      },
+      "programManagerContact": {
+        "name": "Riley Smith",
+        "email": "pm92@fourthcoffee.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/93",
+      "validationStatus": "NotStarted",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "c24d481b-4a45-4811-ba60-07384ea8523d",
+      "appId": "d1a36a37-c956-472c-b1cd-b9b8f018faf0",
+      "tenantId": "c293bcca-fa4e-4064-b750-3a5f19c26ab6",
+      "displayName": "Sam Chen Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2024-09-17T00:24:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Sam Chen",
+        "addressLine1": "9274 Main St",
+        "addressLine2": "Suite 664",
+        "city": "Berlin",
+        "stateProvince": "Berlin",
+        "country": "Germany",
+        "countryCode": "DE",
+        "zipCode": "10115",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Reese Davis",
+        "email": "reese.davis@example.com",
+        "phone": "+1-320-905-9132",
+        "title": "CEO"
+      },
+      "technicalContact": {
+        "name": "Sam Muller",
+        "email": "tech93@example.com"
+      },
+      "programManagerContact": {
+        "name": "Jamie Davis",
+        "email": "pm93@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/94",
+      "validationStatus": "Pending",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "894c3ebc-e539-4a49-9534-36e521c06878",
+      "appId": "a1b5868a-bcc2-49c1-8c0e-77391fd05d49",
+      "tenantId": "5fa4c7ff-f56b-4f56-8907-ea9be63c5e5b",
+      "displayName": "Wingtip Toys Virtual Assistant",
+      "domain": "wingtiptoys.de",
+      "logoUrl": "https://wingtiptoys.de/logo.png",
+      "privacyStatementUrl": "https://wingtiptoys.de/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2024-09-10T11:40:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Wingtip Toys",
+        "addressLine1": "2640 Main St",
+        "addressLine2": null,
+        "city": "Berlin",
+        "stateProvince": "Berlin",
+        "country": "Germany",
+        "countryCode": "DE",
+        "zipCode": "10115",
+        "legalIdentifier": "EIN-83-5841696",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Devon Brown",
+        "email": "devon.brown@wingtiptoys.de",
+        "phone": "+1-350-771-3927",
+        "title": "Compliance Officer"
+      },
+      "technicalContact": {
+        "name": "Cameron Nakamura",
+        "email": "tech94@wingtiptoys.de"
+      },
+      "programManagerContact": {
+        "name": "Sam Williams",
+        "email": "pm94@wingtiptoys.de"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/95",
+      "validationStatus": "Passed",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "03756c78-3f0e-48e4-9d12-71e5da6539cb",
+      "appId": "c1025342-c3c1-451c-a52d-f44d6cadb6ce",
+      "tenantId": "8f67face-6034-4af8-8e47-330d223a7340",
+      "displayName": "Riley Chen Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Attested",
+      "createdDateTime": "2024-08-31T12:08:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Riley Chen",
+        "addressLine1": "5733 Main St",
+        "addressLine2": null,
+        "city": "Toronto",
+        "stateProvince": "ON",
+        "country": "Canada",
+        "countryCode": "CA",
+        "zipCode": "M5H 2N2",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Casey Smith",
+        "email": "casey.smith@example.com",
+        "phone": "+1-921-621-6976",
+        "title": "Compliance Officer"
+      },
+      "technicalContact": {
+        "name": "Drew Martinez",
+        "email": "tech95@example.com"
+      },
+      "programManagerContact": {
+        "name": "Jamie Garcia",
+        "email": "pm95@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/96",
+      "validationStatus": "Failed",
+      "legalStatus": "Failed"
+    },
+    {
+      "id": "efa04f58-5abc-4dd1-8026-f16dbf718391",
+      "appId": "d197761e-1d83-4c17-8f56-6785b94f6bec",
+      "tenantId": "9cd90666-ee66-417f-b4b9-f79f94479e79",
+      "displayName": "Adventure Works Virtual Assistant",
+      "domain": "adventure-works.com",
+      "logoUrl": "https://adventure-works.com/logo.png",
+      "privacyStatementUrl": "https://adventure-works.com/privacy",
+      "verification": "None",
+      "createdDateTime": "2024-08-23T21:37:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Adventure Works",
+        "addressLine1": "7529 Main St",
+        "addressLine2": "Suite 703",
+        "city": "Austin",
+        "stateProvince": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "73301",
+        "legalIdentifier": "EIN-46-5469202",
+        "nonDisclosureAgreementNumber": "NDA-2035"
+      },
+      "primaryContact": {
+        "name": "Quinn Smith",
+        "email": "quinn.smith@adventure-works.com",
+        "phone": "+1-518-459-9415",
+        "title": "Founder"
+      },
+      "technicalContact": {
+        "name": "Casey Kumar",
+        "email": "tech96@adventure-works.com"
+      },
+      "programManagerContact": {
+        "name": "Alex Nakamura",
+        "email": "pm96@adventure-works.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/97",
+      "validationStatus": "NotStarted",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "5dfb385b-af4e-4049-9d99-43e3093d7c1d",
+      "appId": "c1bba2ce-e77a-4a8d-b73f-300931b55bab",
+      "tenantId": "afab4d3b-63b3-4de2-9796-af6908956d31",
+      "displayName": "Drew Smith Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "Registered",
+      "createdDateTime": "2024-08-15T19:57:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Drew Smith",
+        "addressLine1": "9661 Main St",
+        "addressLine2": null,
+        "city": "Portland",
+        "stateProvince": "OR",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "97201",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Taylor Williams",
+        "email": "taylor.williams@example.com",
+        "phone": "+1-883-400-1433",
+        "title": "CEO"
+      },
+      "technicalContact": {
+        "name": "Harper Chen",
+        "email": "tech97@example.com"
+      },
+      "programManagerContact": {
+        "name": "Devon Muller",
+        "email": "pm97@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/98",
+      "validationStatus": "Pending",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "cc7cbf65-f334-4d9f-bbef-8dec89c46627",
+      "appId": "85566089-6bc2-459c-af6b-849eee877d27",
+      "tenantId": "e325174f-8054-4eb0-844b-1d7cc2afccf7",
+      "displayName": "Tailspin Toys Virtual Assistant",
+      "domain": "tailspintoys.com",
+      "logoUrl": "https://tailspintoys.com/logo.png",
+      "privacyStatementUrl": "https://tailspintoys.com/privacy",
+      "verification": "Registered",
+      "createdDateTime": "2024-08-08T01:20:00Z",
+      "legalEntity": {
+        "entityType": "Company",
+        "businessName": "Tailspin Toys",
+        "addressLine1": "684 Main St",
+        "addressLine2": null,
+        "city": "Toronto",
+        "stateProvince": "ON",
+        "country": "Canada",
+        "countryCode": "CA",
+        "zipCode": "M5H 2N2",
+        "legalIdentifier": "EIN-59-5977371",
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Taylor Chen",
+        "email": "taylor.chen@tailspintoys.com",
+        "phone": "+1-444-637-3360",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Taylor Chen",
+        "email": "tech98@tailspintoys.com"
+      },
+      "programManagerContact": {
+        "name": "Skyler Martinez",
+        "email": "pm98@tailspintoys.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/99",
+      "validationStatus": "Passed",
+      "legalStatus": "NotStarted"
+    },
+    {
+      "id": "cd54c9b3-5e0b-4809-8885-e595c6c0f05d",
+      "appId": "bf0b4e98-e1bb-42d4-846d-642b05440dd1",
+      "tenantId": "bc1883d9-b99f-415a-b32f-590e95764560",
+      "displayName": "Avery Rodriguez Virtual Assistant",
+      "domain": null,
+      "logoUrl": null,
+      "privacyStatementUrl": null,
+      "verification": "None",
+      "createdDateTime": "2024-08-03T10:55:00Z",
+      "legalEntity": {
+        "entityType": "Individual",
+        "businessName": "Avery Rodriguez",
+        "addressLine1": "3169 Main St",
+        "addressLine2": "Suite 258",
+        "city": "Portland",
+        "stateProvince": "OR",
+        "country": "United States",
+        "countryCode": "US",
+        "zipCode": "97201",
+        "legalIdentifier": null,
+        "nonDisclosureAgreementNumber": null
+      },
+      "primaryContact": {
+        "name": "Morgan Johnson",
+        "email": "morgan.johnson@example.com",
+        "phone": "+1-387-285-9095",
+        "title": "Product Manager"
+      },
+      "technicalContact": {
+        "name": "Drew Martinez",
+        "email": "tech99@example.com"
+      },
+      "programManagerContact": {
+        "name": "Jamie Kumar",
+        "email": "pm99@example.com"
+      },
+      "onboardingDocUrl": "https://docs.example.com/onboarding/100",
+      "validationStatus": "Failed",
+      "legalStatus": "NotStarted"
+    }
+  ]
+}

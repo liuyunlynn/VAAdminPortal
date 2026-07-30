@@ -6,7 +6,7 @@ using VAAdminPortalAPI.Services;
 namespace VAAdminPortalAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class AdminController : Controller
     {
 
@@ -20,11 +20,17 @@ namespace VAAdminPortalAPI.Controllers
         [HttpGet(Name = "GetAdminInformation")]
         public async Task<ActionResult> GetAdminInformation(string id)
         {
-            var adminInfo = _adminService.GetAdminInfoModel(id);
+            var adminInfo = _adminService.GetAdminInfo(id);
             var response = new Response<AdminInfoModel>(adminInfo);
             return Ok(response);
         }
 
-        
+        [HttpPost(Name = "GetAiVirtualAssistantRegistrations")]
+        public async Task<ActionResult> GetAiVirtualAssistantRegistrations([FromQuery]AiVirtualAssistantRegistrationQueryModel queryModel)
+        {
+            var registrations = _adminService.GetAiVirtualAssistantRegistrations(queryModel);
+            var response = new Response<IList<AiVirtualAssistantRegistrationModel>>(registrations);
+            return Ok(response);
+        }
     }
 }

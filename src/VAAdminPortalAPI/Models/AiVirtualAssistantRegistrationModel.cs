@@ -89,5 +89,13 @@ namespace VAAdminPortalAPI.Models
         /// </summary>
         [JsonPropertyName("onboardingDocUrl")]
         public string OnboardingDocUrl { get; set; } = string.Empty;
+
+        [JsonPropertyName("validationStatus")]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public ValidationStatus ValidationStatus { get; set; }
+
+        [JsonPropertyName("legalStatus")]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public LegalStatus LegalStatus { get; set; }
     }
 }

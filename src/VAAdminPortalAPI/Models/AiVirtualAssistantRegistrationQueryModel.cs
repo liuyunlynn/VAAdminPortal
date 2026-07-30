@@ -23,6 +23,6 @@ namespace VAAdminPortalAPI.Models
         public ValidationStatus? ValidationStatus { get; set; }
 
         [JsonPropertyName("legalStatus")]
-        public LegalStatus LegalStatus { get; set; }
+        public LegalStatus? LegalStatus { get; set; }
     }
 }
