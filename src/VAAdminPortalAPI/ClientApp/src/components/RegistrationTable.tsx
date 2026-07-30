@@ -12,7 +12,12 @@ import {
   makeStyles,
   tokens,
 } from '@fluentui/react-components';
-import { ChevronLeftRegular, ChevronRightRegular, OpenRegular } from '@fluentui/react-icons';
+import {
+  CheckmarkCircleRegular,
+  ChevronLeftRegular,
+  ChevronRightRegular,
+  OpenRegular,
+} from '@fluentui/react-icons';
 import type { AiVirtualAssistantRegistration } from '../api/types';
 import { formatDate, statusBadgeColor } from './status';
 
@@ -22,13 +27,28 @@ const useStyles = makeStyles({
   },
   tableScroll: {
     overflowX: 'auto',
+    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
+  },
+  tableHeader: {
+    backgroundColor: '#f5f5f5',
   },
   name: {
     fontWeight: 600,
   },
+  nameLine: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+    flexWrap: 'wrap',
+  },
+  fullyPassedRow: {
+    backgroundColor: tokens.colorPaletteGreenBackground1,
+    borderLeft: `3px solid ${tokens.colorPaletteGreenBorderActive}`,
+  },
   sub: {
     color: tokens.colorNeutralForeground3,
     fontSize: '12px',
+    overflowWrap: 'anywhere',
   },
   empty: {
     padding: '32px',
@@ -72,7 +92,7 @@ export default function RegistrationTable({
     <div className={styles.wrapper}>
       <div className={styles.tableScroll}>
         <Table aria-label="AI virtual assistant registrations" size="medium">
-          <TableHeader>
+          <TableHeader className={styles.tableHeader}>
             <TableRow>
               <TableHeaderCell>Assistant</TableHeaderCell>
               <TableHeaderCell>Business</TableHeaderCell>
@@ -84,12 +104,26 @@ export default function RegistrationTable({
             </TableRow>
           </TableHeader>
           <TableBody>
-            {items.map((item) => (
-              <TableRow key={item.id}>
+            {items.map((item) => {
+              const fullyPassed =
+                item.validationStatus === 'Passed' && item.legalStatus === 'Passed';
+              return (
+              <TableRow key={item.id} className={fullyPassed ? styles.fullyPassedRow : undefined}>
                 <TableCell>
                   <TableCellLayout>
                     <div>
-                      <div className={styles.name}>{item.displayName}</div>
+                      <div className={styles.nameLine}>
+                        <span className={styles.name}>{item.displayName}</span>
+                        {fullyPassed && (
+                          <Badge
+                            appearance="tint"
+                            color="success"
+                            icon={<CheckmarkCircleRegular />}
+                          >
+                            Fully passed
+                          </Badge>
+                        )}
+                      </div>
                       <div className={styles.sub}>{item.primaryContact.email}</div>
                     </div>
                   </TableCellLayout>
@@ -128,7 +162,8 @@ export default function RegistrationTable({
                   </Button>
                 </TableCell>
               </TableRow>
-            ))}
+              );
+            })}
           </TableBody>
         </Table>
       </div>

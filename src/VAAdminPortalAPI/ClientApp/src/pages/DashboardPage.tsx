@@ -16,6 +16,7 @@ import {
   Title2,
   Toolbar,
   makeStyles,
+  mergeClasses,
   tokens,
   MessageBar,
   MessageBarBody,
@@ -47,33 +48,68 @@ import RegistrationDetailPanel from '../components/RegistrationDetailPanel';
 const useStyles = makeStyles({
   root: {
     minHeight: '100vh',
-    backgroundColor: tokens.colorNeutralBackground2,
+    backgroundColor: '#f5f5f5',
   },
   header: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: '12px 24px',
-    backgroundColor: tokens.colorNeutralBackground1,
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    minHeight: '48px',
+    padding: '8px 24px',
+    color: '#ffffff',
+    backgroundColor: '#5b5fc7',
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.18)',
     position: 'sticky',
     top: 0,
     zIndex: 10,
+    '@media (max-width: 600px)': {
+      minHeight: '52px',
+      padding: '8px 12px',
+    },
   },
   brand: {
     display: 'flex',
     alignItems: 'center',
     gap: '10px',
     fontWeight: 600,
-    fontSize: '18px',
+    fontSize: '16px',
+    color: '#ffffff',
+    whiteSpace: 'nowrap',
+    '@media (max-width: 600px)': {
+      fontSize: '14px',
+    },
   },
   userBox: {
     display: 'flex',
     alignItems: 'center',
     gap: '12px',
+    color: '#ffffff',
+    '@media (max-width: 600px)': {
+      gap: '6px',
+    },
+  },
+  userDetails: {
+    '@media (max-width: 600px)': {
+      display: 'none',
+    },
+  },
+  signOutText: {
+    '@media (max-width: 600px)': {
+      display: 'none',
+    },
+  },
+  signOut: {
+    color: '#ffffff',
+    ':hover': {
+      color: '#ffffff',
+      backgroundColor: 'rgba(255, 255, 255, 0.12)',
+    },
+    '@media (max-width: 600px)': {
+      minWidth: '32px',
+    },
   },
   content: {
-    padding: '24px',
+    padding: '24px 28px 40px',
     display: 'flex',
     flexDirection: 'column',
     gap: '20px',
@@ -90,9 +126,13 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     gap: '6px',
+    border: '1px solid #e0e0e0',
+    borderRadius: '8px',
+    boxShadow: '0 1px 2px rgba(0, 0, 0, 0.04)',
   },
   primaryKpiCard: {
-    borderTop: `3px solid ${tokens.colorBrandStroke1}`,
+    borderTop: '3px solid #5b5fc7',
+    backgroundColor: '#f7f7ff',
   },
   kpiValue: {
     fontSize: '30px',
@@ -150,6 +190,9 @@ const useStyles = makeStyles({
   },
   tableCard: {
     padding: '8px',
+    border: '1px solid #e0e0e0',
+    borderRadius: '8px',
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.06)',
   },
   loading: {
     display: 'flex',
@@ -282,17 +325,23 @@ export default function DashboardPage() {
     <div className={styles.root}>
       <header className={styles.header}>
         <div className={styles.brand}>
-          <BotSparkleRegular fontSize={26} color="#4f6bed" />
+          <BotSparkleRegular fontSize={24} color="#ffffff" />
           VA Admin Portal
         </div>
         <div className={styles.userBox}>
           <Avatar name={admin?.name ?? 'Admin'} color="colorful" />
-          <div>
+          <div className={styles.userDetails}>
             <Body1 style={{ display: 'block', fontWeight: 600 }}>{admin?.name}</Body1>
             <Caption1>{admin?.email}</Caption1>
           </div>
-          <Button icon={<SignOutRegular />} appearance="subtle" onClick={handleSignOut}>
-            Sign out
+          <Button
+            className={styles.signOut}
+            icon={<SignOutRegular />}
+            appearance="subtle"
+            aria-label="Sign out"
+            onClick={handleSignOut}
+          >
+            <span className={styles.signOutText}>Sign out</span>
           </Button>
         </div>
       </header>
@@ -353,7 +402,7 @@ export default function DashboardPage() {
             <span className={styles.kpiValue}>{overview?.totalRegistrationsCount ?? 0}</span>
             <Caption1 className={styles.kpiHint}>All submitted assistants</Caption1>
           </Card>
-          <Card className={`${styles.kpiCard} ${styles.primaryKpiCard}`}>
+          <Card className={mergeClasses(styles.kpiCard, styles.primaryKpiCard)}>
             <Caption1>Fully verified</Caption1>
             <span className={styles.kpiValue} style={{ color: '#107c10' }}>
               {overview?.verifiedCount ?? 0}
@@ -396,7 +445,7 @@ export default function DashboardPage() {
           </Card>
           <Card className={styles.kpiCard}>
             <Caption1>Attested assistants</Caption1>
-            <span className={styles.kpiValue} style={{ color: '#4f6bed' }}>
+            <span className={styles.kpiValue} style={{ color: '#5b5fc7' }}>
               {overview?.attestedAssistantsCount ?? 0}
             </span>
             <Caption1 className={styles.kpiHint}>Highest verification level</Caption1>

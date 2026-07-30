@@ -13,11 +13,15 @@ import {
   makeStyles,
   tokens,
 } from '@fluentui/react-components';
-import { DismissRegular } from '@fluentui/react-icons';
+import { CheckmarkCircleFilled, DismissRegular } from '@fluentui/react-icons';
 import type { AiVirtualAssistantRegistration } from '../api/types';
 import { formatDate, statusBadgeColor } from './status';
 
 const useStyles = makeStyles({
+  drawer: {
+    borderLeft: '1px solid #e0e0e0',
+    boxShadow: '-8px 0 24px rgba(0, 0, 0, 0.12)',
+  },
   section: {
     display: 'flex',
     flexDirection: 'column',
@@ -41,6 +45,26 @@ const useStyles = makeStyles({
     gap: '8px',
     flexWrap: 'wrap',
   },
+  fullyPassed: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+    padding: '12px 14px',
+    marginBottom: '16px',
+    color: tokens.colorPaletteGreenForeground1,
+    backgroundColor: tokens.colorPaletteGreenBackground1,
+    border: `1px solid ${tokens.colorPaletteGreenBorder1}`,
+    borderRadius: tokens.borderRadiusMedium,
+  },
+  fullyPassedIcon: {
+    fontSize: '24px',
+    flexShrink: 0,
+  },
+  fullyPassedText: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '2px',
+  },
 });
 
 function Row({ label, value }: { label: string; value?: string | null }) {
@@ -63,9 +87,12 @@ export default function RegistrationDetailPanel({
   onClose: () => void;
 }) {
   const styles = useStyles();
+  const fullyPassed =
+    registration?.validationStatus === 'Passed' && registration.legalStatus === 'Passed';
 
   return (
     <Drawer
+      className={styles.drawer}
       type="overlay"
       position="end"
       open={open}
@@ -92,6 +119,15 @@ export default function RegistrationDetailPanel({
       <DrawerBody>
         {registration && (
           <div style={{ paddingTop: '8px' }}>
+            {fullyPassed && (
+              <div className={styles.fullyPassed} role="status">
+                <CheckmarkCircleFilled className={styles.fullyPassedIcon} />
+                <div className={styles.fullyPassedText}>
+                  <Subtitle2>Fully passed</Subtitle2>
+                  <Caption1>Validation and legal reviews are complete.</Caption1>
+                </div>
+              </div>
+            )}
             <div className={styles.section}>
               <div className={styles.badges}>
                 <Badge appearance="filled" color={statusBadgeColor(registration.validationStatus)}>

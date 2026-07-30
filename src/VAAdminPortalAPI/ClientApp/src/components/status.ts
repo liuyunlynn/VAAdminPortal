@@ -48,16 +48,26 @@ export function countBy(
 }
 
 export function registrationsByMonth(items: AiVirtualAssistantRegistration[]) {
-  const buckets = new Map<string, number>();
+  const buckets = new Map<string, { registrations: number; fullyVerified: number }>();
   for (const item of items) {
     const date = new Date(item.createdDateTime);
     if (Number.isNaN(date.getTime())) continue;
-    const label = date.toLocaleDateString(undefined, { month: 'short', year: '2-digit' });
-    buckets.set(label, (buckets.get(label) ?? 0) + 1);
+    const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+    const bucket = buckets.get(key) ?? { registrations: 0, fullyVerified: 0 };
+    bucket.registrations += 1;
+    if (item.validationStatus === 'Passed' && item.legalStatus === 'Passed') {
+      bucket.fullyVerified += 1;
+    }
+    buckets.set(key, bucket);
   }
   return Array.from(buckets.entries())
-    .map(([month, count]) => ({ month, count }))
-    .reverse();
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([key, counts]) => ({
+      month: new Date(`${key}-01T00:00:00`).toLocaleDateString(undefined, {
+        month: 'short',
+      }),
+      ...counts,
+    }));
 }
 
 export function verificationBreakdown(items: AiVirtualAssistantRegistration[]) {

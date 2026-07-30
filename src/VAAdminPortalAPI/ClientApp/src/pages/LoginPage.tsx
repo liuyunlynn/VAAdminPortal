@@ -26,22 +26,26 @@ const useStyles = makeStyles({
   root: {
     display: 'flex',
     minHeight: '100vh',
+    backgroundColor: '#f5f5f5',
   },
   hero: {
-    flex: '1 1 55%',
+    flex: '1 1 52%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    padding: '64px',
+    padding: 'clamp(40px, 7vw, 96px)',
     color: '#ffffff',
-    background:
-      'linear-gradient(135deg, #0f2557 0%, #1f4a9b 45%, #4f6bed 100%)',
+    backgroundColor: '#5b5fc7',
+    borderRight: '1px solid #4f52b2',
+    '@media (max-width: 760px)': {
+      display: 'none',
+    },
   },
   heroBadge: {
     display: 'inline-flex',
     alignItems: 'center',
     gap: '10px',
-    fontSize: '20px',
+    fontSize: '18px',
     fontWeight: 600,
     marginBottom: '32px',
   },
@@ -51,7 +55,7 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     gap: '12px',
     fontSize: '16px',
-    opacity: 0.9,
+    opacity: 0.92,
     maxWidth: '460px',
   },
   formSide: {
@@ -60,15 +64,18 @@ const useStyles = makeStyles({
     alignItems: 'center',
     justifyContent: 'center',
     padding: '32px',
-    backgroundColor: tokens.colorNeutralBackground2,
+    backgroundColor: '#f5f5f5',
   },
   card: {
     width: '100%',
     maxWidth: '400px',
-    padding: '36px',
+    padding: '32px',
     display: 'flex',
     flexDirection: 'column',
     gap: '20px',
+    border: '1px solid #e0e0e0',
+    borderRadius: '8px',
+    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
   },
   header: {
     display: 'flex',
@@ -171,7 +178,7 @@ export default function LoginPage() {
           </form>
 
           <span className={styles.hint}>
-            Demo build — use user id <strong>admin-001</strong> and any password.
+            Demo build - use user id <strong>admin-001</strong> and any password.
           </span>
         </Card>
       </section>
