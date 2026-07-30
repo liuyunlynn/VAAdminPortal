@@ -5,6 +5,8 @@ import type { AiVirtualAssistantRegistration, RegistrationQuery } from '../../ap
 
 interface RegistrationsState {
   items: AiVirtualAssistantRegistration[];
+  chartItems: AiVirtualAssistantRegistration[];
+  totalCount: number;
   status: 'idle' | 'loading' | 'failed';
   error: string | null;
   selectedId: string | null;
@@ -12,6 +14,8 @@ interface RegistrationsState {
 
 const initialState: RegistrationsState = {
   items: [],
+  chartItems: [],
+  totalCount: 0,
   status: 'idle',
   error: null,
   selectedId: null,
@@ -21,6 +25,13 @@ export const fetchRegistrations = createAsyncThunk(
   'registrations/fetch',
   async (query: RegistrationQuery = {}) => {
     return await getRegistrations(query);
+  },
+);
+
+export const fetchRegistrationCharts = createAsyncThunk(
+  'registrations/fetchCharts',
+  async (query: RegistrationQuery = {}) => {
+    return await getRegistrations({ ...query, pageIndex: 0, pageSize: 0 });
   },
 );
 
@@ -40,14 +51,18 @@ const registrationsSlice = createSlice({
       })
       .addCase(
         fetchRegistrations.fulfilled,
-        (state, action: PayloadAction<AiVirtualAssistantRegistration[]>) => {
+        (state, action) => {
           state.status = 'idle';
-          state.items = action.payload;
+          state.items = action.payload.registrations;
+          state.totalCount = action.payload.totalCount;
         },
       )
       .addCase(fetchRegistrations.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message ?? 'Failed to load registrations.';
+      })
+      .addCase(fetchRegistrationCharts.fulfilled, (state, action) => {
+        state.chartItems = action.payload.registrations;
       });
   },
 });

@@ -25,6 +25,13 @@ export interface AdminInfo {
   email: string;
 }
 
+export interface AllOverview {
+  totalRegistrationsCount: number;
+  validationPassedCount: number;
+  pendingReviewCount: number;
+  attestedAssistantsCount: number;
+}
+
 export interface LegalEntity {
   entityType: EntityType;
   businessName: string;
@@ -68,6 +75,11 @@ export interface AiVirtualAssistantRegistration {
   onboardingDocUrl: string;
   validationStatus: ValidationStatus;
   legalStatus: LegalStatus;
+}
+
+export interface RegistrationList {
+  registrations: AiVirtualAssistantRegistration[];
+  totalCount: number;
 }
 
 export interface RegistrationQuery {

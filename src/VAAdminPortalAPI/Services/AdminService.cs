@@ -26,9 +26,9 @@ namespace VAAdminPortalAPI.Services
             return adminInfo;
         }
 
-        public IList<AiVirtualAssistantRegistrationModel> GetAiVirtualAssistantRegistrations(AiVirtualAssistantRegistrationQueryModel queryModel)
+        public AiVirtualAssistantRegistrationListModel GetAiVirtualAssistantRegistrations(AiVirtualAssistantRegistrationQueryModel queryModel)
         {
-            IEnumerable<AiVirtualAssistantRegistrationModel> query = DataStore.Value.AiVirtualAssistantRegistrations;
+            IEnumerable<AiVirtualAssistantRegistrationModel> query = DataStore.Value.AiVirtualAssistantRegistrations.OrderBy(r => r.CreatedDateTime);
 
             if (queryModel != null)
             {
@@ -63,14 +63,28 @@ namespace VAAdminPortalAPI.Services
 
                 query = query.OrderByDescending(r => r.CreatedDateTime);
 
+                // Get total count before pagination
+                var totalCount = query.Count();
+
                 if (queryModel.PageSize > 0)
                 {
                     var pageIndex = queryModel.PageIndex < 0 ? 0 : queryModel.PageIndex;
                     query = query.Skip(pageIndex * queryModel.PageSize).Take(queryModel.PageSize);
                 }
+
+                return new AiVirtualAssistantRegistrationListModel
+                {
+                    Registrations = query.ToList(),
+                    TotalCount = totalCount
+                };
             }
 
-            return query.ToList();
+            var allRegistrations = query.OrderByDescending(r => r.CreatedDateTime).ToList();
+            return new AiVirtualAssistantRegistrationListModel
+            {
+                Registrations = allRegistrations,
+                TotalCount = allRegistrations.Count
+            };
         }
 
         private static MockDataStore LoadMockData()
@@ -79,6 +93,20 @@ namespace VAAdminPortalAPI.Services
             using var stream = File.OpenRead(path);
             var data = JsonSerializer.Deserialize<MockDataStore>(stream, SerializerOptions);
             return data ?? new MockDataStore();
+        }
+
+        public AllOverviewModel GetAllOverview()
+        {
+            var registrations = DataStore.Value.AiVirtualAssistantRegistrations;
+
+            return new AllOverviewModel
+            {
+                TotalRegistrationsCount = registrations.Count,
+                ValidationPassedCount = registrations.Count(r => r.ValidationStatus == ValidationStatus.Passed),
+                PendingReviewCount = registrations.Count(r =>
+                    r.ValidationStatus == ValidationStatus.Pending || r.LegalStatus == LegalStatus.Pending),
+                AttestedAssistantsCount = registrations.Count(r => r.Verification == BotVerificationLevel.Attested)
+            };
         }
 
         private sealed class MockDataStore

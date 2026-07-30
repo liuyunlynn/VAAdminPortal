@@ -1,7 +1,8 @@
 import type {
   AdminInfo,
-  AiVirtualAssistantRegistration,
+  AllOverview,
   ApiResponse,
+  RegistrationList,
   RegistrationQuery,
 } from './types';
 
@@ -29,9 +30,17 @@ export async function getAdminInfo(id: string): Promise<AdminInfo> {
   return unwrap<AdminInfo>(res);
 }
 
+export async function getAllOverview(): Promise<AllOverview> {
+  const res = await fetch(`${BASE}/Admin/GetAllOverview`, {
+    method: 'GET',
+    headers: { Accept: 'application/json' },
+  });
+  return unwrap<AllOverview>(res);
+}
+
 export async function getRegistrations(
   query: RegistrationQuery,
-): Promise<AiVirtualAssistantRegistration[]> {
+): Promise<RegistrationList> {
   const params = new URLSearchParams();
   params.set('pageIndex', String(query.pageIndex ?? 0));
   params.set('pageSize', String(query.pageSize ?? 100));
@@ -48,5 +57,5 @@ export async function getRegistrations(
       headers: { Accept: 'application/json' },
     },
   );
-  return unwrap<AiVirtualAssistantRegistration[]>(res);
+  return unwrap<RegistrationList>(res);
 }
