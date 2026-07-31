@@ -129,6 +129,45 @@ namespace VAAdminPortalAPI.Services
             };
         }
 
+        public AiVirtualAssistantRegistrationModel? ApplyRegistrationAction(RegistrationActionModel actionModel)
+        {
+            var registration = DataStore.Value.AiVirtualAssistantRegistrations
+                .FirstOrDefault(r => r.Id == actionModel.RegistrationId);
+
+            if (registration == null)
+            {
+                return null;
+            }
+
+            switch (actionModel.Action)
+            {
+                case RegistrationAction.ApproveRegistration:
+                    registration.ValidationStatus = ValidationStatus.Passed;
+                    registration.LegalStatus = LegalStatus.Passed;
+                    break;
+                case RegistrationAction.RejectRegistration:
+                    registration.ValidationStatus = ValidationStatus.Failed;
+                    registration.LegalStatus = LegalStatus.Failed;
+                    break;
+                case RegistrationAction.ApproveValidation:
+                    registration.ValidationStatus = ValidationStatus.Passed;
+                    break;
+                case RegistrationAction.ResetValidation:
+                    registration.ValidationStatus = ValidationStatus.NotStarted;
+                    break;
+                case RegistrationAction.ApproveLegal:
+                    registration.LegalStatus = LegalStatus.Passed;
+                    break;
+                case RegistrationAction.ResetLegal:
+                    registration.LegalStatus = LegalStatus.NotStarted;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(actionModel.Action));
+            }
+
+            return registration;
+        }
+
         private sealed class MockDataStore
         {
             [JsonPropertyName("adminInfo")]

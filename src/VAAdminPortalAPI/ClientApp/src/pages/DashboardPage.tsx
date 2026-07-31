@@ -33,9 +33,11 @@ import { signOut } from '../features/auth/authSlice';
 import {
   fetchRegistrationCharts,
   fetchRegistrations,
+  registrationUpdated,
   selectRegistration,
 } from '../features/registrations/registrationsSlice';
 import type {
+  AiVirtualAssistantRegistration,
   AllOverview,
   LegalStatus,
   RegistrationQuery,
@@ -320,6 +322,22 @@ export default function DashboardPage() {
     );
   };
 
+  const handleActionComplete = (updated: AiVirtualAssistantRegistration) => {
+    dispatch(registrationUpdated(updated));
+    dispatch(
+      fetchRegistrations({
+        ...submittedQuery,
+        pageIndex,
+        pageSize: submittedPageSize,
+      }),
+    );
+    dispatch(fetchRegistrationCharts(submittedQuery));
+
+    const overviewStart = overviewStartDate ? `${overviewStartDate}T00:00:00.000Z` : null;
+    const overviewEnd = overviewEndDate ? `${overviewEndDate}T23:59:59.999Z` : null;
+    getAllOverview(overviewStart, overviewEnd).then(setOverview).catch(() => undefined);
+  };
+
   const handleSignOut = () => {
     dispatch(signOut());
     navigate('/');
@@ -596,6 +614,7 @@ export default function DashboardPage() {
         registration={selected}
         open={selected != null}
         onClose={() => dispatch(selectRegistration(null))}
+        onActionComplete={handleActionComplete}
       />
     </div>
   );

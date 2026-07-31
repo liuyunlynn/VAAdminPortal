@@ -85,6 +85,20 @@ export interface RegistrationList {
   totalCount: number;
 }
 
+export type RegistrationAction =
+  | 'ApproveRegistration'
+  | 'RejectRegistration'
+  | 'ApproveValidation'
+  | 'ResetValidation'
+  | 'ApproveLegal'
+  | 'ResetLegal';
+
+export interface RegistrationActionRequest {
+  registrationId: string;
+  action: RegistrationAction;
+  reason: string;
+}
+
 export interface RegistrationQuery {
   pageIndex?: number;
   pageSize?: number;

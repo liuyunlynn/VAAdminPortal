@@ -42,6 +42,13 @@ const registrationsSlice = createSlice({
     selectRegistration(state, action: PayloadAction<string | null>) {
       state.selectedId = action.payload;
     },
+    registrationUpdated(state, action: PayloadAction<AiVirtualAssistantRegistration>) {
+      const itemIndex = state.items.findIndex((item) => item.id === action.payload.id);
+      if (itemIndex >= 0) state.items[itemIndex] = action.payload;
+
+      const chartItemIndex = state.chartItems.findIndex((item) => item.id === action.payload.id);
+      if (chartItemIndex >= 0) state.chartItems[chartItemIndex] = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -67,5 +74,5 @@ const registrationsSlice = createSlice({
   },
 });
 
-export const { selectRegistration } = registrationsSlice.actions;
+export const { registrationUpdated, selectRegistration } = registrationsSlice.actions;
 export default registrationsSlice.reducer;

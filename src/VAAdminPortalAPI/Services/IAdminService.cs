@@ -9,5 +9,7 @@ namespace VAAdminPortalAPI.Services
         AiVirtualAssistantRegistrationListModel GetAiVirtualAssistantRegistrations(AiVirtualAssistantRegistrationQueryModel queryModel);
 
         AllOverviewModel GetAllOverview(AiVirtualAssistantRegistrationQueryModel queryModel);
+
+        AiVirtualAssistantRegistrationModel? ApplyRegistrationAction(RegistrationActionModel actionModel);
     }
 }

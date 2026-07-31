@@ -1,8 +1,10 @@
 import type {
   AdminInfo,
+  AiVirtualAssistantRegistration,
   AllOverview,
   ApiResponse,
   RegistrationList,
+  RegistrationActionRequest,
   RegistrationQuery,
 } from './types';
 
@@ -67,4 +69,18 @@ export async function getRegistrations(
     },
   );
   return unwrap<RegistrationList>(res);
+}
+
+export async function applyRegistrationAction(
+  request: RegistrationActionRequest,
+): Promise<AiVirtualAssistantRegistration> {
+  const res = await fetch(`${BASE}/Admin/ApplyRegistrationAction`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(request),
+  });
+  return unwrap<AiVirtualAssistantRegistration>(res);
 }

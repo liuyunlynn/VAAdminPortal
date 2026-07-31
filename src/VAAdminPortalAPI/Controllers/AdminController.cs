@@ -41,5 +41,23 @@ namespace VAAdminPortalAPI.Controllers
             var response = new Response<AiVirtualAssistantRegistrationListModel>(registrations);
             return Ok(response);
         }
+
+        [HttpPost(Name = "ApplyRegistrationAction")]
+        public async Task<ActionResult> ApplyRegistrationAction([FromBody] RegistrationActionModel actionModel)
+        {
+            if (string.IsNullOrWhiteSpace(actionModel.Reason))
+            {
+                return BadRequest("A reason is required.");
+            }
+
+            var registration = _adminService.ApplyRegistrationAction(actionModel);
+            if (registration == null)
+            {
+                return NotFound();
+            }
+
+            var response = new Response<AiVirtualAssistantRegistrationModel>(registration);
+            return Ok(response);
+        }
     }
 }
