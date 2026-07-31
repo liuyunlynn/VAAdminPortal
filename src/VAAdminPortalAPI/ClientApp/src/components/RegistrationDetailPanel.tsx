@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {
+  Avatar,
   Badge,
   Body1,
   Button,
@@ -48,6 +49,17 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     gap: '10px',
     marginBottom: '20px',
+  },
+  drawerTitle: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px',
+    minWidth: 0,
+  },
+  drawerTitleText: {
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
   },
   sectionTitle: {
     marginBottom: '4px',
@@ -236,7 +248,18 @@ export default function RegistrationDetailPanel({
             />
           }
         >
-          {registration?.displayName ?? 'Registration details'}
+          {registration ? (
+            <div className={styles.drawerTitle}>
+              <Avatar
+                name={registration.displayName}
+                image={registration.logoUrl ? { src: registration.logoUrl } : undefined}
+                size={40}
+              />
+              <span className={styles.drawerTitleText}>{registration.displayName}</span>
+            </div>
+          ) : (
+            'Registration details'
+          )}
         </DrawerHeaderTitle>
       </DrawerHeader>
 

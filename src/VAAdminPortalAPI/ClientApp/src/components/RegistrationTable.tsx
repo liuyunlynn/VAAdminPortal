@@ -1,4 +1,5 @@
 import {
+  Avatar,
   Badge,
   Button,
   Table,
@@ -34,6 +35,14 @@ const useStyles = makeStyles({
   },
   name: {
     fontWeight: 600,
+  },
+  assistant: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px',
+  },
+  logo: {
+    flexShrink: 0,
   },
   nameLine: {
     display: 'flex',
@@ -111,20 +120,28 @@ export default function RegistrationTable({
               <TableRow key={item.id} className={fullyPassed ? styles.fullyPassedRow : undefined}>
                 <TableCell>
                   <TableCellLayout>
-                    <div>
-                      <div className={styles.nameLine}>
-                        <span className={styles.name}>{item.displayName}</span>
-                        {fullyPassed && (
-                          <Badge
-                            appearance="tint"
-                            color="success"
-                            icon={<CheckmarkCircleRegular />}
-                          >
-                            Fully passed
-                          </Badge>
-                        )}
+                    <div className={styles.assistant}>
+                      <Avatar
+                        className={styles.logo}
+                        name={item.displayName}
+                        image={item.logoUrl ? { src: item.logoUrl } : undefined}
+                        size={36}
+                      />
+                      <div>
+                        <div className={styles.nameLine}>
+                          <span className={styles.name}>{item.displayName}</span>
+                          {fullyPassed && (
+                            <Badge
+                              appearance="tint"
+                              color="success"
+                              icon={<CheckmarkCircleRegular />}
+                            >
+                              Fully passed
+                            </Badge>
+                          )}
+                        </div>
+                        <div className={styles.sub}>{item.primaryContact.email}</div>
                       </div>
-                      <div className={styles.sub}>{item.primaryContact.email}</div>
                     </div>
                   </TableCellLayout>
                 </TableCell>

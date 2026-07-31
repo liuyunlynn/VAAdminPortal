@@ -11,7 +11,7 @@
       "tenantId": "fa400ff0-0e5a-4eee-9f5c-0a6dcb46a039",
       "displayName": "Litware Inc Virtual Assistant",
       "domain": "litware.fr",
-      "logoUrl": "https://litware.fr/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://litware.fr/privacy",
       "verification": "None",
       "createdDateTime": "2026-07-27T03:20:00Z",
@@ -42,7 +42,7 @@
         "name": "Cameron Smith",
         "email": "pm0@litware.fr"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/1",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Pending"
     },
@@ -52,7 +52,7 @@
       "tenantId": "d24a42f6-e4a1-42b3-9529-604d4b0faba5",
       "displayName": "Skyler Smith Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2026-07-19T23:44:00Z",
@@ -83,7 +83,7 @@
         "name": "Riley Miller",
         "email": "pm1@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/2",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Pending"
     },
@@ -93,7 +93,7 @@
       "tenantId": "4b571459-e12c-4aa1-8a0f-e0d83a8fe280",
       "displayName": "Contoso Ltd Virtual Assistant",
       "domain": "contoso.com",
-      "logoUrl": "https://contoso.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://contoso.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2026-07-15T10:25:00Z",
@@ -124,7 +124,7 @@
         "name": "Drew Martinez",
         "email": "pm2@contoso.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/3",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Pending"
     },
@@ -134,7 +134,7 @@
       "tenantId": "0e16a4b2-c348-4372-994b-c233dabd542f",
       "displayName": "Devon Johnson Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2026-07-03T13:04:00Z",
@@ -165,7 +165,7 @@
         "name": "Casey Martinez",
         "email": "pm3@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/4",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Pending"
     },
@@ -175,7 +175,7 @@
       "tenantId": "9dbb5f29-62aa-42e7-bf44-11ad2ab7b03c",
       "displayName": "Northwind Traders Virtual Assistant",
       "domain": "northwind.co.uk",
-      "logoUrl": "https://northwind.co.uk/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://northwind.co.uk/privacy",
       "verification": "Registered",
       "createdDateTime": "2026-06-27T04:53:00Z",
@@ -206,7 +206,7 @@
         "name": "Quinn Muller",
         "email": "pm4@northwind.co.uk"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/5",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Pending"
     },
@@ -216,7 +216,7 @@
       "tenantId": "9cc70549-5e3a-4c8a-b96e-79c32dfa7b80",
       "displayName": "Sam Davis Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Attested",
       "createdDateTime": "2026-06-22T21:19:00Z",
@@ -247,7 +247,7 @@
         "name": "Quinn Martinez",
         "email": "pm5@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/6",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Pending"
     },
@@ -257,7 +257,7 @@
       "tenantId": "6541d04c-b74e-452e-ba02-c4f96fd8ef49",
       "displayName": "Northwind Traders Virtual Assistant",
       "domain": "northwind.co.uk",
-      "logoUrl": "https://northwind.co.uk/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://northwind.co.uk/privacy",
       "verification": "Registered",
       "createdDateTime": "2026-06-14T20:21:00Z",
@@ -288,7 +288,7 @@
         "name": "Drew Nakamura",
         "email": "pm6@northwind.co.uk"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/7",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Pending"
     },
@@ -298,7 +298,7 @@
       "tenantId": "aa1f6b59-eb84-4093-8fd0-d215b4602d68",
       "displayName": "Morgan Rodriguez Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2026-06-06T19:58:00Z",
@@ -329,7 +329,7 @@
         "name": "Harper Williams",
         "email": "pm7@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/8",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Pending"
     },
@@ -339,7 +339,7 @@
       "tenantId": "c34016f8-a254-482c-933e-7383339e8009",
       "displayName": "Northwind Traders Virtual Assistant",
       "domain": "northwind.co.uk",
-      "logoUrl": "https://northwind.co.uk/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": "https://northwind.co.uk/privacy",
       "verification": "Attested",
       "createdDateTime": "2026-05-29T16:37:00Z",
@@ -370,7 +370,7 @@
         "name": "Riley Jones",
         "email": "pm8@northwind.co.uk"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/9",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Passed"
     },
@@ -380,7 +380,7 @@
       "tenantId": "b563cd34-9a7d-4998-8b7d-acbd97988ad6",
       "displayName": "Drew Brown Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2026-05-24T07:42:00Z",
@@ -411,7 +411,7 @@
         "name": "Jamie Williams",
         "email": "pm9@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/10",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Passed"
     },
@@ -421,7 +421,7 @@
       "tenantId": "4b6ee0a2-cee7-42b6-83ae-b850478d43e7",
       "displayName": "Humongous Insurance Virtual Assistant",
       "domain": "humongousinsurance.in",
-      "logoUrl": "https://humongousinsurance.in/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": "https://humongousinsurance.in/privacy",
       "verification": "Attested",
       "createdDateTime": "2026-05-14T03:07:00Z",
@@ -452,7 +452,7 @@
         "name": "Quinn Smith",
         "email": "pm10@humongousinsurance.in"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/11",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Passed"
     },
@@ -462,7 +462,7 @@
       "tenantId": "ec7daf13-984a-48e3-81e2-1f7f92476fa6",
       "displayName": "Taylor Davis Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Attested",
       "createdDateTime": "2026-05-06T05:01:00Z",
@@ -493,7 +493,7 @@
         "name": "Riley Muller",
         "email": "pm11@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/12",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Passed"
     },
@@ -503,7 +503,7 @@
       "tenantId": "ed40a9b4-a4b8-405f-905a-49ad006a55a4",
       "displayName": "Litware Inc Virtual Assistant",
       "domain": "litware.fr",
-      "logoUrl": "https://litware.fr/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://litware.fr/privacy",
       "verification": "None",
       "createdDateTime": "2026-05-02T03:51:00Z",
@@ -534,7 +534,7 @@
         "name": "Casey Miller",
         "email": "pm12@litware.fr"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/13",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Pending"
     },
@@ -544,7 +544,7 @@
       "tenantId": "0f675736-b3c9-4327-adc1-59b3aeb883dc",
       "displayName": "Quinn Kumar Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2026-04-22T19:21:00Z",
@@ -575,7 +575,7 @@
         "name": "Casey Davis",
         "email": "pm13@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/14",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Pending"
     },
@@ -585,7 +585,7 @@
       "tenantId": "9169f757-b1ed-4ed9-96d1-a4aeed5abde7",
       "displayName": "Proseware Inc Virtual Assistant",
       "domain": "proseware.com",
-      "logoUrl": "https://proseware.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": "https://proseware.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2026-04-15T13:52:00Z",
@@ -616,7 +616,7 @@
         "name": "Morgan Martinez",
         "email": "pm14@proseware.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/15",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Passed"
     },
@@ -626,7 +626,7 @@
       "tenantId": "b4f8e667-8fc9-4096-9d4e-51a23416a50b",
       "displayName": "Jordan Muller Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2026-04-07T08:13:00Z",
@@ -657,7 +657,7 @@
         "name": "Avery Muller",
         "email": "pm15@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/16",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Passed"
     },
@@ -667,7 +667,7 @@
       "tenantId": "950db932-4c25-4bd4-86b4-9b71bfa445db",
       "displayName": "Contoso Ltd Virtual Assistant",
       "domain": "contoso.com",
-      "logoUrl": "https://contoso.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": "https://contoso.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2026-04-02T15:43:00Z",
@@ -698,7 +698,7 @@
         "name": "Casey Miller",
         "email": "pm16@contoso.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/17",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Pending"
     },
@@ -708,7 +708,7 @@
       "tenantId": "5a68e57a-93b3-4112-92eb-6813698370d1",
       "displayName": "Avery Martinez Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": null,
       "verification": "Attested",
       "createdDateTime": "2026-03-24T10:02:00Z",
@@ -739,7 +739,7 @@
         "name": "Devon Garcia",
         "email": "pm17@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/18",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "NotStarted"
     },
@@ -749,7 +749,7 @@
       "tenantId": "17d8ed97-c147-4432-b9a8-ef19f33eb035",
       "displayName": "Tailspin Toys Virtual Assistant",
       "domain": "tailspintoys.com",
-      "logoUrl": "https://tailspintoys.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": "https://tailspintoys.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2026-03-17T03:23:00Z",
@@ -780,7 +780,7 @@
         "name": "Skyler Nakamura",
         "email": "pm18@tailspintoys.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/19",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Passed"
     },
@@ -790,7 +790,7 @@
       "tenantId": "a172c223-aee3-4144-a340-43ffdd3afde8",
       "displayName": "Jamie Johnson Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2026-03-11T02:20:00Z",
@@ -821,7 +821,7 @@
         "name": "Sam Kumar",
         "email": "pm19@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/20",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Pending"
     },
@@ -831,7 +831,7 @@
       "tenantId": "43400928-5e29-41eb-bd19-6212d30575c1",
       "displayName": "Humongous Insurance Virtual Assistant",
       "domain": "humongousinsurance.in",
-      "logoUrl": "https://humongousinsurance.in/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": "https://humongousinsurance.in/privacy",
       "verification": "Attested",
       "createdDateTime": "2026-03-01T21:59:00Z",
@@ -862,7 +862,7 @@
         "name": "Casey Brown",
         "email": "pm20@humongousinsurance.in"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/21",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Pending"
     },
@@ -872,7 +872,7 @@
       "tenantId": "ba2b5824-82a9-4a90-8880-be758b9a0aed",
       "displayName": "Avery Miller Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2026-02-23T21:14:00Z",
@@ -903,7 +903,7 @@
         "name": "Skyler Jones",
         "email": "pm21@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/22",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Pending"
     },
@@ -913,7 +913,7 @@
       "tenantId": "ed8e5486-6e76-47f4-8f5a-20bda1a5839d",
       "displayName": "Litware Inc Virtual Assistant",
       "domain": "litware.fr",
-      "logoUrl": "https://litware.fr/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": "https://litware.fr/privacy",
       "verification": "Registered",
       "createdDateTime": "2026-02-19T06:13:00Z",
@@ -944,7 +944,7 @@
         "name": "Harper Williams",
         "email": "pm22@litware.fr"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/23",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Pending"
     },
@@ -954,7 +954,7 @@
       "tenantId": "b601de1e-0718-4b33-8f13-56b0601711bf",
       "displayName": "Avery Martinez Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": null,
       "verification": "Attested",
       "createdDateTime": "2026-02-11T05:46:00Z",
@@ -985,7 +985,7 @@
         "name": "Harper Rodriguez",
         "email": "pm23@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/24",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Pending"
     },
@@ -995,7 +995,7 @@
       "tenantId": "da2b67e1-b76f-45a6-ace2-f5ed5a825dd1",
       "displayName": "Adventure Works Virtual Assistant",
       "domain": "adventure-works.com",
-      "logoUrl": "https://adventure-works.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://adventure-works.com/privacy",
       "verification": "None",
       "createdDateTime": "2026-02-04T16:18:00Z",
@@ -1026,7 +1026,7 @@
         "name": "Jamie Davis",
         "email": "pm24@adventure-works.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/25",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "Passed"
     },
@@ -1036,7 +1036,7 @@
       "tenantId": "e20f94b4-8735-4201-81ab-a84d71f6a4a6",
       "displayName": "Jamie Martinez Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2026-01-28T00:11:00Z",
@@ -1067,7 +1067,7 @@
         "name": "Skyler Garcia",
         "email": "pm25@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/26",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Passed"
     },
@@ -1077,7 +1077,7 @@
       "tenantId": "513de815-f998-4902-967a-0f282d65c140",
       "displayName": "Wingtip Toys Virtual Assistant",
       "domain": "wingtiptoys.de",
-      "logoUrl": "https://wingtiptoys.de/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": "https://wingtiptoys.de/privacy",
       "verification": "Attested",
       "createdDateTime": "2026-01-20T11:58:00Z",
@@ -1108,7 +1108,7 @@
         "name": "Jamie Miller",
         "email": "pm26@wingtiptoys.de"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/27",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Passed"
     },
@@ -1118,7 +1118,7 @@
       "tenantId": "b8c8c87e-d18e-4ef4-8ceb-7afa77440368",
       "displayName": "Alex Martinez Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2026-01-13T07:50:00Z",
@@ -1149,7 +1149,7 @@
         "name": "Jamie Miller",
         "email": "pm27@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/28",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "Passed"
     },
@@ -1159,7 +1159,7 @@
       "tenantId": "ac947399-43cf-447f-9529-507b98727b88",
       "displayName": "Graphic Design Institute Virtual Assistant",
       "domain": "gd-institute.jp",
-      "logoUrl": "https://gd-institute.jp/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": "https://gd-institute.jp/privacy",
       "verification": "Registered",
       "createdDateTime": "2026-01-06T06:25:00Z",
@@ -1190,7 +1190,7 @@
         "name": "Drew Muller",
         "email": "pm28@gd-institute.jp"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/29",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "Failed"
     },
@@ -1200,7 +1200,7 @@
       "tenantId": "4274a76b-6777-4269-89dd-2fec42f07bf2",
       "displayName": "Harper Kumar Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": null,
       "verification": "Attested",
       "createdDateTime": "2025-12-25T04:51:00Z",
@@ -1231,7 +1231,7 @@
         "name": "Jamie Nakamura",
         "email": "pm29@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/30",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Failed"
     },
@@ -1241,7 +1241,7 @@
       "tenantId": "5d71b40c-efd2-4c9a-8c92-d56c2f860fb8",
       "displayName": "Litware Inc Virtual Assistant",
       "domain": "litware.fr",
-      "logoUrl": "https://litware.fr/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://litware.fr/privacy",
       "verification": "Registered",
       "createdDateTime": "2025-12-21T20:38:00Z",
@@ -1272,7 +1272,7 @@
         "name": "Drew Nakamura",
         "email": "pm30@litware.fr"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/31",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Failed"
     },
@@ -1282,7 +1282,7 @@
       "tenantId": "66623b0d-6150-403b-a9d0-38a3ffd1ac9d",
       "displayName": "Cameron Nakamura Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2025-12-13T14:10:00Z",
@@ -1313,7 +1313,7 @@
         "name": "Reese Miller",
         "email": "pm31@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/32",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "Failed"
     },
@@ -1323,7 +1323,7 @@
       "tenantId": "45d6a794-3e4f-42a5-bcfe-f1b298028dbe",
       "displayName": "Litware Inc Virtual Assistant",
       "domain": "litware.fr",
-      "logoUrl": "https://litware.fr/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": "https://litware.fr/privacy",
       "verification": "Attested",
       "createdDateTime": "2025-12-03T14:25:00Z",
@@ -1354,7 +1354,7 @@
         "name": "Jordan Nakamura",
         "email": "pm32@litware.fr"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/33",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "NotStarted"
     },
@@ -1364,7 +1364,7 @@
       "tenantId": "d7666e98-15a4-43d6-b656-73381c1fa1d4",
       "displayName": "Alex Davis Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2025-12-01T06:22:00Z",
@@ -1395,7 +1395,7 @@
         "name": "Skyler Rodriguez",
         "email": "pm33@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/34",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "NotStarted"
     },
@@ -1405,7 +1405,7 @@
       "tenantId": "e89cdcc7-f91e-4311-b89a-8f35b7b9c058",
       "displayName": "Tailspin Toys Virtual Assistant",
       "domain": "tailspintoys.com",
-      "logoUrl": "https://tailspintoys.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://tailspintoys.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2025-11-20T14:25:00Z",
@@ -1436,7 +1436,7 @@
         "name": "Harper Nakamura",
         "email": "pm34@tailspintoys.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/35",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "NotStarted"
     },
@@ -1446,7 +1446,7 @@
       "tenantId": "09eeeed4-e5f8-4e30-9e97-61e276b07dbd",
       "displayName": "Riley Nakamura Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": null,
       "verification": "Attested",
       "createdDateTime": "2025-11-13T01:47:00Z",
@@ -1477,7 +1477,7 @@
         "name": "Casey Muller",
         "email": "pm35@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/36",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "NotStarted"
     },
@@ -1487,7 +1487,7 @@
       "tenantId": "5f3a9bb4-ec8f-42ec-866f-bc5e35d9fc5b",
       "displayName": "Northwind Traders Virtual Assistant",
       "domain": "northwind.co.uk",
-      "logoUrl": "https://northwind.co.uk/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": "https://northwind.co.uk/privacy",
       "verification": "None",
       "createdDateTime": "2025-11-04T16:30:00Z",
@@ -1518,7 +1518,7 @@
         "name": "Avery Nakamura",
         "email": "pm36@northwind.co.uk"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/37",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "Pending"
     },
@@ -1528,7 +1528,7 @@
       "tenantId": "3b5daa23-9156-49c5-950d-affa2980e6c4",
       "displayName": "Skyler Miller Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2025-10-29T13:25:00Z",
@@ -1559,7 +1559,7 @@
         "name": "Taylor Martinez",
         "email": "pm37@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/38",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Pending"
     },
@@ -1569,7 +1569,7 @@
       "tenantId": "7270a0ba-4d30-48a5-a75e-68502869f25f",
       "displayName": "Adventure Works Virtual Assistant",
       "domain": "adventure-works.com",
-      "logoUrl": "https://adventure-works.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": "https://adventure-works.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2025-10-25T12:19:00Z",
@@ -1600,7 +1600,7 @@
         "name": "Morgan Jones",
         "email": "pm38@adventure-works.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/39",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Pending"
     },
@@ -1610,7 +1610,7 @@
       "tenantId": "0dd6584b-14ad-476c-a5e1-2bc1b499b6f1",
       "displayName": "Skyler Muller Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2025-10-16T19:21:00Z",
@@ -1641,7 +1641,7 @@
         "name": "Skyler Johnson",
         "email": "pm39@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/40",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "Pending"
     },
@@ -1651,7 +1651,7 @@
       "tenantId": "5618642a-b079-4e62-b847-1ff448ff26d6",
       "displayName": "Proseware Inc Virtual Assistant",
       "domain": "proseware.com",
-      "logoUrl": "https://proseware.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://proseware.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2025-10-07T09:02:00Z",
@@ -1682,7 +1682,7 @@
         "name": "Riley Garcia",
         "email": "pm40@proseware.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/41",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "Passed"
     },
@@ -1692,7 +1692,7 @@
       "tenantId": "2bc1e1c9-1f4b-4b9f-8502-a5c81ba125ca",
       "displayName": "Drew Nakamura Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": null,
       "verification": "Attested",
       "createdDateTime": "2025-09-28T18:25:00Z",
@@ -1723,7 +1723,7 @@
         "name": "Taylor Smith",
         "email": "pm41@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/42",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Passed"
     },
@@ -1733,7 +1733,7 @@
       "tenantId": "a3ff8d25-00cc-45fd-b89f-b08eb7491509",
       "displayName": "Fabrikam Inc Virtual Assistant",
       "domain": "fabrikam.com",
-      "logoUrl": "https://fabrikam.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://fabrikam.com/privacy",
       "verification": "Attested",
       "createdDateTime": "2025-09-24T05:29:00Z",
@@ -1764,7 +1764,7 @@
         "name": "Sam Johnson",
         "email": "pm42@fabrikam.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/43",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Passed"
     },
@@ -1774,7 +1774,7 @@
       "tenantId": "eed773de-bac1-41ce-9044-172d26a9e5af",
       "displayName": "Alex Chen Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2025-09-16T22:23:00Z",
@@ -1805,7 +1805,7 @@
         "name": "Alex Garcia",
         "email": "pm43@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/44",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "Passed"
     },
@@ -1815,7 +1815,7 @@
       "tenantId": "13e310b5-76ee-4a21-9bfd-d3207050ca4e",
       "displayName": "Wingtip Toys Virtual Assistant",
       "domain": "wingtiptoys.de",
-      "logoUrl": "https://wingtiptoys.de/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://wingtiptoys.de/privacy",
       "verification": "Attested",
       "createdDateTime": "2025-09-09T23:03:00Z",
@@ -1846,7 +1846,7 @@
         "name": "Skyler Williams",
         "email": "pm44@wingtiptoys.de"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/45",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "Failed"
     },
@@ -1856,7 +1856,7 @@
       "tenantId": "c0817a40-ef2f-4696-a8e2-8f5254578e6d",
       "displayName": "Skyler Nakamura Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2025-08-30T18:52:00Z",
@@ -1887,7 +1887,7 @@
         "name": "Morgan Davis",
         "email": "pm45@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/46",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Failed"
     },
@@ -1897,7 +1897,7 @@
       "tenantId": "bc05b21a-fa54-46b6-b0ad-ef809db775e9",
       "displayName": "Tailspin Toys Virtual Assistant",
       "domain": "tailspintoys.com",
-      "logoUrl": "https://tailspintoys.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": "https://tailspintoys.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2025-08-28T17:06:00Z",
@@ -1928,7 +1928,7 @@
         "name": "Taylor Garcia",
         "email": "pm46@tailspintoys.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/47",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Failed"
     },
@@ -1938,7 +1938,7 @@
       "tenantId": "e52d8066-ba50-4202-9246-3e8cde84bb74",
       "displayName": "Jordan Rodriguez Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Attested",
       "createdDateTime": "2025-08-17T09:21:00Z",
@@ -1969,7 +1969,7 @@
         "name": "Jordan Muller",
         "email": "pm47@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/48",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "Failed"
     },
@@ -1979,7 +1979,7 @@
       "tenantId": "014e9186-c6c5-43c5-85eb-9be49c08bbe3",
       "displayName": "Northwind Traders Virtual Assistant",
       "domain": "northwind.co.uk",
-      "logoUrl": "https://northwind.co.uk/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": "https://northwind.co.uk/privacy",
       "verification": "None",
       "createdDateTime": "2025-08-12T09:24:00Z",
@@ -2010,7 +2010,7 @@
         "name": "Reese Williams",
         "email": "pm48@northwind.co.uk"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/49",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "NotStarted"
     },
@@ -2020,7 +2020,7 @@
       "tenantId": "43fe7355-24c7-48fa-ab27-25b696fea46b",
       "displayName": "Drew Garcia Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2025-08-05T00:05:00Z",
@@ -2051,7 +2051,7 @@
         "name": "Riley Chen",
         "email": "pm49@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/50",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "NotStarted"
     },
@@ -2061,7 +2061,7 @@
       "tenantId": "01a79e95-516e-4fc2-862a-5e6c77a7ac9b",
       "displayName": "Tailspin Toys Virtual Assistant",
       "domain": "tailspintoys.com",
-      "logoUrl": "https://tailspintoys.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://tailspintoys.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2025-07-24T22:04:00Z",
@@ -2092,7 +2092,7 @@
         "name": "Alex Kumar",
         "email": "pm50@tailspintoys.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/51",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "NotStarted"
     },
@@ -2102,7 +2102,7 @@
       "tenantId": "cee878c6-fd34-4ba2-9434-e10c9f5252b7",
       "displayName": "Quinn Davis Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2025-07-20T15:22:00Z",
@@ -2133,7 +2133,7 @@
         "name": "Casey Garcia",
         "email": "pm51@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/52",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "NotStarted"
     },
@@ -2143,7 +2143,7 @@
       "tenantId": "980eab1e-419a-41c5-bd63-0947d34b0c62",
       "displayName": "Tailspin Toys Virtual Assistant",
       "domain": "tailspintoys.com",
-      "logoUrl": "https://tailspintoys.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://tailspintoys.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2025-07-14T07:39:00Z",
@@ -2174,7 +2174,7 @@
         "name": "Alex Rodriguez",
         "email": "pm52@tailspintoys.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/53",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "Pending"
     },
@@ -2184,7 +2184,7 @@
       "tenantId": "0c442ba0-2ef4-4b58-8ac1-d6e12b70d385",
       "displayName": "Taylor Chen Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Attested",
       "createdDateTime": "2025-07-07T18:50:00Z",
@@ -2215,7 +2215,7 @@
         "name": "Casey Smith",
         "email": "pm53@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/54",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Pending"
     },
@@ -2225,7 +2225,7 @@
       "tenantId": "36d0c7f2-3688-451c-ba65-610d88baf7f6",
       "displayName": "Fourth Coffee Virtual Assistant",
       "domain": "fourthcoffee.com",
-      "logoUrl": "https://fourthcoffee.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": "https://fourthcoffee.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2025-06-26T02:31:00Z",
@@ -2256,7 +2256,7 @@
         "name": "Skyler Johnson",
         "email": "pm54@fourthcoffee.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/55",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Pending"
     },
@@ -2266,7 +2266,7 @@
       "tenantId": "49649755-c93a-4522-ac82-7376694fe824",
       "displayName": "Quinn Kumar Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2025-06-22T21:10:00Z",
@@ -2297,7 +2297,7 @@
         "name": "Harper Davis",
         "email": "pm55@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/56",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "Pending"
     },
@@ -2307,7 +2307,7 @@
       "tenantId": "acee5068-9469-4b73-bfd6-5ae53114d4b8",
       "displayName": "Proseware Inc Virtual Assistant",
       "domain": "proseware.com",
-      "logoUrl": "https://proseware.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://proseware.com/privacy",
       "verification": "Attested",
       "createdDateTime": "2025-06-15T21:08:00Z",
@@ -2338,7 +2338,7 @@
         "name": "Reese Williams",
         "email": "pm56@proseware.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/57",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "Passed"
     },
@@ -2348,7 +2348,7 @@
       "tenantId": "03337634-171d-4cf5-ba45-2999ba0a12fe",
       "displayName": "Jamie Rodriguez Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2025-06-06T12:32:00Z",
@@ -2379,7 +2379,7 @@
         "name": "Jordan Davis",
         "email": "pm57@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/58",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Passed"
     },
@@ -2389,7 +2389,7 @@
       "tenantId": "fd356890-3804-4554-a1c6-4c2ad4130e0b",
       "displayName": "Graphic Design Institute Virtual Assistant",
       "domain": "gd-institute.jp",
-      "logoUrl": "https://gd-institute.jp/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://gd-institute.jp/privacy",
       "verification": "Attested",
       "createdDateTime": "2025-05-31T23:31:00Z",
@@ -2420,7 +2420,7 @@
         "name": "Skyler Kumar",
         "email": "pm58@gd-institute.jp"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/59",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Passed"
     },
@@ -2430,7 +2430,7 @@
       "tenantId": "1e545cc7-0a40-4284-abf1-69f584c42ca9",
       "displayName": "Jordan Brown Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": null,
       "verification": "Attested",
       "createdDateTime": "2025-05-24T04:33:00Z",
@@ -2461,7 +2461,7 @@
         "name": "Quinn Kumar",
         "email": "pm59@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/60",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "Passed"
     },
@@ -2471,7 +2471,7 @@
       "tenantId": "cac5dd6c-11a2-48f1-b027-d66965b3558d",
       "displayName": "Tailspin Toys Virtual Assistant",
       "domain": "tailspintoys.com",
-      "logoUrl": "https://tailspintoys.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://tailspintoys.com/privacy",
       "verification": "None",
       "createdDateTime": "2025-05-16T22:30:00Z",
@@ -2502,7 +2502,7 @@
         "name": "Reese Chen",
         "email": "pm60@tailspintoys.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/61",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "Failed"
     },
@@ -2512,7 +2512,7 @@
       "tenantId": "0a26dac8-acb9-4303-b725-6fc26cf6a613",
       "displayName": "Harper Kumar Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2025-05-05T09:06:00Z",
@@ -2543,7 +2543,7 @@
         "name": "Reese Jones",
         "email": "pm61@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/62",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Failed"
     },
@@ -2553,7 +2553,7 @@
       "tenantId": "b6b9b323-ec24-4331-b703-0a6a67422159",
       "displayName": "Contoso Ltd Virtual Assistant",
       "domain": "contoso.com",
-      "logoUrl": "https://contoso.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": "https://contoso.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2025-05-03T19:04:00Z",
@@ -2584,7 +2584,7 @@
         "name": "Reese Kumar",
         "email": "pm62@contoso.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/63",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Failed"
     },
@@ -2594,7 +2594,7 @@
       "tenantId": "c3d338e9-299e-45ef-9115-e2f2af6c807a",
       "displayName": "Quinn Brown Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2025-04-25T14:47:00Z",
@@ -2625,7 +2625,7 @@
         "name": "Avery Nakamura",
         "email": "pm63@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/64",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "Failed"
     },
@@ -2635,7 +2635,7 @@
       "tenantId": "4c241cca-5404-4c9f-9a41-885e71df9b65",
       "displayName": "Tailspin Toys Virtual Assistant",
       "domain": "tailspintoys.com",
-      "logoUrl": "https://tailspintoys.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": "https://tailspintoys.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2025-04-14T22:58:00Z",
@@ -2666,7 +2666,7 @@
         "name": "Sam Miller",
         "email": "pm64@tailspintoys.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/65",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "NotStarted"
     },
@@ -2676,7 +2676,7 @@
       "tenantId": "e27f5b22-8e97-43ee-a3a5-15cf171d8293",
       "displayName": "Avery Brown Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Attested",
       "createdDateTime": "2025-04-10T07:32:00Z",
@@ -2707,7 +2707,7 @@
         "name": "Avery Muller",
         "email": "pm65@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/66",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "NotStarted"
     },
@@ -2717,7 +2717,7 @@
       "tenantId": "2368e86b-bfdd-4d26-8490-37658e8d0467",
       "displayName": "Adventure Works Virtual Assistant",
       "domain": "adventure-works.com",
-      "logoUrl": "https://adventure-works.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": "https://adventure-works.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2025-04-03T18:32:00Z",
@@ -2748,7 +2748,7 @@
         "name": "Devon Nakamura",
         "email": "pm66@adventure-works.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/67",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "NotStarted"
     },
@@ -2758,7 +2758,7 @@
       "tenantId": "79edf96d-0e94-4c2d-a914-05bdd0e70d9c",
       "displayName": "Sam Rodriguez Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2025-03-26T01:49:00Z",
@@ -2789,7 +2789,7 @@
         "name": "Morgan Garcia",
         "email": "pm67@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/68",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "NotStarted"
     },
@@ -2799,7 +2799,7 @@
       "tenantId": "37be7644-b02c-4e2f-a584-c8138bd6210e",
       "displayName": "Wingtip Toys Virtual Assistant",
       "domain": "wingtiptoys.de",
-      "logoUrl": "https://wingtiptoys.de/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://wingtiptoys.de/privacy",
       "verification": "Attested",
       "createdDateTime": "2025-03-20T12:40:00Z",
@@ -2830,7 +2830,7 @@
         "name": "Taylor Williams",
         "email": "pm68@wingtiptoys.de"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/69",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "Pending"
     },
@@ -2840,7 +2840,7 @@
       "tenantId": "1396a15a-706c-40a2-bec6-d3ab3e900024",
       "displayName": "Morgan Davis Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2025-03-11T05:26:00Z",
@@ -2871,7 +2871,7 @@
         "name": "Drew Williams",
         "email": "pm69@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/70",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Pending"
     },
@@ -2881,7 +2881,7 @@
       "tenantId": "dfa4dbdb-963e-46ac-8234-1c49edadea27",
       "displayName": "Northwind Traders Virtual Assistant",
       "domain": "northwind.co.uk",
-      "logoUrl": "https://northwind.co.uk/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": "https://northwind.co.uk/privacy",
       "verification": "Registered",
       "createdDateTime": "2025-03-06T02:18:00Z",
@@ -2912,7 +2912,7 @@
         "name": "Avery Nakamura",
         "email": "pm70@northwind.co.uk"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/71",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Pending"
     },
@@ -2922,7 +2922,7 @@
       "tenantId": "07094a9e-6590-4d2a-9d1a-6237d254f377",
       "displayName": "Jordan Smith Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": null,
       "verification": "Attested",
       "createdDateTime": "2025-02-24T17:10:00Z",
@@ -2953,7 +2953,7 @@
         "name": "Quinn Kumar",
         "email": "pm71@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/72",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "Pending"
     },
@@ -2963,7 +2963,7 @@
       "tenantId": "d8a267a8-0db5-4625-b413-76e048b7483d",
       "displayName": "Adventure Works Virtual Assistant",
       "domain": "adventure-works.com",
-      "logoUrl": "https://adventure-works.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://adventure-works.com/privacy",
       "verification": "None",
       "createdDateTime": "2025-02-18T21:31:00Z",
@@ -2994,7 +2994,7 @@
         "name": "Alex Johnson",
         "email": "pm72@adventure-works.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/73",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "Passed"
     },
@@ -3004,7 +3004,7 @@
       "tenantId": "3fea0582-2a20-488a-8d93-367a9259f94d",
       "displayName": "Jamie Miller Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2025-02-12T06:03:00Z",
@@ -3035,7 +3035,7 @@
         "name": "Alex Williams",
         "email": "pm73@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/74",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Passed"
     },
@@ -3045,7 +3045,7 @@
       "tenantId": "3951009d-fd6a-4d79-933e-c19cd9a35a27",
       "displayName": "Fourth Coffee Virtual Assistant",
       "domain": "fourthcoffee.com",
-      "logoUrl": "https://fourthcoffee.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": "https://fourthcoffee.com/privacy",
       "verification": "Attested",
       "createdDateTime": "2025-01-31T14:48:00Z",
@@ -3076,7 +3076,7 @@
         "name": "Harper Miller",
         "email": "pm74@fourthcoffee.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/75",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Passed"
     },
@@ -3086,7 +3086,7 @@
       "tenantId": "c7f127e7-c226-4649-9de9-0f2f39618d4a",
       "displayName": "Sam Johnson Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2025-01-24T07:50:00Z",
@@ -3117,7 +3117,7 @@
         "name": "Sam Muller",
         "email": "pm75@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/76",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "Passed"
     },
@@ -3127,7 +3127,7 @@
       "tenantId": "b6b74f26-dd51-4179-9f9d-e60ac460924d",
       "displayName": "Northwind Traders Virtual Assistant",
       "domain": "northwind.co.uk",
-      "logoUrl": "https://northwind.co.uk/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://northwind.co.uk/privacy",
       "verification": "Registered",
       "createdDateTime": "2025-01-16T15:37:00Z",
@@ -3158,7 +3158,7 @@
         "name": "Reese Chen",
         "email": "pm76@northwind.co.uk"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/77",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "Failed"
     },
@@ -3168,7 +3168,7 @@
       "tenantId": "52271138-d9e1-4dbd-b12d-0607c70aeb1f",
       "displayName": "Jamie Martinez Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Attested",
       "createdDateTime": "2025-01-09T02:50:00Z",
@@ -3199,7 +3199,7 @@
         "name": "Devon Muller",
         "email": "pm77@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/78",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Failed"
     },
@@ -3209,7 +3209,7 @@
       "tenantId": "1d68a27b-6278-4660-a91d-2314160460a6",
       "displayName": "Proseware Inc Virtual Assistant",
       "domain": "proseware.com",
-      "logoUrl": "https://proseware.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": "https://proseware.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2025-01-01T17:50:00Z",
@@ -3240,7 +3240,7 @@
         "name": "Casey Brown",
         "email": "pm78@proseware.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/79",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Failed"
     },
@@ -3250,7 +3250,7 @@
       "tenantId": "d526def2-58f3-4fe5-8315-722f03268644",
       "displayName": "Jordan Muller Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2024-12-30T12:56:00Z",
@@ -3281,7 +3281,7 @@
         "name": "Jamie Smith",
         "email": "pm79@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/80",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "Failed"
     },
@@ -3291,7 +3291,7 @@
       "tenantId": "bcb4d8f0-043c-49ce-aa3f-0a73981c8e7d",
       "displayName": "Adventure Works Virtual Assistant",
       "domain": "adventure-works.com",
-      "logoUrl": "https://adventure-works.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://adventure-works.com/privacy",
       "verification": "Attested",
       "createdDateTime": "2024-12-22T01:14:00Z",
@@ -3322,7 +3322,7 @@
         "name": "Avery Brown",
         "email": "pm80@adventure-works.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/81",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "NotStarted"
     },
@@ -3332,7 +3332,7 @@
       "tenantId": "58439e67-7501-40f6-9dab-ee4ab9b886e3",
       "displayName": "Reese Muller Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2024-12-11T19:42:00Z",
@@ -3363,7 +3363,7 @@
         "name": "Harper Brown",
         "email": "pm81@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/82",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "NotStarted"
     },
@@ -3373,7 +3373,7 @@
       "tenantId": "c23e565f-af8e-4671-aac5-4ac22bb5fb53",
       "displayName": "Adventure Works Virtual Assistant",
       "domain": "adventure-works.com",
-      "logoUrl": "https://adventure-works.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://adventure-works.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2024-12-04T18:07:00Z",
@@ -3404,7 +3404,7 @@
         "name": "Harper Martinez",
         "email": "pm82@adventure-works.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/83",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "NotStarted"
     },
@@ -3414,7 +3414,7 @@
       "tenantId": "9765dcf5-b440-4b8b-b404-d0cfc81a0a8e",
       "displayName": "Quinn Williams Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Attested",
       "createdDateTime": "2024-11-30T21:10:00Z",
@@ -3445,7 +3445,7 @@
         "name": "Quinn Smith",
         "email": "pm83@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/84",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "NotStarted"
     },
@@ -3455,7 +3455,7 @@
       "tenantId": "d09fb5d6-d96a-4c69-9236-3b2bf0948c60",
       "displayName": "Adventure Works Virtual Assistant",
       "domain": "adventure-works.com",
-      "logoUrl": "https://adventure-works.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://adventure-works.com/privacy",
       "verification": "None",
       "createdDateTime": "2024-11-21T07:55:00Z",
@@ -3486,7 +3486,7 @@
         "name": "Alex Nakamura",
         "email": "pm84@adventure-works.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/85",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "Pending"
     },
@@ -3496,7 +3496,7 @@
       "tenantId": "ee80314b-b544-4290-b650-64eb2dc11a9d",
       "displayName": "Morgan Johnson Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2024-11-11T14:51:00Z",
@@ -3527,7 +3527,7 @@
         "name": "Casey Chen",
         "email": "pm85@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/86",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Pending"
     },
@@ -3537,7 +3537,7 @@
       "tenantId": "bcd098d5-3be5-4f38-aaac-aa7b8c17e09e",
       "displayName": "Lucerne Publishing Virtual Assistant",
       "domain": "lucernepublishing.ch",
-      "logoUrl": "https://lucernepublishing.ch/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://lucernepublishing.ch/privacy",
       "verification": "Registered",
       "createdDateTime": "2024-11-06T01:50:00Z",
@@ -3568,7 +3568,7 @@
         "name": "Harper Smith",
         "email": "pm86@lucernepublishing.ch"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/87",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Pending"
     },
@@ -3578,7 +3578,7 @@
       "tenantId": "a026a227-32fc-41e1-9f9a-0bb9f268bee1",
       "displayName": "Cameron Davis Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2024-10-28T20:21:00Z",
@@ -3609,7 +3609,7 @@
         "name": "Drew Smith",
         "email": "pm87@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/88",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "Pending"
     },
@@ -3619,7 +3619,7 @@
       "tenantId": "bba1f922-9e2a-4530-adfc-34e4b4879322",
       "displayName": "Fabrikam Inc Virtual Assistant",
       "domain": "fabrikam.com",
-      "logoUrl": "https://fabrikam.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": "https://fabrikam.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2024-10-20T22:13:00Z",
@@ -3650,7 +3650,7 @@
         "name": "Drew Muller",
         "email": "pm88@fabrikam.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/89",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "Passed"
     },
@@ -3660,7 +3660,7 @@
       "tenantId": "b581abbe-7a6e-4861-a498-04c144fc09f2",
       "displayName": "Alex Nakamura Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Attested",
       "createdDateTime": "2024-10-14T18:57:00Z",
@@ -3691,7 +3691,7 @@
         "name": "Harper Martinez",
         "email": "pm89@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/90",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Passed"
     },
@@ -3701,7 +3701,7 @@
       "tenantId": "497b0943-d906-4975-9606-e90e560d2169",
       "displayName": "Fourth Coffee Virtual Assistant",
       "domain": "fourthcoffee.com",
-      "logoUrl": "https://fourthcoffee.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": "https://fourthcoffee.com/privacy",
       "verification": "Attested",
       "createdDateTime": "2024-10-07T13:59:00Z",
@@ -3732,7 +3732,7 @@
         "name": "Skyler Rodriguez",
         "email": "pm90@fourthcoffee.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/91",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Passed"
     },
@@ -3742,7 +3742,7 @@
       "tenantId": "2661a605-d532-4c41-b11a-fa3ec379431e",
       "displayName": "Morgan Rodriguez Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2024-09-28T17:27:00Z",
@@ -3773,7 +3773,7 @@
         "name": "Taylor Williams",
         "email": "pm91@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/92",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "Passed"
     },
@@ -3783,7 +3783,7 @@
       "tenantId": "bb3cc93e-c5b7-43e0-89f2-96658bb246d3",
       "displayName": "Fourth Coffee Virtual Assistant",
       "domain": "fourthcoffee.com",
-      "logoUrl": "https://fourthcoffee.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": "https://fourthcoffee.com/privacy",
       "verification": "Attested",
       "createdDateTime": "2024-09-24T16:57:00Z",
@@ -3814,7 +3814,7 @@
         "name": "Riley Smith",
         "email": "pm92@fourthcoffee.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/93",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "Failed"
     },
@@ -3824,7 +3824,7 @@
       "tenantId": "c293bcca-fa4e-4064-b750-3a5f19c26ab6",
       "displayName": "Sam Chen Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2024-09-17T00:24:00Z",
@@ -3855,7 +3855,7 @@
         "name": "Jamie Davis",
         "email": "pm93@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/94",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "Failed"
     },
@@ -3865,7 +3865,7 @@
       "tenantId": "5fa4c7ff-f56b-4f56-8907-ea9be63c5e5b",
       "displayName": "Wingtip Toys Virtual Assistant",
       "domain": "wingtiptoys.de",
-      "logoUrl": "https://wingtiptoys.de/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/developer-blog.png",
       "privacyStatementUrl": "https://wingtiptoys.de/privacy",
       "verification": "Registered",
       "createdDateTime": "2024-09-10T11:40:00Z",
@@ -3896,7 +3896,7 @@
         "name": "Sam Williams",
         "email": "pm94@wingtiptoys.de"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/95",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "Failed"
     },
@@ -3906,7 +3906,7 @@
       "tenantId": "8f67face-6034-4af8-8e47-330d223a7340",
       "displayName": "Riley Chen Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": null,
       "verification": "Attested",
       "createdDateTime": "2024-08-31T12:08:00Z",
@@ -3937,7 +3937,7 @@
         "name": "Jamie Garcia",
         "email": "pm95@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/96",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "Failed"
     },
@@ -3947,7 +3947,7 @@
       "tenantId": "9cd90666-ee66-417f-b4b9-f79f94479e79",
       "displayName": "Adventure Works Virtual Assistant",
       "domain": "adventure-works.com",
-      "logoUrl": "https://adventure-works.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": "https://adventure-works.com/privacy",
       "verification": "None",
       "createdDateTime": "2024-08-23T21:37:00Z",
@@ -3978,7 +3978,7 @@
         "name": "Alex Nakamura",
         "email": "pm96@adventure-works.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/97",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
       "legalStatus": "NotStarted"
     },
@@ -3988,7 +3988,7 @@
       "tenantId": "afab4d3b-63b3-4de2-9796-af6908956d31",
       "displayName": "Drew Smith Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-ui-kit.png",
       "privacyStatementUrl": null,
       "verification": "Registered",
       "createdDateTime": "2024-08-15T19:57:00Z",
@@ -4019,7 +4019,7 @@
         "name": "Devon Muller",
         "email": "pm97@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/98",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
       "legalStatus": "NotStarted"
     },
@@ -4029,7 +4029,7 @@
       "tenantId": "e325174f-8054-4eb0-844b-1d7cc2afccf7",
       "displayName": "Tailspin Toys Virtual Assistant",
       "domain": "tailspintoys.com",
-      "logoUrl": "https://tailspintoys.com/logo.png",
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": "https://tailspintoys.com/privacy",
       "verification": "Registered",
       "createdDateTime": "2024-08-08T01:20:00Z",
@@ -4060,7 +4060,7 @@
         "name": "Skyler Martinez",
         "email": "pm98@tailspintoys.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/99",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
       "legalStatus": "NotStarted"
     },
@@ -4070,7 +4070,7 @@
       "tenantId": "bc1883d9-b99f-415a-b32f-590e95764560",
       "displayName": "Avery Rodriguez Virtual Assistant",
       "domain": null,
-      "logoUrl": null,
+      "logoUrl": "https://dev.teams.microsoft.com/images/tool-icons/m365-dev-doc.png",
       "privacyStatementUrl": null,
       "verification": "None",
       "createdDateTime": "2024-08-03T10:55:00Z",
@@ -4101,7 +4101,7 @@
         "name": "Jamie Kumar",
         "email": "pm99@example.com"
       },
-      "onboardingDocUrl": "https://docs.example.com/onboarding/100",
+      "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "legalStatus": "NotStarted"
     }
