@@ -43,8 +43,8 @@
         "email": "pm0@litware.fr"
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/1",
-      "validationStatus": "NotStarted",
-      "legalStatus": "NotStarted"
+      "validationStatus": "Passed",
+      "legalStatus": "Pending"
     },
     {
       "id": "f761e9f0-57e4-4eec-9349-d5a5a2f675c4",
@@ -84,8 +84,8 @@
         "email": "pm1@example.com"
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/2",
-      "validationStatus": "Pending",
-      "legalStatus": "NotStarted"
+      "validationStatus": "Passed",
+      "legalStatus": "Pending"
     },
     {
       "id": "aced7c95-838f-4a09-b31c-75150a163ab9",
@@ -126,7 +126,7 @@
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/3",
       "validationStatus": "Passed",
-      "legalStatus": "NotStarted"
+      "legalStatus": "Pending"
     },
     {
       "id": "575077cf-3a94-403c-b366-cd94a0d81ae7",
@@ -166,8 +166,8 @@
         "email": "pm3@example.com"
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/4",
-      "validationStatus": "Failed",
-      "legalStatus": "NotStarted"
+      "validationStatus": "Pending",
+      "legalStatus": "Pending"
     },
     {
       "id": "997f199f-1a81-44a3-b272-b03b729c3a83",
@@ -207,7 +207,7 @@
         "email": "pm4@northwind.co.uk"
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/5",
-      "validationStatus": "NotStarted",
+      "validationStatus": "Passed",
       "legalStatus": "Pending"
     },
     {
@@ -330,7 +330,7 @@
         "email": "pm7@example.com"
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/8",
-      "validationStatus": "Failed",
+      "validationStatus": "Pending",
       "legalStatus": "Pending"
     },
     {
@@ -371,7 +371,7 @@
         "email": "pm8@northwind.co.uk"
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/9",
-      "validationStatus": "NotStarted",
+      "validationStatus": "Passed",
       "legalStatus": "Passed"
     },
     {
@@ -494,7 +494,7 @@
         "email": "pm11@example.com"
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/12",
-      "validationStatus": "Failed",
+      "validationStatus": "Passed",
       "legalStatus": "Passed"
     },
     {
@@ -535,8 +535,8 @@
         "email": "pm12@litware.fr"
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/13",
-      "validationStatus": "NotStarted",
-      "legalStatus": "Failed"
+      "validationStatus": "Passed",
+      "legalStatus": "Pending"
     },
     {
       "id": "27378c06-dd2c-456f-ae89-58fbce43867f",
@@ -577,7 +577,7 @@
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/14",
       "validationStatus": "Pending",
-      "legalStatus": "Failed"
+      "legalStatus": "Pending"
     },
     {
       "id": "fb64d18a-8359-4f56-813e-6359392ec588",
@@ -618,7 +618,7 @@
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/15",
       "validationStatus": "Passed",
-      "legalStatus": "Failed"
+      "legalStatus": "Passed"
     },
     {
       "id": "dfe64308-6332-46d5-8329-a3b9b369c54f",
@@ -658,8 +658,8 @@
         "email": "pm15@example.com"
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/16",
-      "validationStatus": "Failed",
-      "legalStatus": "Failed"
+      "validationStatus": "Passed",
+      "legalStatus": "Passed"
     },
     {
       "id": "14ddc460-d1f3-415e-9cc2-9044c8a1e73a",
@@ -699,8 +699,8 @@
         "email": "pm16@contoso.com"
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/17",
-      "validationStatus": "NotStarted",
-      "legalStatus": "NotStarted"
+      "validationStatus": "Pending",
+      "legalStatus": "Pending"
     },
     {
       "id": "4d081421-e0ca-46db-abe5-d2d7f753821f",
@@ -782,7 +782,7 @@
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/19",
       "validationStatus": "Passed",
-      "legalStatus": "NotStarted"
+      "legalStatus": "Passed"
     },
     {
       "id": "48b478e5-de31-4209-89d6-d1d2e4860a70",
@@ -822,8 +822,8 @@
         "email": "pm19@example.com"
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/20",
-      "validationStatus": "Failed",
-      "legalStatus": "NotStarted"
+      "validationStatus": "Pending",
+      "legalStatus": "Pending"
     },
     {
       "id": "9fbe03d7-bbb7-4c36-a1b4-5a5b1ee25d5e",
@@ -863,7 +863,7 @@
         "email": "pm20@humongousinsurance.in"
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/21",
-      "validationStatus": "NotStarted",
+      "validationStatus": "Passed",
       "legalStatus": "Pending"
     },
     {
@@ -986,7 +986,7 @@
         "email": "pm23@example.com"
       },
       "onboardingDocUrl": "https://docs.example.com/onboarding/24",
-      "validationStatus": "Failed",
+      "validationStatus": "Pending",
       "legalStatus": "Pending"
     },
     {

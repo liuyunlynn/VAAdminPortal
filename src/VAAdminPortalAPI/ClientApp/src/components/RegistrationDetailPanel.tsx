@@ -142,9 +142,9 @@ export default function RegistrationDetailPanel({
 
             <div className={styles.section}>
               <Subtitle2 className={styles.sectionTitle}>Overview</Subtitle2>
-              <Row label="Registration ID" value={registration.id} />
+              {/* <Row label="Registration ID" value={registration.id} />
               <Row label="App ID" value={registration.appId} />
-              <Row label="Tenant ID" value={registration.tenantId} />
+              <Row label="Tenant ID" value={registration.tenantId} /> */}
               <Row label="Domain" value={registration.domain} />
               <Row label="Created" value={formatDate(registration.createdDateTime)} />
               {registration.onboardingDocUrl && (

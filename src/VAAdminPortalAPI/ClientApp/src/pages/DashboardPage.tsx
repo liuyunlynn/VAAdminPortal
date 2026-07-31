@@ -401,7 +401,7 @@ export default function DashboardPage() {
         </div>
 
         <div className={styles.kpiRow}>
-          <Card className={styles.kpiCard}>
+          <Card className={mergeClasses(styles.kpiCard, styles.primaryKpiCard)}>
             <Caption1>Total registrations</Caption1>
             <span className={styles.kpiValue}>{overview?.totalRegistrationsCount ?? 0}</span>
             <Caption1 className={styles.kpiHint}>All submitted assistants</Caption1>
@@ -413,7 +413,7 @@ export default function DashboardPage() {
             </span>
             <Caption1 className={styles.kpiHint}>Validation and legal passed</Caption1>
           </Card>
-          <Card className={styles.kpiCard}>
+          <Card className={mergeClasses(styles.kpiCard, styles.primaryKpiCard)}>
             <Caption1>Validation review</Caption1>
             <div className={styles.statusMetrics}>
               <div className={styles.statusMetric}>
@@ -430,7 +430,7 @@ export default function DashboardPage() {
               </div>
             </div>
           </Card>
-          <Card className={styles.kpiCard}>
+          <Card className={mergeClasses(styles.kpiCard, styles.primaryKpiCard)}>
             <Caption1>Legal review</Caption1>
             <div className={styles.statusMetrics}>
               <div className={styles.statusMetric}>
@@ -447,7 +447,7 @@ export default function DashboardPage() {
               </div>
             </div>
           </Card>
-          <Card className={styles.kpiCard}>
+          <Card className={mergeClasses(styles.kpiCard, styles.primaryKpiCard)}>
             <Caption1>Attested assistants</Caption1>
             <span className={styles.kpiValue} style={{ color: '#5b5fc7' }}>
               {overview?.attestedAssistantsCount ?? 0}
@@ -465,28 +465,28 @@ export default function DashboardPage() {
           </div>
           <Toolbar className={styles.filterToolbar}>
             <div className={styles.filters}>
+              <Field label="Review result">
+                <Dropdown
+                  style={{
+                    width: REVIEW_RESULT_DROPDOWN_WIDTH,
+                    minWidth: REVIEW_RESULT_DROPDOWN_WIDTH,
+                  }}
+                  value={reviewResult}
+                  selectedOptions={[reviewResult]}
+                  onOptionSelect={(_, d) =>
+                    setReviewResult(
+                      (d.optionValue as (typeof REVIEW_RESULT_OPTIONS)[number]) ?? 'All',
+                    )
+                  }
+                >
+                  {REVIEW_RESULT_OPTIONS.map((option) => (
+                    <Option key={option} value={option}>
+                      {option}
+                    </Option>
+                  ))}
+                </Dropdown>
+              </Field>
               <Field label="Validation status">
-                <Field label="Review result">
-                  <Dropdown
-                    style={{
-                      width: REVIEW_RESULT_DROPDOWN_WIDTH,
-                      minWidth: REVIEW_RESULT_DROPDOWN_WIDTH,
-                    }}
-                    value={reviewResult}
-                    selectedOptions={[reviewResult]}
-                    onOptionSelect={(_, d) =>
-                      setReviewResult(
-                        (d.optionValue as (typeof REVIEW_RESULT_OPTIONS)[number]) ?? 'All',
-                      )
-                    }
-                  >
-                    {REVIEW_RESULT_OPTIONS.map((option) => (
-                      <Option key={option} value={option}>
-                        {option}
-                      </Option>
-                    ))}
-                  </Dropdown>
-                </Field>
                 <Dropdown
                   style={{
                     width: VALIDATION_DROPDOWN_WIDTH,
