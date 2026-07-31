@@ -252,7 +252,9 @@ export default function RegistrationDetailPanel({
             <div className={styles.drawerTitle}>
               <Avatar
                 name={registration.displayName}
-                image={registration.logoUrl ? { src: registration.logoUrl } : undefined}
+                image={
+                  registration.logoUrl?.trim() ? { src: registration.logoUrl.trim() } : undefined
+                }
                 size={40}
               />
               <span className={styles.drawerTitleText}>{registration.displayName}</span>

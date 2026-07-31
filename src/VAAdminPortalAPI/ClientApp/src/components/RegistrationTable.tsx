@@ -124,7 +124,7 @@ export default function RegistrationTable({
                       <Avatar
                         className={styles.logo}
                         name={item.displayName}
-                        image={item.logoUrl ? { src: item.logoUrl } : undefined}
+                        image={item.logoUrl?.trim() ? { src: item.logoUrl.trim() } : undefined}
                         size={36}
                       />
                       <div>
