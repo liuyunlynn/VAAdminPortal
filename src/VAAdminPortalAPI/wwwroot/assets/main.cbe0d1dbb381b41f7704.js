@@ -148977,10 +148977,10 @@ const teamsLightTheme = (0,_fluentui_react_components__WEBPACK_IMPORTED_MODULE_5
 teamsLightTheme.fontFamilyBase = "'Segoe UI', 'Segoe UI Variable', sans-serif";
 teamsLightTheme.colorNeutralBackground2 = '#f5f5f5';
 teamsLightTheme.colorNeutralBackground3 = '#ebebeb';
-react_dom_client__WEBPACK_IMPORTED_MODULE_2__.createRoot(document.getElementById('root')).render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((react__WEBPACK_IMPORTED_MODULE_1___default().StrictMode), { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_3__.Provider, { store: _app_store__WEBPACK_IMPORTED_MODULE_7__.store, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_fluentui_react_components__WEBPACK_IMPORTED_MODULE_6__.FluentProvider, { theme: teamsLightTheme, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_App__WEBPACK_IMPORTED_MODULE_8__["default"], {}) }) }) }) }));
+react_dom_client__WEBPACK_IMPORTED_MODULE_2__.createRoot(document.getElementById('root')).render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((react__WEBPACK_IMPORTED_MODULE_1___default().StrictMode), { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_3__.Provider, { store: _app_store__WEBPACK_IMPORTED_MODULE_7__.store, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_fluentui_react_components__WEBPACK_IMPORTED_MODULE_6__.FluentProvider, { theme: teamsLightTheme, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, { future: { v7_startTransition: true, v7_relativeSplatPath: true }, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_App__WEBPACK_IMPORTED_MODULE_8__["default"], {}) }) }) }) }));
 
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=main.ac5f137574b8a2020c3b.js.map
+//# sourceMappingURL=main.cbe0d1dbb381b41f7704.js.map
