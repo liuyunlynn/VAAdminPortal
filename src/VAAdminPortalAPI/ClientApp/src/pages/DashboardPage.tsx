@@ -15,6 +15,7 @@ import {
   Subtitle2,
   Title2,
   Toolbar,
+  Tooltip,
   makeStyles,
   mergeClasses,
   tokens,
@@ -46,6 +47,8 @@ import type {
 import DashboardCharts from '../components/DashboardCharts';
 import RegistrationTable from '../components/RegistrationTable';
 import RegistrationDetailPanel from '../components/RegistrationDetailPanel';
+import CopilotPanel from '../components/CopilotPanel';
+import CopilotIcon from '../components/CopilotIcon';
 
 const useStyles = makeStyles({
   root: {
@@ -109,6 +112,38 @@ const useStyles = makeStyles({
     '@media (max-width: 600px)': {
       minWidth: '32px',
     },
+  },
+  copilotFab: {
+    position: 'fixed',
+    right: '24px',
+    bottom: '24px',
+    zIndex: 20,
+    width: '56px',
+    minWidth: '56px',
+    height: '56px',
+    padding: 0,
+    borderRadius: '50%',
+    backgroundColor: '#ffffff',
+    border: '1px solid #e0e0e0',
+    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.18)',
+    ':hover': {
+      backgroundColor: '#f7f7ff',
+      boxShadow: '0 6px 20px rgba(0, 0, 0, 0.22)',
+    },
+    '@media (max-width: 600px)': {
+      right: '16px',
+      bottom: '16px',
+      width: '48px',
+      minWidth: '48px',
+      height: '48px',
+    },
+  },
+  sectionHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: '12px',
+    flexWrap: 'wrap',
   },
   content: {
     padding: '24px 28px 40px',
@@ -249,6 +284,7 @@ export default function DashboardPage() {
   const [overviewStartDate, setOverviewStartDate] = useState('');
   const [overviewEndDate, setOverviewEndDate] = useState('');
   const [overviewLoading, setOverviewLoading] = useState(false);
+  const [copilotOpen, setCopilotOpen] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -276,6 +312,20 @@ export default function DashboardPage() {
     () => items.find((item) => item.id === selectedId) ?? null,
     [items, selectedId],
   );
+
+  const copilotFilterSummary = useMemo(() => {
+    const parts: string[] = [];
+    if (submittedQuery.startDate || submittedQuery.endDate) {
+      parts.push(`date ${submittedQuery.startDate?.slice(0, 10) ?? 'any'} to ${submittedQuery.endDate?.slice(0, 10) ?? 'any'}`);
+    }
+    if (submittedQuery.validationStatus) parts.push(`validation ${submittedQuery.validationStatus}`);
+    if (submittedQuery.legalStatus) parts.push(`legal ${submittedQuery.legalStatus}`);
+    if (submittedQuery.fullyPassed != null) {
+      parts.push(submittedQuery.fullyPassed ? 'fully passed only' : 'not fully passed only');
+    }
+    if (submittedQuery.searchTerm) parts.push(`search "${submittedQuery.searchTerm}"`);
+    return parts.length > 0 ? `filters: ${parts.join(', ')}` : 'no filters applied';
+  }, [submittedQuery]);
 
   const createQuery = (): RegistrationQuery => ({
     startDate: startDate ? `${startDate}T00:00:00.000Z` : null,
@@ -474,7 +524,16 @@ export default function DashboardPage() {
           </Card>
         </div>
 
-        <Subtitle1>Insights</Subtitle1>
+        <div className={styles.sectionHeader}>
+          <Subtitle1>Insights</Subtitle1>
+          <Button
+            appearance="outline"
+            icon={<CopilotIcon fontSize={18} />}
+            onClick={() => setCopilotOpen(true)}
+          >
+            Summarize with Copilot
+          </Button>
+        </div>
         <DashboardCharts items={chartItems} />
 
         <Card className={styles.tableCard}>
@@ -610,11 +669,29 @@ export default function DashboardPage() {
         </Card>
       </main>
 
+      <Tooltip content="Ask Copilot" relationship="label" positioning="before">
+        <Button
+          className={styles.copilotFab}
+          appearance="subtle"
+          shape="circular"
+          icon={<CopilotIcon fontSize={30} />}
+          onClick={() => setCopilotOpen(true)}
+        />
+      </Tooltip>
+
       <RegistrationDetailPanel
         registration={selected}
         open={selected != null}
         onClose={() => dispatch(selectRegistration(null))}
         onActionComplete={handleActionComplete}
+      />
+
+      <CopilotPanel
+        open={copilotOpen}
+        onClose={() => setCopilotOpen(false)}
+        items={chartItems}
+        overview={overview}
+        filterSummary={copilotFilterSummary}
       />
     </div>
   );

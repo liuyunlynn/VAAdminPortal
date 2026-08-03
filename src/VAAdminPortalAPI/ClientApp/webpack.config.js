@@ -12,7 +12,8 @@ module.exports = (_env, argv) => {
       path: path.resolve(__dirname, '..', 'wwwroot'),
       filename: 'assets/[name].[contenthash].js',
       publicPath: '/',
-      clean: true,
+      // Static assets such as the Copilot logo live in wwwroot/images and must survive the build.
+      clean: { keep: /^images[\\/]/ },
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
