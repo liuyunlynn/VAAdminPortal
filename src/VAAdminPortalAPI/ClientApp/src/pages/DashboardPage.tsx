@@ -6,6 +6,7 @@ import {
   Button,
   Card,
   Caption1,
+  CounterBadge,
   Dropdown,
   Field,
   Input,
@@ -24,6 +25,7 @@ import {
 } from '@fluentui/react-components';
 import {
   ArrowClockwiseRegular,
+  AlertRegular,
   BotSparkleRegular,
   SearchRegular,
   SignOutRegular,
@@ -49,6 +51,10 @@ import RegistrationTable from '../components/RegistrationTable';
 import RegistrationDetailPanel from '../components/RegistrationDetailPanel';
 import CopilotPanel from '../components/CopilotPanel';
 import CopilotIcon from '../components/CopilotIcon';
+import NotificationPanel, {
+  countNewRegistrations,
+  latestRegistrationTimestamp,
+} from '../components/NotificationPanel';
 import { STATUS_COLORS } from '../components/status';
 
 const useStyles = makeStyles({
@@ -113,6 +119,19 @@ const useStyles = makeStyles({
     '@media (max-width: 600px)': {
       minWidth: '32px',
     },
+  },
+  notificationButton: {
+    color: '#ffffff',
+    position: 'relative',
+    ':hover': {
+      color: '#ffffff',
+      backgroundColor: 'rgba(255, 255, 255, 0.12)',
+    },
+  },
+  notificationBadge: {
+    position: 'absolute',
+    top: '1px',
+    right: '1px',
   },
   copilotFab: {
     position: 'fixed',
@@ -259,6 +278,7 @@ const VALIDATION_OPTIONS: (ValidationStatus | 'All')[] = [
 const LEGAL_OPTIONS: (LegalStatus | 'All')[] = ['All', 'NotStarted', 'Pending', 'Passed', 'Failed'];
 const REVIEW_RESULT_OPTIONS = ['All', 'Fully passed', 'Not fully passed'] as const;
 const PAGE_SIZE_OPTIONS = [10, 20, 50, 100];
+const NOTIFICATIONS_LAST_READ_KEY = 'va-admin-portal-notifications-last-read';
 
 const dropdownWidth = (labels: string[]) => `${Math.max(...labels.map((label) => label.length)) + 6}ch`;
 const VALIDATION_DROPDOWN_WIDTH = dropdownWidth(
@@ -296,6 +316,10 @@ export default function DashboardPage() {
   const [overviewEndDate, setOverviewEndDate] = useState('');
   const [overviewLoading, setOverviewLoading] = useState(false);
   const [copilotOpen, setCopilotOpen] = useState(false);
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const [notificationsLastReadAt, setNotificationsLastReadAt] = useState<string | null>(() =>
+    localStorage.getItem(NOTIFICATIONS_LAST_READ_KEY),
+  );
 
   useEffect(() => {
     let active = true;
@@ -320,8 +344,16 @@ export default function DashboardPage() {
   }, [dispatch]);
 
   const selected = useMemo(
-    () => items.find((item) => item.id === selectedId) ?? null,
-    [items, selectedId],
+    () =>
+      items.find((item) => item.id === selectedId) ??
+      chartItems.find((item) => item.id === selectedId) ??
+      null,
+    [chartItems, items, selectedId],
+  );
+
+  const newNotificationCount = useMemo(
+    () => countNewRegistrations(chartItems, notificationsLastReadAt),
+    [chartItems, notificationsLastReadAt],
   );
 
   const reviewCounts = useMemo(
@@ -422,6 +454,15 @@ export default function DashboardPage() {
     navigate('/');
   };
 
+  const closeNotifications = () => {
+    const latestTimestamp = latestRegistrationTimestamp(chartItems);
+    if (latestTimestamp) {
+      localStorage.setItem(NOTIFICATIONS_LAST_READ_KEY, latestTimestamp);
+      setNotificationsLastReadAt(latestTimestamp);
+    }
+    setNotificationsOpen(false);
+  };
+
   return (
     <div className={styles.root}>
       <header className={styles.header}>
@@ -430,6 +471,28 @@ export default function DashboardPage() {
           VA Admin Portal
         </div>
         <div className={styles.userBox}>
+          <Tooltip
+            content={`${newNotificationCount} new ${newNotificationCount === 1 ? 'notification' : 'notifications'}`}
+            relationship="label"
+          >
+            <Button
+              className={styles.notificationButton}
+              appearance="subtle"
+              icon={<AlertRegular />}
+              aria-label="Open notifications"
+              onClick={() => setNotificationsOpen(true)}
+            >
+              {newNotificationCount > 0 && (
+                <CounterBadge
+                  className={styles.notificationBadge}
+                  size="small"
+                  color="danger"
+                  count={newNotificationCount}
+                  overflowCount={99}
+                />
+              )}
+            </Button>
+          </Tooltip>
           <Avatar name={admin?.name ?? 'Admin'} color="colorful" />
           <div className={styles.userDetails}>
             <Body1 style={{ display: 'block', fontWeight: 600 }}>{admin?.name}</Body1>
@@ -698,6 +761,12 @@ export default function DashboardPage() {
         open={selected != null}
         onClose={() => dispatch(selectRegistration(null))}
         onActionComplete={handleActionComplete}
+      />
+
+      <NotificationPanel
+        items={chartItems}
+        open={notificationsOpen}
+        onClose={closeNotifications}
       />
 
       <CopilotPanel
