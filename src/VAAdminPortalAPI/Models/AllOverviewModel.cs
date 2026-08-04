@@ -33,5 +33,20 @@ namespace VAAdminPortalAPI.Models
 
         [JsonPropertyName("verifiedCount")]
         public int VerifiedCount {  get; set; }
+
+        [JsonPropertyName("monthlyRegistrations")]
+        public List<MonthlyRegistrationOverviewModel> MonthlyRegistrations { get; set; } = [];
+    }
+
+    public class MonthlyRegistrationOverviewModel
+    {
+        [JsonPropertyName("month")]
+        public string Month { get; set; } = string.Empty;
+
+        [JsonPropertyName("registrations")]
+        public int Registrations { get; set; }
+
+        [JsonPropertyName("fullyPassed")]
+        public int FullyPassed { get; set; }
     }
 }

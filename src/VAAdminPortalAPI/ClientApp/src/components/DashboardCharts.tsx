@@ -15,8 +15,7 @@ import {
   makeStyles,
   tokens,
 } from '@fluentui/react-components';
-import type { AiVirtualAssistantRegistration } from '../api/types';
-import { registrationsByMonth } from './status';
+import type { AllOverview } from '../api/types';
 
 const useStyles = makeStyles({
   card: {
@@ -36,13 +35,19 @@ const useStyles = makeStyles({
 });
 
 export default function DashboardCharts({
-  items,
+  overview,
 }: {
-  items: AiVirtualAssistantRegistration[];
+  overview: AllOverview | null;
 }) {
   const styles = useStyles();
-
-  const monthly = registrationsByMonth(items);
+  const monthly = (overview?.monthlyRegistrations ?? []).map((item) => ({
+    ...item,
+    monthLabel: new Date(`${item.month}-01T00:00:00Z`).toLocaleDateString(undefined, {
+      month: 'short',
+      year: 'numeric',
+      timeZone: 'UTC',
+    }),
+  }));
 
   return (
     <Card className={styles.card}>
@@ -51,7 +56,7 @@ export default function DashboardCharts({
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={monthly} margin={{ top: 8, right: 16, left: -8, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-            <XAxis dataKey="month" fontSize={12} />
+            <XAxis dataKey="monthLabel" fontSize={12} />
             <YAxis allowDecimals={false} fontSize={12} />
             <Tooltip />
             <Legend />
@@ -66,7 +71,7 @@ export default function DashboardCharts({
             />
             <Line
               type="monotone"
-              dataKey="fullyVerified"
+              dataKey="fullyPassed"
               name="Fully passed"
               stroke="#237b4b"
               strokeWidth={3}

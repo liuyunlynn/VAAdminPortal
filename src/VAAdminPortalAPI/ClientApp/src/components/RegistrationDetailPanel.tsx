@@ -22,6 +22,7 @@ import {
   Subtitle2,
   Textarea,
   Field,
+  Tooltip,
   makeStyles,
   tokens,
 } from '@fluentui/react-components';
@@ -29,15 +30,20 @@ import {
   ArrowResetRegular,
   CheckmarkCircleFilled,
   CheckmarkRegular,
+  CopyRegular,
   DismissCircleRegular,
   DismissRegular,
+  LightbulbRegular,
 } from '@fluentui/react-icons';
 import { applyRegistrationAction } from '../api/client';
 import type {
   AiVirtualAssistantRegistration,
   RegistrationAction,
 } from '../api/types';
+import CopilotIcon from './CopilotIcon';
 import { formatDate, statusBadgeColor } from './status';
+
+type FailedReview = 'validation' | 'legal';
 
 const useStyles = makeStyles({
   drawer: {
@@ -73,6 +79,12 @@ const useStyles = makeStyles({
   label: {
     color: tokens.colorNeutralForeground3,
   },
+  copyableValue: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '4px',
+    minWidth: 0,
+  },
   badges: {
     display: 'flex',
     gap: '8px',
@@ -97,6 +109,52 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     gap: '2px',
+  },
+  failureList: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '10px',
+  },
+  failureCard: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '8px',
+    padding: '12px 14px',
+    color: tokens.colorNeutralForeground1,
+    backgroundColor: tokens.colorPaletteRedBackground1,
+    borderLeft: `3px solid ${tokens.colorPaletteRedBorder2}`,
+    borderRadius: tokens.borderRadiusMedium,
+  },
+  failureHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: '10px',
+  },
+  failureReason: {
+    whiteSpace: 'pre-wrap',
+    wordBreak: 'break-word',
+  },
+  guidanceIntro: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: '10px',
+    padding: '12px',
+    marginBottom: '14px',
+    backgroundColor: tokens.colorNeutralBackground2,
+    borderRadius: tokens.borderRadiusMedium,
+  },
+  guidanceIcon: {
+    color: tokens.colorBrandForeground1,
+    fontSize: '22px',
+    flexShrink: 0,
+  },
+  guidanceList: {
+    margin: 0,
+    paddingLeft: '20px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '10px',
   },
   actions: {
     display: 'flex',
@@ -160,12 +218,92 @@ const ACTIONS: Record<
   },
 };
 
-function Row({ label, value }: { label: string; value?: string | null }) {
+function Row({
+  label,
+  value,
+  copyable = false,
+}: {
+  label: string;
+  value?: string | null;
+  copyable?: boolean;
+}) {
   const styles = useStyles();
+  const displayValue = value && value.length > 0 ? value : null;
+
   return (
     <div className={styles.row}>
       <Caption1 className={styles.label}>{label}</Caption1>
-      <Body1>{value && value.length > 0 ? value : '—'}</Body1>
+      <div className={styles.copyableValue}>
+        <Body1>{displayValue ?? '—'}</Body1>
+        {copyable && displayValue && (
+          <Tooltip content={`Copy ${label}`} relationship="label">
+            <Button
+              appearance="subtle"
+              size="small"
+              icon={<CopyRegular />}
+              aria-label={`Copy ${label}`}
+              onClick={() => navigator.clipboard.writeText(displayValue)}
+            />
+          </Tooltip>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function getCopilotGuidance(review: FailedReview, reason: string): string[] {
+  const normalizedReason = reason.toLowerCase();
+  const guidance = review === 'validation'
+    ? [
+        'Confirm the app ID, tenant ID, and submitted domain match the source registration.',
+        'Ask the technical contact to correct the failed item and provide evidence of a successful re-validation.',
+        'Use Request re-validation after the updated details have been confirmed.',
+      ]
+    : [
+        'Compare the submitted legal entity details with the supporting agreement and identifier.',
+        'Ask the primary contact for corrected documentation or clarification of the failed item.',
+        'Use Request legal resubmission after the replacement documents are available.',
+      ];
+
+  if (normalizedReason.includes('nda') || normalizedReason.includes('agreement')) {
+    guidance.unshift('Verify that the NDA or agreement number is current and belongs to this legal entity.');
+  } else if (normalizedReason.includes('domain') || normalizedReason.includes('tenant')) {
+    guidance.unshift('Verify domain ownership and tenant association before requesting another validation.');
+  } else if (normalizedReason.includes('contact') || normalizedReason.includes('email')) {
+    guidance.unshift('Confirm the listed contact is reachable and authorized to respond for this registration.');
+  }
+
+  return guidance;
+}
+
+function FailureCard({
+  review,
+  reason,
+  onAskCopilot,
+}: {
+  review: FailedReview;
+  reason?: string | null;
+  onAskCopilot: (review: FailedReview, reason: string) => void;
+}) {
+  const styles = useStyles();
+  const reviewLabel = review === 'validation' ? 'Validation' : 'Legal review';
+  const displayReason = reason?.trim() || 'No failure reason was provided.';
+
+  return (
+    <div className={styles.failureCard} role="status">
+      <div className={styles.failureHeader}>
+        <Subtitle2>{reviewLabel} failed</Subtitle2>
+        <Button
+          size="small"
+          appearance="subtle"
+          icon={<CopilotIcon fontSize={16} />}
+          onClick={() => onAskCopilot(review, displayReason)}
+        >
+          Ask Copilot
+        </Button>
+      </div>
+      <Caption1 className={styles.label}>Failure reason</Caption1>
+      <Body1 className={styles.failureReason}>{displayReason}</Body1>
     </div>
   );
 }
@@ -186,6 +324,10 @@ export default function RegistrationDetailPanel({
   const [reason, setReason] = useState('');
   const [actionError, setActionError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [copilotReview, setCopilotReview] = useState<{
+    review: FailedReview;
+    reason: string;
+  } | null>(null);
   const fullyPassed =
     registration?.validationStatus === 'Passed' && registration.legalStatus === 'Passed';
   const actionDetails = pendingAction ? ACTIONS[pendingAction] : null;
@@ -286,13 +428,35 @@ export default function RegistrationDetailPanel({
                   Legal: {registration.legalStatus}
                 </Badge>
               </div>
+              {(registration.validationStatus === 'Failed' || registration.legalStatus === 'Failed') && (
+                <div className={styles.failureList}>
+                  {registration.validationStatus === 'Failed' && (
+                    <FailureCard
+                      review="validation"
+                      reason={registration.validationFailureReason}
+                      onAskCopilot={(review, failureReason) =>
+                        setCopilotReview({ review, reason: failureReason })
+                      }
+                    />
+                  )}
+                  {registration.legalStatus === 'Failed' && (
+                    <FailureCard
+                      review="legal"
+                      reason={registration.legalFailureReason}
+                      onAskCopilot={(review, failureReason) =>
+                        setCopilotReview({ review, reason: failureReason })
+                      }
+                    />
+                  )}
+                </div>
+              )}
             </div>
 
             <div className={styles.section}>
               <Subtitle2 className={styles.sectionTitle}>Overview</Subtitle2>
-              {/* <Row label="Registration ID" value={registration.id} />
-              <Row label="App ID" value={registration.appId} />
-              <Row label="Tenant ID" value={registration.tenantId} /> */}
+              <Row label="Registration ID" value={registration.id} copyable />
+              <Row label="App ID" value={registration.appId} copyable />
+              {/* <Row label="Tenant ID" value={registration.tenantId} /> */}
               <Row label="Domain" value={registration.domain} />
               <Row label="Created" value={formatDate(registration.createdDateTime)} />
               {registration.onboardingDocUrl && (
@@ -448,6 +612,45 @@ export default function RegistrationDetailPanel({
                 onClick={submitAction}
               >
                 {submitting ? 'Applying...' : actionDetails?.confirmLabel}
+              </Button>
+            </DialogActions>
+          </DialogBody>
+        </DialogSurface>
+      </Dialog>
+
+      <Dialog
+        open={copilotReview != null}
+        onOpenChange={(_, data) => !data.open && setCopilotReview(null)}
+      >
+        <DialogSurface>
+          <DialogBody>
+            <DialogTitle>
+              Copilot suggestions for {copilotReview?.review === 'validation' ? 'validation' : 'legal review'}
+            </DialogTitle>
+            <DialogContent>
+              <div className={styles.guidanceIntro}>
+                <LightbulbRegular className={styles.guidanceIcon} />
+                <div>
+                  <Caption1 className={styles.label}>Based on the failure reason</Caption1>
+                  <Body1 className={styles.failureReason}>{copilotReview?.reason}</Body1>
+                </div>
+              </div>
+              {copilotReview && (
+                <ol className={styles.guidanceList}>
+                  {getCopilotGuidance(copilotReview.review, copilotReview.reason).map((item) => (
+                    <li key={item}>
+                      <Body1>{item}</Body1>
+                    </li>
+                  ))}
+                </ol>
+              )}
+              <Caption1 className={styles.label} style={{ display: 'block', marginTop: '16px' }}>
+                Copilot suggestions are advisory. Review the evidence before changing a status.
+              </Caption1>
+            </DialogContent>
+            <DialogActions>
+              <Button appearance="primary" onClick={() => setCopilotReview(null)}>
+                Done
               </Button>
             </DialogActions>
           </DialogBody>

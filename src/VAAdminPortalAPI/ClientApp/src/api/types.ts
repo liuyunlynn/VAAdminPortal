@@ -35,6 +35,13 @@ export interface AllOverview {
   validationFailedCount: number;
   legalFailedCount: number;
   verifiedCount: number;
+  monthlyRegistrations: MonthlyRegistrationOverview[];
+}
+
+export interface MonthlyRegistrationOverview {
+  month: string;
+  registrations: number;
+  fullyPassed: number;
 }
 
 export interface LegalEntity {
@@ -78,7 +85,9 @@ export interface AiVirtualAssistantRegistration {
   programManagerContact: Contact;
   onboardingDocUrl: string;
   validationStatus: ValidationStatus;
+  validationFailureReason?: string | null;
   legalStatus: LegalStatus;
+  legalFailureReason?: string | null;
 }
 
 export interface RegistrationList {

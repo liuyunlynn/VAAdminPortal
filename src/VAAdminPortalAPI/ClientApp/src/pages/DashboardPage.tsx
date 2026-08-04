@@ -500,7 +500,7 @@ export default function DashboardPage() {
         <div className={styles.kpiRow}>
           <Card className={mergeClasses(styles.kpiCard, styles.primaryKpiCard)}>
             <Caption1>Total registrations</Caption1>
-            <span className={styles.kpiValue}>{overview?.totalRegistrationsCount ?? 0}</span>
+            <span className={styles.kpiValue} style={{ color: '#5b5fc7' }}>{overview?.totalRegistrationsCount ?? 0}</span>
             <Caption1 className={styles.kpiHint}>All submitted assistants</Caption1>
           </Card>
           <Card className={mergeClasses(styles.kpiCard, styles.primaryKpiCard)}>
@@ -548,7 +548,7 @@ export default function DashboardPage() {
             Summarize with Copilot
           </Button>
         </div>
-        <DashboardCharts items={chartItems} />
+        <DashboardCharts overview={overview} />
 
         <Card className={styles.tableCard}>
           <div style={{ padding: '12px 12px 0' }}>

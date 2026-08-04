@@ -128,7 +128,18 @@ namespace VAAdminPortalAPI.Services
                 LegalNotStartedCount = filteredRegistrations.Count(r => r.LegalStatus == LegalStatus.NotStarted),
                 ValidationFailedCount = filteredRegistrations.Count(r => r.ValidationStatus == ValidationStatus.Failed),
                 LegalFailedCount = filteredRegistrations.Count(r => r.LegalStatus == LegalStatus.Failed),
-                VerifiedCount = filteredRegistrations.Count(r => r.Verified)
+                VerifiedCount = filteredRegistrations.Count(r => r.Verified),
+                MonthlyRegistrations = filteredRegistrations
+                    .GroupBy(r => new { r.CreatedDateTime.Year, r.CreatedDateTime.Month })
+                    .OrderBy(group => group.Key.Year)
+                    .ThenBy(group => group.Key.Month)
+                    .Select(group => new MonthlyRegistrationOverviewModel
+                    {
+                        Month = $"{group.Key.Year:D4}-{group.Key.Month:D2}",
+                        Registrations = group.Count(),
+                        FullyPassed = group.Count(r => r.Verified)
+                    })
+                    .ToList()
             };
         }
 
