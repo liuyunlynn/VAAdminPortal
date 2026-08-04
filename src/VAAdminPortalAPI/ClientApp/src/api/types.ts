@@ -2,7 +2,6 @@
 
 export type ValidationStatus = 'NotStarted' | 'Pending' | 'Passed' | 'Failed';
 export type LegalStatus = 'NotStarted' | 'Pending' | 'Passed' | 'Failed';
-export type BotVerificationLevel = 'None' | 'Registered' | 'Attested';
 export type EntityType = 'Company' | 'Individual';
 
 export interface ResponseMessage {
@@ -31,7 +30,10 @@ export interface AllOverview {
   legalPassedCount: number;
   validationPendingCount: number;
   legalPendingCount: number;
-  attestedAssistantsCount: number;
+  validationNotStartedCount: number;
+  legalNotStartedCount: number;
+  validationFailedCount: number;
+  legalFailedCount: number;
   verifiedCount: number;
 }
 
@@ -69,7 +71,6 @@ export interface AiVirtualAssistantRegistration {
   domain?: string | null;
   logoUrl?: string | null;
   privacyStatementUrl?: string | null;
-  verification: BotVerificationLevel;
   createdDateTime: string;
   legalEntity: LegalEntity;
   primaryContact: PrimaryContact;

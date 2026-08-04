@@ -49,6 +49,7 @@ import RegistrationTable from '../components/RegistrationTable';
 import RegistrationDetailPanel from '../components/RegistrationDetailPanel';
 import CopilotPanel from '../components/CopilotPanel';
 import CopilotIcon from '../components/CopilotIcon';
+import { STATUS_COLORS } from '../components/status';
 
 const useStyles = makeStyles({
   root: {
@@ -155,7 +156,7 @@ const useStyles = makeStyles({
   },
   kpiRow: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
     gap: '16px',
   },
   kpiCard: {
@@ -172,7 +173,8 @@ const useStyles = makeStyles({
     backgroundColor: '#f7f7ff',
   },
   kpiValue: {
-    fontSize: '30px',
+    fontSize: '44px',
+    lineHeight: '52px',
     fontWeight: 700,
   },
   kpiHint: {
@@ -181,7 +183,8 @@ const useStyles = makeStyles({
   statusMetrics: {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
-    gap: '16px',
+    columnGap: '16px',
+    rowGap: '10px',
     marginTop: '4px',
   },
   statusMetric: {
@@ -237,6 +240,14 @@ const useStyles = makeStyles({
     padding: '48px',
   },
 });
+
+const REVIEW_STATUS_LABELS: Record<string, string> = {
+  Passed: 'Passed',
+  Pending: 'Pending',
+  NotStarted: 'Not started',
+  Failed: 'Failed',
+};
+const REVIEW_STATUS_ORDER = ['Passed', 'Pending', 'NotStarted', 'Failed'] as const;
 
 const VALIDATION_OPTIONS: (ValidationStatus | 'All')[] = [
   'All',
@@ -311,6 +322,24 @@ export default function DashboardPage() {
   const selected = useMemo(
     () => items.find((item) => item.id === selectedId) ?? null,
     [items, selectedId],
+  );
+
+  const reviewCounts = useMemo(
+    () => ({
+      validation: {
+        Passed: overview?.validationPassedCount ?? 0,
+        Pending: overview?.validationPendingCount ?? 0,
+        NotStarted: overview?.validationNotStartedCount ?? 0,
+        Failed: overview?.validationFailedCount ?? 0,
+      },
+      legal: {
+        Passed: overview?.legalPassedCount ?? 0,
+        Pending: overview?.legalPendingCount ?? 0,
+        NotStarted: overview?.legalNotStartedCount ?? 0,
+        Failed: overview?.legalFailedCount ?? 0,
+      },
+    }),
+    [overview],
   );
 
   const copilotFilterSummary = useMemo(() => {
@@ -475,7 +504,7 @@ export default function DashboardPage() {
             <Caption1 className={styles.kpiHint}>All submitted assistants</Caption1>
           </Card>
           <Card className={mergeClasses(styles.kpiCard, styles.primaryKpiCard)}>
-            <Caption1>Fully verified</Caption1>
+            <Caption1>Fully passed</Caption1>
             <span className={styles.kpiValue} style={{ color: '#107c10' }}>
               {overview?.verifiedCount ?? 0}
             </span>
@@ -484,43 +513,28 @@ export default function DashboardPage() {
           <Card className={mergeClasses(styles.kpiCard, styles.primaryKpiCard)}>
             <Caption1>Validation review</Caption1>
             <div className={styles.statusMetrics}>
-              <div className={styles.statusMetric}>
-                <span className={styles.statusValue} style={{ color: '#107c10' }}>
-                  {overview?.validationPassedCount ?? 0}
-                </span>
-                <Caption1 className={styles.kpiHint}>Passed</Caption1>
-              </div>
-              <div className={styles.statusMetric}>
-                <span className={styles.statusValue} style={{ color: '#b45309' }}>
-                  {overview?.validationPendingCount ?? 0}
-                </span>
-                <Caption1 className={styles.kpiHint}>Pending</Caption1>
-              </div>
+              {REVIEW_STATUS_ORDER.map((status) => (
+                <div key={status} className={styles.statusMetric}>
+                  <span className={styles.statusValue} style={{ color: STATUS_COLORS[status] }}>
+                    {reviewCounts.validation[status]}
+                  </span>
+                  <Caption1 className={styles.kpiHint}>{REVIEW_STATUS_LABELS[status]}</Caption1>
+                </div>
+              ))}
             </div>
           </Card>
           <Card className={mergeClasses(styles.kpiCard, styles.primaryKpiCard)}>
             <Caption1>Legal review</Caption1>
             <div className={styles.statusMetrics}>
-              <div className={styles.statusMetric}>
-                <span className={styles.statusValue} style={{ color: '#107c10' }}>
-                  {overview?.legalPassedCount ?? 0}
-                </span>
-                <Caption1 className={styles.kpiHint}>Passed</Caption1>
-              </div>
-              <div className={styles.statusMetric}>
-                <span className={styles.statusValue} style={{ color: '#b45309' }}>
-                  {overview?.legalPendingCount ?? 0}
-                </span>
-                <Caption1 className={styles.kpiHint}>Pending</Caption1>
-              </div>
+              {REVIEW_STATUS_ORDER.map((status) => (
+                <div key={status} className={styles.statusMetric}>
+                  <span className={styles.statusValue} style={{ color: STATUS_COLORS[status] }}>
+                    {reviewCounts.legal[status]}
+                  </span>
+                  <Caption1 className={styles.kpiHint}>{REVIEW_STATUS_LABELS[status]}</Caption1>
+                </div>
+              ))}
             </div>
-          </Card>
-          <Card className={mergeClasses(styles.kpiCard, styles.primaryKpiCard)}>
-            <Caption1>Attested assistants</Caption1>
-            <span className={styles.kpiValue} style={{ color: '#5b5fc7' }}>
-              {overview?.attestedAssistantsCount ?? 0}
-            </span>
-            <Caption1 className={styles.kpiHint}>Highest verification level</Caption1>
           </Card>
         </div>
 

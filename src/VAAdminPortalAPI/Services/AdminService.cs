@@ -124,7 +124,10 @@ namespace VAAdminPortalAPI.Services
                 LegalPassedCount = filteredRegistrations.Count(r => r.LegalStatus == LegalStatus.Passed),
                 ValidationPendingCount = filteredRegistrations.Count(r => r.ValidationStatus == ValidationStatus.Pending),
                 LegalPendingCount = filteredRegistrations.Count(r => r.LegalStatus == LegalStatus.Pending),
-                AttestedAssistantsCount = filteredRegistrations.Count(r => r.Verification == BotVerificationLevel.Attested),
+                ValidationNotStartedCount = filteredRegistrations.Count(r => r.ValidationStatus == ValidationStatus.NotStarted),
+                LegalNotStartedCount = filteredRegistrations.Count(r => r.LegalStatus == LegalStatus.NotStarted),
+                ValidationFailedCount = filteredRegistrations.Count(r => r.ValidationStatus == ValidationStatus.Failed),
+                LegalFailedCount = filteredRegistrations.Count(r => r.LegalStatus == LegalStatus.Failed),
                 VerifiedCount = filteredRegistrations.Count(r => r.Verified)
             };
         }
@@ -139,27 +142,37 @@ namespace VAAdminPortalAPI.Services
                 return null;
             }
 
+            var failureReason = string.IsNullOrWhiteSpace(actionModel.Reason) ? null : actionModel.Reason;
+
             switch (actionModel.Action)
             {
                 case RegistrationAction.ApproveRegistration:
                     registration.ValidationStatus = ValidationStatus.Passed;
                     registration.LegalStatus = LegalStatus.Passed;
+                    registration.ValidationFailureReason = null;
+                    registration.LegalFailureReason = null;
                     break;
                 case RegistrationAction.RejectRegistration:
                     registration.ValidationStatus = ValidationStatus.Failed;
                     registration.LegalStatus = LegalStatus.Failed;
+                    registration.ValidationFailureReason = failureReason;
+                    registration.LegalFailureReason = failureReason;
                     break;
                 case RegistrationAction.ApproveValidation:
                     registration.ValidationStatus = ValidationStatus.Passed;
+                    registration.ValidationFailureReason = null;
                     break;
                 case RegistrationAction.ResetValidation:
                     registration.ValidationStatus = ValidationStatus.NotStarted;
+                    registration.ValidationFailureReason = null;
                     break;
                 case RegistrationAction.ApproveLegal:
                     registration.LegalStatus = LegalStatus.Passed;
+                    registration.LegalFailureReason = null;
                     break;
                 case RegistrationAction.ResetLegal:
                     registration.LegalStatus = LegalStatus.NotStarted;
+                    registration.LegalFailureReason = null;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(actionModel.Action));

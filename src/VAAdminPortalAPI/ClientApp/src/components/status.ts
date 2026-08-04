@@ -33,20 +33,6 @@ export function formatDate(iso: string): string {
   });
 }
 
-const STATUS_ORDER = ['NotStarted', 'Pending', 'Passed', 'Failed'] as const;
-
-export function countBy(
-  items: AiVirtualAssistantRegistration[],
-  key: 'validationStatus' | 'legalStatus',
-) {
-  const counts = new Map<string, number>();
-  for (const status of STATUS_ORDER) counts.set(status, 0);
-  for (const item of items) {
-    counts.set(item[key], (counts.get(item[key]) ?? 0) + 1);
-  }
-  return STATUS_ORDER.map((status) => ({ status, count: counts.get(status) ?? 0 }));
-}
-
 export function registrationsByMonth(items: AiVirtualAssistantRegistration[]) {
   const buckets = new Map<string, { registrations: number; fullyVerified: number }>();
   for (const item of items) {
@@ -68,14 +54,4 @@ export function registrationsByMonth(items: AiVirtualAssistantRegistration[]) {
       }),
       ...counts,
     }));
-}
-
-export function verificationBreakdown(items: AiVirtualAssistantRegistration[]) {
-  const levels = ['None', 'Registered', 'Attested'];
-  const counts = new Map<string, number>();
-  for (const level of levels) counts.set(level, 0);
-  for (const item of items) {
-    counts.set(item.verification, (counts.get(item.verification) ?? 0) + 1);
-  }
-  return levels.map((name) => ({ name, value: counts.get(name) ?? 0 }));
 }

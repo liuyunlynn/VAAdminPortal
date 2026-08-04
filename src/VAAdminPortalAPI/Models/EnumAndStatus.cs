@@ -30,28 +30,6 @@ namespace VAAdminPortalAPI.Models
     }
 
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    public enum BotVerificationLevel
-    {
-        /// <summary>
-        /// No verification.
-        /// </summary>
-        [EnumMember(Value = "None")]
-        None = 0,
-
-        /// <summary>
-        /// Domain ownership verified.
-        /// </summary>
-        [EnumMember(Value = "Registered")]
-        Registered = 1,
-
-        /// <summary>
-        /// Legal/programme attestation present.
-        /// </summary>
-        [EnumMember(Value = "Attested")]
-        Attested = 2,
-    }
-
-    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum EntityType
     {
         /// <summary>

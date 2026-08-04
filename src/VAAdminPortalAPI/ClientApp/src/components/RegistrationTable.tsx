@@ -107,7 +107,6 @@ export default function RegistrationTable({
               <TableHeaderCell>Business</TableHeaderCell>
               <TableHeaderCell>Validation</TableHeaderCell>
               <TableHeaderCell>Legal</TableHeaderCell>
-              <TableHeaderCell>Verification</TableHeaderCell>
               <TableHeaderCell>Created</TableHeaderCell>
               <TableHeaderCell>Details</TableHeaderCell>
             </TableRow>
@@ -162,9 +161,6 @@ export default function RegistrationTable({
                   <Badge appearance="filled" color={statusBadgeColor(item.legalStatus)}>
                     {item.legalStatus}
                   </Badge>
-                </TableCell>
-                <TableCell>
-                  <Text>{item.verification}</Text>
                 </TableCell>
                 <TableCell>
                   <Text>{formatDate(item.createdDateTime)}</Text>

@@ -8,7 +8,6 @@ export type CopilotIntent =
   | 'pending'
   | 'trend'
   | 'risk'
-  | 'verification'
   | 'entities'
   | 'recent'
   | 'quality'
@@ -42,7 +41,7 @@ export const COPILOT_SUGGESTIONS = [
   'Summarize the registration data',
   'What needs my attention?',
   'How is the registration trend?',
-  'Show verification level breakdown',
+  'Any failed or risky registrations?',
   'Which companies submitted the most assistants?',
   'Any data quality gaps?',
 ];
@@ -53,7 +52,6 @@ const INTENT_PATTERNS: { intent: CopilotIntent; pattern: RegExp }[] = [
   { intent: 'pending', pattern: /(pending|bottleneck|stuck|waiting|backlog|attention|action|queue|review first|oldest)/ },
   { intent: 'trend', pattern: /(trend|growth|over time|monthly|month|volume|momentum|forecast)/ },
   { intent: 'risk', pattern: /(risk|fail|reject|issue|problem|concern|blocked)/ },
-  { intent: 'verification', pattern: /(verif|attest|registered level|badge|level)/ },
   { intent: 'entities', pattern: /(compan|entit|business|country|region|top |individual|distribution|who submitted)/ },
   { intent: 'recent', pattern: /(recent|latest|newest|new submission|last few)/ },
   { intent: 'summary', pattern: /(summar|overview|snapshot|brief|tl;?dr|report|how are we|status)/ },
@@ -122,7 +120,7 @@ function emptyAnswer(intent: CopilotIntent): CopilotAnswer {
 function buildSummary(context: CopilotContext, sourceNote: string): CopilotAnswer {
   const { items, overview } = context;
   const total = overview?.totalRegistrationsCount ?? items.length;
-  const verified = overview?.verifiedCount ?? items.filter(isFullyPassed).length;
+  const fullyPassed = overview?.verifiedCount ?? items.filter(isFullyPassed).length;
   const validationPending =
     overview?.validationPendingCount ?? items.filter((i) => i.validationStatus === 'Pending').length;
   const legalPending =
@@ -138,15 +136,15 @@ function buildSummary(context: CopilotContext, sourceNote: string): CopilotAnswe
 
   return {
     intent: 'summary',
-    headline: `${plural(total, 'registration')} in scope, ${percent(verified, total)} fully verified.`,
+    headline: `${plural(total, 'registration')} in scope, ${percent(fullyPassed, total)} fully passed.`,
     highlights: [
       { label: 'Total', value: String(total), tone: 'neutral' },
-      { label: 'Fully verified', value: String(verified), tone: 'positive' },
+      { label: 'Fully passed', value: String(fullyPassed), tone: 'positive' },
       { label: 'In review', value: String(validationPending + legalPending), tone: 'warning' },
       { label: 'Failed checks', value: String(failed), tone: failed > 0 ? 'critical' : 'neutral' },
     ],
     bullets: [
-      `${plural(verified, 'assistant')} passed both validation and legal review (${percent(verified, total)} of the total).`,
+      `${plural(fullyPassed, 'assistant')} passed both validation and legal review (${percent(fullyPassed, total)} of the total).`,
       `${plural(validationPending, 'validation review')} and ${plural(legalPending, 'legal review')} are still pending.`,
       failed > 0
         ? `${plural(failed, 'registration')} failed at least one check and may need follow-up with the submitter.`
@@ -212,7 +210,7 @@ function buildTrend(context: CopilotContext, sourceNote: string): CopilotAnswer 
     ? Math.round(((last.registrations - previous.registrations) / Math.max(1, previous.registrations)) * 100)
     : 0;
   const totalRegistrations = monthly.reduce((sum, month) => sum + month.registrations, 0);
-  const totalVerified = monthly.reduce((sum, month) => sum + month.fullyVerified, 0);
+  const totalFullyPassed = monthly.reduce((sum, month) => sum + month.fullyVerified, 0);
   const average = Math.round(totalRegistrations / monthly.length);
 
   return {
@@ -230,16 +228,20 @@ function buildTrend(context: CopilotContext, sourceNote: string): CopilotAnswer 
         tone: change >= 0 ? 'positive' : 'critical',
       },
       { label: 'Monthly average', value: String(average), tone: 'neutral' },
-      { label: 'Verification rate', value: percent(totalVerified, totalRegistrations), tone: 'positive' },
+      {
+        label: 'Fully passed rate',
+        value: percent(totalFullyPassed, totalRegistrations),
+        tone: 'positive',
+      },
     ],
     bullets: [
       `Tracked window: ${monthly[0].month} to ${last.month} (${plural(monthly.length, 'month')}).`,
-      `${plural(totalVerified, 'assistant')} reached full verification over that window.`,
+      `${plural(totalFullyPassed, 'assistant')} passed both reviews over that window.`,
       change >= 0
         ? 'Submission volume is holding or growing - keep the review capacity steady.'
         : 'Submission volume dipped in the latest month; worth checking partner outreach.',
     ],
-    followUps: ['What needs my attention?', 'Show verification level breakdown'],
+    followUps: ['What needs my attention?', 'Any failed or risky registrations?'],
     sourceNote,
   };
 }
@@ -285,33 +287,6 @@ function buildRisk(context: CopilotContext, sourceNote: string): CopilotAnswer {
         ]
       : ['Every registration is either approved or still progressing normally.'],
     followUps: ['What needs my attention?', 'Any data quality gaps?'],
-    sourceNote,
-  };
-}
-
-function buildVerification(context: CopilotContext, sourceNote: string): CopilotAnswer {
-  const { items } = context;
-  const attested = items.filter((item) => item.verification === 'Attested').length;
-  const registered = items.filter((item) => item.verification === 'Registered').length;
-  const none = items.filter((item) => item.verification === 'None').length;
-
-  return {
-    intent: 'verification',
-    headline: `${percent(attested, items.length)} of assistants reached the Attested level.`,
-    highlights: [
-      { label: 'Attested', value: String(attested), tone: 'positive' },
-      { label: 'Registered', value: String(registered), tone: 'neutral' },
-      { label: 'None', value: String(none), tone: none ? 'warning' : 'neutral' },
-    ],
-    bullets: [
-      `Attested: ${plural(attested, 'assistant')} (${percent(attested, items.length)}).`,
-      `Registered: ${plural(registered, 'assistant')} (${percent(registered, items.length)}).`,
-      `Unverified: ${plural(none, 'assistant')} (${percent(none, items.length)}) - these have the weakest trust signal.`,
-      none > attested
-        ? 'More assistants are unverified than attested; consider prompting submitters to complete attestation.'
-        : 'The attestation funnel looks healthy.',
-    ],
-    followUps: ['Summarize the registration data', 'Which companies submitted the most assistants?'],
     sourceNote,
   };
 }
@@ -407,7 +382,7 @@ function buildHelp(sourceNote: string): CopilotAnswer {
     headline: 'I am the VA Admin Copilot (demo mode). I read the dashboard data you have loaded.',
     highlights: [],
     bullets: [
-      'Ask me for a summary of registrations, verification rates, or monthly trends.',
+      'Ask me for a summary of registrations, review outcomes, or monthly trends.',
       'Ask what needs attention and I will rank the oldest items waiting for a review decision.',
       'Ask about failures, submitters, regions, or data quality gaps.',
       'My answers respect the filters currently applied to the dashboard.',
@@ -445,8 +420,6 @@ export function answerPrompt(prompt: string, context: CopilotContext): CopilotAn
       return buildTrend(context, sourceNote);
     case 'risk':
       return buildRisk(context, sourceNote);
-    case 'verification':
-      return buildVerification(context, sourceNote);
     case 'entities':
       return buildEntities(context, sourceNote);
     case 'recent':

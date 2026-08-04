@@ -48,13 +48,6 @@ namespace VAAdminPortalAPI.Models
         public string? PrivacyStatementUrl { get; set; }
 
         /// <summary>
-        /// Gets or sets the verification level (server-derived, read-only flags enum).
-        /// </summary>
-        [JsonPropertyName("verification")]
-        [JsonConverter(typeof(JsonStringEnumConverter))]
-        public BotVerificationLevel Verification { get; set; }
-
-        /// <summary>
         /// Gets or sets the created date time (server-set, read-only, ISO 8601 UTC).
         /// </summary>
         [JsonPropertyName("createdDateTime")]
@@ -94,9 +87,23 @@ namespace VAAdminPortalAPI.Models
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public ValidationStatus ValidationStatus { get; set; }
 
+        /// <summary>
+        /// Gets or sets the reason explaining why validation failed.
+        /// Only populated when <see cref="ValidationStatus"/> is <see cref="ValidationStatus.Failed"/>.
+        /// </summary>
+        [JsonPropertyName("validationFailureReason")]
+        public string? ValidationFailureReason { get; set; }
+
         [JsonPropertyName("legalStatus")]
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public LegalStatus LegalStatus { get; set; }
+
+        /// <summary>
+        /// Gets or sets the reason explaining why the legal review failed.
+        /// Only populated when <see cref="LegalStatus"/> is <see cref="LegalStatus.Failed"/>.
+        /// </summary>
+        [JsonPropertyName("legalFailureReason")]
+        public string? LegalFailureReason { get; set; }
 
         [JsonPropertyName("verified")]
         public bool Verified => ValidationStatus == ValidationStatus.Passed && LegalStatus == LegalStatus.Passed;

@@ -285,7 +285,6 @@ export default function RegistrationDetailPanel({
                 <Badge appearance="filled" color={statusBadgeColor(registration.legalStatus)}>
                   Legal: {registration.legalStatus}
                 </Badge>
-                <Badge appearance="outline">Verification: {registration.verification}</Badge>
               </div>
             </div>
 
