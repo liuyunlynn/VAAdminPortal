@@ -103,7 +103,7 @@ export default function RegistrationTable({
         <Table aria-label="AI virtual assistant registrations" size="medium">
           <TableHeader className={styles.tableHeader}>
             <TableRow>
-              <TableHeaderCell>Assistant</TableHeaderCell>
+              <TableHeaderCell>Bot</TableHeaderCell>
               <TableHeaderCell>Business</TableHeaderCell>
               <TableHeaderCell>Validation</TableHeaderCell>
               <TableHeaderCell>Legal</TableHeaderCell>

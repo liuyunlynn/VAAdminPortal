@@ -12,9 +12,47 @@ import type {
 // directly or through the Vite dev-server proxy.
 const BASE = '';
 
+export class HttpError extends Error {
+  constructor(
+    public readonly status: number,
+    message = `Request failed with status ${status}`,
+  ) {
+    super(message);
+    this.name = 'HttpError';
+  }
+}
+
+let antiforgeryTokenPromise: Promise<string> | null = null;
+
+async function getAntiforgeryToken(): Promise<string> {
+  antiforgeryTokenPromise ??= fetch(`${BASE}/auth/antiforgery`, {
+    credentials: 'same-origin',
+    headers: { Accept: 'application/json' },
+  }).then(async (response) => {
+    if (!response.ok) throw new HttpError(response.status);
+    const body = (await response.json()) as { token: string };
+    return body.token;
+  }).catch((error: unknown) => {
+    antiforgeryTokenPromise = null;
+    throw error;
+  });
+
+  return antiforgeryTokenPromise;
+}
+
+async function apiFetch(input: RequestInfo | URL, init?: RequestInit) {
+  const headers = new Headers(init?.headers);
+  const method = init?.method?.toUpperCase() ?? 'GET';
+  if (method !== 'GET' && method !== 'HEAD' && method !== 'OPTIONS') {
+    headers.set('X-CSRF-TOKEN', await getAntiforgeryToken());
+  }
+
+  return fetch(input, { ...init, credentials: 'same-origin', headers });
+}
+
 async function unwrap<T>(res: Response): Promise<T> {
   if (!res.ok) {
-    throw new Error(`Request failed with status ${res.status}`);
+    throw new HttpError(res.status);
   }
   const body = (await res.json()) as ApiResponse<T>;
   if (body.hasError) {
@@ -24,8 +62,8 @@ async function unwrap<T>(res: Response): Promise<T> {
   return body.model as T;
 }
 
-export async function getAdminInfo(id: string): Promise<AdminInfo> {
-  const res = await fetch(`${BASE}/Admin/GetAdminInformation?id=${encodeURIComponent(id)}`, {
+export async function getAdminInfo(): Promise<AdminInfo> {
+  const res = await apiFetch(`${BASE}/auth/me`, {
     method: 'GET',
     headers: { Accept: 'application/json' },
   });
@@ -41,7 +79,7 @@ export async function getAllOverview(
   if (endDate) params.set('endDate', endDate);
   const queryString = params.size > 0 ? `?${params.toString()}` : '';
 
-  const res = await fetch(`${BASE}/Admin/GetAllOverview${queryString}`, {
+  const res = await apiFetch(`${BASE}/Admin/GetAllOverview${queryString}`, {
     method: 'POST',
     headers: { Accept: 'application/json' },
   });
@@ -61,7 +99,7 @@ export async function getRegistrations(
   if (query.legalStatus) params.set('legalStatus', query.legalStatus);
   if (query.fullyPassed != null) params.set('fullyPassed', String(query.fullyPassed));
 
-  const res = await fetch(
+  const res = await apiFetch(
     `${BASE}/Admin/GetAiVirtualAssistantRegistrations?${params.toString()}`,
     {
       method: 'POST',
@@ -74,7 +112,7 @@ export async function getRegistrations(
 export async function applyRegistrationAction(
   request: RegistrationActionRequest,
 ): Promise<AiVirtualAssistantRegistration> {
-  const res = await fetch(`${BASE}/Admin/ApplyRegistrationAction`, {
+  const res = await apiFetch(`${BASE}/Admin/ApplyRegistrationAction`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',

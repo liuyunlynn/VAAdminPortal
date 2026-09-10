@@ -14,18 +14,6 @@ namespace VAAdminPortalAPI.Services
 
         private static readonly Lazy<MockDataStore> DataStore = new(LoadMockData);
 
-        public AdminInfoModel GetAdminInfo(string id)
-        {
-            var adminInfo = DataStore.Value.AdminInfo;
-
-            if (!string.IsNullOrWhiteSpace(id))
-            {
-                adminInfo.Id = id;
-            }
-
-            return adminInfo;
-        }
-
         public AiVirtualAssistantRegistrationListModel GetAiVirtualAssistantRegistrations(AiVirtualAssistantRegistrationQueryModel queryModel)
         {
             IEnumerable<AiVirtualAssistantRegistrationModel> query = DataStore.Value.AiVirtualAssistantRegistrations.OrderBy(r => r.CreatedDateTime);

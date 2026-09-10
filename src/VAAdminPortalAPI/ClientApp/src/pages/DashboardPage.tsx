@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
   Avatar,
   Body1,
@@ -13,8 +12,6 @@ import {
   Option,
   Spinner,
   Subtitle1,
-  Subtitle2,
-  Title2,
   Toolbar,
   Tooltip,
   makeStyles,
@@ -32,7 +29,6 @@ import {
 } from '@fluentui/react-icons';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { getAllOverview } from '../api/client';
-import { signOut } from '../features/auth/authSlice';
 import {
   fetchRegistrationCharts,
   fetchRegistrations,
@@ -41,12 +37,12 @@ import {
 } from '../features/registrations/registrationsSlice';
 import type {
   AiVirtualAssistantRegistration,
+  AdminInfo,
   AllOverview,
   LegalStatus,
   RegistrationQuery,
   ValidationStatus,
 } from '../api/types';
-import DashboardCharts from '../components/DashboardCharts';
 import RegistrationTable from '../components/RegistrationTable';
 import RegistrationDetailPanel from '../components/RegistrationDetailPanel';
 import CopilotPanel from '../components/CopilotPanel';
@@ -134,6 +130,7 @@ const useStyles = makeStyles({
     right: '1px',
   },
   copilotFab: {
+    display: 'none',
     position: 'fixed',
     right: '24px',
     bottom: '24px',
@@ -222,11 +219,22 @@ const useStyles = makeStyles({
     gap: '16px',
     flexWrap: 'wrap',
   },
+  overviewFiltersWrap: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    gap: '4px',
+  },
   overviewFilters: {
     display: 'flex',
     alignItems: 'flex-end',
     gap: '8px',
     flexWrap: 'wrap',
+  },
+  overviewFilterHint: {
+    fontSize: '12px',
+    lineHeight: '16px',
+    color: tokens.colorNeutralForeground3,
   },
   filters: {
     display: 'flex',
@@ -276,7 +284,7 @@ const VALIDATION_OPTIONS: (ValidationStatus | 'All')[] = [
   'Failed',
 ];
 const LEGAL_OPTIONS: (LegalStatus | 'All')[] = ['All', 'NotStarted', 'Pending', 'Passed', 'Failed'];
-const REVIEW_RESULT_OPTIONS = ['All', 'Fully passed', 'Not fully passed'] as const;
+const REVIEW_RESULT_OPTIONS = ['All', 'Completed', 'Not Completed'] as const;
 const PAGE_SIZE_OPTIONS = [10, 20, 50, 100];
 const NOTIFICATIONS_LAST_READ_KEY = 'va-admin-portal-notifications-last-read';
 
@@ -290,12 +298,9 @@ const LEGAL_DROPDOWN_WIDTH = dropdownWidth(
 const REVIEW_RESULT_DROPDOWN_WIDTH = dropdownWidth([...REVIEW_RESULT_OPTIONS]);
 const PAGE_SIZE_DROPDOWN_WIDTH = dropdownWidth(PAGE_SIZE_OPTIONS.map(String));
 
-export default function DashboardPage() {
+export default function DashboardPage({ admin }: { admin: AdminInfo }) {
   const styles = useStyles();
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-
-  const admin = useAppSelector((s) => s.auth.admin);
   const { items, chartItems, totalCount, status, error, selectedId } = useAppSelector(
     (s) => s.registrations,
   );
@@ -382,7 +387,7 @@ export default function DashboardPage() {
     if (submittedQuery.validationStatus) parts.push(`validation ${submittedQuery.validationStatus}`);
     if (submittedQuery.legalStatus) parts.push(`legal ${submittedQuery.legalStatus}`);
     if (submittedQuery.fullyPassed != null) {
-      parts.push(submittedQuery.fullyPassed ? 'fully passed only' : 'not fully passed only');
+      parts.push(submittedQuery.fullyPassed ? 'completed only' : 'not completed only');
     }
     if (submittedQuery.searchTerm) parts.push(`search "${submittedQuery.searchTerm}"`);
     return parts.length > 0 ? `filters: ${parts.join(', ')}` : 'no filters applied';
@@ -394,7 +399,8 @@ export default function DashboardPage() {
     searchTerm: search.trim() || null,
     validationStatus: validation === 'All' ? null : validation,
     legalStatus: legal === 'All' ? null : legal,
-    fullyPassed: reviewResult === 'All' ? null : reviewResult === 'Fully passed',
+    fullyPassed:
+      reviewResult === 'All' ? null : reviewResult === 'Completed',
   });
 
   const handleQuery = () => {
@@ -450,8 +456,7 @@ export default function DashboardPage() {
   };
 
   const handleSignOut = () => {
-    dispatch(signOut());
-    navigate('/');
+    window.location.assign('/auth/logout');
   };
 
   const closeNotifications = () => {
@@ -468,7 +473,7 @@ export default function DashboardPage() {
       <header className={styles.header}>
         <div className={styles.brand}>
           <BotSparkleRegular fontSize={24} color="#ffffff" />
-          VA Admin Portal
+          Teams Bot Identification Program Admin Portal
         </div>
         <div className={styles.userBox}>
           <Tooltip
@@ -511,13 +516,6 @@ export default function DashboardPage() {
       </header>
 
       <main className={styles.content}>
-        <div>
-          <Title2>Dashboard</Title2>
-          <Body1 style={{ display: 'block', color: tokens.colorNeutralForeground3 }}>
-            Overview of AI virtual assistant registrations.
-          </Body1>
-        </div>
-
         {(error || overviewError) && (
           <MessageBar intent="error">
             <MessageBarBody>{error ?? overviewError}</MessageBarBody>
@@ -527,36 +525,38 @@ export default function DashboardPage() {
         <div className={styles.overviewHeader}>
           <div>
             <Subtitle1>Overview</Subtitle1>
-            <Body1 style={{ display: 'block', color: tokens.colorNeutralForeground3 }}>
-              Leave both dates empty to show all-time data.
-            </Body1>
           </div>
-          <div className={styles.overviewFilters}>
-            <Field label="Start date">
-              <Input
-                className={styles.dateInput}
-                type="date"
-                value={overviewStartDate}
-                max={overviewEndDate || undefined}
-                onChange={(_, d) => setOverviewStartDate(d.value)}
-              />
-            </Field>
-            <Field label="End date">
-              <Input
-                className={styles.dateInput}
-                type="date"
-                value={overviewEndDate}
-                min={overviewStartDate || undefined}
-                onChange={(_, d) => setOverviewEndDate(d.value)}
-              />
-            </Field>
-            <Button
-              icon={<ArrowClockwiseRegular />}
-              onClick={handleOverviewQuery}
-              disabled={overviewLoading}
-            >
-              {overviewLoading ? 'Loading' : 'Apply'}
-            </Button>
+          <div className={styles.overviewFiltersWrap}>
+            <div className={styles.overviewFilters}>
+              <Field label="Start date">
+                <Input
+                  className={styles.dateInput}
+                  type="date"
+                  value={overviewStartDate}
+                  max={overviewEndDate || undefined}
+                  onChange={(_, d) => setOverviewStartDate(d.value)}
+                />
+              </Field>
+              <Field label="End date">
+                <Input
+                  className={styles.dateInput}
+                  type="date"
+                  value={overviewEndDate}
+                  min={overviewStartDate || undefined}
+                  onChange={(_, d) => setOverviewEndDate(d.value)}
+                />
+              </Field>
+              <Button
+                icon={<ArrowClockwiseRegular />}
+                onClick={handleOverviewQuery}
+                disabled={overviewLoading}
+              >
+                {overviewLoading ? 'Loading' : 'Apply'}
+              </Button>
+            </div>
+            <Caption1 className={styles.overviewFilterHint}>
+              Leave both dates empty to show all-time data.
+            </Caption1>
           </div>
         </div>
 
@@ -601,25 +601,10 @@ export default function DashboardPage() {
           </Card>
         </div>
 
-        <div className={styles.sectionHeader}>
-          <Subtitle1>Insights</Subtitle1>
-          <Button
-            appearance="outline"
-            icon={<CopilotIcon fontSize={18} />}
-            onClick={() => setCopilotOpen(true)}
-          >
-            Summarize with Copilot
-          </Button>
-        </div>
-        <DashboardCharts overview={overview} />
-
         <Card className={styles.tableCard}>
-          <div style={{ padding: '12px 12px 0' }}>
-            <Subtitle2>Registrations</Subtitle2>
-          </div>
           <Toolbar className={styles.filterToolbar}>
             <div className={styles.filters}>
-              <Field label="Review result">
+              <Field label="Overall Status">
                 <Dropdown
                   style={{
                     width: REVIEW_RESULT_DROPDOWN_WIDTH,
