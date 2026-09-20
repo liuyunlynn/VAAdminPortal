@@ -56,8 +56,8 @@ The allowlist file is `src\VAAdminPortalAPI\authorizedUsers.json`:
 {
   "AuthorizedUsers": {
     "Emails": [
-      "v-jiaxc@microsoft.com",
-      "jiaxin@rtsavengers.onmicrosoft.com"
+      "xxx",
+      "xxx"
     ]
   }
 }
@@ -126,7 +126,7 @@ token. The Microsoft tenant does not support this local token flow. Use a test
 tenant where application provisioning and consent have been completed:
 
 ```powershell
-Set-Location Q:\jiaxin_src\teams-graphservice
+Set-Location Q:\xxx\teams-graphservice
 .\Source\Tools\TokenGenerator\SetupTokenGenerator.ps1
 
 .\Development\Microsoft.Internal.Teams.LocalTokenGenerator\tools\win-x64\LocalTokenGenerator.exe `
