@@ -513,13 +513,14 @@ export default function RegistrationDetailPanel({
 
             <div className={styles.actions}>
               <Subtitle2>Administrative actions</Subtitle2>
-              <Caption1 className={styles.label}>Registration decision</Caption1>
+              <Caption1 className={styles.label} style={{ display: 'none' }}>Registration decision</Caption1>
               <div className={styles.actionGroup}>
                 <Button
                   appearance="primary"
                   icon={<CheckmarkRegular />}
                   disabled={fullyPassed}
                   onClick={() => openAction('ApproveRegistration')}
+                  style={{ display: 'none' }}
                 >
                   Approve registration
                 </Button>
@@ -530,6 +531,7 @@ export default function RegistrationDetailPanel({
                     registration.validationStatus === 'Failed' && registration.legalStatus === 'Failed'
                   }
                   onClick={() => openAction('RejectRegistration')}
+                  style={{ display: 'none' }}
                 >
                   Reject registration
                 </Button>
@@ -548,6 +550,7 @@ export default function RegistrationDetailPanel({
                   icon={<ArrowResetRegular />}
                   disabled={registration.validationStatus === 'NotStarted'}
                   onClick={() => openAction('ResetValidation')}
+                  style={{ display: 'none' }}
                 >
                   Request re-validation
                 </Button>
@@ -566,6 +569,7 @@ export default function RegistrationDetailPanel({
                   icon={<ArrowResetRegular />}
                   disabled={registration.legalStatus === 'NotStarted'}
                   onClick={() => openAction('ResetLegal')}
+                  style={{ display: 'none' }}
                 >
                   Request legal resubmission
                 </Button>

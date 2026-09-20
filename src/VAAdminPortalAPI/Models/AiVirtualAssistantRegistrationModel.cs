@@ -48,6 +48,12 @@ namespace VAAdminPortalAPI.Models
         public string? PrivacyStatementUrl { get; set; }
 
         /// <summary>
+        /// Gets or sets the verification flags returned by Teams Graph.
+        /// </summary>
+        [JsonPropertyName("verification")]
+        public string Verification { get; set; } = string.Empty;
+
+        /// <summary>
         /// Gets or sets the created date time (server-set, read-only, ISO 8601 UTC).
         /// </summary>
         [JsonPropertyName("createdDateTime")]

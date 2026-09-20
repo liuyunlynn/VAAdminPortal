@@ -4,11 +4,15 @@ namespace VAAdminPortalAPI.Services
 {
     public interface IAdminService
     {
-        AdminInfoModel GetAdminInfo(string id);
+        Task<AiVirtualAssistantRegistrationListModel> GetAiVirtualAssistantRegistrationsAsync(
+            string tenantId,
+            AiVirtualAssistantRegistrationQueryModel queryModel,
+            CancellationToken cancellationToken);
 
-        AiVirtualAssistantRegistrationListModel GetAiVirtualAssistantRegistrations(AiVirtualAssistantRegistrationQueryModel queryModel);
-
-        AllOverviewModel GetAllOverview(AiVirtualAssistantRegistrationQueryModel queryModel);
+        Task<AllOverviewModel> GetAllOverviewAsync(
+            string tenantId,
+            AiVirtualAssistantRegistrationQueryModel queryModel,
+            CancellationToken cancellationToken);
 
         AiVirtualAssistantRegistrationModel? ApplyRegistrationAction(RegistrationActionModel actionModel);
     }

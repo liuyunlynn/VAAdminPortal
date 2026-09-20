@@ -1,12 +1,7 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
   Body1,
   Button,
   Card,
-  Field,
-  Input,
-  Spinner,
   Title1,
   Title3,
   makeStyles,
@@ -15,12 +10,9 @@ import {
   MessageBarBody,
 } from '@fluentui/react-components';
 import {
-  PersonRegular,
-  LockClosedRegular,
   BotSparkleRegular,
+  PersonAccountsRegular,
 } from '@fluentui/react-icons';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { clearError, signIn } from '../features/auth/authSlice';
 
 const useStyles = makeStyles({
   root: {
@@ -95,22 +87,9 @@ const useStyles = makeStyles({
 
 export default function LoginPage() {
   const styles = useStyles();
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  const { status, error } = useAppSelector((s) => s.auth);
-
-  const [userId, setUserId] = useState('admin-001');
-  const [password, setPassword] = useState('');
-
-  const loading = status === 'loading';
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const result = await dispatch(signIn({ userId, password }));
-    if (signIn.fulfilled.match(result)) {
-      navigate('/dashboard');
-    }
-  };
+  const query = new URLSearchParams(window.location.search);
+  const signInFailed = query.has('authError');
+  const traceId = query.get('traceId');
 
   return (
     <div className={styles.root}>
@@ -136,49 +115,29 @@ export default function LoginPage() {
             <Body1>Sign in to continue to the admin portal.</Body1>
           </div>
 
-          {error && (
-            <MessageBar intent="error" onClick={() => dispatch(clearError())}>
-              <MessageBarBody>{error}</MessageBarBody>
+          {signInFailed && (
+            <MessageBar intent="error">
+              <MessageBarBody>
+                Microsoft sign-in could not be completed.
+                {traceId ? ` Reference: ${traceId}` : ''}
+              </MessageBarBody>
             </MessageBar>
           )}
 
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <Field label="User ID" required>
-              <Input
-                value={userId}
-                onChange={(_, d) => setUserId(d.value)}
-                contentBefore={<PersonRegular />}
-                placeholder="Enter your user id"
-                disabled={loading}
-              />
-            </Field>
-
-            <Field label="Password" required>
-              <Input
-                type="password"
-                value={password}
-                onChange={(_, d) => setPassword(d.value)}
-                contentBefore={<LockClosedRegular />}
-                placeholder="Enter your password"
-                disabled={loading}
-              />
-            </Field>
-
-            <div className={styles.actions}>
-              <Button
-                appearance="primary"
-                type="submit"
-                size="large"
-                disabled={loading}
-                style={{ width: '100%' }}
-              >
-                {loading ? <Spinner size="tiny" label="Signing in..." /> : 'Sign in'}
-              </Button>
-            </div>
-          </form>
+          <div className={styles.actions}>
+            <Button
+              appearance="primary"
+              size="large"
+              icon={<PersonAccountsRegular />}
+              onClick={() => window.location.assign('/auth/login?returnUrl=/dashboard')}
+              style={{ width: '100%' }}
+            >
+              Sign in with Microsoft
+            </Button>
+          </div>
 
           <span className={styles.hint}>
-            Demo build - use user id <strong>admin-001</strong> and any password.
+            Access is limited to Microsoft accounts authorized for this portal.
           </span>
         </Card>
       </section>

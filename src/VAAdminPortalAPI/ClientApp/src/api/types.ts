@@ -78,6 +78,7 @@ export interface AiVirtualAssistantRegistration {
   domain?: string | null;
   logoUrl?: string | null;
   privacyStatementUrl?: string | null;
+  verification: string;
   createdDateTime: string;
   legalEntity: LegalEntity;
   primaryContact: PrimaryContact;

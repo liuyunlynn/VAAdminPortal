@@ -6,6 +6,8 @@ namespace VAAdminPortalAPI.Services
 {
     public class AdminService : IAdminService
     {
+        private readonly ITgsClient tgsClient;
+
         private static readonly JsonSerializerOptions SerializerOptions = new(JsonSerializerDefaults.Web)
         {
             PropertyNameCaseInsensitive = true,
@@ -14,21 +16,20 @@ namespace VAAdminPortalAPI.Services
 
         private static readonly Lazy<MockDataStore> DataStore = new(LoadMockData);
 
-        public AdminInfoModel GetAdminInfo(string id)
+        public AdminService(ITgsClient tgsClient)
         {
-            var adminInfo = DataStore.Value.AdminInfo;
-
-            if (!string.IsNullOrWhiteSpace(id))
-            {
-                adminInfo.Id = id;
-            }
-
-            return adminInfo;
+            this.tgsClient = tgsClient;
         }
 
-        public AiVirtualAssistantRegistrationListModel GetAiVirtualAssistantRegistrations(AiVirtualAssistantRegistrationQueryModel queryModel)
+        public async Task<AiVirtualAssistantRegistrationListModel> GetAiVirtualAssistantRegistrationsAsync(
+            string tenantId,
+            AiVirtualAssistantRegistrationQueryModel queryModel,
+            CancellationToken cancellationToken)
         {
-            IEnumerable<AiVirtualAssistantRegistrationModel> query = DataStore.Value.AiVirtualAssistantRegistrations.OrderBy(r => r.CreatedDateTime);
+            IReadOnlyList<AiVirtualAssistantRegistrationModel> registrations =
+                await tgsClient.GetAiVirtualAssistantsAsync(tenantId, cancellationToken);
+            IEnumerable<AiVirtualAssistantRegistrationModel> query =
+                registrations.OrderBy(r => r.CreatedDateTime);
 
             if (queryModel != null)
             {
@@ -100,10 +101,15 @@ namespace VAAdminPortalAPI.Services
             return data ?? new MockDataStore();
         }
 
-        public AllOverviewModel GetAllOverview(AiVirtualAssistantRegistrationQueryModel queryModel)
+        public async Task<AllOverviewModel> GetAllOverviewAsync(
+            string tenantId,
+            AiVirtualAssistantRegistrationQueryModel queryModel,
+            CancellationToken cancellationToken)
         {
+            IReadOnlyList<AiVirtualAssistantRegistrationModel> tgsRegistrations =
+                await tgsClient.GetAiVirtualAssistantsAsync(tenantId, cancellationToken);
             IEnumerable<AiVirtualAssistantRegistrationModel> registrations =
-                DataStore.Value.AiVirtualAssistantRegistrations;
+                tgsRegistrations;
 
             if (queryModel.StartDate.HasValue)
             {
