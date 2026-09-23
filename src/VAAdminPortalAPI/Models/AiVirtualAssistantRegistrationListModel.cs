@@ -2,12 +2,19 @@
 
 namespace VAAdminPortalAPI.Models
 {
-    public class AiVirtualAssistantRegistrationListModel
+    /// <summary>One globally ordered matching page and its total matching count from Teams Graph.</summary>
+    public sealed record AiVirtualAssistantRegistrationListModel
     {
         [JsonPropertyName("registrations")]
-        public IList<AiVirtualAssistantRegistrationModel> Registrations { get; set; } = new List<AiVirtualAssistantRegistrationModel>();
+        public IReadOnlyList<AiVirtualAssistantRegistrationModel> Registrations { get; init; } = [];
 
         [JsonPropertyName("totalCount")]
-        public int TotalCount { get; set; }
+        public long TotalCount { get; init; }
+
+        [JsonPropertyName("pageIndex")]
+        public int PageIndex { get; init; }
+
+        [JsonPropertyName("pageSize")]
+        public int PageSize { get; init; }
     }
 }

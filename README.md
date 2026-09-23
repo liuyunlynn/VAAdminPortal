@@ -56,8 +56,8 @@ The allowlist file is `src\VAAdminPortalAPI\authorizedUsers.json`:
 {
   "AuthorizedUsers": {
     "Emails": [
-      "xxx",
-      "xxx"
+      "v-jiaxc@microsoft.com",
+      "jiaxin@rtsavengers.onmicrosoft.com"
     ]
   }
 }
@@ -86,14 +86,50 @@ belongs to a different app registration.
 
 ## Teams Graph Data Source
 
-The portal backend selects the target tenant using the signed-in identity's `tid`.
+The portal backend selects the authentication tenant using the signed-in identity's `tid`.
 It uses the Teams Developer Portal application identity and
 `AppStudioFirstPartyCertificate` to obtain an app-only token, then calls the
-existing Teams Graph endpoint directly:
+Teams Graph endpoint directly. Table queries request exactly one matching,
+globally ordered page:
 
 ```text
-GET {Tgs:BaseUrl}/v1.0/aiVirtualAssistants
+GET {Tgs:BaseUrl}/v1.0/aiVirtualAssistants/allTenants?pageIndex=0&pageSize=10&validationStatus=Passed&verification=Validated&fullyPassed=true
 ```
+
+TGS returns `{value: [...], totalCount: 125, pageIndex: 0, pageSize: 10}` with no
+cursor fields. Portal's `POST /Admin/GetAiVirtualAssistantRegistrations` accepts
+the same query parameters and returns its usual response envelope with
+`model: {registrations: [...], totalCount, pageIndex, pageSize}`. `pageIndex` is
+zero-based (default `0`); `pageSize` is `1..100` (default `10`). `pageSize=0`
+is no longer supported on the table endpoint. Invalid pagination, enum/boolean
+filters, verification values, or reversed date ranges return HTTP 400.
+
+Optional filters are `startDate`, `endDate`, `searchTerm`, `validationStatus`,
+`verification` (`Registered` or `Validated`), and `fullyPassed`. Date bounds are
+inclusive; only supplied, nonblank filters are sent to TGS. Omit a filter to
+select "All". The portal does not enumerate, filter, sort, slice, or recount
+registrations for table requests, and does not fall back to an all-data read if
+the paged TGS contract is unavailable. Query and page changes each make one paged
+table request.
+
+Global overview and notifications remain independent of table queries:
+
+- `POST /Admin/GetAllOverview` retains the legacy TGS `$top=100`/`$skiptoken`
+  enumeration and applies only its own inclusive date bounds for aggregation.
+- `POST /Admin/GetNotificationRegistrations` explicitly loads all registrations
+  through that legacy path, without table filters. Notifications load on dashboard
+  entry, explicit notification refresh, and action completion.
+- Action completion reloads the submitted table query/page plus overview and
+  notifications independently.
+- The hidden mock Copilot launcher stays hidden. Its filtered analysis data is
+  loaded only when opened or explicitly reloaded (and after actions while open),
+  using server-filtered numbered pages of up to 100. Query invalidates that data
+  without fetching it. Notification data is separate. Analysis rejects visibly
+  incomplete/changing pages, but page-number pagination is not a transactional
+  snapshot if registrations change during enumeration.
+
+Authenticated request examples, including validation errors, are in
+`src\VAAdminPortalAPI\VAAdminPortalAPI.http`.
 
 The default configuration targets Internal DEV:
 
@@ -126,7 +162,7 @@ token. The Microsoft tenant does not support this local token flow. Use a test
 tenant where application provisioning and consent have been completed:
 
 ```powershell
-Set-Location Q:\xxx\teams-graphservice
+Set-Location Q:\jiaxin_src\teams-graphservice
 .\Source\Tools\TokenGenerator\SetupTokenGenerator.ps1
 
 .\Development\Microsoft.Internal.Teams.LocalTokenGenerator\tools\win-x64\LocalTokenGenerator.exe `
@@ -164,6 +200,25 @@ To access remote TGS from a local machine in `ClientCertificate` mode, use the
 TDP Key Vault bootstrap certificate to create a `ClientCertificateCredential`.
 The local certificate is not installed in the deployment environment.
 The registration, app, tenant, contact, and legal entity fields displayed on the
-page come from Teams Graph. Validation and legal review statuses that Teams Graph
-does not currently return are generated deterministically from the registration
-ID solely to maintain the existing page display.
+page come from Teams Graph, including nullable `agreementAcceptedDateTime` and
+`agreementAcceptedBy`. Validation status and failure reason are preserved; an omitted
+validation status defaults to `NotStarted`. The portal's `verified`, `fullyPassed`
+filter, and fully verified counts use the authoritative TGS `verification` value
+`Validated` (case-insensitive), not validation status alone. TGS returns `Validated`
+only when validation has passed, the agreement acceptance timestamp is nonnull and
+nondefault, and the signer is a valid email address; otherwise it returns `Registered`.
+
+`ApproveValidation` calls the admin endpoint using the registration's tenant and ID:
+
+```text
+PUT {Tgs:BaseUrl}/v1.0/admin/tenants/{tenantId}/aiVirtualAssistants/{id}/validationStatus
+Content-Type: application/json
+
+"Passed"
+```
+
+The request body is a raw JSON string, not an object. The signed-in tenant is still
+used for authentication. `ApproveRegistration`, `RejectRegistration`, and
+`ResetValidation` remain mock-only actions: they change validation in the in-memory
+fixtures, not TGS, and recompute mock verification using the agreement rules above.
+They do not create or change agreement acceptance. Live reads always use TGS.

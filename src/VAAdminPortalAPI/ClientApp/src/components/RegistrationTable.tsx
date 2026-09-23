@@ -93,28 +93,30 @@ export default function RegistrationTable({
   const styles = useStyles();
   const pageCount = Math.max(1, Math.ceil(totalCount / pageSize));
 
-  if (items.length === 0) {
-    return <div className={styles.empty}>No registrations match the current filters.</div>;
-  }
-
   return (
     <div className={styles.wrapper}>
+      {items.length === 0 && (
+        <div className={styles.empty}>
+          {totalCount === 0
+            ? 'No registrations match the current filters.'
+            : 'No registrations remain on this page. Return to a previous page.'}
+        </div>
+      )}
       <div className={styles.tableScroll}>
         <Table aria-label="AI virtual assistant registrations" size="medium">
           <TableHeader className={styles.tableHeader}>
             <TableRow>
               <TableHeaderCell>Bot</TableHeaderCell>
               <TableHeaderCell>Business</TableHeaderCell>
-              <TableHeaderCell>Validation</TableHeaderCell>
-              <TableHeaderCell>Legal</TableHeaderCell>
+              <TableHeaderCell>Validation status</TableHeaderCell>
+              <TableHeaderCell>BotValidationLevel</TableHeaderCell>
               <TableHeaderCell>Created</TableHeaderCell>
               <TableHeaderCell>Details</TableHeaderCell>
             </TableRow>
           </TableHeader>
           <TableBody>
             {items.map((item) => {
-              const fullyPassed =
-                item.validationStatus === 'Passed' && item.legalStatus === 'Passed';
+              const fullyPassed = item.verified;
               return (
               <TableRow key={item.id} className={fullyPassed ? styles.fullyPassedRow : undefined}>
                 <TableCell>
@@ -158,8 +160,11 @@ export default function RegistrationTable({
                   </Badge>
                 </TableCell>
                 <TableCell>
-                  <Badge appearance="filled" color={statusBadgeColor(item.legalStatus)}>
-                    {item.legalStatus}
+                  <Badge
+                    appearance="tint"
+                    color={item.verification?.toLowerCase() === 'validated' ? 'success' : 'subtle'}
+                  >
+                    {item.verification?.trim() || '—'}
                   </Badge>
                 </TableCell>
                 <TableCell>
@@ -182,7 +187,7 @@ export default function RegistrationTable({
       </div>
       <div className={styles.pagination} aria-label="Registration table pagination">
         <Text size={200}>
-          {pageIndex * pageSize + 1}-{Math.min(pageIndex * pageSize + items.length, totalCount)} of{' '}
+          {items.length === 0 ? '0' : `${pageIndex * pageSize + 1}-${Math.min(pageIndex * pageSize + items.length, totalCount)}`} of{' '}
           {totalCount}
         </Text>
         <Button
@@ -190,10 +195,12 @@ export default function RegistrationTable({
           icon={<ChevronLeftRegular />}
           aria-label="Previous page"
           disabled={pageIndex === 0}
-          onClick={() => onPageChange(pageIndex - 1)}
+          onClick={() => onPageChange(Math.min(pageIndex - 1, pageCount - 1))}
         />
         <Text size={200}>
-          Page {pageIndex + 1} of {pageCount}
+          {pageIndex < pageCount
+            ? `Page ${pageIndex + 1} of ${pageCount}`
+            : `Page ${pageIndex + 1} is no longer available`}
         </Text>
         <Button
           appearance="subtle"

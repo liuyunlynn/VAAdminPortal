@@ -10,26 +10,14 @@ namespace VAAdminPortalAPI.Models
         [JsonPropertyName("validationPassedCount")]
         public int ValidationPassedCount { get; set; }
 
-        [JsonPropertyName("legalPassedCount")]
-        public int LegalPassedCount { get; set; }
-
         [JsonPropertyName("validationPendingCount")]
         public int ValidationPendingCount {  get; set; }
-
-        [JsonPropertyName("legalPendingCount")]
-        public int LegalPendingCount { get; set; }
 
         [JsonPropertyName("validationNotStartedCount")]
         public int ValidationNotStartedCount { get; set; }
 
-        [JsonPropertyName("legalNotStartedCount")]
-        public int LegalNotStartedCount { get; set; }
-
         [JsonPropertyName("validationFailedCount")]
         public int ValidationFailedCount { get; set; }
-
-        [JsonPropertyName("legalFailedCount")]
-        public int LegalFailedCount { get; set; }
 
         [JsonPropertyName("verifiedCount")]
         public int VerifiedCount {  get; set; }

@@ -51,7 +51,10 @@ namespace VAAdminPortalAPI.Controllers
             return Ok(response);
         }
 
+        /// <summary>Returns one server-filtered, globally ordered page from Teams Graph.</summary>
         [HttpPost(Name = "GetAiVirtualAssistantRegistrations")]
+        [ProducesResponseType(typeof(Response<AiVirtualAssistantRegistrationListModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> GetAiVirtualAssistantRegistrations(
             [FromQuery] AiVirtualAssistantRegistrationQueryModel queryModel,
             CancellationToken cancellationToken)
@@ -64,15 +67,42 @@ namespace VAAdminPortalAPI.Controllers
             return Ok(response);
         }
 
-        [HttpPost(Name = "ApplyRegistrationAction")]
-        public ActionResult ApplyRegistrationAction([FromBody] RegistrationActionModel actionModel)
+        /// <summary>Loads all registrations independently for global notifications, without table filters.</summary>
+        [HttpPost(Name = "GetNotificationRegistrations")]
+        [ProducesResponseType(typeof(Response<IReadOnlyList<AiVirtualAssistantRegistrationModel>>), StatusCodes.Status200OK)]
+        public async Task<ActionResult> GetNotificationRegistrations(CancellationToken cancellationToken)
         {
+            var registrations = await _adminService.GetNotificationRegistrationsAsync(
+                GetRequiredTenantId(),
+                cancellationToken);
+            return Ok(new Response<IReadOnlyList<AiVirtualAssistantRegistrationModel>>(registrations));
+        }
+
+        [HttpPost(Name = "ApplyRegistrationAction")]
+        public async Task<ActionResult> ApplyRegistrationAction(
+            [FromBody] RegistrationActionModel actionModel,
+            CancellationToken cancellationToken)
+        {
+            if (!Enum.IsDefined(actionModel.Action))
+            {
+                return BadRequest("A valid registration action is required.");
+            }
+
             if (string.IsNullOrWhiteSpace(actionModel.Reason))
             {
                 return BadRequest("A reason is required.");
             }
 
-            var registration = _adminService.ApplyRegistrationAction(actionModel);
+            if (string.IsNullOrWhiteSpace(actionModel.RegistrationId) ||
+                string.IsNullOrWhiteSpace(actionModel.TenantId))
+            {
+                return BadRequest("A registration ID and tenant ID are required.");
+            }
+
+            var registration = await _adminService.ApplyRegistrationActionAsync(
+                GetRequiredTenantId(),
+                actionModel,
+                cancellationToken);
             if (registration == null)
             {
                 return NotFound();

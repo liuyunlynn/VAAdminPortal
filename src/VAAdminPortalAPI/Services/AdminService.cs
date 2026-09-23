@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Net.Mail;
 using VAAdminPortalAPI.Models;
 
 namespace VAAdminPortalAPI.Services
@@ -26,71 +27,22 @@ namespace VAAdminPortalAPI.Services
             AiVirtualAssistantRegistrationQueryModel queryModel,
             CancellationToken cancellationToken)
         {
-            IReadOnlyList<AiVirtualAssistantRegistrationModel> registrations =
-                await tgsClient.GetAiVirtualAssistantsAsync(tenantId, cancellationToken);
-            IEnumerable<AiVirtualAssistantRegistrationModel> query =
-                registrations.OrderBy(r => r.CreatedDateTime);
-
-            if (queryModel != null)
-            {
-                if (queryModel.StartDate.HasValue)
-                {
-                    query = query.Where(r => r.CreatedDateTime >= queryModel.StartDate.Value);
-                }
-
-                if (queryModel.EndDate.HasValue)
-                {
-                    query = query.Where(r => r.CreatedDateTime <= queryModel.EndDate.Value);
-                }
-
-                if (queryModel.ValidationStatus.HasValue)
-                {
-                    query = query.Where(r => r.ValidationStatus == queryModel.ValidationStatus.Value);
-                }
-
-                if (queryModel.LegalStatus.HasValue)
-                {
-                    query = query.Where(r => r.LegalStatus == queryModel.LegalStatus.Value);
-                }
-
-                if (queryModel.FullyPassed.HasValue)
-                {
-                    query = query.Where(r => r.Verified == queryModel.FullyPassed.Value);
-                }
-
-                if (!string.IsNullOrWhiteSpace(queryModel.SearchTerm))
-                {
-                    var term = queryModel.SearchTerm.Trim();
-                    query = query.Where(r =>
-                        r.DisplayName.Contains(term, StringComparison.OrdinalIgnoreCase) ||
-                        r.LegalEntity.BusinessName.Contains(term, StringComparison.OrdinalIgnoreCase) ||
-                        r.PrimaryContact.Email.Contains(term, StringComparison.OrdinalIgnoreCase));
-                }
-
-                query = query.OrderByDescending(r => r.CreatedDateTime);
-
-                // Get total count before pagination
-                var totalCount = query.Count();
-
-                if (queryModel.PageSize > 0)
-                {
-                    var pageIndex = queryModel.PageIndex < 0 ? 0 : queryModel.PageIndex;
-                    query = query.Skip(pageIndex * queryModel.PageSize).Take(queryModel.PageSize);
-                }
-
-                return new AiVirtualAssistantRegistrationListModel
-                {
-                    Registrations = query.ToList(),
-                    TotalCount = totalCount
-                };
-            }
-
-            var allRegistrations = query.OrderByDescending(r => r.CreatedDateTime).ToList();
+            TgsRegistrationPageModel page =
+                await tgsClient.GetAiVirtualAssistantsPageAsync(tenantId, queryModel, cancellationToken);
             return new AiVirtualAssistantRegistrationListModel
             {
-                Registrations = allRegistrations,
-                TotalCount = allRegistrations.Count
+                Registrations = page.Value,
+                TotalCount = page.TotalCount,
+                PageIndex = page.PageIndex,
+                PageSize = page.PageSize
             };
+        }
+
+        public Task<IReadOnlyList<AiVirtualAssistantRegistrationModel>> GetNotificationRegistrationsAsync(
+            string tenantId,
+            CancellationToken cancellationToken)
+        {
+            return tgsClient.GetAiVirtualAssistantsAsync(tenantId, cancellationToken);
         }
 
         private static MockDataStore LoadMockData()
@@ -127,13 +79,9 @@ namespace VAAdminPortalAPI.Services
             {
                 TotalRegistrationsCount = filteredRegistrations.Count,
                 ValidationPassedCount = filteredRegistrations.Count(r => r.ValidationStatus == ValidationStatus.Passed),
-                LegalPassedCount = filteredRegistrations.Count(r => r.LegalStatus == LegalStatus.Passed),
                 ValidationPendingCount = filteredRegistrations.Count(r => r.ValidationStatus == ValidationStatus.Pending),
-                LegalPendingCount = filteredRegistrations.Count(r => r.LegalStatus == LegalStatus.Pending),
                 ValidationNotStartedCount = filteredRegistrations.Count(r => r.ValidationStatus == ValidationStatus.NotStarted),
-                LegalNotStartedCount = filteredRegistrations.Count(r => r.LegalStatus == LegalStatus.NotStarted),
                 ValidationFailedCount = filteredRegistrations.Count(r => r.ValidationStatus == ValidationStatus.Failed),
-                LegalFailedCount = filteredRegistrations.Count(r => r.LegalStatus == LegalStatus.Failed),
                 VerifiedCount = filteredRegistrations.Count(r => r.Verified),
                 MonthlyRegistrations = filteredRegistrations
                     .GroupBy(r => new { r.CreatedDateTime.Year, r.CreatedDateTime.Month })
@@ -149,8 +97,21 @@ namespace VAAdminPortalAPI.Services
             };
         }
 
-        public AiVirtualAssistantRegistrationModel? ApplyRegistrationAction(RegistrationActionModel actionModel)
+        public async Task<AiVirtualAssistantRegistrationModel?> ApplyRegistrationActionAsync(
+            string authenticationTenantId,
+            RegistrationActionModel actionModel,
+            CancellationToken cancellationToken)
         {
+            if (actionModel.Action == RegistrationAction.ApproveValidation)
+            {
+                return await tgsClient.UpdateValidationStatusAsync(
+                    authenticationTenantId,
+                    actionModel.TenantId,
+                    actionModel.RegistrationId,
+                    ValidationStatus.Passed,
+                    cancellationToken);
+            }
+
             var registration = DataStore.Value.AiVirtualAssistantRegistrations
                 .FirstOrDefault(r => r.Id == actionModel.RegistrationId);
 
@@ -165,37 +126,36 @@ namespace VAAdminPortalAPI.Services
             {
                 case RegistrationAction.ApproveRegistration:
                     registration.ValidationStatus = ValidationStatus.Passed;
-                    registration.LegalStatus = LegalStatus.Passed;
                     registration.ValidationFailureReason = null;
-                    registration.LegalFailureReason = null;
                     break;
                 case RegistrationAction.RejectRegistration:
                     registration.ValidationStatus = ValidationStatus.Failed;
-                    registration.LegalStatus = LegalStatus.Failed;
                     registration.ValidationFailureReason = failureReason;
-                    registration.LegalFailureReason = failureReason;
-                    break;
-                case RegistrationAction.ApproveValidation:
-                    registration.ValidationStatus = ValidationStatus.Passed;
-                    registration.ValidationFailureReason = null;
                     break;
                 case RegistrationAction.ResetValidation:
                     registration.ValidationStatus = ValidationStatus.NotStarted;
                     registration.ValidationFailureReason = null;
                     break;
-                case RegistrationAction.ApproveLegal:
-                    registration.LegalStatus = LegalStatus.Passed;
-                    registration.LegalFailureReason = null;
-                    break;
-                case RegistrationAction.ResetLegal:
-                    registration.LegalStatus = LegalStatus.NotStarted;
-                    registration.LegalFailureReason = null;
-                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(actionModel.Action));
             }
 
+            UpdateMockVerification(registration);
             return registration;
+        }
+
+        private static void UpdateMockVerification(AiVirtualAssistantRegistrationModel registration)
+        {
+            var signer = registration.AgreementAcceptedBy;
+            registration.Verification =
+                registration.ValidationStatus == ValidationStatus.Passed &&
+                registration.AgreementAcceptedDateTime.HasValue &&
+                registration.AgreementAcceptedDateTime.Value != default &&
+                !string.IsNullOrWhiteSpace(signer) &&
+                MailAddress.TryCreate(signer, out var address) &&
+                string.Equals(address.Address, signer, StringComparison.Ordinal)
+                    ? "Validated"
+                    : "Registered";
         }
 
         private sealed class MockDataStore

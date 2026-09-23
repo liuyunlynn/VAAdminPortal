@@ -41,12 +41,14 @@ async function getAntiforgeryToken(): Promise<string> {
 }
 
 async function apiFetch(input: RequestInfo | URL, init?: RequestInit) {
+  init?.signal?.throwIfAborted();
   const headers = new Headers(init?.headers);
   const method = init?.method?.toUpperCase() ?? 'GET';
   if (method !== 'GET' && method !== 'HEAD' && method !== 'OPTIONS') {
     headers.set('X-CSRF-TOKEN', await getAntiforgeryToken());
   }
 
+  init?.signal?.throwIfAborted();
   return fetch(input, { ...init, credentials: 'same-origin', headers });
 }
 
@@ -73,6 +75,7 @@ export async function getAdminInfo(): Promise<AdminInfo> {
 export async function getAllOverview(
   startDate?: string | null,
   endDate?: string | null,
+  signal?: AbortSignal,
 ): Promise<AllOverview> {
   const params = new URLSearchParams();
   if (startDate) params.set('startDate', startDate);
@@ -82,21 +85,23 @@ export async function getAllOverview(
   const res = await apiFetch(`${BASE}/Admin/GetAllOverview${queryString}`, {
     method: 'POST',
     headers: { Accept: 'application/json' },
+    signal,
   });
   return unwrap<AllOverview>(res);
 }
 
 export async function getRegistrations(
   query: RegistrationQuery,
+  signal?: AbortSignal,
 ): Promise<RegistrationList> {
   const params = new URLSearchParams();
   params.set('pageIndex', String(query.pageIndex ?? 0));
-  params.set('pageSize', String(query.pageSize ?? 100));
+  params.set('pageSize', String(query.pageSize ?? 10));
   if (query.startDate) params.set('startDate', query.startDate);
   if (query.endDate) params.set('endDate', query.endDate);
   if (query.searchTerm) params.set('searchTerm', query.searchTerm);
   if (query.validationStatus) params.set('validationStatus', query.validationStatus);
-  if (query.legalStatus) params.set('legalStatus', query.legalStatus);
+  if (query.verification) params.set('verification', query.verification);
   if (query.fullyPassed != null) params.set('fullyPassed', String(query.fullyPassed));
 
   const res = await apiFetch(
@@ -104,9 +109,22 @@ export async function getRegistrations(
     {
       method: 'POST',
       headers: { Accept: 'application/json' },
+      signal,
     },
   );
   return unwrap<RegistrationList>(res);
+}
+
+export async function getNotificationRegistrations(
+  signal?: AbortSignal,
+): Promise<AiVirtualAssistantRegistration[]> {
+  // This legacy endpoint deliberately enumerates all TGS registrations, without table filters.
+  const res = await apiFetch(`${BASE}/Admin/GetNotificationRegistrations`, {
+    method: 'POST',
+    headers: { Accept: 'application/json' },
+    signal,
+  });
+  return unwrap<AiVirtualAssistantRegistration[]>(res);
 }
 
 export async function applyRegistrationAction(

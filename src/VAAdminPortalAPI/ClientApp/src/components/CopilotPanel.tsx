@@ -9,6 +9,8 @@ import {
   DrawerBody,
   DrawerHeader,
   DrawerHeaderTitle,
+  MessageBar,
+  MessageBarBody,
   Spinner,
   Textarea,
   makeStyles,
@@ -23,6 +25,7 @@ import {
 } from '@fluentui/react-icons';
 import CopilotIcon from './CopilotIcon';
 import type { AiVirtualAssistantRegistration, AllOverview } from '../api/types';
+import type { LoadStatus } from '../features/registrations/registrationsSlice';
 import {
   COPILOT_SUGGESTIONS,
   askMockCopilot,
@@ -317,20 +320,33 @@ export default function CopilotPanel({
   items,
   overview,
   filterSummary,
+  dataStatus,
+  dataError,
+  onReload,
 }: {
   open: boolean;
   onClose: () => void;
   items: AiVirtualAssistantRegistration[];
   overview: AllOverview | null;
   filterSummary?: string;
+  dataStatus: LoadStatus;
+  dataError: string | null;
+  onReload: () => void;
 }) {
   const styles = useStyles();
   const [messages, setMessages] = useState<CopilotMessage[]>([]);
   const [input, setInput] = useState('');
   const [thinking, setThinking] = useState(false);
+  const [answerError, setAnswerError] = useState<string | null>(null);
   const threadRef = useRef<HTMLDivElement>(null);
   const messageId = useRef(0);
   const greeted = useRef(false);
+  const answerGeneration = useRef(0);
+  const dataReady = dataStatus === 'succeeded';
+
+  useEffect(() => () => {
+    answerGeneration.current += 1;
+  }, []);
 
   const context = useMemo(
     () => ({ items, overview, filterSummary }),
@@ -346,39 +362,61 @@ export default function CopilotPanel({
 
   const send = (prompt: string) => {
     const trimmed = prompt.trim();
-    if (!trimmed || thinking) return;
+    if (!trimmed || thinking || !dataReady) return;
 
+    const generation = ++answerGeneration.current;
     setMessages((current) => [...current, { kind: 'user', id: nextId(), text: trimmed }]);
     setInput('');
     setThinking(true);
+    setAnswerError(null);
 
     askMockCopilot(trimmed, contextRef.current)
       .then((answer) => {
+        if (answerGeneration.current !== generation) return;
         setMessages((current) => [
           ...current,
           { kind: 'assistant', id: nextId(), answer, animate: true },
         ]);
       })
-      .finally(() => setThinking(false));
+      .catch(() => {
+        if (answerGeneration.current === generation) setAnswerError('Analysis failed. Please try again.');
+      })
+      .finally(() => {
+        if (answerGeneration.current === generation) setThinking(false);
+      });
   };
 
   useEffect(() => {
-    if (!open || greeted.current) return;
+    if (!open || !dataReady || greeted.current) return;
+    const generation = ++answerGeneration.current;
     greeted.current = true;
     setThinking(true);
     askMockCopilot('Summarize the registration data', contextRef.current)
       .then((answer) => {
+        if (answerGeneration.current !== generation) return;
         setMessages([{ kind: 'assistant', id: nextId(), answer, animate: true }]);
       })
-      .finally(() => setThinking(false));
-  }, [open]);
+      .catch(() => {
+        if (answerGeneration.current === generation) setAnswerError('Analysis failed. Please try again.');
+      })
+      .finally(() => {
+        if (answerGeneration.current === generation) setThinking(false);
+      });
+    return () => {
+      answerGeneration.current += 1;
+      greeted.current = false;
+    };
+  }, [open, dataReady]);
 
   useEffect(() => {
     threadRef.current?.scrollTo({ top: threadRef.current.scrollHeight, behavior: 'smooth' });
   }, [messages, thinking]);
 
   const clearThread = () => {
+    answerGeneration.current += 1;
     setMessages([]);
+    setThinking(false);
+    setAnswerError(null);
     greeted.current = false;
   };
 
@@ -424,13 +462,28 @@ export default function CopilotPanel({
       </DrawerHeader>
 
       <DrawerBody className={styles.body}>
+        <Caption1>
+          {filterSummary}. Analysis loads all matching pages only on request, independently of notifications.
+        </Caption1>
+        <Button onClick={onReload} disabled={dataStatus === 'loading'}>
+          {dataReady ? 'Reload analysis' : 'Load analysis'}
+        </Button>
+        {dataStatus === 'loading' && <Spinner size="small" label="Loading all matching registrations..." />}
+        {dataStatus === 'idle' && (
+          <Caption1>Analysis is not loaded for the submitted filters. Select Load analysis to continue.</Caption1>
+        )}
+        {(dataError || answerError) && (
+          <MessageBar intent="error">
+            <MessageBarBody>{dataError ?? answerError}</MessageBarBody>
+          </MessageBar>
+        )}
         <div className={styles.thread} ref={threadRef}>
-          {messages.length === 0 && !thinking && (
+          {dataReady && messages.length === 0 && !thinking && (
             <div className={styles.answerCard}>
               <Body1 className={styles.headline}>Ask about the registration data.</Body1>
               <Caption1>
-                I analyze the registrations currently loaded in the dashboard and answer with the
-                numbers behind them.
+                I analyze all matching pages loaded for the submitted filters and answer with the
+                numbers behind them. Reload analysis to pick up later changes.
               </Caption1>
             </div>
           )}
@@ -466,7 +519,7 @@ export default function CopilotPanel({
                 className={styles.chip}
                 size="small"
                 appearance="outline"
-                disabled={thinking}
+                disabled={thinking || !dataReady}
                 onClick={() => send(suggestion)}
               >
                 {suggestion}
@@ -478,6 +531,7 @@ export default function CopilotPanel({
               className={styles.input}
               resize="none"
               rows={2}
+              disabled={!dataReady}
               value={input}
               placeholder="Ask Copilot about registrations, trends, or pending reviews"
               onChange={(_, data) => setInput(data.value)}
@@ -492,12 +546,13 @@ export default function CopilotPanel({
               appearance="primary"
               icon={<SendRegular />}
               aria-label="Send message"
-              disabled={thinking || input.trim().length === 0}
+              disabled={!dataReady || thinking || input.trim().length === 0}
               onClick={() => send(input)}
             />
           </div>
           <Caption1 className={styles.disclaimer}>
             Mock Copilot for demo purposes. Responses are generated locally from dashboard data.
+            {' '}Registrations can change between page requests; this is not a point-in-time snapshot.
           </Caption1>
         </div>
       </DrawerBody>

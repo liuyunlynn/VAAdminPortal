@@ -1,6 +1,65 @@
-@VAAdminPortalAPI_HostAddress = http://localhost:5126
+@VAAdminPortalAPI_HostAddress = https://localhost:7199
+# Sign in with an allowlisted account first. Supply its Cookie header (including
+# the antiforgery cookie) and the token returned by /auth/antiforgery below.
+@sessionCookies = <authenticated-session-and-antiforgery-cookies>
+@csrfToken = <antiforgery-token>
 
-GET {{VAAdminPortalAPI_HostAddress}}/weatherforecast/
+### Obtain an antiforgery token using the authenticated session
+GET {{VAAdminPortalAPI_HostAddress}}/auth/antiforgery
+Cookie: {{sessionCookies}}
 Accept: application/json
 
-###
+### Default table page: pageIndex=0, pageSize=10; no optional filters
+POST {{VAAdminPortalAPI_HostAddress}}/Admin/GetAiVirtualAssistantRegistrations
+Cookie: {{sessionCookies}}
+X-CSRF-TOKEN: {{csrfToken}}
+Accept: application/json
+
+### Filtered table page: inclusive timestamps, encoded search and offset, all filters
+POST {{VAAdminPortalAPI_HostAddress}}/Admin/GetAiVirtualAssistantRegistrations?pageIndex=0&pageSize=10&startDate=2026-09-01T00%3A00%3A00%2B08%3A00&endDate=2026-09-23T23%3A59%3A59.999%2B08%3A00&searchTerm=Contoso%20%26%20Partners&validationStatus=Passed&verification=Validated&fullyPassed=true
+Cookie: {{sessionCookies}}
+X-CSRF-TOKEN: {{csrfToken}}
+Accept: application/json
+
+### Next matching page; explicit false is retained, not omitted
+POST {{VAAdminPortalAPI_HostAddress}}/Admin/GetAiVirtualAssistantRegistrations?pageIndex=1&pageSize=10&fullyPassed=false
+Cookie: {{sessionCookies}}
+X-CSRF-TOKEN: {{csrfToken}}
+Accept: application/json
+
+### Invalid pagination: HTTP 400 ValidationProblemDetails, no TGS request
+POST {{VAAdminPortalAPI_HostAddress}}/Admin/GetAiVirtualAssistantRegistrations?pageIndex=-1&pageSize=0
+Cookie: {{sessionCookies}}
+X-CSRF-TOKEN: {{csrfToken}}
+
+### Page size above maximum: HTTP 400
+POST {{VAAdminPortalAPI_HostAddress}}/Admin/GetAiVirtualAssistantRegistrations?pageSize=101
+Cookie: {{sessionCookies}}
+X-CSRF-TOKEN: {{csrfToken}}
+
+### Invalid filters: HTTP 400 (omit filters rather than sending All)
+POST {{VAAdminPortalAPI_HostAddress}}/Admin/GetAiVirtualAssistantRegistrations?validationStatus=Unknown&fullyPassed=invalid
+Cookie: {{sessionCookies}}
+X-CSRF-TOKEN: {{csrfToken}}
+
+### Invalid verification: HTTP 400
+POST {{VAAdminPortalAPI_HostAddress}}/Admin/GetAiVirtualAssistantRegistrations?verification=All
+Cookie: {{sessionCookies}}
+X-CSRF-TOKEN: {{csrfToken}}
+
+### Reversed inclusive date bounds: HTTP 400
+POST {{VAAdminPortalAPI_HostAddress}}/Admin/GetAiVirtualAssistantRegistrations?startDate=2026-09-23T00:00:00Z&endDate=2026-09-01T00:00:00Z
+Cookie: {{sessionCookies}}
+X-CSRF-TOKEN: {{csrfToken}}
+
+### Independent global notifications: legacy all-data load, never used by table Query
+POST {{VAAdminPortalAPI_HostAddress}}/Admin/GetNotificationRegistrations
+Cookie: {{sessionCookies}}
+X-CSRF-TOKEN: {{csrfToken}}
+Accept: application/json
+
+### Independent overview: legacy all-data aggregation with its own date bounds
+POST {{VAAdminPortalAPI_HostAddress}}/Admin/GetAllOverview?startDate=2026-09-01T00:00:00Z&endDate=2026-09-23T23:59:59.999Z
+Cookie: {{sessionCookies}}
+X-CSRF-TOKEN: {{csrfToken}}
+Accept: application/json

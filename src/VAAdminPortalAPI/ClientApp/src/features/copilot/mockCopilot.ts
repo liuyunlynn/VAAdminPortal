@@ -77,12 +77,15 @@ const daysSince = (iso: string) => {
   return Math.max(0, Math.floor((Date.now() - date) / 86_400_000));
 };
 
-const isFullyPassed = (item: AiVirtualAssistantRegistration) =>
-  item.validationStatus === 'Passed' && item.legalStatus === 'Passed';
-
 const isWaiting = (item: AiVirtualAssistantRegistration) =>
-  (item.validationStatus === 'Pending' || item.validationStatus === 'NotStarted') ||
-  (item.legalStatus === 'Pending' || item.legalStatus === 'NotStarted');
+  !item.verified && item.validationStatus !== 'Failed';
+
+const agreementAcceptance = (item: AiVirtualAssistantRegistration) =>
+  item.agreementAcceptedDateTime
+    ? `agreement accepted ${formatDate(item.agreementAcceptedDateTime)}${
+        item.agreementAcceptedBy ? ` by ${item.agreementAcceptedBy}` : ''
+      }`
+    : 'no agreement acceptance recorded';
 
 function topGroups(
   items: AiVirtualAssistantRegistration[],
@@ -118,16 +121,14 @@ function emptyAnswer(intent: CopilotIntent): CopilotAnswer {
 }
 
 function buildSummary(context: CopilotContext, sourceNote: string): CopilotAnswer {
-  const { items, overview } = context;
-  const total = overview?.totalRegistrationsCount ?? items.length;
-  const fullyPassed = overview?.verifiedCount ?? items.filter(isFullyPassed).length;
-  const validationPending =
-    overview?.validationPendingCount ?? items.filter((i) => i.validationStatus === 'Pending').length;
-  const legalPending =
-    overview?.legalPendingCount ?? items.filter((i) => i.legalStatus === 'Pending').length;
-  const failed = items.filter(
-    (i) => i.validationStatus === 'Failed' || i.legalStatus === 'Failed',
+  const { items } = context;
+  const total = items.length;
+  const verified = items.filter((item) => item.verified).length;
+  const validationPending = items.filter((item) => item.validationStatus === 'Pending').length;
+  const approvedUnverified = items.filter(
+    (item) => item.validationStatus === 'Passed' && !item.verified,
   ).length;
+  const failed = items.filter((item) => item.validationStatus === 'Failed').length;
   const monthly = registrationsByMonth(items);
   const busiest = monthly.reduce(
     (best, current) => (current.registrations > (best?.registrations ?? -1) ? current : best),
@@ -136,19 +137,20 @@ function buildSummary(context: CopilotContext, sourceNote: string): CopilotAnswe
 
   return {
     intent: 'summary',
-    headline: `${plural(total, 'registration')} in scope, ${percent(fullyPassed, total)} fully passed.`,
+    headline: `${plural(total, 'registration')} in scope, ${percent(verified, total)} verified.`,
     highlights: [
       { label: 'Total', value: String(total), tone: 'neutral' },
-      { label: 'Fully passed', value: String(fullyPassed), tone: 'positive' },
-      { label: 'In review', value: String(validationPending + legalPending), tone: 'warning' },
-      { label: 'Failed checks', value: String(failed), tone: failed > 0 ? 'critical' : 'neutral' },
+      { label: 'Verified', value: String(verified), tone: 'positive' },
+      { label: 'Validation pending', value: String(validationPending), tone: 'warning' },
+      { label: 'Validation failed', value: String(failed), tone: failed > 0 ? 'critical' : 'neutral' },
     ],
     bullets: [
-      `${plural(fullyPassed, 'assistant')} passed both validation and legal review (${percent(fullyPassed, total)} of the total).`,
-      `${plural(validationPending, 'validation review')} and ${plural(legalPending, 'legal review')} are still pending.`,
+      `${plural(verified, 'assistant')} are verified (${percent(verified, total)} of the total), based on the recorded verification flag.`,
+      `${plural(validationPending, 'validation review')} are still pending.`,
+      `${plural(approvedUnverified, 'registration')} passed validation but are not verified. Validation approval alone does not confirm verification; agreement acceptance may still be needed.`,
       failed > 0
-        ? `${plural(failed, 'registration')} failed at least one check and may need follow-up with the submitter.`
-        : 'No registration currently sits in a failed state.',
+        ? `${plural(failed, 'registration')} failed validation and may need follow-up with the submitter.`
+        : 'No registration currently has failed validation.',
       busiest
         ? `Peak submission month in the loaded range is ${busiest.month} with ${plural(busiest.registrations, 'registration')}.`
         : 'Not enough history to determine a peak month.',
@@ -167,34 +169,34 @@ function buildPending(context: CopilotContext, sourceNote: string): CopilotAnswe
     )
     .slice(0, 4);
   const validationBlocked = waiting.filter((i) => i.validationStatus !== 'Passed').length;
-  const legalBlocked = waiting.filter((i) => i.legalStatus !== 'Passed').length;
+  const approvedUnverified = waiting.filter((i) => i.validationStatus === 'Passed').length;
   const stale = waiting.filter((i) => daysSince(i.createdDateTime) > 30).length;
 
   return {
     intent: 'pending',
     headline:
       waiting.length === 0
-        ? 'Nothing is waiting on you - every registration has completed both reviews.'
-        : `${plural(waiting.length, 'registration')} still need a review decision.`,
+        ? 'No registrations are awaiting validation or verification follow-up; check failures separately.'
+        : `${plural(waiting.length, 'registration')} need validation or verification follow-up.`,
     highlights: [
       { label: 'Awaiting action', value: String(waiting.length), tone: 'warning' },
       { label: 'Validation open', value: String(validationBlocked), tone: 'warning' },
-      { label: 'Legal open', value: String(legalBlocked), tone: 'warning' },
+      { label: 'Validation passed, unverified', value: String(approvedUnverified), tone: 'warning' },
       { label: 'Older than 30 days', value: String(stale), tone: stale > 0 ? 'critical' : 'neutral' },
     ],
     bullets: oldest.length
       ? [
-          'Suggested review order (oldest first):',
+          'Suggested follow-up order (oldest first; validation failures are listed separately):',
           ...oldest.map(
             (item) =>
               `${item.displayName} - ${item.legalEntity.businessName}, submitted ${formatDate(
                 item.createdDateTime,
               )} (${plural(daysSince(item.createdDateTime), 'day')} old, validation ${
                 item.validationStatus
-              } / legal ${item.legalStatus}).`,
+              } / not verified, ${agreementAcceptance(item)}).`,
           ),
         ]
-      : ['The review queue is empty.'],
+      : ['The follow-up queue is empty. Validation failures, if any, still need attention.'],
     followUps: ['Any failed or risky registrations?', 'Summarize the registration data'],
     sourceNote,
   };
@@ -210,7 +212,7 @@ function buildTrend(context: CopilotContext, sourceNote: string): CopilotAnswer 
     ? Math.round(((last.registrations - previous.registrations) / Math.max(1, previous.registrations)) * 100)
     : 0;
   const totalRegistrations = monthly.reduce((sum, month) => sum + month.registrations, 0);
-  const totalFullyPassed = monthly.reduce((sum, month) => sum + month.fullyVerified, 0);
+  const totalVerified = monthly.reduce((sum, month) => sum + month.fullyVerified, 0);
   const average = Math.round(totalRegistrations / monthly.length);
 
   return {
@@ -229,14 +231,14 @@ function buildTrend(context: CopilotContext, sourceNote: string): CopilotAnswer 
       },
       { label: 'Monthly average', value: String(average), tone: 'neutral' },
       {
-        label: 'Fully passed rate',
-        value: percent(totalFullyPassed, totalRegistrations),
+        label: 'Verified rate',
+        value: percent(totalVerified, totalRegistrations),
         tone: 'positive',
       },
     ],
     bullets: [
       `Tracked window: ${monthly[0].month} to ${last.month} (${plural(monthly.length, 'month')}).`,
-      `${plural(totalFullyPassed, 'assistant')} passed both reviews over that window.`,
+      `${plural(totalVerified, 'assistant')} submitted in that window are currently verified.`,
       change >= 0
         ? 'Submission volume is holding or growing - keep the review capacity steady.'
         : 'Submission volume dipped in the latest month; worth checking partner outreach.',
@@ -248,24 +250,20 @@ function buildTrend(context: CopilotContext, sourceNote: string): CopilotAnswer 
 
 function buildRisk(context: CopilotContext, sourceNote: string): CopilotAnswer {
   const failed = context.items.filter(
-    (item) => item.validationStatus === 'Failed' || item.legalStatus === 'Failed',
+    (item) => item.validationStatus === 'Failed',
   );
-  const bothFailed = failed.filter(
-    (item) => item.validationStatus === 'Failed' && item.legalStatus === 'Failed',
-  ).length;
   const affectedCompanies = topGroups(failed, (item) => item.legalEntity.businessName, 3);
 
   return {
     intent: 'risk',
     headline:
       failed.length === 0
-        ? 'No failed reviews detected in the current view.'
-        : `${plural(failed.length, 'registration')} failed at least one review step.`,
+        ? 'No validation failures detected in the current view.'
+        : `${plural(failed.length, 'registration')} failed validation.`,
     highlights: [
-      { label: 'Failed', value: String(failed.length), tone: failed.length ? 'critical' : 'positive' },
-      { label: 'Failed both', value: String(bothFailed), tone: bothFailed ? 'critical' : 'neutral' },
+      { label: 'Validation failed', value: String(failed.length), tone: failed.length ? 'critical' : 'positive' },
       {
-        label: 'Failure rate',
+        label: 'Validation failure rate',
         value: percent(failed.length, context.items.length),
         tone: failed.length ? 'warning' : 'positive',
       },
@@ -276,7 +274,7 @@ function buildRisk(context: CopilotContext, sourceNote: string): CopilotAnswer {
             .slice(0, 4)
             .map(
               (item) =>
-                `${item.displayName} (${item.legalEntity.businessName}) - validation ${item.validationStatus}, legal ${item.legalStatus}.`,
+                `${item.displayName} (${item.legalEntity.businessName}) - validation ${item.validationStatus}, ${item.verified ? 'verified' : 'not verified'}.`,
             ),
           affectedCompanies.length
             ? `Most affected submitter: ${affectedCompanies[0].name} with ${plural(
@@ -285,7 +283,7 @@ function buildRisk(context: CopilotContext, sourceNote: string): CopilotAnswer {
               )}.`
             : 'Failures are spread across different submitters.',
         ]
-      : ['Every registration is either approved or still progressing normally.'],
+      : ['No validation failures are recorded. Validation approval does not necessarily mean a registration is verified; check the attention queue for outstanding work.'],
     followUps: ['What needs my attention?', 'Any data quality gaps?'],
     sourceNote,
   };
@@ -339,7 +337,7 @@ function buildRecent(context: CopilotContext, sourceNote: string): CopilotAnswer
     ],
     bullets: recent.map(
       (item) =>
-        `${formatDate(item.createdDateTime)} - ${item.displayName} (${item.legalEntity.businessName}), validation ${item.validationStatus} / legal ${item.legalStatus}.`,
+        `${formatDate(item.createdDateTime)} - ${item.displayName} (${item.legalEntity.businessName}), validation ${item.validationStatus} / ${item.verified ? 'verified' : 'not verified'}, ${agreementAcceptance(item)}.`,
     ),
     followUps: ['What needs my attention?', 'Summarize the registration data'],
     sourceNote,
@@ -367,7 +365,7 @@ function buildQuality(context: CopilotContext, sourceNote: string): CopilotAnswe
       { label: 'No legal ID', value: String(missingLegalId), tone: missingLegalId ? 'critical' : 'positive' },
     ],
     bullets: [
-      `${plural(missingPrivacy, 'registration')} are missing a privacy statement URL - this normally blocks legal approval.`,
+      `${plural(missingPrivacy, 'registration')} are missing a privacy statement URL - follow up with the submitter as part of validation.`,
       `${plural(missingLegalId, 'registration')} have no legal identifier recorded.`,
       `${plural(missingDomain, 'registration')} have no domain and ${plural(missingLogo, 'registration')} have no logo, which weakens the trust profile.`,
     ],
@@ -382,8 +380,8 @@ function buildHelp(sourceNote: string): CopilotAnswer {
     headline: 'I am the VA Admin Copilot (demo mode). I read the dashboard data you have loaded.',
     highlights: [],
     bullets: [
-      'Ask me for a summary of registrations, review outcomes, or monthly trends.',
-      'Ask what needs attention and I will rank the oldest items waiting for a review decision.',
+      'Ask me for a summary of registrations, validation outcomes, verification status, or monthly trends.',
+      'Ask what needs attention and I will rank the oldest items awaiting validation or verification follow-up.',
       'Ask about failures, submitters, regions, or data quality gaps.',
       'My answers respect the filters currently applied to the dashboard.',
     ],

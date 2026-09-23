@@ -9,12 +9,16 @@ import {
   DrawerBody,
   DrawerHeader,
   DrawerHeaderTitle,
+  MessageBar,
+  MessageBarBody,
+  Spinner,
   Subtitle2,
   makeStyles,
   tokens,
 } from '@fluentui/react-components';
 import { ChevronRightRegular, DismissRegular } from '@fluentui/react-icons';
 import type { AiVirtualAssistantRegistration } from '../api/types';
+import type { LoadStatus } from '../features/registrations/registrationsSlice';
 import { formatDate } from './status';
 
 const useStyles = makeStyles({
@@ -91,7 +95,7 @@ const useStyles = makeStyles({
 });
 
 export function isFailedRegistration(item: AiVirtualAssistantRegistration): boolean {
-  return item.validationStatus === 'Failed' || item.legalStatus === 'Failed';
+  return item.validationStatus === 'Failed';
 }
 
 export function countNewFailedRegistrations(
@@ -114,11 +118,17 @@ export default function NotificationPanel({
   open,
   onClose,
   onSelect,
+  status,
+  error,
+  onRefresh,
 }: {
   items: AiVirtualAssistantRegistration[];
   open: boolean;
   onClose: () => void;
   onSelect: (id: string) => void;
+  status: LoadStatus;
+  error: string | null;
+  onRefresh: () => void;
 }) {
   const styles = useStyles();
   const failedItems = useMemo(
@@ -161,9 +171,18 @@ export default function NotificationPanel({
           <Caption1 className={styles.secondaryText}>
             Select a bot to review and update its failed checks.
           </Caption1>
+          <Button onClick={onRefresh} disabled={status === 'loading'}>
+            Refresh notifications
+          </Button>
         </div>
 
-        {failedItems.length === 0 ? (
+        {status === 'loading' && <Spinner size="small" label="Refreshing all notifications..." />}
+        {error && (
+          <MessageBar intent="error">
+            <MessageBarBody>{error} Notifications may be out of date. Refresh to retry.</MessageBarBody>
+          </MessageBar>
+        )}
+        {failedItems.length === 0 ? status === 'succeeded' && (
           <div className={styles.empty}>
             <Body1>No failed bots.</Body1>
           </div>
@@ -195,9 +214,6 @@ export default function NotificationPanel({
                   <div className={styles.failedChecks}>
                     {item.validationStatus === 'Failed' && (
                       <Badge appearance="tint" color="danger">Validation failed</Badge>
-                    )}
-                    {item.legalStatus === 'Failed' && (
-                      <Badge appearance="tint" color="danger">Legal failed</Badge>
                     )}
                   </div>
                 </div>

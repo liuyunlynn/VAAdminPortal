@@ -53,6 +53,12 @@ namespace VAAdminPortalAPI.Models
         [JsonPropertyName("verification")]
         public string Verification { get; set; } = string.Empty;
 
+        [JsonPropertyName("agreementAcceptedDateTime")]
+        public DateTimeOffset? AgreementAcceptedDateTime { get; set; }
+
+        [JsonPropertyName("agreementAcceptedBy")]
+        public string? AgreementAcceptedBy { get; set; }
+
         /// <summary>
         /// Gets or sets the created date time (server-set, read-only, ISO 8601 UTC).
         /// </summary>
@@ -100,18 +106,7 @@ namespace VAAdminPortalAPI.Models
         [JsonPropertyName("validationFailureReason")]
         public string? ValidationFailureReason { get; set; }
 
-        [JsonPropertyName("legalStatus")]
-        [JsonConverter(typeof(JsonStringEnumConverter))]
-        public LegalStatus LegalStatus { get; set; }
-
-        /// <summary>
-        /// Gets or sets the reason explaining why the legal review failed.
-        /// Only populated when <see cref="LegalStatus"/> is <see cref="LegalStatus.Failed"/>.
-        /// </summary>
-        [JsonPropertyName("legalFailureReason")]
-        public string? LegalFailureReason { get; set; }
-
         [JsonPropertyName("verified")]
-        public bool Verified => ValidationStatus == ValidationStatus.Passed && LegalStatus == LegalStatus.Passed;
+        public bool Verified => string.Equals(Verification, "Validated", StringComparison.OrdinalIgnoreCase);
     }
 }

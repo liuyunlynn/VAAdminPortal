@@ -102,7 +102,7 @@ export default function LoginPage() {
           Manage your AI virtual assistant registrations
         </Title1>
         <div className={styles.heroList}>
-          <span>• Monitor validation and legal review progress</span>
+          <span>• Monitor validation and agreement acceptance progress</span>
           <span>• Explore registrations with rich charts and tables</span>
           <span>• Drill into the full details of every submission</span>
         </div>

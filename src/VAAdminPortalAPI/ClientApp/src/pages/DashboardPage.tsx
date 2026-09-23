@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Avatar,
   Body1,
@@ -31,7 +31,9 @@ import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { getAllOverview } from '../api/client';
 import {
   fetchRegistrationCharts,
+  fetchNotificationRegistrations,
   fetchRegistrations,
+  invalidateRegistrationCharts,
   registrationUpdated,
   selectRegistration,
 } from '../features/registrations/registrationsSlice';
@@ -39,7 +41,7 @@ import type {
   AiVirtualAssistantRegistration,
   AdminInfo,
   AllOverview,
-  LegalStatus,
+  BotVerificationLevel,
   RegistrationQuery,
   ValidationStatus,
 } from '../api/types';
@@ -275,44 +277,41 @@ const REVIEW_STATUS_LABELS: Record<string, string> = {
 };
 const REVIEW_STATUS_ORDER = ['Passed', 'Pending', 'NotStarted', 'Failed'] as const;
 
-const VALIDATION_OPTIONS: (ValidationStatus | 'All')[] = [
-  'All',
-  'NotStarted',
-  'Pending',
-  'Passed',
-  'Failed',
-];
-const LEGAL_OPTIONS: (LegalStatus | 'All')[] = ['All', 'NotStarted', 'Pending', 'Passed', 'Failed'];
 const REVIEW_RESULT_OPTIONS = ['All', 'Completed', 'Not Completed'] as const;
+const VALIDATION_STATUS_OPTIONS: (ValidationStatus | 'All')[] = [
+  'All', 'NotStarted', 'Pending', 'Passed', 'Failed',
+];
+const VERIFICATION_OPTIONS: (BotVerificationLevel | 'All')[] = [
+  'All', 'Registered', 'Validated',
+];
 const PAGE_SIZE_OPTIONS = [10, 20, 50, 100];
 const NOTIFICATIONS_LAST_READ_KEY = 'va-admin-portal-notifications-last-read';
 
 const dropdownWidth = (labels: string[]) => `${Math.max(...labels.map((label) => label.length)) + 6}ch`;
-const VALIDATION_DROPDOWN_WIDTH = dropdownWidth(
-  VALIDATION_OPTIONS.map((option) => (option === 'All' ? 'All validation' : option)),
-);
-const LEGAL_DROPDOWN_WIDTH = dropdownWidth(
-  LEGAL_OPTIONS.map((option) => (option === 'All' ? 'All legal' : option)),
-);
 const REVIEW_RESULT_DROPDOWN_WIDTH = '180px';
+const VALIDATION_STATUS_DROPDOWN_WIDTH = dropdownWidth(['Validation status', ...VALIDATION_STATUS_OPTIONS]);
+const VERIFICATION_DROPDOWN_WIDTH = dropdownWidth(['BotValidationLevel', ...VERIFICATION_OPTIONS]);
 const PAGE_SIZE_DROPDOWN_WIDTH = dropdownWidth(PAGE_SIZE_OPTIONS.map(String));
 
 export default function DashboardPage({ admin }: { admin: AdminInfo }) {
   const styles = useStyles();
   const dispatch = useAppDispatch();
-  const { items, chartItems, totalCount, status, error, selectedId } = useAppSelector(
+  const {
+    items, chartItems, notificationItems, totalCount, status, error, selectedId,
+    pageIndex: loadedPageIndex, pageSize: loadedPageSize,
+    chartStatus, chartError, chartRequestId, notificationStatus, notificationError,
+  } = useAppSelector(
     (s) => s.registrations,
   );
 
   const [search, setSearch] = useState('');
-  const [validation, setValidation] = useState<ValidationStatus | 'All'>('All');
-  const [legal, setLegal] = useState<LegalStatus | 'All'>('All');
   const [reviewResult, setReviewResult] = useState<(typeof REVIEW_RESULT_OPTIONS)[number]>('All');
+  const [validationStatus, setValidationStatus] = useState<ValidationStatus | 'All'>('All');
+  const [verification, setVerification] = useState<BotVerificationLevel | 'All'>('All');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [pageSize, setPageSize] = useState(10);
   const [submittedPageSize, setSubmittedPageSize] = useState(10);
-  const [pageIndex, setPageIndex] = useState(0);
   const [submittedQuery, setSubmittedQuery] = useState<RegistrationQuery>({});
   const [overview, setOverview] = useState<AllOverview | null>(null);
   const [overviewError, setOverviewError] = useState<string | null>(null);
@@ -321,43 +320,89 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
   const [overviewLoading, setOverviewLoading] = useState(false);
   const [copilotOpen, setCopilotOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const [selectionSource, setSelectionSource] = useState<'table' | 'notification'>('table');
   const [notificationsLastReadAt, setNotificationsLastReadAt] = useState<string | null>(() =>
     localStorage.getItem(NOTIFICATIONS_LAST_READ_KEY),
   );
+  const tableRequest = useRef<{ abort: () => void } | null>(null);
+  const submittedTableQuery = useRef<RegistrationQuery>({ pageIndex: 0, pageSize: 10 });
+  const notificationRequest = useRef<{ abort: () => void } | null>(null);
+  const chartRequest = useRef<{ abort: () => void } | null>(null);
+  const overviewRequest = useRef<AbortController | null>(null);
+  const submittedOverviewDates = useRef<{ start?: string | null; end?: string | null }>({});
+  const mounted = useRef(false);
+  const copilotOpenRef = useRef(copilotOpen);
+  copilotOpenRef.current = copilotOpen;
 
-  useEffect(() => {
-    let active = true;
+  const loadTable = useCallback((query: RegistrationQuery) => {
+    tableRequest.current?.abort();
+    submittedTableQuery.current = { ...query };
+    tableRequest.current = dispatch(fetchRegistrations(query));
+  }, [dispatch]);
 
-    dispatch(fetchRegistrations({ pageIndex: 0, pageSize: 10 }));
-    dispatch(fetchRegistrationCharts({}));
-    getAllOverview()
+  const loadNotifications = useCallback(() => {
+    notificationRequest.current?.abort();
+    notificationRequest.current = dispatch(fetchNotificationRegistrations());
+  }, [dispatch]);
+
+  const loadOverview = useCallback(() => {
+    overviewRequest.current?.abort();
+    const controller = new AbortController();
+    overviewRequest.current = controller;
+    setOverviewError(null);
+    setOverviewLoading(true);
+    const { start, end } = submittedOverviewDates.current;
+    getAllOverview(start, end, controller.signal)
       .then((result) => {
-        if (active) setOverview(result);
+        if (!controller.signal.aborted) setOverview(result);
       })
       .catch((requestError: unknown) => {
-        if (active) {
+        if (!controller.signal.aborted) {
           setOverviewError(
             requestError instanceof Error ? requestError.message : 'Failed to load overview.',
           );
         }
+      })
+      .finally(() => {
+        if (!controller.signal.aborted) setOverviewLoading(false);
       });
+  }, []);
 
+  useEffect(() => {
+    mounted.current = true;
+    loadTable({ pageIndex: 0, pageSize: 10 });
+    loadNotifications();
+    loadOverview();
     return () => {
-      active = false;
+      mounted.current = false;
+      tableRequest.current?.abort();
+      notificationRequest.current?.abort();
+      chartRequest.current?.abort();
+      overviewRequest.current?.abort();
     };
-  }, [dispatch]);
+  }, [loadTable, loadNotifications, loadOverview]);
+
+  const loadAnalysis = () => {
+    chartRequest.current?.abort();
+    chartRequest.current = dispatch(fetchRegistrationCharts({ ...submittedTableQuery.current }));
+  };
+
+  const invalidateAnalysis = () => {
+    chartRequest.current?.abort();
+    dispatch(invalidateRegistrationCharts());
+  };
 
   const selected = useMemo(
     () =>
-      items.find((item) => item.id === selectedId) ??
-      chartItems.find((item) => item.id === selectedId) ??
+      (selectionSource === 'notification' ? notificationItems : items)
+        .find((item) => item.id === selectedId) ??
       null,
-    [chartItems, items, selectedId],
+    [notificationItems, items, selectedId, selectionSource],
   );
 
   const newFailedNotificationCount = useMemo(
-    () => countNewFailedRegistrations(chartItems, notificationsLastReadAt),
-    [chartItems, notificationsLastReadAt],
+    () => countNewFailedRegistrations(notificationItems, notificationsLastReadAt),
+    [notificationItems, notificationsLastReadAt],
   );
 
   const reviewCounts = useMemo(
@@ -368,12 +413,6 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
         NotStarted: overview?.validationNotStartedCount ?? 0,
         Failed: overview?.validationFailedCount ?? 0,
       },
-      legal: {
-        Passed: overview?.legalPassedCount ?? 0,
-        Pending: overview?.legalPendingCount ?? 0,
-        NotStarted: overview?.legalNotStartedCount ?? 0,
-        Failed: overview?.legalFailedCount ?? 0,
-      },
     }),
     [overview],
   );
@@ -383,10 +422,14 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
     if (submittedQuery.startDate || submittedQuery.endDate) {
       parts.push(`date ${submittedQuery.startDate?.slice(0, 10) ?? 'any'} to ${submittedQuery.endDate?.slice(0, 10) ?? 'any'}`);
     }
-    if (submittedQuery.validationStatus) parts.push(`validation ${submittedQuery.validationStatus}`);
-    if (submittedQuery.legalStatus) parts.push(`legal ${submittedQuery.legalStatus}`);
     if (submittedQuery.fullyPassed != null) {
       parts.push(submittedQuery.fullyPassed ? 'completed only' : 'not completed only');
+    }
+    if (submittedQuery.validationStatus) {
+      parts.push(`Validation status ${submittedQuery.validationStatus}`);
+    }
+    if (submittedQuery.verification) {
+      parts.push(`BotValidationLevel ${submittedQuery.verification}`);
     }
     if (submittedQuery.searchTerm) parts.push(`search "${submittedQuery.searchTerm}"`);
     return parts.length > 0 ? `filters: ${parts.join(', ')}` : 'no filters applied';
@@ -396,8 +439,8 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
     startDate: startDate ? `${startDate}T00:00:00.000Z` : null,
     endDate: endDate ? `${endDate}T23:59:59.999Z` : null,
     searchTerm: search.trim() || null,
-    validationStatus: validation === 'All' ? null : validation,
-    legalStatus: legal === 'All' ? null : legal,
+    validationStatus: validationStatus === 'All' ? null : validationStatus,
+    verification: verification === 'All' ? null : verification,
     fullyPassed:
       reviewResult === 'All' ? null : reviewResult === 'Completed',
   });
@@ -406,52 +449,35 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
     const query = createQuery();
     setSubmittedQuery(query);
     setSubmittedPageSize(pageSize);
-    setPageIndex(0);
-    dispatch(fetchRegistrations({ ...query, pageIndex: 0, pageSize }));
-    dispatch(fetchRegistrationCharts(query));
+    loadTable({ ...query, pageIndex: 0, pageSize });
+    invalidateAnalysis();
   };
 
   const handleOverviewQuery = () => {
     const overviewStart = overviewStartDate ? `${overviewStartDate}T00:00:00.000Z` : null;
     const overviewEnd = overviewEndDate ? `${overviewEndDate}T23:59:59.999Z` : null;
 
-    setOverviewError(null);
-    setOverviewLoading(true);
-    getAllOverview(overviewStart, overviewEnd)
-      .then(setOverview)
-      .catch((requestError: unknown) => {
-        setOverviewError(
-          requestError instanceof Error ? requestError.message : 'Failed to load overview.',
-        );
-      })
-      .finally(() => setOverviewLoading(false));
+    submittedOverviewDates.current = { start: overviewStart, end: overviewEnd };
+    loadOverview();
   };
 
   const handlePageChange = (nextPageIndex: number) => {
-    setPageIndex(nextPageIndex);
-    dispatch(
-      fetchRegistrations({
-        ...submittedQuery,
-        pageIndex: nextPageIndex,
-        pageSize: submittedPageSize,
-      }),
-    );
+    loadTable({
+      ...submittedQuery,
+      pageIndex: nextPageIndex,
+      pageSize: submittedPageSize,
+    });
   };
 
   const handleActionComplete = (updated: AiVirtualAssistantRegistration) => {
+    if (!mounted.current) return;
     dispatch(registrationUpdated(updated));
-    dispatch(
-      fetchRegistrations({
-        ...submittedQuery,
-        pageIndex,
-        pageSize: submittedPageSize,
-      }),
-    );
-    dispatch(fetchRegistrationCharts(submittedQuery));
-
-    const overviewStart = overviewStartDate ? `${overviewStartDate}T00:00:00.000Z` : null;
-    const overviewEnd = overviewEndDate ? `${overviewEndDate}T23:59:59.999Z` : null;
-    getAllOverview(overviewStart, overviewEnd).then(setOverview).catch(() => undefined);
+    // Actions can finish after another query/page has been submitted.
+    loadTable(submittedTableQuery.current);
+    loadNotifications();
+    loadOverview();
+    if (copilotOpenRef.current) loadAnalysis();
+    else invalidateAnalysis();
   };
 
   const handleSignOut = () => {
@@ -467,6 +493,7 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
 
   const handleFailedNotificationSelect = (id: string) => {
     closeNotifications();
+    setSelectionSource('notification');
     dispatch(selectRegistration(id));
   };
 
@@ -518,9 +545,12 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
       </header>
 
       <main className={styles.content}>
-        {(error || overviewError) && (
+        {(error || overviewError || notificationError) && (
           <MessageBar intent="error">
-            <MessageBarBody>{error ?? overviewError}</MessageBarBody>
+            <MessageBarBody>
+              {[error, overviewError, notificationError && `Notifications: ${notificationError}`]
+                .filter(Boolean).join(' ')}
+            </MessageBarBody>
           </MessageBar>
         )}
 
@@ -573,7 +603,7 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
             <span className={styles.kpiValue} style={{ color: '#107c10' }}>
               {overview?.verifiedCount ?? 0}
             </span>
-            <Caption1 className={styles.kpiHint}>Validation and legal passed</Caption1>
+            <Caption1 className={styles.kpiHint}>Validation passed and agreement accepted</Caption1>
           </Card>
           <Card className={mergeClasses(styles.kpiCard, styles.primaryKpiCard)}>
             <Caption1>Validation review</Caption1>
@@ -582,19 +612,6 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
                 <div key={status} className={styles.statusMetric}>
                   <span className={styles.statusValue} style={{ color: STATUS_COLORS[status] }}>
                     {reviewCounts.validation[status]}
-                  </span>
-                  <Caption1 className={styles.kpiHint}>{REVIEW_STATUS_LABELS[status]}</Caption1>
-                </div>
-              ))}
-            </div>
-          </Card>
-          <Card className={mergeClasses(styles.kpiCard, styles.primaryKpiCard)}>
-            <Caption1>Legal review</Caption1>
-            <div className={styles.statusMetrics}>
-              {REVIEW_STATUS_ORDER.map((status) => (
-                <div key={status} className={styles.statusMetric}>
-                  <span className={styles.statusValue} style={{ color: STATUS_COLORS[status] }}>
-                    {reviewCounts.legal[status]}
                   </span>
                   <Caption1 className={styles.kpiHint}>{REVIEW_STATUS_LABELS[status]}</Caption1>
                 </div>
@@ -616,7 +633,7 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
                   selectedOptions={[reviewResult]}
                   onOptionSelect={(_, d) =>
                     setReviewResult(
-                      (d.optionValue as (typeof REVIEW_RESULT_OPTIONS)[number]) ?? 'All',
+                      REVIEW_RESULT_OPTIONS.find((option) => option === d.optionValue) ?? 'All',
                     )
                   }
                 >
@@ -630,34 +647,41 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
               <Field label="Validation status">
                 <Dropdown
                   style={{
-                    width: VALIDATION_DROPDOWN_WIDTH,
-                    minWidth: VALIDATION_DROPDOWN_WIDTH,
+                    width: VALIDATION_STATUS_DROPDOWN_WIDTH,
+                    minWidth: VALIDATION_STATUS_DROPDOWN_WIDTH,
                   }}
-                  value={validation}
-                  selectedOptions={[validation]}
+                  value={validationStatus}
+                  selectedOptions={[validationStatus]}
                   onOptionSelect={(_, d) =>
-                    setValidation((d.optionValue as ValidationStatus | 'All') ?? 'All')
+                    setValidationStatus(
+                      VALIDATION_STATUS_OPTIONS.find((option) => option === d.optionValue) ?? 'All',
+                    )
                   }
                 >
-                  {VALIDATION_OPTIONS.map((opt) => (
-                    <Option key={opt} value={opt}>
-                      {opt === 'All' ? 'All validation' : opt}
+                  {VALIDATION_STATUS_OPTIONS.map((option) => (
+                    <Option key={option} value={option}>
+                      {option}
                     </Option>
                   ))}
                 </Dropdown>
               </Field>
-              <Field label="Legal status">
+              <Field label="BotValidationLevel">
                 <Dropdown
-                  style={{ width: LEGAL_DROPDOWN_WIDTH, minWidth: LEGAL_DROPDOWN_WIDTH }}
-                  value={legal}
-                  selectedOptions={[legal]}
+                  style={{
+                    width: VERIFICATION_DROPDOWN_WIDTH,
+                    minWidth: VERIFICATION_DROPDOWN_WIDTH,
+                  }}
+                  value={verification}
+                  selectedOptions={[verification]}
                   onOptionSelect={(_, d) =>
-                    setLegal((d.optionValue as LegalStatus | 'All') ?? 'All')
+                    setVerification(
+                      VERIFICATION_OPTIONS.find((option) => option === d.optionValue) ?? 'All',
+                    )
                   }
                 >
-                  {LEGAL_OPTIONS.map((opt) => (
-                    <Option key={opt} value={opt}>
-                      {opt === 'All' ? 'All legal' : opt}
+                  {VERIFICATION_OPTIONS.map((option) => (
+                    <Option key={option} value={option}>
+                      {option}
                     </Option>
                   ))}
                 </Dropdown>
@@ -720,14 +744,19 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
             <div className={styles.loading}>
               <Spinner label="Loading registrations..." />
             </div>
+          ) : status === 'failed' ? (
+            <div className={styles.loading}>Registrations could not be loaded. Run Query to retry.</div>
           ) : (
             <RegistrationTable
               items={items}
-              pageIndex={pageIndex}
-              pageSize={submittedPageSize}
+              pageIndex={loadedPageIndex}
+              pageSize={loadedPageSize}
               totalCount={totalCount}
               onPageChange={handlePageChange}
-              onSelect={(id) => dispatch(selectRegistration(id))}
+              onSelect={(id) => {
+                setSelectionSource('table');
+                dispatch(selectRegistration(id));
+              }}
             />
           )}
         </Card>
@@ -739,7 +768,10 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
           appearance="subtle"
           shape="circular"
           icon={<CopilotIcon fontSize={30} />}
-          onClick={() => setCopilotOpen(true)}
+          onClick={() => {
+            setCopilotOpen(true);
+            loadAnalysis();
+          }}
         />
       </Tooltip>
 
@@ -751,19 +783,31 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
       />
 
       <NotificationPanel
-        items={chartItems}
+        items={notificationItems}
         open={notificationsOpen}
         onClose={closeNotifications}
         onSelect={handleFailedNotificationSelect}
+        status={notificationStatus}
+        error={notificationError}
+        onRefresh={loadNotifications}
       />
 
-      <CopilotPanel
-        open={copilotOpen}
-        onClose={() => setCopilotOpen(false)}
-        items={chartItems}
-        overview={overview}
-        filterSummary={copilotFilterSummary}
-      />
+      {copilotOpen && (
+        <CopilotPanel
+          key={chartRequestId ?? 'idle'}
+          open={copilotOpen}
+          onClose={() => {
+            setCopilotOpen(false);
+            invalidateAnalysis();
+          }}
+          items={chartItems}
+          overview={overview}
+          filterSummary={copilotFilterSummary}
+          dataStatus={chartStatus}
+          dataError={chartError}
+          onReload={loadAnalysis}
+        />
+      )}
     </div>
   );
 }
