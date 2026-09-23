@@ -105,16 +105,15 @@ export default function RegistrationTable({
             <TableRow>
               <TableHeaderCell>Bot</TableHeaderCell>
               <TableHeaderCell>Business</TableHeaderCell>
-              <TableHeaderCell>Validation</TableHeaderCell>
-              <TableHeaderCell>Legal</TableHeaderCell>
+              <TableHeaderCell>Validation status</TableHeaderCell>
+              <TableHeaderCell>BotValidationLevel</TableHeaderCell>
               <TableHeaderCell>Created</TableHeaderCell>
               <TableHeaderCell>Details</TableHeaderCell>
             </TableRow>
           </TableHeader>
           <TableBody>
             {items.map((item) => {
-              const fullyPassed =
-                item.validationStatus === 'Passed' && item.legalStatus === 'Passed';
+              const fullyPassed = item.verified;
               return (
               <TableRow key={item.id} className={fullyPassed ? styles.fullyPassedRow : undefined}>
                 <TableCell>
@@ -158,8 +157,11 @@ export default function RegistrationTable({
                   </Badge>
                 </TableCell>
                 <TableCell>
-                  <Badge appearance="filled" color={statusBadgeColor(item.legalStatus)}>
-                    {item.legalStatus}
+                  <Badge
+                    appearance="tint"
+                    color={item.verification?.toLowerCase() === 'validated' ? 'success' : 'subtle'}
+                  >
+                    {item.verification || '—'}
                   </Badge>
                 </TableCell>
                 <TableCell>

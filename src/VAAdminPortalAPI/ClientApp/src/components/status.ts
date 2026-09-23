@@ -41,7 +41,7 @@ export function registrationsByMonth(items: AiVirtualAssistantRegistration[]) {
     const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
     const bucket = buckets.get(key) ?? { registrations: 0, fullyVerified: 0 };
     bucket.registrations += 1;
-    if (item.validationStatus === 'Passed' && item.legalStatus === 'Passed') {
+    if (item.verified) {
       bucket.fullyVerified += 1;
     }
     buckets.set(key, bucket);

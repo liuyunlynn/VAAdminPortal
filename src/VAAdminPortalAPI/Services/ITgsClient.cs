@@ -7,5 +7,12 @@ namespace VAAdminPortalAPI.Services
         Task<IReadOnlyList<AiVirtualAssistantRegistrationModel>> GetAiVirtualAssistantsAsync(
             string tenantId,
             CancellationToken cancellationToken);
+
+        Task<AiVirtualAssistantRegistrationModel> UpdateValidationStatusAsync(
+            string authenticationTenantId,
+            string targetTenantId,
+            string registrationId,
+            ValidationStatus status,
+            CancellationToken cancellationToken);
     }
 }

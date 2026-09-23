@@ -87,10 +87,56 @@ namespace VAAdminPortalAPI.Services
 
             foreach (AiVirtualAssistantRegistrationModel registration in registrations)
             {
-                PopulatePortalOnlyFields(registration);
+                NormalizeRegistrationFields(registration);
             }
 
             return registrations;
+        }
+
+        public async Task<AiVirtualAssistantRegistrationModel> UpdateValidationStatusAsync(
+            string authenticationTenantId,
+            string targetTenantId,
+            string registrationId,
+            ValidationStatus status,
+            CancellationToken cancellationToken)
+        {
+            ArgumentException.ThrowIfNullOrWhiteSpace(authenticationTenantId);
+            ArgumentException.ThrowIfNullOrWhiteSpace(targetTenantId);
+            ArgumentException.ThrowIfNullOrWhiteSpace(registrationId);
+
+            string accessToken = await tokenProvider
+                .GetAccessTokenAsync(authenticationTenantId, cancellationToken)
+                .ConfigureAwait(false);
+
+            HttpClient httpClient = httpClientFactory.CreateClient(nameof(TgsClient));
+            Uri baseUri = new(options.BaseUrl.TrimEnd('/') + "/");
+            string relativeUri =
+                $"v1.0/admin/tenants/{Uri.EscapeDataString(targetTenantId)}/aiVirtualAssistants/{Uri.EscapeDataString(registrationId)}/validationStatus";
+            using HttpRequestMessage request = new(HttpMethod.Put, new Uri(baseUri, relativeUri));
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            request.Content = JsonContent.Create(status.ToString());
+
+            using HttpResponseMessage response = await httpClient
+                .SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken)
+                .ConfigureAwait(false);
+            if (!response.IsSuccessStatusCode)
+            {
+                string responseBody = await response.Content
+                    .ReadAsStringAsync(cancellationToken)
+                    .ConfigureAwait(false);
+                throw new HttpRequestException(
+                    $"Teams Graph returned {(int)response.StatusCode} ({response.ReasonPhrase}). {responseBody}",
+                    inner: null,
+                    response.StatusCode);
+            }
+
+            AiVirtualAssistantRegistrationModel registration = await response.Content
+                .ReadFromJsonAsync<AiVirtualAssistantRegistrationModel>(SerializerOptions, cancellationToken)
+                .ConfigureAwait(false)
+                ?? throw new JsonException("Teams Graph returned an empty registration.");
+
+            NormalizeRegistrationFields(registration);
+            return registration;
         }
 
         private sealed class TgsRegistrationPage
@@ -100,42 +146,12 @@ namespace VAAdminPortalAPI.Services
             public string? ContinuationToken { get; init; }
         }
 
-        private static void PopulatePortalOnlyFields(AiVirtualAssistantRegistrationModel registration)
+        private static void NormalizeRegistrationFields(AiVirtualAssistantRegistrationModel registration)
         {
-            int stableHash = GetStableHash(registration.Id);
-            ValidationStatus[] validationStatuses = Enum.GetValues<ValidationStatus>();
-            LegalStatus[] legalStatuses = Enum.GetValues<LegalStatus>();
-
-            registration.ValidationStatus =
-                validationStatuses[(int)((uint)stableHash % validationStatuses.Length)];
-            registration.LegalStatus =
-                legalStatuses[(int)((uint)(stableHash >> 8) % legalStatuses.Length)];
-            registration.ValidationFailureReason =
-                registration.ValidationStatus == ValidationStatus.Failed
-                    ? "Synthetic portal status; Teams Graph does not provide a validation result."
-                    : null;
-            registration.LegalFailureReason =
-                registration.LegalStatus == LegalStatus.Failed
-                    ? "Synthetic portal status; Teams Graph does not provide a legal review result."
-                    : null;
             registration.LegalEntity ??= new LegalEntityModel();
             registration.PrimaryContact ??= new PrimaryContactModel();
             registration.TechnicalContact ??= new ContactModel();
             registration.ProgramManagerContact ??= new ContactModel();
-        }
-
-        private static int GetStableHash(string value)
-        {
-            unchecked
-            {
-                int hash = 17;
-                foreach (char character in value ?? string.Empty)
-                {
-                    hash = (hash * 31) + character;
-                }
-
-                return hash;
-            }
         }
     }
 }

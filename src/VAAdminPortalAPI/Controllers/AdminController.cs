@@ -65,14 +65,30 @@ namespace VAAdminPortalAPI.Controllers
         }
 
         [HttpPost(Name = "ApplyRegistrationAction")]
-        public ActionResult ApplyRegistrationAction([FromBody] RegistrationActionModel actionModel)
+        public async Task<ActionResult> ApplyRegistrationAction(
+            [FromBody] RegistrationActionModel actionModel,
+            CancellationToken cancellationToken)
         {
+            if (!Enum.IsDefined(actionModel.Action))
+            {
+                return BadRequest("A valid registration action is required.");
+            }
+
             if (string.IsNullOrWhiteSpace(actionModel.Reason))
             {
                 return BadRequest("A reason is required.");
             }
 
-            var registration = _adminService.ApplyRegistrationAction(actionModel);
+            if (string.IsNullOrWhiteSpace(actionModel.RegistrationId) ||
+                string.IsNullOrWhiteSpace(actionModel.TenantId))
+            {
+                return BadRequest("A registration ID and tenant ID are required.");
+            }
+
+            var registration = await _adminService.ApplyRegistrationActionAsync(
+                GetRequiredTenantId(),
+                actionModel,
+                cancellationToken);
             if (registration == null)
             {
                 return NotFound();

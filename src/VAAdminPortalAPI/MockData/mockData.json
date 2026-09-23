@@ -24,8 +24,7 @@
         "country": "France",
         "countryCode": "FR",
         "zipCode": "75001",
-        "legalIdentifier": "EIN-87-5250853",
-        "nonDisclosureAgreementNumber": "NDA-3249"
+        "legalIdentifier": "EIN-87-5250853"
       },
       "primaryContact": {
         "name": "Taylor Davis",
@@ -43,7 +42,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "f761e9f0-57e4-4eec-9349-d5a5a2f675c4",
@@ -64,8 +65,7 @@
         "country": "Germany",
         "countryCode": "DE",
         "zipCode": "10115",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Alex Williams",
@@ -83,7 +83,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "aced7c95-838f-4a09-b31c-75150a163ab9",
@@ -104,8 +106,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "98052",
-        "legalIdentifier": "EIN-37-7647592",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-37-7647592"
       },
       "primaryContact": {
         "name": "Morgan Martinez",
@@ -123,7 +124,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "575077cf-3a94-403c-b366-cd94a0d81ae7",
@@ -144,8 +147,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "97201",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Taylor Johnson",
@@ -163,7 +165,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "997f199f-1a81-44a3-b272-b03b729c3a83",
@@ -184,8 +188,7 @@
         "country": "United Kingdom",
         "countryCode": "GB",
         "zipCode": "EC1A 1BB",
-        "legalIdentifier": "EIN-49-6206077",
-        "nonDisclosureAgreementNumber": "NDA-4032"
+        "legalIdentifier": "EIN-49-6206077"
       },
       "primaryContact": {
         "name": "Harper Davis",
@@ -203,7 +206,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "5059110e-0ac7-4b50-99be-0b2aa1418cc6",
@@ -224,8 +229,7 @@
         "country": "India",
         "countryCode": "IN",
         "zipCode": "400001",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Riley Kumar",
@@ -243,7 +247,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "2b958bb9-6d2b-488f-ab3e-317863a38999",
@@ -264,8 +270,7 @@
         "country": "United Kingdom",
         "countryCode": "GB",
         "zipCode": "EC1A 1BB",
-        "legalIdentifier": "EIN-39-8131845",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-39-8131845"
       },
       "primaryContact": {
         "name": "Riley Williams",
@@ -283,7 +288,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "896db3a7-ca21-4aa2-981c-63ff126f6390",
@@ -304,8 +311,7 @@
         "country": "India",
         "countryCode": "IN",
         "zipCode": "400001",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Quinn Martinez",
@@ -323,7 +329,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "b9c3b319-08d4-4bed-92f9-c2d9d25ee1a5",
@@ -344,8 +352,7 @@
         "country": "United Kingdom",
         "countryCode": "GB",
         "zipCode": "EC1A 1BB",
-        "legalIdentifier": "EIN-45-4025087",
-        "nonDisclosureAgreementNumber": "NDA-9060"
+        "legalIdentifier": "EIN-45-4025087"
       },
       "primaryContact": {
         "name": "Sam Garcia",
@@ -363,7 +370,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2026-05-29T16:37:00Z",
+      "agreementAcceptedBy": "sam.garcia@northwind.co.uk",
+      "verification": "Validated"
     },
     {
       "id": "e5addbaf-7e25-4821-a1e0-d090cf80f65d",
@@ -384,8 +393,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "73301",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Jordan Jones",
@@ -403,7 +411,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2026-05-24T07:42:00Z",
+      "agreementAcceptedBy": "jordan.jones@example.com",
+      "verification": "Registered"
     },
     {
       "id": "918ca96b-da1f-4424-af05-6556a5c7cc37",
@@ -424,8 +434,7 @@
         "country": "India",
         "countryCode": "IN",
         "zipCode": "400001",
-        "legalIdentifier": "EIN-82-2875686",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-82-2875686"
       },
       "primaryContact": {
         "name": "Jamie Williams",
@@ -443,7 +452,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2026-05-14T03:07:00Z",
+      "agreementAcceptedBy": "jamie.williams@humongousinsurance.in",
+      "verification": "Validated"
     },
     {
       "id": "3a00b30e-7a71-464c-b3b1-acac78791089",
@@ -464,8 +475,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "98052",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Skyler Rodriguez",
@@ -483,7 +493,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2026-05-06T05:01:00Z",
+      "agreementAcceptedBy": "skyler.rodriguez@example.com",
+      "verification": "Validated"
     },
     {
       "id": "b7bae820-45ba-4f9e-9a4e-0d942baabd2e",
@@ -504,8 +516,7 @@
         "country": "France",
         "countryCode": "FR",
         "zipCode": "75001",
-        "legalIdentifier": "EIN-75-9603476",
-        "nonDisclosureAgreementNumber": "NDA-8915"
+        "legalIdentifier": "EIN-75-9603476"
       },
       "primaryContact": {
         "name": "Riley Smith",
@@ -523,7 +534,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "27378c06-dd2c-456f-ae89-58fbce43867f",
@@ -544,8 +557,7 @@
         "country": "Australia",
         "countryCode": "AU",
         "zipCode": "2000",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Avery Miller",
@@ -563,7 +575,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "fb64d18a-8359-4f56-813e-6359392ec588",
@@ -584,8 +598,7 @@
         "country": "Australia",
         "countryCode": "AU",
         "zipCode": "2000",
-        "legalIdentifier": "EIN-16-8835897",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-16-8835897"
       },
       "primaryContact": {
         "name": "Alex Williams",
@@ -603,7 +616,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2026-04-15T13:52:00Z",
+      "agreementAcceptedBy": "alex.williams@proseware.com",
+      "verification": "Validated"
     },
     {
       "id": "dfe64308-6332-46d5-8329-a3b9b369c54f",
@@ -624,8 +639,7 @@
         "country": "Australia",
         "countryCode": "AU",
         "zipCode": "2000",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Avery Kumar",
@@ -643,7 +657,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2026-04-07T08:13:00Z",
+      "agreementAcceptedBy": "avery.kumar@example.com",
+      "verification": "Validated"
     },
     {
       "id": "14ddc460-d1f3-415e-9cc2-9044c8a1e73a",
@@ -664,8 +680,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "98052",
-        "legalIdentifier": "EIN-94-9568880",
-        "nonDisclosureAgreementNumber": "NDA-3396"
+        "legalIdentifier": "EIN-94-9568880"
       },
       "primaryContact": {
         "name": "Skyler Davis",
@@ -683,7 +698,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "4d081421-e0ca-46db-abe5-d2d7f753821f",
@@ -704,8 +721,7 @@
         "country": "Japan",
         "countryCode": "JP",
         "zipCode": "100-0001",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Harper Chen",
@@ -723,7 +739,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "ae51a1ac-fa33-4065-947b-914685ba3940",
@@ -744,8 +762,7 @@
         "country": "Canada",
         "countryCode": "CA",
         "zipCode": "M5H 2N2",
-        "legalIdentifier": "EIN-96-5379804",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-96-5379804"
       },
       "primaryContact": {
         "name": "Skyler Martinez",
@@ -763,7 +780,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2026-03-17T03:23:00Z",
+      "agreementAcceptedBy": "skyler.martinez@tailspintoys.com",
+      "verification": "Validated"
     },
     {
       "id": "48b478e5-de31-4209-89d6-d1d2e4860a70",
@@ -784,8 +803,7 @@
         "country": "Australia",
         "countryCode": "AU",
         "zipCode": "2000",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Sam Miller",
@@ -803,7 +821,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "9fbe03d7-bbb7-4c36-a1b4-5a5b1ee25d5e",
@@ -824,8 +844,7 @@
         "country": "India",
         "countryCode": "IN",
         "zipCode": "400001",
-        "legalIdentifier": "EIN-87-6634843",
-        "nonDisclosureAgreementNumber": "NDA-9180"
+        "legalIdentifier": "EIN-87-6634843"
       },
       "primaryContact": {
         "name": "Casey Martinez",
@@ -843,7 +862,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "9446cc47-0568-4f6d-ac85-ed60b8d3faf3",
@@ -864,8 +885,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "97201",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Quinn Nakamura",
@@ -883,7 +903,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "165aca42-b6c8-4bde-af1c-b129683c61b8",
@@ -904,8 +926,7 @@
         "country": "France",
         "countryCode": "FR",
         "zipCode": "75001",
-        "legalIdentifier": "EIN-55-2242974",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-55-2242974"
       },
       "primaryContact": {
         "name": "Sam Williams",
@@ -923,7 +944,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "1e192ae8-89de-43a0-8bbf-971d515d09ff",
@@ -944,8 +967,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "98101",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Taylor Martinez",
@@ -963,7 +985,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "ac540ae5-b387-4b48-bfef-d5cf1ae73416",
@@ -984,8 +1008,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "73301",
-        "legalIdentifier": "EIN-26-6783916",
-        "nonDisclosureAgreementNumber": "NDA-5567"
+        "legalIdentifier": "EIN-26-6783916"
       },
       "primaryContact": {
         "name": "Reese Brown",
@@ -1003,7 +1026,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2026-02-04T16:18:00Z",
+      "agreementAcceptedBy": "reese.brown@adventure-works.com",
+      "verification": "Registered"
     },
     {
       "id": "80cbd255-73c4-46cc-9b76-fda6f77edb7c",
@@ -1024,8 +1049,7 @@
         "country": "France",
         "countryCode": "FR",
         "zipCode": "75001",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Riley Williams",
@@ -1043,7 +1067,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2026-01-28T00:11:00Z",
+      "agreementAcceptedBy": "riley.williams@example.com",
+      "verification": "Registered"
     },
     {
       "id": "76245f71-a19e-43f9-ba48-454a767c91bc",
@@ -1064,8 +1090,7 @@
         "country": "Germany",
         "countryCode": "DE",
         "zipCode": "10115",
-        "legalIdentifier": "EIN-78-6921275",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-78-6921275"
       },
       "primaryContact": {
         "name": "Drew Smith",
@@ -1083,7 +1108,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2026-01-20T11:58:00Z",
+      "agreementAcceptedBy": "drew.smith@wingtiptoys.de",
+      "verification": "Validated"
     },
     {
       "id": "edca7d16-5996-43b7-887c-6950b1084a92",
@@ -1104,8 +1131,7 @@
         "country": "Australia",
         "countryCode": "AU",
         "zipCode": "2000",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Riley Chen",
@@ -1124,7 +1150,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "App registration owner could not be verified against the publishing tenant.",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2026-01-13T07:50:00Z",
+      "agreementAcceptedBy": "riley.chen@example.com",
+      "verification": "Registered"
     },
     {
       "id": "0fd2e1be-afda-4f86-a337-904e3ff400a7",
@@ -1145,8 +1173,7 @@
         "country": "Japan",
         "countryCode": "JP",
         "zipCode": "100-0001",
-        "legalIdentifier": "EIN-10-9194465",
-        "nonDisclosureAgreementNumber": "NDA-1560"
+        "legalIdentifier": "EIN-10-9194465"
       },
       "primaryContact": {
         "name": "Harper Kumar",
@@ -1164,8 +1191,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Legal entity name does not match the registered business record."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "11811db3-baf3-4a81-8b85-890823e0e123",
@@ -1186,8 +1214,7 @@
         "country": "Switzerland",
         "countryCode": "CH",
         "zipCode": "8001",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Jordan Muller",
@@ -1205,8 +1232,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Non-disclosure agreement number is expired and must be renewed."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "0996e262-c451-4996-8a82-f8153562705a",
@@ -1227,8 +1255,7 @@
         "country": "France",
         "countryCode": "FR",
         "zipCode": "75001",
-        "legalIdentifier": "EIN-65-4368464",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-65-4368464"
       },
       "primaryContact": {
         "name": "Quinn Smith",
@@ -1246,8 +1273,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Legal identifier could not be validated with the tax authority."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "a92eb49c-f42c-4f58-8b4e-2eaffb98f960",
@@ -1268,8 +1296,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "73301",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Drew Jones",
@@ -1288,8 +1315,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "Domain ownership check failed: DNS TXT record not found for the declared domain.",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Registered address is in an unsupported region for this program."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "2b60da61-f543-4407-b451-492f468701c7",
@@ -1310,8 +1338,7 @@
         "country": "France",
         "countryCode": "FR",
         "zipCode": "75001",
-        "legalIdentifier": "EIN-71-7374173",
-        "nonDisclosureAgreementNumber": "NDA-6100"
+        "legalIdentifier": "EIN-71-7374173"
       },
       "primaryContact": {
         "name": "Taylor Muller",
@@ -1329,7 +1356,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "89e54ed3-8b34-43a9-b7b7-85f43cdc319d",
@@ -1350,8 +1379,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "98052",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Alex Garcia",
@@ -1369,7 +1397,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "a31ba287-1bd6-4240-9c9d-102baa0bccba",
@@ -1390,8 +1420,7 @@
         "country": "Canada",
         "countryCode": "CA",
         "zipCode": "M5H 2N2",
-        "legalIdentifier": "EIN-75-3537433",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-75-3537433"
       },
       "primaryContact": {
         "name": "Morgan Johnson",
@@ -1409,7 +1438,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "6003b024-b160-454a-9f1d-17feed5a178a",
@@ -1430,8 +1461,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "97201",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Taylor Jones",
@@ -1450,7 +1480,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "Privacy statement URL is unreachable (HTTP 404).",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "9fe27224-1c1a-493d-8cb6-4b55648a5bb7",
@@ -1471,8 +1503,7 @@
         "country": "United Kingdom",
         "countryCode": "GB",
         "zipCode": "EC1A 1BB",
-        "legalIdentifier": "EIN-66-3843023",
-        "nonDisclosureAgreementNumber": "NDA-5594"
+        "legalIdentifier": "EIN-66-3843023"
       },
       "primaryContact": {
         "name": "Sam Brown",
@@ -1490,7 +1521,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "97097688-5535-4a7f-91c6-de440ef49881",
@@ -1511,8 +1544,7 @@
         "country": "France",
         "countryCode": "FR",
         "zipCode": "75001",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Drew Rodriguez",
@@ -1530,7 +1562,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "7c24ea41-2793-4146-b9e9-8ca5007ea479",
@@ -1551,8 +1585,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "73301",
-        "legalIdentifier": "EIN-35-6586000",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-35-6586000"
       },
       "primaryContact": {
         "name": "Taylor Martinez",
@@ -1570,7 +1603,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "bea65641-ca7a-4e44-95b3-ff193989a34d",
@@ -1591,8 +1626,7 @@
         "country": "India",
         "countryCode": "IN",
         "zipCode": "400001",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Cameron Chen",
@@ -1611,7 +1645,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "Logo asset failed the content safety scan.",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "34bf4fe2-d218-4edc-b73e-05f4a8edbe42",
@@ -1632,8 +1668,7 @@
         "country": "Australia",
         "countryCode": "AU",
         "zipCode": "2000",
-        "legalIdentifier": "EIN-91-8958542",
-        "nonDisclosureAgreementNumber": "NDA-1791"
+        "legalIdentifier": "EIN-91-8958542"
       },
       "primaryContact": {
         "name": "Avery Martinez",
@@ -1651,7 +1686,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2025-10-07T09:02:00Z",
+      "agreementAcceptedBy": "avery.martinez@proseware.com",
+      "verification": "Registered"
     },
     {
       "id": "cf664654-f2fa-47c1-b167-e3f15c54c04c",
@@ -1672,8 +1709,7 @@
         "country": "Canada",
         "countryCode": "CA",
         "zipCode": "M5H 2N2",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Jamie Davis",
@@ -1691,7 +1727,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2025-09-28T18:25:00Z",
+      "agreementAcceptedBy": "jamie.davis@example.com",
+      "verification": "Registered"
     },
     {
       "id": "ad3a2976-c539-4f49-87ab-b2eaf4f16e2a",
@@ -1712,8 +1750,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "98101",
-        "legalIdentifier": "EIN-49-4136778",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-49-4136778"
       },
       "primaryContact": {
         "name": "Jamie Garcia",
@@ -1731,7 +1768,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2025-09-24T05:29:00Z",
+      "agreementAcceptedBy": "jamie.garcia@fabrikam.com",
+      "verification": "Validated"
     },
     {
       "id": "d062d1e8-e24b-4066-84c6-04dcb83c65e6",
@@ -1752,8 +1791,7 @@
         "country": "Switzerland",
         "countryCode": "CH",
         "zipCode": "8001",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Devon Williams",
@@ -1772,7 +1810,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "Redirect URIs contain a non-HTTPS endpoint, which is not permitted.",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2025-09-16T22:23:00Z",
+      "agreementAcceptedBy": "devon.williams@example.com",
+      "verification": "Registered"
     },
     {
       "id": "ee06644f-8925-46cc-860a-7246f27e3ad3",
@@ -1793,8 +1833,7 @@
         "country": "Germany",
         "countryCode": "DE",
         "zipCode": "10115",
-        "legalIdentifier": "EIN-27-7202412",
-        "nonDisclosureAgreementNumber": "NDA-8135"
+        "legalIdentifier": "EIN-27-7202412"
       },
       "primaryContact": {
         "name": "Reese Brown",
@@ -1812,8 +1851,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Signed onboarding document is missing an authorized signatory."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "84c4dde2-9dcc-4d78-81c9-8738b4f3b559",
@@ -1834,8 +1874,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "98052",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Alex Muller",
@@ -1853,8 +1892,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Legal entity name does not match the registered business record."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "758021d0-d832-4341-9215-2f0671560dfb",
@@ -1875,8 +1915,7 @@
         "country": "Canada",
         "countryCode": "CA",
         "zipCode": "M5H 2N2",
-        "legalIdentifier": "EIN-13-8294164",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-13-8294164"
       },
       "primaryContact": {
         "name": "Harper Davis",
@@ -1894,8 +1933,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Non-disclosure agreement number is expired and must be renewed."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "50134382-b131-4d8c-98e3-a17a647800c0",
@@ -1916,8 +1956,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "73301",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Cameron Smith",
@@ -1936,8 +1975,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "App registration owner could not be verified against the publishing tenant.",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Legal identifier could not be validated with the tax authority."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "2dc31bea-0855-4191-9f31-508ab6f5d6b6",
@@ -1958,8 +1998,7 @@
         "country": "United Kingdom",
         "countryCode": "GB",
         "zipCode": "EC1A 1BB",
-        "legalIdentifier": "EIN-48-7518937",
-        "nonDisclosureAgreementNumber": "NDA-1725"
+        "legalIdentifier": "EIN-48-7518937"
       },
       "primaryContact": {
         "name": "Avery Garcia",
@@ -1977,7 +2016,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "86d48f9e-ed29-432c-bf2c-56da0be0163c",
@@ -1998,8 +2039,7 @@
         "country": "Germany",
         "countryCode": "DE",
         "zipCode": "10115",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Sam Nakamura",
@@ -2017,7 +2057,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "d82206a0-019f-4df6-bf58-66dbe303a2ac",
@@ -2038,8 +2080,7 @@
         "country": "Canada",
         "countryCode": "CA",
         "zipCode": "M5H 2N2",
-        "legalIdentifier": "EIN-34-4313256",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-34-4313256"
       },
       "primaryContact": {
         "name": "Quinn Miller",
@@ -2057,7 +2098,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "6e75edf0-c120-497c-8170-03e1d191b747",
@@ -2078,8 +2121,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "98101",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Cameron Jones",
@@ -2098,7 +2140,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "Domain ownership check failed: DNS TXT record not found for the declared domain.",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "27e40ad1-eb7f-4f4d-bbb0-4d5fb5674a00",
@@ -2119,8 +2163,7 @@
         "country": "Canada",
         "countryCode": "CA",
         "zipCode": "M5H 2N2",
-        "legalIdentifier": "EIN-60-9896387",
-        "nonDisclosureAgreementNumber": "NDA-8832"
+        "legalIdentifier": "EIN-60-9896387"
       },
       "primaryContact": {
         "name": "Morgan Martinez",
@@ -2138,7 +2181,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "63c53629-9853-4aa5-bd7c-2fac17eb3934",
@@ -2159,8 +2204,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "98052",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Sam Muller",
@@ -2178,7 +2222,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "f4b23b94-fa88-4523-a41c-96bd7b66cf02",
@@ -2199,8 +2245,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "97201",
-        "legalIdentifier": "EIN-90-8169008",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-90-8169008"
       },
       "primaryContact": {
         "name": "Casey Rodriguez",
@@ -2218,7 +2263,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "a7d7f97a-e684-4eba-a616-8542037949b9",
@@ -2239,8 +2286,7 @@
         "country": "India",
         "countryCode": "IN",
         "zipCode": "400001",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Sam Davis",
@@ -2259,7 +2305,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "Privacy statement URL is unreachable (HTTP 404).",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "65dae377-e848-49b6-8438-6b7f6c109e7d",
@@ -2280,8 +2328,7 @@
         "country": "Australia",
         "countryCode": "AU",
         "zipCode": "2000",
-        "legalIdentifier": "EIN-69-3222986",
-        "nonDisclosureAgreementNumber": "NDA-3740"
+        "legalIdentifier": "EIN-69-3222986"
       },
       "primaryContact": {
         "name": "Casey Jones",
@@ -2299,7 +2346,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2025-06-15T21:08:00Z",
+      "agreementAcceptedBy": "casey.jones@proseware.com",
+      "verification": "Registered"
     },
     {
       "id": "b6ff54ae-7a44-4196-bf0e-1cad8297452a",
@@ -2320,8 +2369,7 @@
         "country": "Australia",
         "countryCode": "AU",
         "zipCode": "2000",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Jamie Martinez",
@@ -2339,7 +2387,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2025-06-06T12:32:00Z",
+      "agreementAcceptedBy": "jamie.martinez@example.com",
+      "verification": "Registered"
     },
     {
       "id": "bb26eb22-a355-45be-b79f-43909e142165",
@@ -2360,8 +2410,7 @@
         "country": "Japan",
         "countryCode": "JP",
         "zipCode": "100-0001",
-        "legalIdentifier": "EIN-31-6577572",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-31-6577572"
       },
       "primaryContact": {
         "name": "Jordan Kumar",
@@ -2379,7 +2428,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2025-05-31T23:31:00Z",
+      "agreementAcceptedBy": "jordan.kumar@gd-institute.jp",
+      "verification": "Validated"
     },
     {
       "id": "e330dcf3-db0b-4033-81f4-eb132111fc1b",
@@ -2400,8 +2451,7 @@
         "country": "Australia",
         "countryCode": "AU",
         "zipCode": "2000",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Taylor Jones",
@@ -2420,7 +2470,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "Logo asset failed the content safety scan.",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2025-05-24T04:33:00Z",
+      "agreementAcceptedBy": "taylor.jones@example.com",
+      "verification": "Registered"
     },
     {
       "id": "c733bda6-1edd-4762-8c95-71213f83b6f8",
@@ -2441,8 +2493,7 @@
         "country": "Canada",
         "countryCode": "CA",
         "zipCode": "M5H 2N2",
-        "legalIdentifier": "EIN-75-9799853",
-        "nonDisclosureAgreementNumber": "NDA-3183"
+        "legalIdentifier": "EIN-75-9799853"
       },
       "primaryContact": {
         "name": "Cameron Brown",
@@ -2460,8 +2511,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Registered address is in an unsupported region for this program."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "81004705-3a1c-49ba-b92c-22142c169dfd",
@@ -2482,8 +2534,7 @@
         "country": "Japan",
         "countryCode": "JP",
         "zipCode": "100-0001",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Riley Davis",
@@ -2501,8 +2552,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Signed onboarding document is missing an authorized signatory."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "0e0f964f-63ba-48a1-8d6c-f8123191e77c",
@@ -2523,8 +2575,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "98052",
-        "legalIdentifier": "EIN-90-7696222",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-90-7696222"
       },
       "primaryContact": {
         "name": "Harper Jones",
@@ -2542,8 +2593,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Legal entity name does not match the registered business record."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "6e6346e3-0a88-4361-8789-d57e9598217e",
@@ -2564,8 +2616,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "97201",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Harper Williams",
@@ -2584,8 +2635,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "Redirect URIs contain a non-HTTPS endpoint, which is not permitted.",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Non-disclosure agreement number is expired and must be renewed."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "5161f98e-951f-4ca3-b090-55f95fff0d0f",
@@ -2606,8 +2658,7 @@
         "country": "Canada",
         "countryCode": "CA",
         "zipCode": "M5H 2N2",
-        "legalIdentifier": "EIN-66-8863757",
-        "nonDisclosureAgreementNumber": "NDA-2801"
+        "legalIdentifier": "EIN-66-8863757"
       },
       "primaryContact": {
         "name": "Cameron Garcia",
@@ -2625,7 +2676,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "8fa91b2c-006b-4c2d-a062-87516ecbdc80",
@@ -2646,8 +2699,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "73301",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Jamie Muller",
@@ -2665,7 +2717,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "cf247e16-3199-4ab3-9293-235b87412789",
@@ -2686,8 +2740,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "73301",
-        "legalIdentifier": "EIN-16-5457400",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-16-5457400"
       },
       "primaryContact": {
         "name": "Sam Jones",
@@ -2705,7 +2758,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "62b3fb6a-c80c-4b94-af5a-f1991a52b164",
@@ -2726,8 +2781,7 @@
         "country": "France",
         "countryCode": "FR",
         "zipCode": "75001",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Quinn Kumar",
@@ -2746,7 +2800,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "App registration owner could not be verified against the publishing tenant.",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "0d5def77-50a8-4310-94a3-439fcb9e5533",
@@ -2767,8 +2823,7 @@
         "country": "Germany",
         "countryCode": "DE",
         "zipCode": "10115",
-        "legalIdentifier": "EIN-31-8030387",
-        "nonDisclosureAgreementNumber": "NDA-1389"
+        "legalIdentifier": "EIN-31-8030387"
       },
       "primaryContact": {
         "name": "Morgan Garcia",
@@ -2786,7 +2841,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "011d67ab-8d05-4468-8ed9-3fa29dff6e78",
@@ -2807,8 +2864,7 @@
         "country": "Japan",
         "countryCode": "JP",
         "zipCode": "100-0001",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Jamie Kumar",
@@ -2826,7 +2882,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "ff2c77a8-4ef4-4729-b7fa-76de3e6d3a25",
@@ -2847,8 +2905,7 @@
         "country": "United Kingdom",
         "countryCode": "GB",
         "zipCode": "EC1A 1BB",
-        "legalIdentifier": "EIN-64-8863539",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-64-8863539"
       },
       "primaryContact": {
         "name": "Jamie Davis",
@@ -2866,7 +2923,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "b0124798-5b82-420f-826e-0b39c3788119",
@@ -2887,8 +2946,7 @@
         "country": "United Kingdom",
         "countryCode": "GB",
         "zipCode": "EC1A 1BB",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Skyler Rodriguez",
@@ -2907,7 +2965,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "Domain ownership check failed: DNS TXT record not found for the declared domain.",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "37668161-441f-4adf-b91b-9f8e5a833d24",
@@ -2928,8 +2988,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "73301",
-        "legalIdentifier": "EIN-93-6701893",
-        "nonDisclosureAgreementNumber": "NDA-7653"
+        "legalIdentifier": "EIN-93-6701893"
       },
       "primaryContact": {
         "name": "Morgan Chen",
@@ -2947,7 +3006,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2025-02-18T21:31:00Z",
+      "agreementAcceptedBy": "morgan.chen@adventure-works.com",
+      "verification": "Registered"
     },
     {
       "id": "3be83f5f-99c7-4a30-8553-826f0eab4c70",
@@ -2968,8 +3029,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "73301",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Jamie Miller",
@@ -2987,7 +3047,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2025-02-12T06:03:00Z",
+      "agreementAcceptedBy": "jamie.miller@example.com",
+      "verification": "Registered"
     },
     {
       "id": "12065668-7a9b-469c-9a60-42df0659b805",
@@ -3008,8 +3070,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "97201",
-        "legalIdentifier": "EIN-24-4992352",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-24-4992352"
       },
       "primaryContact": {
         "name": "Sam Chen",
@@ -3027,7 +3088,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2025-01-31T14:48:00Z",
+      "agreementAcceptedBy": "sam.chen@fourthcoffee.com",
+      "verification": "Validated"
     },
     {
       "id": "f7a1962a-0587-493f-9f95-eb461dc3bf49",
@@ -3048,8 +3111,7 @@
         "country": "Germany",
         "countryCode": "DE",
         "zipCode": "10115",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Devon Muller",
@@ -3068,7 +3130,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "Privacy statement URL is unreachable (HTTP 404).",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2025-01-24T07:50:00Z",
+      "agreementAcceptedBy": "devon.muller@example.com",
+      "verification": "Registered"
     },
     {
       "id": "f5e2bc77-c93d-4937-b9f0-4b302d4a15bc",
@@ -3089,8 +3153,7 @@
         "country": "United Kingdom",
         "countryCode": "GB",
         "zipCode": "EC1A 1BB",
-        "legalIdentifier": "EIN-97-7875837",
-        "nonDisclosureAgreementNumber": "NDA-5076"
+        "legalIdentifier": "EIN-97-7875837"
       },
       "primaryContact": {
         "name": "Sam Garcia",
@@ -3108,8 +3171,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Legal identifier could not be validated with the tax authority."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "71211f46-76cb-4695-8e40-6797c6a424a4",
@@ -3130,8 +3194,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "97201",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Reese Miller",
@@ -3149,8 +3212,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Registered address is in an unsupported region for this program."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "6c39cc4d-b022-4126-939d-784bdea3880c",
@@ -3171,8 +3235,7 @@
         "country": "Australia",
         "countryCode": "AU",
         "zipCode": "2000",
-        "legalIdentifier": "EIN-58-2314598",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-58-2314598"
       },
       "primaryContact": {
         "name": "Quinn Davis",
@@ -3190,8 +3253,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Signed onboarding document is missing an authorized signatory."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "318db5db-3564-4382-8e4f-655547e4687f",
@@ -3212,8 +3276,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "73301",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Taylor Nakamura",
@@ -3232,8 +3295,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "Logo asset failed the content safety scan.",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Legal entity name does not match the registered business record."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "09c29de0-ce3e-4650-b02f-087f9b490c89",
@@ -3254,8 +3318,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "73301",
-        "legalIdentifier": "EIN-37-6147884",
-        "nonDisclosureAgreementNumber": "NDA-7745"
+        "legalIdentifier": "EIN-37-6147884"
       },
       "primaryContact": {
         "name": "Reese Davis",
@@ -3273,7 +3336,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "670c1fbe-c8f9-4961-a299-965941fcd038",
@@ -3294,8 +3359,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "98052",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Riley Williams",
@@ -3313,7 +3377,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "c35bbd45-3937-44a2-8808-ecb73abde18f",
@@ -3334,8 +3400,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "73301",
-        "legalIdentifier": "EIN-90-5569311",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-90-5569311"
       },
       "primaryContact": {
         "name": "Avery Martinez",
@@ -3353,7 +3418,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "ff9a7743-416a-408a-a8d3-b178b4e3ff19",
@@ -3374,8 +3441,7 @@
         "country": "Canada",
         "countryCode": "CA",
         "zipCode": "M5H 2N2",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Riley Jones",
@@ -3394,7 +3460,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "Redirect URIs contain a non-HTTPS endpoint, which is not permitted.",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "6c251fd5-ade2-4816-bd9c-f102c00bcc3d",
@@ -3415,8 +3483,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "73301",
-        "legalIdentifier": "EIN-58-9491328",
-        "nonDisclosureAgreementNumber": "NDA-2695"
+        "legalIdentifier": "EIN-58-9491328"
       },
       "primaryContact": {
         "name": "Devon Rodriguez",
@@ -3434,7 +3501,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "bc874d9e-c638-4d4d-bf9c-91db00a08eff",
@@ -3455,8 +3524,7 @@
         "country": "India",
         "countryCode": "IN",
         "zipCode": "400001",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Drew Garcia",
@@ -3474,7 +3542,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "3402b6b6-515e-4201-bfe1-94b76c17af7a",
@@ -3495,8 +3565,7 @@
         "country": "Switzerland",
         "countryCode": "CH",
         "zipCode": "8001",
-        "legalIdentifier": "EIN-31-8304614",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-31-8304614"
       },
       "primaryContact": {
         "name": "Skyler Muller",
@@ -3514,7 +3583,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "6cdf7a2e-b38e-4b6a-97db-28d97dd562b4",
@@ -3535,8 +3606,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "97201",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Riley Rodriguez",
@@ -3555,7 +3625,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "App registration owner could not be verified against the publishing tenant.",
-      "legalStatus": "Pending"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "fbebfacb-ec97-4bd8-83a9-43094d57e3b6",
@@ -3576,8 +3648,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "98101",
-        "legalIdentifier": "EIN-59-5946106",
-        "nonDisclosureAgreementNumber": "NDA-9887"
+        "legalIdentifier": "EIN-59-5946106"
       },
       "primaryContact": {
         "name": "Morgan Brown",
@@ -3595,7 +3666,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2024-10-20T22:13:00Z",
+      "agreementAcceptedBy": "morgan.brown@fabrikam.com",
+      "verification": "Registered"
     },
     {
       "id": "3e244133-23ca-4c1b-acd3-d0b39370fbb1",
@@ -3616,8 +3689,7 @@
         "country": "United Kingdom",
         "countryCode": "GB",
         "zipCode": "EC1A 1BB",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Avery Martinez",
@@ -3635,7 +3707,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2024-10-14T18:57:00Z",
+      "agreementAcceptedBy": "avery.martinez@example.com",
+      "verification": "Registered"
     },
     {
       "id": "328d8cc0-bd7c-4f40-972b-19b3bdfa5ece",
@@ -3656,8 +3730,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "97201",
-        "legalIdentifier": "EIN-75-6978022",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-75-6978022"
       },
       "primaryContact": {
         "name": "Casey Kumar",
@@ -3675,7 +3748,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2024-10-07T13:59:00Z",
+      "agreementAcceptedBy": "casey.kumar@fourthcoffee.com",
+      "verification": "Validated"
     },
     {
       "id": "f900fbf9-bd84-485f-8298-85f51b717c4c",
@@ -3696,8 +3771,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "98052",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Riley Rodriguez",
@@ -3716,7 +3790,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "Domain ownership check failed: DNS TXT record not found for the declared domain.",
-      "legalStatus": "Passed"
+      "agreementAcceptedDateTime": "2024-09-28T17:27:00Z",
+      "agreementAcceptedBy": "riley.rodriguez@example.com",
+      "verification": "Registered"
     },
     {
       "id": "02b89df2-d1e3-40f8-a727-f4c8dba9c032",
@@ -3737,8 +3813,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "97201",
-        "legalIdentifier": "EIN-22-6524588",
-        "nonDisclosureAgreementNumber": "NDA-8267"
+        "legalIdentifier": "EIN-22-6524588"
       },
       "primaryContact": {
         "name": "Cameron Martinez",
@@ -3756,8 +3831,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Non-disclosure agreement number is expired and must be renewed."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "c24d481b-4a45-4811-ba60-07384ea8523d",
@@ -3778,8 +3854,7 @@
         "country": "Germany",
         "countryCode": "DE",
         "zipCode": "10115",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Reese Davis",
@@ -3797,8 +3872,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Legal identifier could not be validated with the tax authority."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "894c3ebc-e539-4a49-9534-36e521c06878",
@@ -3819,8 +3895,7 @@
         "country": "Germany",
         "countryCode": "DE",
         "zipCode": "10115",
-        "legalIdentifier": "EIN-83-5841696",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-83-5841696"
       },
       "primaryContact": {
         "name": "Devon Brown",
@@ -3838,8 +3913,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Registered address is in an unsupported region for this program."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "03756c78-3f0e-48e4-9d12-71e5da6539cb",
@@ -3860,8 +3936,7 @@
         "country": "Canada",
         "countryCode": "CA",
         "zipCode": "M5H 2N2",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Casey Smith",
@@ -3880,8 +3955,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "Privacy statement URL is unreachable (HTTP 404).",
-      "legalStatus": "Failed",
-      "legalFailureReason": "Signed onboarding document is missing an authorized signatory."
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "efa04f58-5abc-4dd1-8026-f16dbf718391",
@@ -3902,8 +3978,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "73301",
-        "legalIdentifier": "EIN-46-5469202",
-        "nonDisclosureAgreementNumber": "NDA-2035"
+        "legalIdentifier": "EIN-46-5469202"
       },
       "primaryContact": {
         "name": "Quinn Smith",
@@ -3921,7 +3996,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "NotStarted",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "5dfb385b-af4e-4049-9d99-43e3093d7c1d",
@@ -3942,8 +4019,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "97201",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Taylor Williams",
@@ -3961,7 +4037,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Pending",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "cc7cbf65-f334-4d9f-bbef-8dec89c46627",
@@ -3982,8 +4060,7 @@
         "country": "Canada",
         "countryCode": "CA",
         "zipCode": "M5H 2N2",
-        "legalIdentifier": "EIN-59-5977371",
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": "EIN-59-5977371"
       },
       "primaryContact": {
         "name": "Taylor Chen",
@@ -4001,7 +4078,9 @@
       },
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Passed",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     },
     {
       "id": "cd54c9b3-5e0b-4809-8885-e595c6c0f05d",
@@ -4022,8 +4101,7 @@
         "country": "United States",
         "countryCode": "US",
         "zipCode": "97201",
-        "legalIdentifier": null,
-        "nonDisclosureAgreementNumber": null
+        "legalIdentifier": null
       },
       "primaryContact": {
         "name": "Morgan Johnson",
@@ -4042,7 +4120,9 @@
       "onboardingDocUrl": "https://www.microsoft.com/en-us/servicesagreement/",
       "validationStatus": "Failed",
       "validationFailureReason": "Logo asset failed the content safety scan.",
-      "legalStatus": "NotStarted"
+      "agreementAcceptedDateTime": null,
+      "agreementAcceptedBy": null,
+      "verification": "Registered"
     }
   ]
 }

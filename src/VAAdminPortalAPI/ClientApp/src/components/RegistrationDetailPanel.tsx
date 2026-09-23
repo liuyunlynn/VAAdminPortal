@@ -43,7 +43,7 @@ import type {
 import CopilotIcon from './CopilotIcon';
 import { formatDate, statusBadgeColor } from './status';
 
-type FailedReview = 'validation' | 'legal';
+type FailedReview = 'validation';
 
 const useStyles = makeStyles({
   drawer: {
@@ -182,13 +182,13 @@ const ACTIONS: Record<
 > = {
   ApproveRegistration: {
     title: 'Approve registration',
-    description: 'This will approve both validation and legal review.',
+    description: 'This will set validation to Passed. Full verification also requires agreement acceptance.',
     confirmLabel: 'Approve registration',
     intent: 'approve',
   },
   RejectRegistration: {
     title: 'Reject registration',
-    description: 'This will reject both validation and legal review.',
+    description: 'This will set validation to Failed. Agreement acceptance will not be changed.',
     confirmLabel: 'Reject registration',
     intent: 'reject',
   },
@@ -202,18 +202,6 @@ const ACTIONS: Record<
     title: 'Request re-validation',
     description: 'The validation status will be reset so the user can validate again.',
     confirmLabel: 'Request re-validation',
-    intent: 'reset',
-  },
-  ApproveLegal: {
-    title: 'Approve legal review',
-    description: 'The legal status will be set to Passed.',
-    confirmLabel: 'Approve legal review',
-    intent: 'approve',
-  },
-  ResetLegal: {
-    title: 'Request legal resubmission',
-    description: 'The legal status will be reset so the user can resubmit legal validation.',
-    confirmLabel: 'Request resubmission',
     intent: 'reset',
   },
 };
@@ -251,23 +239,15 @@ function Row({
   );
 }
 
-function getCopilotGuidance(review: FailedReview, reason: string): string[] {
+function getCopilotGuidance(reason: string): string[] {
   const normalizedReason = reason.toLowerCase();
-  const guidance = review === 'validation'
-    ? [
-        'Confirm the app ID, tenant ID, and submitted domain match the source registration.',
-        'Ask the technical contact to correct the failed item and provide evidence of a successful re-validation.',
-        'Use Request re-validation after the updated details have been confirmed.',
-      ]
-    : [
-        'Compare the submitted legal entity details with the supporting agreement and identifier.',
-        'Ask the primary contact for corrected documentation or clarification of the failed item.',
-        'Use Request legal resubmission after the replacement documents are available.',
-      ];
+  const guidance = [
+    'Confirm the app ID, tenant ID, and submitted domain match the source registration.',
+    'Ask the technical contact to correct the failed item and provide evidence of a successful re-validation.',
+    'Use Request re-validation after the updated details have been confirmed.',
+  ];
 
-  if (normalizedReason.includes('nda') || normalizedReason.includes('agreement')) {
-    guidance.unshift('Verify that the NDA or agreement number is current and belongs to this legal entity.');
-  } else if (normalizedReason.includes('domain') || normalizedReason.includes('tenant')) {
+  if (normalizedReason.includes('domain') || normalizedReason.includes('tenant')) {
     guidance.unshift('Verify domain ownership and tenant association before requesting another validation.');
   } else if (normalizedReason.includes('contact') || normalizedReason.includes('email')) {
     guidance.unshift('Confirm the listed contact is reachable and authorized to respond for this registration.');
@@ -286,13 +266,12 @@ function FailureCard({
   onAskCopilot: (review: FailedReview, reason: string) => void;
 }) {
   const styles = useStyles();
-  const reviewLabel = review === 'validation' ? 'Validation' : 'Legal review';
   const displayReason = reason?.trim() || 'No failure reason was provided.';
 
   return (
     <div className={styles.failureCard} role="status">
       <div className={styles.failureHeader}>
-        <Subtitle2>{reviewLabel} failed</Subtitle2>
+        <Subtitle2>Validation failed</Subtitle2>
         <Button
           size="small"
           appearance="subtle"
@@ -328,11 +307,27 @@ export default function RegistrationDetailPanel({
     review: FailedReview;
     reason: string;
   } | null>(null);
-  const fullyPassed =
-    registration?.validationStatus === 'Passed' && registration.legalStatus === 'Passed';
+  const fullyPassed = registration?.verified === true;
   const actionDetails = pendingAction ? ACTIONS[pendingAction] : null;
+  const hasIdentity = Boolean(registration?.id?.trim() && registration.tenantId?.trim());
+
+  const isActionDisabled = (action: RegistrationAction) => {
+    if (!hasIdentity || submitting) return true;
+    switch (action) {
+      case 'ApproveRegistration':
+      case 'ApproveValidation':
+        return registration?.validationStatus === 'Passed';
+      case 'RejectRegistration':
+        return registration?.validationStatus === 'Failed';
+      case 'ResetValidation':
+        return registration?.validationStatus === 'NotStarted';
+      default:
+        return true;
+    }
+  };
 
   const openAction = (action: RegistrationAction) => {
+    if (isActionDisabled(action)) return;
     setPendingAction(action);
     setReason('');
     setActionError(null);
@@ -346,12 +341,19 @@ export default function RegistrationDetailPanel({
   };
 
   const submitAction = async () => {
-    if (!registration || !pendingAction || reason.trim().length === 0) return;
+    if (
+      !registration?.id ||
+      !registration.tenantId ||
+      !pendingAction ||
+      isActionDisabled(pendingAction) ||
+      reason.trim().length === 0
+    ) return;
 
     setSubmitting(true);
     setActionError(null);
     try {
       const updated = await applyRegistrationAction({
+        tenantId: registration.tenantId,
         registrationId: registration.id,
         action: pendingAction,
         reason: reason.trim(),
@@ -414,8 +416,8 @@ export default function RegistrationDetailPanel({
               <div className={styles.fullyPassed} role="status">
                 <CheckmarkCircleFilled className={styles.fullyPassedIcon} />
                 <div className={styles.fullyPassedText}>
-                  <Subtitle2>Fully passed</Subtitle2>
-                  <Caption1>Validation and legal reviews are complete.</Caption1>
+                  <Subtitle2>Fully verified</Subtitle2>
+                  <Caption1>Validation and agreement acceptance are complete.</Caption1>
                 </div>
               </div>
             )}
@@ -424,30 +426,16 @@ export default function RegistrationDetailPanel({
                 <Badge appearance="filled" color={statusBadgeColor(registration.validationStatus)}>
                   Validation: {registration.validationStatus}
                 </Badge>
-                <Badge appearance="filled" color={statusBadgeColor(registration.legalStatus)}>
-                  Legal: {registration.legalStatus}
-                </Badge>
               </div>
-              {(registration.validationStatus === 'Failed' || registration.legalStatus === 'Failed') && (
+              {registration.validationStatus === 'Failed' && (
                 <div className={styles.failureList}>
-                  {registration.validationStatus === 'Failed' && (
-                    <FailureCard
-                      review="validation"
-                      reason={registration.validationFailureReason}
-                      onAskCopilot={(review, failureReason) =>
-                        setCopilotReview({ review, reason: failureReason })
-                      }
-                    />
-                  )}
-                  {registration.legalStatus === 'Failed' && (
-                    <FailureCard
-                      review="legal"
-                      reason={registration.legalFailureReason}
-                      onAskCopilot={(review, failureReason) =>
-                        setCopilotReview({ review, reason: failureReason })
-                      }
-                    />
-                  )}
+                  <FailureCard
+                    review="validation"
+                    reason={registration.validationFailureReason}
+                    onAskCopilot={(review, failureReason) =>
+                      setCopilotReview({ review, reason: failureReason })
+                    }
+                  />
                 </div>
               )}
             </div>
@@ -459,6 +447,15 @@ export default function RegistrationDetailPanel({
               {/* <Row label="Tenant ID" value={registration.tenantId} /> */}
               <Row label="Domain" value={registration.domain} />
               <Row label="Created" value={formatDate(registration.createdDateTime)} />
+              <Row
+                label="Agreement accepted time"
+                value={
+                  registration.agreementAcceptedDateTime
+                    ? new Date(registration.agreementAcceptedDateTime).toLocaleString()
+                    : null
+                }
+              />
+              <Row label="Agreement accepted by" value={registration.agreementAcceptedBy} />
               {registration.onboardingDocUrl && (
                 <div className={styles.row}>
                   <Caption1 className={styles.label}>Onboarding doc</Caption1>
@@ -482,7 +479,6 @@ export default function RegistrationDetailPanel({
               <Row label="Country" value={registration.legalEntity.country} />
               <Row label="Zip code" value={registration.legalEntity.zipCode} />
               <Row label="Legal identifier" value={registration.legalEntity.legalIdentifier} />
-              <Row label="NDA number" value={registration.legalEntity.nonDisclosureAgreementNumber} />
             </div>
 
             <Divider />
@@ -518,7 +514,7 @@ export default function RegistrationDetailPanel({
                 <Button
                   appearance="primary"
                   icon={<CheckmarkRegular />}
-                  disabled={fullyPassed}
+                  disabled={isActionDisabled('ApproveRegistration')}
                   onClick={() => openAction('ApproveRegistration')}
                   style={{ display: 'none' }}
                 >
@@ -527,9 +523,7 @@ export default function RegistrationDetailPanel({
                 <Button
                   className={styles.rejectButton}
                   icon={<DismissCircleRegular />}
-                  disabled={
-                    registration.validationStatus === 'Failed' && registration.legalStatus === 'Failed'
-                  }
+                  disabled={isActionDisabled('RejectRegistration')}
                   onClick={() => openAction('RejectRegistration')}
                   style={{ display: 'none' }}
                 >
@@ -541,37 +535,18 @@ export default function RegistrationDetailPanel({
               <div className={styles.actionGroup}>
                 <Button
                   icon={<CheckmarkRegular />}
-                  disabled={registration.validationStatus === 'Passed'}
+                  disabled={isActionDisabled('ApproveValidation')}
                   onClick={() => openAction('ApproveValidation')}
                 >
                   Approve validation
                 </Button>
                 <Button
                   icon={<ArrowResetRegular />}
-                  disabled={registration.validationStatus === 'NotStarted'}
+                  disabled={isActionDisabled('ResetValidation')}
                   onClick={() => openAction('ResetValidation')}
                   style={{ display: 'none' }}
                 >
                   Request re-validation
-                </Button>
-              </div>
-
-              <Caption1 className={styles.label}>Legal review</Caption1>
-              <div className={styles.actionGroup}>
-                <Button
-                  icon={<CheckmarkRegular />}
-                  disabled={registration.legalStatus === 'Passed'}
-                  onClick={() => openAction('ApproveLegal')}
-                >
-                  Approve legal
-                </Button>
-                <Button
-                  icon={<ArrowResetRegular />}
-                  disabled={registration.legalStatus === 'NotStarted'}
-                  onClick={() => openAction('ResetLegal')}
-                  style={{ display: 'none' }}
-                >
-                  Request legal resubmission
                 </Button>
               </div>
             </div>
@@ -612,7 +587,9 @@ export default function RegistrationDetailPanel({
               </Button>
               <Button
                 appearance="primary"
-                disabled={submitting || reason.trim().length === 0}
+                disabled={
+                  !pendingAction || isActionDisabled(pendingAction) || reason.trim().length === 0
+                }
                 onClick={submitAction}
               >
                 {submitting ? 'Applying...' : actionDetails?.confirmLabel}
@@ -629,7 +606,7 @@ export default function RegistrationDetailPanel({
         <DialogSurface>
           <DialogBody>
             <DialogTitle>
-              Copilot suggestions for {copilotReview?.review === 'validation' ? 'validation' : 'legal review'}
+              Copilot suggestions for validation
             </DialogTitle>
             <DialogContent>
               <div className={styles.guidanceIntro}>
@@ -641,7 +618,7 @@ export default function RegistrationDetailPanel({
               </div>
               {copilotReview && (
                 <ol className={styles.guidanceList}>
-                  {getCopilotGuidance(copilotReview.review, copilotReview.reason).map((item) => (
+                  {getCopilotGuidance(copilotReview.reason).map((item) => (
                     <li key={item}>
                       <Body1>{item}</Body1>
                     </li>

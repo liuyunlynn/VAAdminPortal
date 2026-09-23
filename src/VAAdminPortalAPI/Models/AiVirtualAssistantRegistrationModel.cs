@@ -48,7 +48,7 @@ namespace VAAdminPortalAPI.Models
         public string? PrivacyStatementUrl { get; set; }
 
         /// <summary>
-        /// Gets or sets the verification flags returned by Teams Graph.
+        /// Gets or sets the authoritative verification level (Registered or Validated) returned by Teams Graph.
         /// </summary>
         [JsonPropertyName("verification")]
         public string Verification { get; set; } = string.Empty;
@@ -100,18 +100,19 @@ namespace VAAdminPortalAPI.Models
         [JsonPropertyName("validationFailureReason")]
         public string? ValidationFailureReason { get; set; }
 
-        [JsonPropertyName("legalStatus")]
-        [JsonConverter(typeof(JsonStringEnumConverter))]
-        public LegalStatus LegalStatus { get; set; }
+        /// <summary>
+        /// Gets or sets when the agreement was accepted.
+        /// </summary>
+        [JsonPropertyName("agreementAcceptedDateTime")]
+        public DateTimeOffset? AgreementAcceptedDateTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the reason explaining why the legal review failed.
-        /// Only populated when <see cref="LegalStatus"/> is <see cref="LegalStatus.Failed"/>.
+        /// Gets or sets the email address of the agreement signer.
         /// </summary>
-        [JsonPropertyName("legalFailureReason")]
-        public string? LegalFailureReason { get; set; }
+        [JsonPropertyName("agreementAcceptedBy")]
+        public string? AgreementAcceptedBy { get; set; }
 
         [JsonPropertyName("verified")]
-        public bool Verified => ValidationStatus == ValidationStatus.Passed && LegalStatus == LegalStatus.Passed;
+        public bool Verified => string.Equals(Verification, "Validated", StringComparison.OrdinalIgnoreCase);
     }
 }

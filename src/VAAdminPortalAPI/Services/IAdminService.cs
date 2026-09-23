@@ -14,6 +14,9 @@ namespace VAAdminPortalAPI.Services
             AiVirtualAssistantRegistrationQueryModel queryModel,
             CancellationToken cancellationToken);
 
-        AiVirtualAssistantRegistrationModel? ApplyRegistrationAction(RegistrationActionModel actionModel);
+        Task<AiVirtualAssistantRegistrationModel?> ApplyRegistrationActionAsync(
+            string authenticationTenantId,
+            RegistrationActionModel actionModel,
+            CancellationToken cancellationToken);
     }
 }

@@ -63,11 +63,5 @@ namespace VAAdminPortalAPI.Models
         /// </summary>
         [JsonPropertyName("legalIdentifier")]
         public string? LegalIdentifier { get; set; }
-
-        /// <summary>
-        /// Gets or sets the non-disclosure agreement number (optional).
-        /// </summary>
-        [JsonPropertyName("nonDisclosureAgreementNumber")]
-        public string? NonDisclosureAgreementNumber { get; set; }
     }
 }

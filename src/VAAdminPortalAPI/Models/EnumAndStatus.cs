@@ -17,19 +17,6 @@ namespace VAAdminPortalAPI.Models
     }
 
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    public enum LegalStatus
-    {
-        [EnumMember(Value = "NotStarted")]
-        NotStarted = 0,
-        [EnumMember(Value = "Pending")]
-        Pending,
-        [EnumMember(Value = "Passed")]
-        Passed,
-        [EnumMember(Value = "Failed")]
-        Failed,
-    }
-
-    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum EntityType
     {
         /// <summary>

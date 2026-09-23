@@ -39,7 +39,7 @@ import type {
   AiVirtualAssistantRegistration,
   AdminInfo,
   AllOverview,
-  LegalStatus,
+  BotVerificationLevel,
   RegistrationQuery,
   ValidationStatus,
 } from '../api/types';
@@ -282,7 +282,7 @@ const VALIDATION_OPTIONS: (ValidationStatus | 'All')[] = [
   'Passed',
   'Failed',
 ];
-const LEGAL_OPTIONS: (LegalStatus | 'All')[] = ['All', 'NotStarted', 'Pending', 'Passed', 'Failed'];
+const VERIFICATION_OPTIONS: (BotVerificationLevel | 'All')[] = ['All', 'Registered', 'Validated'];
 const REVIEW_RESULT_OPTIONS = ['All', 'Completed', 'Not Completed'] as const;
 const PAGE_SIZE_OPTIONS = [10, 20, 50, 100];
 const NOTIFICATIONS_LAST_READ_KEY = 'va-admin-portal-notifications-last-read';
@@ -291,9 +291,7 @@ const dropdownWidth = (labels: string[]) => `${Math.max(...labels.map((label) =>
 const VALIDATION_DROPDOWN_WIDTH = dropdownWidth(
   VALIDATION_OPTIONS.map((option) => (option === 'All' ? 'All validation' : option)),
 );
-const LEGAL_DROPDOWN_WIDTH = dropdownWidth(
-  LEGAL_OPTIONS.map((option) => (option === 'All' ? 'All legal' : option)),
-);
+const VERIFICATION_DROPDOWN_WIDTH = dropdownWidth(VERIFICATION_OPTIONS);
 const REVIEW_RESULT_DROPDOWN_WIDTH = '180px';
 const PAGE_SIZE_DROPDOWN_WIDTH = dropdownWidth(PAGE_SIZE_OPTIONS.map(String));
 
@@ -306,7 +304,7 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
 
   const [search, setSearch] = useState('');
   const [validation, setValidation] = useState<ValidationStatus | 'All'>('All');
-  const [legal, setLegal] = useState<LegalStatus | 'All'>('All');
+  const [verification, setVerification] = useState<BotVerificationLevel | 'All'>('All');
   const [reviewResult, setReviewResult] = useState<(typeof REVIEW_RESULT_OPTIONS)[number]>('All');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
@@ -368,12 +366,6 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
         NotStarted: overview?.validationNotStartedCount ?? 0,
         Failed: overview?.validationFailedCount ?? 0,
       },
-      legal: {
-        Passed: overview?.legalPassedCount ?? 0,
-        Pending: overview?.legalPendingCount ?? 0,
-        NotStarted: overview?.legalNotStartedCount ?? 0,
-        Failed: overview?.legalFailedCount ?? 0,
-      },
     }),
     [overview],
   );
@@ -384,7 +376,7 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
       parts.push(`date ${submittedQuery.startDate?.slice(0, 10) ?? 'any'} to ${submittedQuery.endDate?.slice(0, 10) ?? 'any'}`);
     }
     if (submittedQuery.validationStatus) parts.push(`validation ${submittedQuery.validationStatus}`);
-    if (submittedQuery.legalStatus) parts.push(`legal ${submittedQuery.legalStatus}`);
+    if (submittedQuery.verification) parts.push(`BotValidationLevel ${submittedQuery.verification}`);
     if (submittedQuery.fullyPassed != null) {
       parts.push(submittedQuery.fullyPassed ? 'completed only' : 'not completed only');
     }
@@ -397,7 +389,7 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
     endDate: endDate ? `${endDate}T23:59:59.999Z` : null,
     searchTerm: search.trim() || null,
     validationStatus: validation === 'All' ? null : validation,
-    legalStatus: legal === 'All' ? null : legal,
+    verification: verification === 'All' ? null : verification,
     fullyPassed:
       reviewResult === 'All' ? null : reviewResult === 'Completed',
   });
@@ -573,7 +565,7 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
             <span className={styles.kpiValue} style={{ color: '#107c10' }}>
               {overview?.verifiedCount ?? 0}
             </span>
-            <Caption1 className={styles.kpiHint}>Validation and legal passed</Caption1>
+            <Caption1 className={styles.kpiHint}>Validation passed and agreement accepted</Caption1>
           </Card>
           <Card className={mergeClasses(styles.kpiCard, styles.primaryKpiCard)}>
             <Caption1>Validation review</Caption1>
@@ -582,19 +574,6 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
                 <div key={status} className={styles.statusMetric}>
                   <span className={styles.statusValue} style={{ color: STATUS_COLORS[status] }}>
                     {reviewCounts.validation[status]}
-                  </span>
-                  <Caption1 className={styles.kpiHint}>{REVIEW_STATUS_LABELS[status]}</Caption1>
-                </div>
-              ))}
-            </div>
-          </Card>
-          <Card className={mergeClasses(styles.kpiCard, styles.primaryKpiCard)}>
-            <Caption1>Legal review</Caption1>
-            <div className={styles.statusMetrics}>
-              {REVIEW_STATUS_ORDER.map((status) => (
-                <div key={status} className={styles.statusMetric}>
-                  <span className={styles.statusValue} style={{ color: STATUS_COLORS[status] }}>
-                    {reviewCounts.legal[status]}
                   </span>
                   <Caption1 className={styles.kpiHint}>{REVIEW_STATUS_LABELS[status]}</Caption1>
                 </div>
@@ -614,11 +593,10 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
                   }}
                   value={reviewResult}
                   selectedOptions={[reviewResult]}
-                  onOptionSelect={(_, d) =>
-                    setReviewResult(
-                      (d.optionValue as (typeof REVIEW_RESULT_OPTIONS)[number]) ?? 'All',
-                    )
-                  }
+                  onOptionSelect={(_, d) => {
+                    const option = REVIEW_RESULT_OPTIONS.find((value) => value === d.optionValue);
+                    if (option) setReviewResult(option);
+                  }}
                 >
                   {REVIEW_RESULT_OPTIONS.map((option) => (
                     <Option key={option} value={option}>
@@ -635,9 +613,10 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
                   }}
                   value={validation}
                   selectedOptions={[validation]}
-                  onOptionSelect={(_, d) =>
-                    setValidation((d.optionValue as ValidationStatus | 'All') ?? 'All')
-                  }
+                  onOptionSelect={(_, d) => {
+                    const option = VALIDATION_OPTIONS.find((value) => value === d.optionValue);
+                    if (option) setValidation(option);
+                  }}
                 >
                   {VALIDATION_OPTIONS.map((opt) => (
                     <Option key={opt} value={opt}>
@@ -646,18 +625,22 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
                   ))}
                 </Dropdown>
               </Field>
-              <Field label="Legal status">
+              <Field label="BotValidationLevel">
                 <Dropdown
-                  style={{ width: LEGAL_DROPDOWN_WIDTH, minWidth: LEGAL_DROPDOWN_WIDTH }}
-                  value={legal}
-                  selectedOptions={[legal]}
-                  onOptionSelect={(_, d) =>
-                    setLegal((d.optionValue as LegalStatus | 'All') ?? 'All')
-                  }
+                  style={{
+                    width: VERIFICATION_DROPDOWN_WIDTH,
+                    minWidth: VERIFICATION_DROPDOWN_WIDTH,
+                  }}
+                  value={verification}
+                  selectedOptions={[verification]}
+                  onOptionSelect={(_, d) => {
+                    const option = VERIFICATION_OPTIONS.find((value) => value === d.optionValue);
+                    if (option) setVerification(option);
+                  }}
                 >
-                  {LEGAL_OPTIONS.map((opt) => (
+                  {VERIFICATION_OPTIONS.map((opt) => (
                     <Option key={opt} value={opt}>
-                      {opt === 'All' ? 'All legal' : opt}
+                      {opt}
                     </Option>
                   ))}
                 </Dropdown>

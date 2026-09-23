@@ -1,7 +1,7 @@
 // Types that mirror the ASP.NET Core backend models (camelCase JSON).
 
 export type ValidationStatus = 'NotStarted' | 'Pending' | 'Passed' | 'Failed';
-export type LegalStatus = 'NotStarted' | 'Pending' | 'Passed' | 'Failed';
+export type BotVerificationLevel = 'Registered' | 'Validated';
 export type EntityType = 'Company' | 'Individual';
 
 export interface ResponseMessage {
@@ -27,13 +27,9 @@ export interface AdminInfo {
 export interface AllOverview {
   totalRegistrationsCount: number;
   validationPassedCount: number;
-  legalPassedCount: number;
   validationPendingCount: number;
-  legalPendingCount: number;
   validationNotStartedCount: number;
-  legalNotStartedCount: number;
   validationFailedCount: number;
-  legalFailedCount: number;
   verifiedCount: number;
   monthlyRegistrations: MonthlyRegistrationOverview[];
 }
@@ -55,7 +51,6 @@ export interface LegalEntity {
   countryCode?: string | null;
   zipCode?: string | null;
   legalIdentifier?: string | null;
-  nonDisclosureAgreementNumber?: string | null;
 }
 
 export interface PrimaryContact {
@@ -79,6 +74,9 @@ export interface AiVirtualAssistantRegistration {
   logoUrl?: string | null;
   privacyStatementUrl?: string | null;
   verification: string;
+  verified: boolean;
+  agreementAcceptedDateTime: string | null;
+  agreementAcceptedBy: string | null;
   createdDateTime: string;
   legalEntity: LegalEntity;
   primaryContact: PrimaryContact;
@@ -87,8 +85,6 @@ export interface AiVirtualAssistantRegistration {
   onboardingDocUrl: string;
   validationStatus: ValidationStatus;
   validationFailureReason?: string | null;
-  legalStatus: LegalStatus;
-  legalFailureReason?: string | null;
 }
 
 export interface RegistrationList {
@@ -100,12 +96,11 @@ export type RegistrationAction =
   | 'ApproveRegistration'
   | 'RejectRegistration'
   | 'ApproveValidation'
-  | 'ResetValidation'
-  | 'ApproveLegal'
-  | 'ResetLegal';
+  | 'ResetValidation';
 
 export interface RegistrationActionRequest {
   registrationId: string;
+  tenantId: string;
   action: RegistrationAction;
   reason: string;
 }
@@ -117,6 +112,6 @@ export interface RegistrationQuery {
   endDate?: string | null;
   searchTerm?: string | null;
   validationStatus?: ValidationStatus | null;
-  legalStatus?: LegalStatus | null;
+  verification?: BotVerificationLevel | null;
   fullyPassed?: boolean | null;
 }

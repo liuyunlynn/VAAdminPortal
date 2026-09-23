@@ -91,7 +91,7 @@ const useStyles = makeStyles({
 });
 
 export function isFailedRegistration(item: AiVirtualAssistantRegistration): boolean {
-  return item.validationStatus === 'Failed' || item.legalStatus === 'Failed';
+  return item.validationStatus === 'Failed';
 }
 
 export function countNewFailedRegistrations(
@@ -195,9 +195,6 @@ export default function NotificationPanel({
                   <div className={styles.failedChecks}>
                     {item.validationStatus === 'Failed' && (
                       <Badge appearance="tint" color="danger">Validation failed</Badge>
-                    )}
-                    {item.legalStatus === 'Failed' && (
-                      <Badge appearance="tint" color="danger">Legal failed</Badge>
                     )}
                   </div>
                 </div>

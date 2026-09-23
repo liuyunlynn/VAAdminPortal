@@ -86,13 +86,13 @@ belongs to a different app registration.
 
 ## Teams Graph Data Source
 
-The portal backend selects the target tenant using the signed-in identity's `tid`.
+The portal backend selects the authentication tenant using the signed-in identity's `tid`.
 It uses the Teams Developer Portal application identity and
 `AppStudioFirstPartyCertificate` to obtain an app-only token, then calls the
 existing Teams Graph endpoint directly:
 
 ```text
-GET {Tgs:BaseUrl}/v1.0/aiVirtualAssistants
+GET {Tgs:BaseUrl}/v1.0/aiVirtualAssistants/allTenants?$top=100
 ```
 
 The default configuration targets Internal DEV:
@@ -163,7 +163,25 @@ is not a client ID that can be used for this setting.
 To access remote TGS from a local machine in `ClientCertificate` mode, use the
 TDP Key Vault bootstrap certificate to create a `ClientCertificateCredential`.
 The local certificate is not installed in the deployment environment.
-The registration, app, tenant, contact, and legal entity fields displayed on the
-page come from Teams Graph. Validation and legal review statuses that Teams Graph
-does not currently return are generated deterministically from the registration
-ID solely to maintain the existing page display.
+The registration, app, tenant, contact, legal entity, validation status, and
+validation failure reason displayed on the page come from Teams Graph. Missing
+validation status defaults to `NotStarted`; the portal does not fabricate statuses.
+Agreement acceptance is exposed as `agreementAcceptedDateTime` and
+`agreementAcceptedBy`. Verification uses the authoritative TGS `verification`
+value (`Registered` or `Validated`), not technical validation alone: `Validated`
+requires passed validation and valid agreement acceptance.
+
+Validation approval calls the admin endpoint using the registration's tenant ID:
+
+```text
+PUT {Tgs:BaseUrl}/v1.0/admin/tenants/{tenantId}/aiVirtualAssistants/{registrationId}/validationStatus
+Content-Type: application/json
+
+"Passed"
+```
+
+The body is a raw JSON string, not an object. Authentication still uses the
+signed-in tenant. The portal action body includes `registrationId`, `tenantId`,
+`action`, and a required `reason`. Other actions remain mock-backed; they update
+validation only and recompute mock verification from validation and agreement
+acceptance. Legal review statuses and NDA numbers are no longer part of the model.
