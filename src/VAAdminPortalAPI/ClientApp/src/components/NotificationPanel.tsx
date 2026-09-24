@@ -9,6 +9,9 @@ import {
   DrawerBody,
   DrawerHeader,
   DrawerHeaderTitle,
+  MessageBar,
+  MessageBarBody,
+  Spinner,
   Subtitle2,
   makeStyles,
   tokens,
@@ -111,11 +114,17 @@ export function countNewFailedRegistrations(
 
 export default function NotificationPanel({
   items,
+  status,
+  error,
+  onRetry,
   open,
   onClose,
   onSelect,
 }: {
   items: AiVirtualAssistantRegistration[];
+  status: 'idle' | 'loading' | 'failed';
+  error: string | null;
+  onRetry: () => void;
   open: boolean;
   onClose: () => void;
   onSelect: (id: string) => void;
@@ -163,7 +172,16 @@ export default function NotificationPanel({
           </Caption1>
         </div>
 
-        {failedItems.length === 0 ? (
+        {status === 'loading' ? (
+          <Spinner label="Loading notifications..." />
+        ) : status === 'failed' ? (
+          <MessageBar intent="error">
+            <MessageBarBody>
+              Failed to load notifications. {error}
+              <Button appearance="transparent" onClick={onRetry}>Retry</Button>
+            </MessageBarBody>
+          </MessageBar>
+        ) : failedItems.length === 0 ? (
           <div className={styles.empty}>
             <Body1>No failed bots.</Body1>
           </div>

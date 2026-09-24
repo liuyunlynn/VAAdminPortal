@@ -30,7 +30,7 @@ import {
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { getAllOverview } from '../api/client';
 import {
-  fetchRegistrationCharts,
+  fetchRegistrationNotifications,
   fetchRegistrations,
   registrationUpdated,
   selectRegistration,
@@ -45,8 +45,6 @@ import type {
 } from '../api/types';
 import RegistrationTable from '../components/RegistrationTable';
 import RegistrationDetailPanel from '../components/RegistrationDetailPanel';
-import CopilotPanel from '../components/CopilotPanel';
-import CopilotIcon from '../components/CopilotIcon';
 import NotificationPanel, {
   countNewFailedRegistrations,
 } from '../components/NotificationPanel';
@@ -127,32 +125,6 @@ const useStyles = makeStyles({
     position: 'absolute',
     top: '1px',
     right: '1px',
-  },
-  copilotFab: {
-    display: 'none',
-    position: 'fixed',
-    right: '24px',
-    bottom: '24px',
-    zIndex: 20,
-    width: '56px',
-    minWidth: '56px',
-    height: '56px',
-    padding: 0,
-    borderRadius: '50%',
-    backgroundColor: '#ffffff',
-    border: '1px solid #e0e0e0',
-    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.18)',
-    ':hover': {
-      backgroundColor: '#f7f7ff',
-      boxShadow: '0 6px 20px rgba(0, 0, 0, 0.22)',
-    },
-    '@media (max-width: 600px)': {
-      right: '16px',
-      bottom: '16px',
-      width: '48px',
-      minWidth: '48px',
-      height: '48px',
-    },
   },
   sectionHeader: {
     display: 'flex',
@@ -296,9 +268,10 @@ const PAGE_SIZE_DROPDOWN_WIDTH = dropdownWidth(PAGE_SIZE_OPTIONS.map(String));
 export default function DashboardPage({ admin }: { admin: AdminInfo }) {
   const styles = useStyles();
   const dispatch = useAppDispatch();
-  const { items, chartItems, totalCount, status, error, selectedId } = useAppSelector(
-    (s) => s.registrations,
-  );
+  const {
+    items, notificationItems, notificationStatus, notificationError,
+    totalCount, status, error, selectedRegistration: selected,
+  } = useAppSelector((s) => s.registrations);
 
   const [search, setSearch] = useState('');
   const [validation, setValidation] = useState<ValidationStatus | 'All'>('All');
@@ -314,7 +287,6 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
   const [overviewStartDate, setOverviewStartDate] = useState('');
   const [overviewEndDate, setOverviewEndDate] = useState('');
   const [overviewLoading, setOverviewLoading] = useState(false);
-  const [copilotOpen, setCopilotOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [notificationsLastReadAt, setNotificationsLastReadAt] = useState<string | null>(() =>
     localStorage.getItem(NOTIFICATIONS_LAST_READ_KEY),
@@ -324,7 +296,6 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
     let active = true;
 
     dispatch(fetchRegistrations({ pageIndex: 0, pageSize: 10 }));
-    dispatch(fetchRegistrationCharts({}));
     getAllOverview()
       .then((result) => {
         if (active) setOverview(result);
@@ -342,17 +313,13 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
     };
   }, [dispatch]);
 
-  const selected = useMemo(
-    () =>
-      items.find((item) => item.id === selectedId) ??
-      chartItems.find((item) => item.id === selectedId) ??
-      null,
-    [chartItems, items, selectedId],
-  );
+  useEffect(() => {
+    dispatch(fetchRegistrationNotifications());
+  }, [dispatch]);
 
   const newFailedNotificationCount = useMemo(
-    () => countNewFailedRegistrations(chartItems, notificationsLastReadAt),
-    [chartItems, notificationsLastReadAt],
+    () => countNewFailedRegistrations(notificationItems, notificationsLastReadAt),
+    [notificationItems, notificationsLastReadAt],
   );
 
   const reviewCounts = useMemo(
@@ -366,17 +333,6 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
     }),
     [overview],
   );
-
-  const copilotFilterSummary = useMemo(() => {
-    const parts: string[] = [];
-    if (submittedQuery.startDate || submittedQuery.endDate) {
-      parts.push(`date ${submittedQuery.startDate?.slice(0, 10) ?? 'any'} to ${submittedQuery.endDate?.slice(0, 10) ?? 'any'}`);
-    }
-    if (submittedQuery.validationStatus) parts.push(`validation ${submittedQuery.validationStatus}`);
-    if (submittedQuery.verification) parts.push(`Bot status ${submittedQuery.verification}`);
-    if (submittedQuery.searchTerm) parts.push(`search "${submittedQuery.searchTerm}"`);
-    return parts.length > 0 ? `filters: ${parts.join(', ')}` : 'no filters applied';
-  }, [submittedQuery]);
 
   const createQuery = (): RegistrationQuery => ({
     startDate: startDate ? `${startDate}T00:00:00.000Z` : null,
@@ -392,7 +348,6 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
     setSubmittedPageSize(pageSize);
     setPageIndex(0);
     dispatch(fetchRegistrations({ ...query, pageIndex: 0, pageSize }));
-    dispatch(fetchRegistrationCharts(query));
   };
 
   const handleOverviewQuery = () => {
@@ -431,7 +386,7 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
         pageSize: submittedPageSize,
       }),
     );
-    dispatch(fetchRegistrationCharts(submittedQuery));
+    dispatch(fetchRegistrationNotifications());
 
     const overviewStart = overviewStartDate ? `${overviewStartDate}T00:00:00.000Z` : null;
     const overviewEnd = overviewEndDate ? `${overviewEndDate}T23:59:59.999Z` : null;
@@ -443,15 +398,17 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
   };
 
   const closeNotifications = () => {
-    const readAt = new Date().toISOString();
-    localStorage.setItem(NOTIFICATIONS_LAST_READ_KEY, readAt);
-    setNotificationsLastReadAt(readAt);
+    if (notificationStatus === 'idle') {
+      const readAt = new Date().toISOString();
+      localStorage.setItem(NOTIFICATIONS_LAST_READ_KEY, readAt);
+      setNotificationsLastReadAt(readAt);
+    }
     setNotificationsOpen(false);
   };
 
   const handleFailedNotificationSelect = (id: string) => {
     closeNotifications();
-    dispatch(selectRegistration(id));
+    dispatch(selectRegistration(notificationItems.find((item) => item.id === id) ?? null));
   };
 
   return (
@@ -463,7 +420,11 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
         </div>
         <div className={styles.userBox}>
           <Tooltip
-            content={`${newFailedNotificationCount} new failed ${newFailedNotificationCount === 1 ? 'bot' : 'bots'}`}
+            content={notificationStatus === 'loading'
+              ? 'Loading failed bot notifications...'
+              : notificationStatus === 'failed'
+                ? 'Failed to load notifications. Open to retry.'
+                : `${newFailedNotificationCount} new failed ${newFailedNotificationCount === 1 ? 'bot' : 'bots'}`}
             relationship="label"
           >
             <Button
@@ -682,21 +643,11 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
               pageSize={submittedPageSize}
               totalCount={totalCount}
               onPageChange={handlePageChange}
-              onSelect={(id) => dispatch(selectRegistration(id))}
+              onSelect={(id) => dispatch(selectRegistration(items.find((item) => item.id === id) ?? null))}
             />
           )}
         </Card>
       </main>
-
-      <Tooltip content="Ask Copilot" relationship="label" positioning="before">
-        <Button
-          className={styles.copilotFab}
-          appearance="subtle"
-          shape="circular"
-          icon={<CopilotIcon fontSize={30} />}
-          onClick={() => setCopilotOpen(true)}
-        />
-      </Tooltip>
 
       <RegistrationDetailPanel
         registration={selected}
@@ -706,18 +657,13 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
       />
 
       <NotificationPanel
-        items={chartItems}
+        items={notificationItems}
+        status={notificationStatus}
+        error={notificationError}
+        onRetry={() => dispatch(fetchRegistrationNotifications())}
         open={notificationsOpen}
         onClose={closeNotifications}
         onSelect={handleFailedNotificationSelect}
-      />
-
-      <CopilotPanel
-        open={copilotOpen}
-        onClose={() => setCopilotOpen(false)}
-        items={chartItems}
-        overview={overview}
-        filterSummary={copilotFilterSummary}
       />
     </div>
   );
