@@ -2,7 +2,7 @@ namespace VAAdminPortalAPI.Services
 {
     public enum TgsAuthenticationMode
     {
-        ClientCertificate,
+        ManagedIdentity,
         DevelopmentAccessToken
     }
 
@@ -11,7 +11,7 @@ namespace VAAdminPortalAPI.Services
         public const string SectionName = "Tgs";
 
         public TgsAuthenticationMode AuthenticationMode { get; set; } =
-            TgsAuthenticationMode.ClientCertificate;
+            TgsAuthenticationMode.ManagedIdentity;
 
         public string BaseUrl { get; set; } = string.Empty;
 
@@ -21,14 +21,6 @@ namespace VAAdminPortalAPI.Services
 
         public string ClientId { get; set; } = string.Empty;
 
-        public string KeyVaultUri { get; set; } = string.Empty;
-
-        public string CertificateName { get; set; } = string.Empty;
-
-        public string? ManagedIdentityClientId { get; set; }
-
         public string? DevelopmentAccessToken { get; set; }
-
-        public bool SendX5C { get; set; }
     }
 }

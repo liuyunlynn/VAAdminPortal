@@ -87,26 +87,49 @@ belongs to a different app registration.
 ## Teams Graph Data Source
 
 The portal backend selects the authentication tenant using the signed-in identity's `tid`.
-It uses the Teams Developer Portal application identity and
-`AppStudioFirstPartyCertificate` to obtain an app-only token, then calls the
-existing Teams Graph endpoint directly:
+It obtains an app-only token for the Admin Portal app registration
+(`0a41b070-52fd-47fb-9292-5409acf66b45`) in that tenant, then calls the existing
+Teams Graph endpoint directly:
 
 ```text
 GET {Tgs:BaseUrl}/v1.0/aiVirtualAssistants/allTenants?$top=100
 ```
+
+No client secret or certificate is used for TGS. The App Service system-assigned
+managed identity acts as a federated identity credential (FIC) of the Admin Portal
+app registration:
+
+1. The backend requests a managed identity token for `api://AzureADTokenExchange`.
+2. MSAL uses that token as the client assertion for the Admin Portal app and
+   acquires `{Tgs:Audience}/.default` with the signed-in identity's tenant ID.
+3. The resulting token's `appid`/`azp` is the Admin Portal app ID, not the managed
+   identity ID. TGS allowlisting, app role assignment, and tenant admin consent
+   therefore apply to the Admin Portal app.
+
+Configure the FIC on the Admin Portal app registration under
+**Certificates & secrets** > **Federated credentials**:
+
+| Field | Value |
+|---|---|
+| Issuer | `https://login.microsoftonline.com/<app-tenant-id>/v2.0` |
+| Subject | Object (principal) ID of the App Service system-assigned managed identity |
+| Audience | `api://AzureADTokenExchange` |
+
+The managed identity and the app registration must belong to the same tenant.
+Disabling and re-enabling the system-assigned identity, recreating the App Service,
+or adding deployment slots produces new principal IDs, and each one needs its own
+FIC entry.
 
 The default configuration targets Internal DEV:
 
 ```json
 {
   "Tgs": {
-    "AuthenticationMode": "ClientCertificate",
+    "AuthenticationMode": "ManagedIdentity",
     "BaseUrl": "https://dev.teamsgraph.teams.microsoft.net",
     "Audience": "ab3be6b7-f5df-413d-ac2d-abf1e3fd9c0b",
     "Authority": "https://login.microsoftonline.com/",
-    "ClientId": "e1979c22-8b73-4aed-a4da-572cc4d0b832",
-    "CertificateName": "AppStudioFirstPartyCertificate",
-    "SendX5C": true
+    "ClientId": "0a41b070-52fd-47fb-9292-5409acf66b45"
   }
 }
 ```
@@ -115,10 +138,9 @@ The TGS access mode is explicitly selected through configuration:
 
 | Setting | Local TGS | DEV TGS |
 |---|---|---|
-| `Tgs:AuthenticationMode` | `DevelopmentAccessToken` | `ClientCertificate` |
+| `Tgs:AuthenticationMode` | `DevelopmentAccessToken` | `ManagedIdentity` |
 | `Tgs:BaseUrl` | `https://localhost:8450` | `https://dev.teamsgraph.teams.microsoft.net` |
-| Token source | LocalTokenGenerator | TDP Client ID + `AppStudioFirstPartyCertificate` |
-| Key Vault identity | Not used | The managed identity of the resource hosting Admin Portal |
+| Token source | LocalTokenGenerator | Admin Portal app + system-assigned managed identity FIC |
 
 When Agent Onboarding TGS runs locally at `https://localhost:8450`, use the
 LocalTokenGenerator provided by the Teams Graph repository to generate a test
@@ -131,38 +153,25 @@ Set-Location Q:\xxx\teams-graphservice
 
 .\Development\Microsoft.Internal.Teams.LocalTokenGenerator\tools\win-x64\LocalTokenGenerator.exe `
   --TokenContext Application `
-  --TokenFormat Bearer `
+  --TokenFormat ******
   --TenantId <test-tenant-id> `
   --ConfigFile .\Source\Tools\TokenGenerator\LocalTokenGenerator\Configs\TeamsGraphServiceLocal1P.json
 
-$env:Tgs__DevelopmentAccessToken = '<paste the generated Bearer token>'
+$env:Tgs__DevelopmentAccessToken = '<paste the generated ******'
 ```
 
 `Tgs:DevelopmentAccessToken` is effective only in the Development environment and
 must not be stored in configuration files or deployment environments. Regenerate
-the local token when it expires. Deployed environments that access remote TGS
-continue to obtain app-only tokens using `AppStudioFirstPartyCertificate` and
-managed identity.
+the local token when it expires.
 
-When deploying to App Service, use managed identity to access the Key Vault for
-the deployment environment, and set:
+`ManagedIdentity` mode requires a managed identity endpoint and therefore works
+only when running in App Service. When deploying, enable the system-assigned
+identity on the App Service and set:
 
 ```text
-Tgs__AuthenticationMode=ClientCertificate
+Tgs__AuthenticationMode=ManagedIdentity
 Tgs__BaseUrl=https://dev.teamsgraph.teams.microsoft.net
-Tgs__KeyVaultUri=https://<vault-name>.vault.azure.net/
 ```
-
-For a user-assigned managed identity, also set `Tgs__ManagedIdentityClientId`.
-This setting is not required for a system-assigned identity. You must use the
-managed identity of the resource hosting Admin Portal. The ID
-`36cace20-243f-4436-9091-8526728b27c3` documented in the TDP DEV repository is the
-object ID of the TDP Cosmic Pod Identity. It does not belong to Admin Portal and
-is not a client ID that can be used for this setting.
-
-To access remote TGS from a local machine in `ClientCertificate` mode, use the
-TDP Key Vault bootstrap certificate to create a `ClientCertificateCredential`.
-The local certificate is not installed in the deployment environment.
 The registration, app, tenant, contact, legal entity, validation status, and
 validation failure reason displayed on the page come from Teams Graph. Missing
 validation status defaults to `NotStarted`; the portal does not fabricate statuses.
