@@ -105,8 +105,8 @@ export default function RegistrationTable({
             <TableRow>
               <TableHeaderCell>Bot</TableHeaderCell>
               <TableHeaderCell>Business</TableHeaderCell>
+              <TableHeaderCell>Bot status</TableHeaderCell>
               <TableHeaderCell>Validation status</TableHeaderCell>
-              <TableHeaderCell>BotValidationLevel</TableHeaderCell>
               <TableHeaderCell>Created</TableHeaderCell>
               <TableHeaderCell>Details</TableHeaderCell>
             </TableRow>
@@ -152,16 +152,16 @@ export default function RegistrationTable({
                   </TableCellLayout>
                 </TableCell>
                 <TableCell>
-                  <Badge appearance="filled" color={statusBadgeColor(item.validationStatus)}>
-                    {item.validationStatus}
-                  </Badge>
-                </TableCell>
-                <TableCell>
                   <Badge
                     appearance="tint"
                     color={item.verification?.toLowerCase() === 'validated' ? 'success' : 'subtle'}
                   >
                     {item.verification || '—'}
+                  </Badge>
+                </TableCell>
+                <TableCell>
+                  <Badge appearance="filled" color={statusBadgeColor(item.validationStatus)}>
+                    {item.validationStatus}
                   </Badge>
                 </TableCell>
                 <TableCell>

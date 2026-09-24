@@ -283,7 +283,6 @@ const VALIDATION_OPTIONS: (ValidationStatus | 'All')[] = [
   'Failed',
 ];
 const VERIFICATION_OPTIONS: (BotVerificationLevel | 'All')[] = ['All', 'Registered', 'Validated'];
-const REVIEW_RESULT_OPTIONS = ['All', 'Completed', 'Not Completed'] as const;
 const PAGE_SIZE_OPTIONS = [10, 20, 50, 100];
 const NOTIFICATIONS_LAST_READ_KEY = 'va-admin-portal-notifications-last-read';
 
@@ -292,7 +291,6 @@ const VALIDATION_DROPDOWN_WIDTH = dropdownWidth(
   VALIDATION_OPTIONS.map((option) => (option === 'All' ? 'All validation' : option)),
 );
 const VERIFICATION_DROPDOWN_WIDTH = dropdownWidth(VERIFICATION_OPTIONS);
-const REVIEW_RESULT_DROPDOWN_WIDTH = '180px';
 const PAGE_SIZE_DROPDOWN_WIDTH = dropdownWidth(PAGE_SIZE_OPTIONS.map(String));
 
 export default function DashboardPage({ admin }: { admin: AdminInfo }) {
@@ -305,7 +303,6 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
   const [search, setSearch] = useState('');
   const [validation, setValidation] = useState<ValidationStatus | 'All'>('All');
   const [verification, setVerification] = useState<BotVerificationLevel | 'All'>('All');
-  const [reviewResult, setReviewResult] = useState<(typeof REVIEW_RESULT_OPTIONS)[number]>('All');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [pageSize, setPageSize] = useState(10);
@@ -376,10 +373,7 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
       parts.push(`date ${submittedQuery.startDate?.slice(0, 10) ?? 'any'} to ${submittedQuery.endDate?.slice(0, 10) ?? 'any'}`);
     }
     if (submittedQuery.validationStatus) parts.push(`validation ${submittedQuery.validationStatus}`);
-    if (submittedQuery.verification) parts.push(`BotValidationLevel ${submittedQuery.verification}`);
-    if (submittedQuery.fullyPassed != null) {
-      parts.push(submittedQuery.fullyPassed ? 'completed only' : 'not completed only');
-    }
+    if (submittedQuery.verification) parts.push(`Bot status ${submittedQuery.verification}`);
     if (submittedQuery.searchTerm) parts.push(`search "${submittedQuery.searchTerm}"`);
     return parts.length > 0 ? `filters: ${parts.join(', ')}` : 'no filters applied';
   }, [submittedQuery]);
@@ -390,8 +384,6 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
     searchTerm: search.trim() || null,
     validationStatus: validation === 'All' ? null : validation,
     verification: verification === 'All' ? null : verification,
-    fullyPassed:
-      reviewResult === 'All' ? null : reviewResult === 'Completed',
   });
 
   const handleQuery = () => {
@@ -585,22 +577,22 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
         <Card className={styles.tableCard}>
           <Toolbar className={styles.filterToolbar}>
             <div className={styles.filters}>
-              <Field label="Overall Status">
+              <Field label="Bot status">
                 <Dropdown
                   style={{
-                    width: REVIEW_RESULT_DROPDOWN_WIDTH,
-                    minWidth: REVIEW_RESULT_DROPDOWN_WIDTH,
+                    width: VERIFICATION_DROPDOWN_WIDTH,
+                    minWidth: VERIFICATION_DROPDOWN_WIDTH,
                   }}
-                  value={reviewResult}
-                  selectedOptions={[reviewResult]}
+                  value={verification}
+                  selectedOptions={[verification]}
                   onOptionSelect={(_, d) => {
-                    const option = REVIEW_RESULT_OPTIONS.find((value) => value === d.optionValue);
-                    if (option) setReviewResult(option);
+                    const option = VERIFICATION_OPTIONS.find((value) => value === d.optionValue);
+                    if (option) setVerification(option);
                   }}
                 >
-                  {REVIEW_RESULT_OPTIONS.map((option) => (
-                    <Option key={option} value={option}>
-                      {option}
+                  {VERIFICATION_OPTIONS.map((opt) => (
+                    <Option key={opt} value={opt}>
+                      {opt}
                     </Option>
                   ))}
                 </Dropdown>
@@ -621,26 +613,6 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
                   {VALIDATION_OPTIONS.map((opt) => (
                     <Option key={opt} value={opt}>
                       {opt === 'All' ? 'All validation' : opt}
-                    </Option>
-                  ))}
-                </Dropdown>
-              </Field>
-              <Field label="BotValidationLevel">
-                <Dropdown
-                  style={{
-                    width: VERIFICATION_DROPDOWN_WIDTH,
-                    minWidth: VERIFICATION_DROPDOWN_WIDTH,
-                  }}
-                  value={verification}
-                  selectedOptions={[verification]}
-                  onOptionSelect={(_, d) => {
-                    const option = VERIFICATION_OPTIONS.find((value) => value === d.optionValue);
-                    if (option) setVerification(option);
-                  }}
-                >
-                  {VERIFICATION_OPTIONS.map((opt) => (
-                    <Option key={opt} value={opt}>
-                      {opt}
                     </Option>
                   ))}
                 </Dropdown>
