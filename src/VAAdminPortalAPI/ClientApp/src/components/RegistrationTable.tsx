@@ -154,7 +154,7 @@ export default function RegistrationTable({
                 <TableCell>
                   <Badge
                     appearance="tint"
-                    color={item.verification?.toLowerCase() === 'validated' ? 'success' : 'subtle'}
+                    color={item.verification?.toLowerCase() === 'attested' ? 'success' : 'subtle'}
                   >
                     {item.verification || '—'}
                   </Badge>

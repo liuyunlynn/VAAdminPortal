@@ -24,8 +24,5 @@ namespace VAAdminPortalAPI.Models
 
         [JsonPropertyName("verification")]
         public string? Verification { get; set; }
-
-        [JsonPropertyName("fullyPassed")]
-        public bool? FullyPassed { get; set; }
     }
 }

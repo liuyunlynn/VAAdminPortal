@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -31,6 +32,7 @@ namespace VAAdminPortalAPI.Services
 
         public async Task<IReadOnlyList<AiVirtualAssistantRegistrationModel>> GetAiVirtualAssistantsAsync(
             string tenantId,
+            AiVirtualAssistantRegistrationQueryModel? queryModel,
             CancellationToken cancellationToken)
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(tenantId);
@@ -47,11 +49,7 @@ namespace VAAdminPortalAPI.Services
 
             do
             {
-                string relativeUri = "v1.0/aiVirtualAssistants/allTenants?$top=100";
-                if (!string.IsNullOrEmpty(continuationToken))
-                {
-                    relativeUri += $"&$skiptoken={Uri.EscapeDataString(continuationToken)}";
-                }
+                string relativeUri = BuildRegistrationListRelativeUri(queryModel, continuationToken);
 
                 using HttpRequestMessage request = new(HttpMethod.Get, new Uri(baseUri, relativeUri));
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
@@ -137,6 +135,48 @@ namespace VAAdminPortalAPI.Services
 
             NormalizeRegistrationFields(registration);
             return registration;
+        }
+
+        private static string BuildRegistrationListRelativeUri(
+            AiVirtualAssistantRegistrationQueryModel? queryModel,
+            string? continuationToken)
+        {
+            int pageSize = queryModel?.PageSize > 0 ? queryModel.PageSize : 100;
+            List<string> queryParameters = [$"$top={pageSize.ToString(CultureInfo.InvariantCulture)}"];
+
+            if (queryModel?.StartDate is DateTimeOffset startDate)
+            {
+                queryParameters.Add($"startDate={Uri.EscapeDataString(startDate.ToString("O", CultureInfo.InvariantCulture))}");
+            }
+
+            if (queryModel?.EndDate is DateTimeOffset endDate)
+            {
+                queryParameters.Add($"endDate={Uri.EscapeDataString(endDate.ToString("O", CultureInfo.InvariantCulture))}");
+            }
+
+            if (!string.IsNullOrWhiteSpace(queryModel?.SearchTerm))
+            {
+                queryParameters.Add($"searchTerm={Uri.EscapeDataString(queryModel.SearchTerm.Trim())}");
+            }
+
+            if (queryModel?.ValidationStatus is ValidationStatus validationStatus)
+            {
+                queryParameters.Add($"validationStatus={Uri.EscapeDataString(validationStatus.ToString())}");
+            }
+
+            string? verification = queryModel?.Verification?.Trim();
+            if (!string.IsNullOrEmpty(verification) &&
+                !string.Equals(verification, "All", StringComparison.OrdinalIgnoreCase))
+            {
+                queryParameters.Add($"verification={Uri.EscapeDataString(verification)}");
+            }
+
+            if (!string.IsNullOrEmpty(continuationToken))
+            {
+                queryParameters.Add($"$skiptoken={Uri.EscapeDataString(continuationToken)}");
+            }
+
+            return $"v1.0/aiVirtualAssistants/allTenants?{string.Join('&', queryParameters)}";
         }
 
         private sealed class TgsRegistrationPage

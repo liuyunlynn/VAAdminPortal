@@ -139,7 +139,7 @@ function buildSummary(context: CopilotContext, sourceNote: string): CopilotAnswe
     ],
     bullets: [
       `${plural(fullyVerified, 'assistant')} are fully verified (${percent(fullyVerified, total)} of the total), as reported by the shared verified flag.`,
-      `${plural(validationPending, 'validation review')} are still pending. Validation Passed with TGS verification Registered is not fully verified; TGS Validated and agreement acceptance must also be checked.`,
+      `${plural(validationPending, 'validation review')} are still pending. Validation Passed with TGS verification Registered is not fully verified; TGS Attested and agreement acceptance must also be checked.`,
       failed > 0
         ? `${plural(failed, 'registration')} failed validation and may need follow-up with the submitter.`
         : 'No registration currently has failed validation.',

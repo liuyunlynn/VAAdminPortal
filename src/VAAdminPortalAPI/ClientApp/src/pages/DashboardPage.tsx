@@ -254,8 +254,9 @@ const VALIDATION_OPTIONS: (ValidationStatus | 'All')[] = [
   'Passed',
   'Failed',
 ];
-const VERIFICATION_OPTIONS: (BotVerificationLevel | 'All')[] = ['All', 'Registered', 'Validated'];
+const VERIFICATION_OPTIONS: (BotVerificationLevel | 'All')[] = ['All', 'Registered', 'Attested'];
 const PAGE_SIZE_OPTIONS = [10, 20, 50, 100];
+const DEFAULT_PAGE_SIZE = 50;
 const NOTIFICATIONS_LAST_READ_KEY = 'va-admin-portal-notifications-last-read';
 
 const dropdownWidth = (labels: string[]) => `${Math.max(...labels.map((label) => label.length)) + 6}ch`;
@@ -278,8 +279,8 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
   const [verification, setVerification] = useState<BotVerificationLevel | 'All'>('All');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
-  const [pageSize, setPageSize] = useState(10);
-  const [submittedPageSize, setSubmittedPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
+  const [submittedPageSize, setSubmittedPageSize] = useState(DEFAULT_PAGE_SIZE);
   const [pageIndex, setPageIndex] = useState(0);
   const [submittedQuery, setSubmittedQuery] = useState<RegistrationQuery>({});
   const [overview, setOverview] = useState<AllOverview | null>(null);
@@ -295,7 +296,7 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
   useEffect(() => {
     let active = true;
 
-    dispatch(fetchRegistrations({ pageIndex: 0, pageSize: 10 }));
+    dispatch(fetchRegistrations({ pageIndex: 0, pageSize: DEFAULT_PAGE_SIZE }));
     getAllOverview()
       .then((result) => {
         if (active) setOverview(result);
@@ -613,7 +614,7 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
                   }}
                   value={String(pageSize)}
                   selectedOptions={[String(pageSize)]}
-                  onOptionSelect={(_, d) => setPageSize(Number(d.optionValue ?? 10))}
+                  onOptionSelect={(_, d) => setPageSize(Number(d.optionValue ?? DEFAULT_PAGE_SIZE))}
                 >
                   {PAGE_SIZE_OPTIONS.map((option) => (
                     <Option key={option} value={String(option)}>

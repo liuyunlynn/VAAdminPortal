@@ -1,7 +1,7 @@
 // Types that mirror the ASP.NET Core backend models (camelCase JSON).
 
 export type ValidationStatus = 'NotStarted' | 'Pending' | 'Passed' | 'Failed';
-export type BotVerificationLevel = 'Registered' | 'Validated';
+export type BotVerificationLevel = 'Registered' | 'Attested';
 export type EntityType = 'Company' | 'Individual';
 
 export interface ResponseMessage {
@@ -113,5 +113,4 @@ export interface RegistrationQuery {
   searchTerm?: string | null;
   validationStatus?: ValidationStatus | null;
   verification?: BotVerificationLevel | null;
-  fullyPassed?: boolean | null;
 }

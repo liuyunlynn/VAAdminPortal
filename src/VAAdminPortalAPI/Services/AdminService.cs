@@ -28,7 +28,7 @@ namespace VAAdminPortalAPI.Services
             CancellationToken cancellationToken)
         {
             IReadOnlyList<AiVirtualAssistantRegistrationModel> registrations =
-                await tgsClient.GetAiVirtualAssistantsAsync(tenantId, cancellationToken);
+                await tgsClient.GetAiVirtualAssistantsAsync(tenantId, queryModel, cancellationToken);
             IEnumerable<AiVirtualAssistantRegistrationModel> query =
                 registrations.OrderBy(r => r.CreatedDateTime);
 
@@ -55,11 +55,6 @@ namespace VAAdminPortalAPI.Services
                 {
                     query = query.Where(r =>
                         string.Equals(r.Verification, verification, StringComparison.OrdinalIgnoreCase));
-                }
-
-                if (queryModel.FullyPassed.HasValue)
-                {
-                    query = query.Where(r => r.Verified == queryModel.FullyPassed.Value);
                 }
 
                 if (!string.IsNullOrWhiteSpace(queryModel.SearchTerm))
@@ -110,8 +105,13 @@ namespace VAAdminPortalAPI.Services
             AiVirtualAssistantRegistrationQueryModel queryModel,
             CancellationToken cancellationToken)
         {
+            AiVirtualAssistantRegistrationQueryModel overviewQueryModel = new AiVirtualAssistantRegistrationQueryModel
+            {
+                StartDate = queryModel.StartDate,
+                EndDate = queryModel.EndDate,
+            };
             IReadOnlyList<AiVirtualAssistantRegistrationModel> tgsRegistrations =
-                await tgsClient.GetAiVirtualAssistantsAsync(tenantId, cancellationToken);
+                await tgsClient.GetAiVirtualAssistantsAsync(tenantId, overviewQueryModel, cancellationToken);
             IEnumerable<AiVirtualAssistantRegistrationModel> registrations =
                 tgsRegistrations;
 
@@ -202,7 +202,7 @@ namespace VAAdminPortalAPI.Services
                 !string.IsNullOrWhiteSpace(signer) &&
                 MailAddress.TryCreate(signer, out var address) &&
                 string.Equals(address.Address, signer, StringComparison.Ordinal)
-                    ? "Validated"
+                    ? "Attested"
                     : "Registered";
 
             return registration;

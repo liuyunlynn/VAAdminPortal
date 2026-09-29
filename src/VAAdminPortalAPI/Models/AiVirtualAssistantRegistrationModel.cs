@@ -48,7 +48,7 @@ namespace VAAdminPortalAPI.Models
         public string? PrivacyStatementUrl { get; set; }
 
         /// <summary>
-        /// Gets or sets the authoritative verification level (Registered or Validated) returned by Teams Graph.
+        /// Gets or sets the authoritative verification level (Registered or Attested) returned by Teams Graph.
         /// </summary>
         [JsonPropertyName("verification")]
         public string Verification { get; set; } = string.Empty;
@@ -113,6 +113,6 @@ namespace VAAdminPortalAPI.Models
         public string? AgreementAcceptedBy { get; set; }
 
         [JsonPropertyName("verified")]
-        public bool Verified => string.Equals(Verification, "Validated", StringComparison.OrdinalIgnoreCase);
+        public bool Verified => string.Equals(Verification, "Attested", StringComparison.OrdinalIgnoreCase);
     }
 }

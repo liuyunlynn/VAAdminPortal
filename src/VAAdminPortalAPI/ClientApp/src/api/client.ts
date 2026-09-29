@@ -91,13 +91,12 @@ export async function getRegistrations(
 ): Promise<RegistrationList> {
   const params = new URLSearchParams();
   params.set('pageIndex', String(query.pageIndex ?? 0));
-  params.set('pageSize', String(query.pageSize ?? 100));
+  params.set('pageSize', String(query.pageSize ?? 50));
   if (query.startDate) params.set('startDate', query.startDate);
   if (query.endDate) params.set('endDate', query.endDate);
   if (query.searchTerm) params.set('searchTerm', query.searchTerm);
   if (query.validationStatus) params.set('validationStatus', query.validationStatus);
   if (query.verification) params.set('verification', query.verification);
-  if (query.fullyPassed != null) params.set('fullyPassed', String(query.fullyPassed));
 
   const res = await apiFetch(
     `${BASE}/Admin/GetAiVirtualAssistantRegistrations?${params.toString()}`,
