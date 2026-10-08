@@ -163,6 +163,7 @@ namespace VAAdminPortalAPI.Services
                     actionModel.TenantId,
                     actionModel.RegistrationId,
                     ValidationStatus.Passed,
+                    actionModel.Reason,
                     cancellationToken).ConfigureAwait(false);
             }
 

@@ -96,11 +96,13 @@ namespace VAAdminPortalAPI.Services
             string targetTenantId,
             string registrationId,
             ValidationStatus status,
+            string approvalReason,
             CancellationToken cancellationToken)
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(authenticationTenantId);
             ArgumentException.ThrowIfNullOrWhiteSpace(targetTenantId);
             ArgumentException.ThrowIfNullOrWhiteSpace(registrationId);
+            ArgumentException.ThrowIfNullOrWhiteSpace(approvalReason);
 
             string accessToken = await tokenProvider
                 .GetAccessTokenAsync(authenticationTenantId, cancellationToken)
@@ -112,7 +114,9 @@ namespace VAAdminPortalAPI.Services
                 $"v1.0/admin/tenants/{Uri.EscapeDataString(targetTenantId)}/aiVirtualAssistants/{Uri.EscapeDataString(registrationId)}/validationStatus";
             using HttpRequestMessage request = new(HttpMethod.Put, new Uri(baseUri, relativeUri));
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-            request.Content = JsonContent.Create(status.ToString());
+            request.Content = JsonContent.Create(
+                new AiVirtualAssistantAdminStatusUpdatePayload(status.ToString(), approvalReason),
+                options: SerializerOptions);
 
             using HttpResponseMessage response = await httpClient
                 .SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken)
@@ -185,6 +189,10 @@ namespace VAAdminPortalAPI.Services
 
             public string? ContinuationToken { get; init; }
         }
+
+        private sealed record AiVirtualAssistantAdminStatusUpdatePayload(
+            [property: JsonPropertyName("status")] string Status,
+            [property: JsonPropertyName("approvalReason")] string ApprovalReason);
 
         private static void NormalizeRegistrationFields(AiVirtualAssistantRegistrationModel registration)
         {

@@ -14,6 +14,7 @@ namespace VAAdminPortalAPI.Services
             string targetTenantId,
             string registrationId,
             ValidationStatus status,
+            string approvalReason,
             CancellationToken cancellationToken);
     }
 }

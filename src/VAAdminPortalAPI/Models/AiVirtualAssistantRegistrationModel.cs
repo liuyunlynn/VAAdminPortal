@@ -101,6 +101,12 @@ namespace VAAdminPortalAPI.Models
         public string? ValidationFailureReason { get; set; }
 
         /// <summary>
+        /// Gets or sets the reason recorded for the administrator's approval decision.
+        /// </summary>
+        [JsonPropertyName("approvalReason")]
+        public string? ApprovalReason { get; set; }
+
+        /// <summary>
         /// Gets or sets when the agreement was accepted.
         /// </summary>
         [JsonPropertyName("agreementAcceptedDateTime")]

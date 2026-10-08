@@ -85,6 +85,7 @@ export interface AiVirtualAssistantRegistration {
   onboardingDocUrl: string;
   validationStatus: ValidationStatus;
   validationFailureReason?: string | null;
+  approvalReason?: string | null;
 }
 
 export interface RegistrationList {
