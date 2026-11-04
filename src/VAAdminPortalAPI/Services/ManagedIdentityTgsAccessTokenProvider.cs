@@ -15,12 +15,14 @@ namespace VAAdminPortalAPI.Services
             new(["api://AzureADTokenExchange/.default"]);
 
         private readonly IConfidentialClientApplication confidentialClient;
+        private readonly string authenticationTenantId;
         private readonly ManagedIdentityCredential managedIdentityCredential;
         private readonly string[] scopes;
 
         public ManagedIdentityTgsAccessTokenProvider(IOptions<TgsOptions> options)
         {
             TgsOptions tgsOptions = options.Value;
+            authenticationTenantId = tgsOptions.AuthenticationTenantId;
             scopes = [$"{tgsOptions.Audience.TrimEnd('/')}/.default"];
             managedIdentityCredential = new ManagedIdentityCredential(ManagedIdentityId.SystemAssigned);
             confidentialClient = ConfidentialClientApplicationBuilder
@@ -38,7 +40,7 @@ namespace VAAdminPortalAPI.Services
 
             AuthenticationResult authenticationResult = await confidentialClient
                 .AcquireTokenForClient(scopes)
-                .WithTenantId(tenantId)
+                .WithTenantId(authenticationTenantId)
                 .ExecuteAsync(cancellationToken)
                 .ConfigureAwait(false);
             return authenticationResult.AccessToken;

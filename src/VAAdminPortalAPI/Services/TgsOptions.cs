@@ -3,7 +3,8 @@ namespace VAAdminPortalAPI.Services
     public enum TgsAuthenticationMode
     {
         ManagedIdentity,
-        DevelopmentAccessToken
+        DevelopmentAccessToken,
+        DevelopmentClientSecret
     }
 
     public sealed class TgsOptions
@@ -20,6 +21,8 @@ namespace VAAdminPortalAPI.Services
         public string Authority { get; set; } = string.Empty;
 
         public string ClientId { get; set; } = string.Empty;
+
+        public string AuthenticationTenantId { get; set; } = string.Empty;
 
         public string? DevelopmentAccessToken { get; set; }
     }
