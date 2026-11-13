@@ -86,11 +86,10 @@ belongs to a different app registration.
 
 ## Teams Graph Data Source
 
-The portal backend obtains an app-only token for the Admin Portal app registration
-(`0a41b070-52fd-47fb-9292-5409acf66b45`), then calls the existing Teams Graph
-endpoint directly. Both managed identity and local client secret modes acquire the
-token in the configured `Tgs:AuthenticationTenantId`, the Admin Portal app's tenant.
-This setting does not change the tenant used for user sign-in:
+The portal backend selects the authentication tenant using the signed-in identity's `tid`.
+It obtains an app-only token for the Admin Portal app registration
+(`0a41b070-52fd-47fb-9292-5409acf66b45`) in that tenant, then calls the existing
+Teams Graph endpoint directly:
 
 ```text
 GET {Tgs:BaseUrl}/v1.0/aiVirtualAssistants/allTenants?$top=100
@@ -102,7 +101,7 @@ the Admin Portal app registration:
 
 1. The backend requests a managed identity token for `api://AzureADTokenExchange`.
 2. MSAL uses that token as the client assertion for the Admin Portal app and
-   acquires `{Tgs:Audience}/.default` in `Tgs:AuthenticationTenantId`.
+   acquires `{Tgs:Audience}/.default` with the signed-in identity's tenant ID.
 3. The resulting token's `appid`/`azp` is the Admin Portal app ID, not the managed
    identity ID. TGS allowlisting, app role assignment, and tenant admin consent
    therefore apply to the Admin Portal app.
@@ -130,8 +129,7 @@ The default configuration targets Internal DEV:
     "BaseUrl": "https://dev.teamsgraph.teams.microsoft.net",
     "Audience": "ab3be6b7-f5df-413d-ac2d-abf1e3fd9c0b",
     "Authority": "https://login.microsoftonline.com/",
-    "ClientId": "0a41b070-52fd-47fb-9292-5409acf66b45",
-    "AuthenticationTenantId": "909c6581-5130-43e9-88f3-fcb3582cde37"
+    "ClientId": "0a41b070-52fd-47fb-9292-5409acf66b45"
   }
 }
 ```
@@ -177,10 +175,9 @@ dotnet user-secrets set "AzureAd:ClientSecret" "<admin-portal-client-secret>"
 
 The `DevelopmentClientSecret` mode is accepted only in the Development environment.
 It reuses `AzureAd:ClientSecret`, and `Tgs:ClientId` must match `AzureAd:ClientId`.
-It uses `Tgs:AuthenticationTenantId` from `appsettings.json` rather than the signed-in
-user's tenant when acquiring a TGS token. The Admin Portal service
-principal and any permissions required by the deployed TGS API must be configured
-in that authentication tenant.
+The Admin Portal service principal must be provisioned in the signed-in user's tenant
+and assigned the TGS `AiVirtualAssistant.Read.AllTenants` application role. Restart the
+portal after changing the assignment so MSAL acquires a token containing the new role.
 
 `ManagedIdentity` mode requires a managed identity endpoint and therefore works
 only when running in App Service. When deploying, enable the system-assigned

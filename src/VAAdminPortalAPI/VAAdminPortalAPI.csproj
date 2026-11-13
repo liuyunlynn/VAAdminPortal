@@ -33,6 +33,12 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="9.0.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="authorizedUsers.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
   <!-- Build the SPA into wwwroot when publishing (and on build if not yet built). -->
   <Target Name="EnsureNodeEnvironment" BeforeTargets="BuildSpa">
     <Exec Command="node --version" ContinueOnError="true">

@@ -55,11 +55,6 @@ namespace VAAdminPortalAPI
                     "AzureAd:ClientSecret is required for DevelopmentClientSecret authentication.")
                 .Validate(
                     options =>
-                        options.AuthenticationMode == TgsAuthenticationMode.DevelopmentAccessToken ||
-                        (Guid.TryParse(options.AuthenticationTenantId, out Guid tenantId) && tenantId != Guid.Empty),
-                    "Tgs:AuthenticationTenantId must be a valid tenant ID for app-only authentication.")
-                .Validate(
-                    options =>
                         options.AuthenticationMode != TgsAuthenticationMode.DevelopmentClientSecret ||
                         string.Equals(
                             options.ClientId,

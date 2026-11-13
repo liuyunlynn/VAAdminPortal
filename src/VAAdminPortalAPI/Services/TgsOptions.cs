@@ -22,8 +22,6 @@ namespace VAAdminPortalAPI.Services
 
         public string ClientId { get; set; } = string.Empty;
 
-        public string AuthenticationTenantId { get; set; } = string.Empty;
-
         public string? DevelopmentAccessToken { get; set; }
     }
 }
