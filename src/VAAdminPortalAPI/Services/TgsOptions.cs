@@ -1,4 +1,4 @@
-namespace VAAdminPortalAPI.Services
+﻿namespace VAAdminPortalAPI.Services
 {
     public enum TgsAuthenticationMode
     {
@@ -21,6 +21,8 @@ namespace VAAdminPortalAPI.Services
         public string Authority { get; set; } = string.Empty;
 
         public string ClientId { get; set; } = string.Empty;
+
+        public string AuthenticationTenantId { get; set; } = string.Empty;
 
         public string? DevelopmentAccessToken { get; set; }
     }
