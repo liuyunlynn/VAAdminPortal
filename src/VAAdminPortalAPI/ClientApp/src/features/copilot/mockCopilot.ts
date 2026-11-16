@@ -1,7 +1,7 @@
 // Mock Copilot engine. Answers are computed locally from the registrations that are
 // already loaded in the dashboard, so no AI service is required for the demo.
 import type { AiVirtualAssistantRegistration, AllOverview } from '../../api/types';
-import { formatDate, registrationsByMonth } from '../../components/status';
+import { formatBotVerification, formatDate, registrationsByMonth } from '../../components/status';
 
 export type CopilotIntent =
   | 'summary'
@@ -139,7 +139,7 @@ function buildSummary(context: CopilotContext, sourceNote: string): CopilotAnswe
     ],
     bullets: [
       `${plural(fullyVerified, 'assistant')} are fully verified (${percent(fullyVerified, total)} of the total), as reported by the shared verified flag.`,
-      `${plural(validationPending, 'validation review')} are still pending. Validation Passed with TGS verification Registered is not fully verified; TGS Attested and agreement acceptance must also be checked.`,
+      `${plural(validationPending, 'validation review')} are still pending. Validation Passed with TGS verification Registered is not fully verified; TGS Verified and agreement acceptance must also be checked.`,
       failed > 0
         ? `${plural(failed, 'registration')} failed validation and may need follow-up with the submitter.`
         : 'No registration currently has failed validation.',
@@ -185,7 +185,7 @@ function buildPending(context: CopilotContext, sourceNote: string): CopilotAnswe
                 item.createdDateTime,
               )} (${plural(daysSince(item.createdDateTime), 'day')} old, validation ${
                 item.validationStatus
-              } / TGS verification ${item.verification} / agreement ${
+              } / TGS verification ${formatBotVerification(item.verification)} / agreement ${
                 item.agreementAcceptedDateTime ? 'accepted' : 'acceptance not recorded'
               }).`,
           ),
@@ -331,7 +331,7 @@ function buildRecent(context: CopilotContext, sourceNote: string): CopilotAnswer
     ],
     bullets: recent.map(
       (item) =>
-        `${formatDate(item.createdDateTime)} - ${item.displayName} (${item.legalEntity.businessName}), validation ${item.validationStatus} / TGS verification ${item.verification} / fully verified ${item.verified ? 'yes' : 'no'} / agreement ${item.agreementAcceptedDateTime ? 'accepted' : 'acceptance not recorded'}.`,
+        `${formatDate(item.createdDateTime)} - ${item.displayName} (${item.legalEntity.businessName}), validation ${item.validationStatus} / TGS verification ${formatBotVerification(item.verification)} / fully verified ${item.verified ? 'yes' : 'no'} / agreement ${item.agreementAcceptedDateTime ? 'accepted' : 'acceptance not recorded'}.`,
     ),
     followUps: ['What needs my attention?', 'Summarize the registration data'],
     sourceNote,

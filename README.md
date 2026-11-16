@@ -192,8 +192,10 @@ validation failure reason displayed on the page come from Teams Graph. Missing
 validation status defaults to `NotStarted`; the portal does not fabricate statuses.
 Agreement acceptance is exposed as `agreementAcceptedDateTime` and
 `agreementAcceptedBy`. Verification uses the authoritative TGS `verification`
-value (`Registered` or `Validated`), not technical validation alone: `Validated`
+value (`Registered` or `Attested`), not technical validation alone: `Attested`
 requires passed validation and valid agreement acceptance.
+The frontend displays `Attested` as `Verified`, including the Bot status filter;
+filter requests continue to send the backend value `Attested`.
 
 Validation approval calls the admin endpoint using the registration's tenant ID:
 

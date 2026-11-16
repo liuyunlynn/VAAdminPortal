@@ -23,6 +23,10 @@ export function statusBadgeColor(status: string): BadgeColor {
   }
 }
 
+export function formatBotVerification(status: string): string {
+  return status.toLowerCase() === 'attested' ? 'Verified' : status;
+}
+
 export function formatDate(iso: string): string {
   const date = new Date(iso);
   if (Number.isNaN(date.getTime())) return iso;

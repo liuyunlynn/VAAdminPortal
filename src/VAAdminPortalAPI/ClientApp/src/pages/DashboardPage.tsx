@@ -48,7 +48,7 @@ import RegistrationDetailPanel from '../components/RegistrationDetailPanel';
 import NotificationPanel, {
   countNewFailedRegistrations,
 } from '../components/NotificationPanel';
-import { STATUS_COLORS } from '../components/status';
+import { formatBotVerification, STATUS_COLORS } from '../components/status';
 
 const useStyles = makeStyles({
   root: {
@@ -263,7 +263,7 @@ const dropdownWidth = (labels: string[]) => `${Math.max(...labels.map((label) =>
 const VALIDATION_DROPDOWN_WIDTH = dropdownWidth(
   VALIDATION_OPTIONS.map((option) => (option === 'All' ? 'All validation' : option)),
 );
-const VERIFICATION_DROPDOWN_WIDTH = dropdownWidth(VERIFICATION_OPTIONS);
+const VERIFICATION_DROPDOWN_WIDTH = dropdownWidth(VERIFICATION_OPTIONS.map(formatBotVerification));
 const PAGE_SIZE_DROPDOWN_WIDTH = dropdownWidth(PAGE_SIZE_OPTIONS.map(String));
 
 export default function DashboardPage({ admin }: { admin: AdminInfo }) {
@@ -545,7 +545,7 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
                     width: VERIFICATION_DROPDOWN_WIDTH,
                     minWidth: VERIFICATION_DROPDOWN_WIDTH,
                   }}
-                  value={verification}
+                  value={formatBotVerification(verification)}
                   selectedOptions={[verification]}
                   onOptionSelect={(_, d) => {
                     const option = VERIFICATION_OPTIONS.find((value) => value === d.optionValue);
@@ -554,7 +554,7 @@ export default function DashboardPage({ admin }: { admin: AdminInfo }) {
                 >
                   {VERIFICATION_OPTIONS.map((opt) => (
                     <Option key={opt} value={opt}>
-                      {opt}
+                      {formatBotVerification(opt)}
                     </Option>
                   ))}
                 </Dropdown>

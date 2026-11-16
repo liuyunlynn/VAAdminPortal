@@ -20,7 +20,7 @@ import {
   OpenRegular,
 } from '@fluentui/react-icons';
 import type { AiVirtualAssistantRegistration } from '../api/types';
-import { formatDate, statusBadgeColor } from './status';
+import { formatBotVerification, formatDate, statusBadgeColor } from './status';
 
 const useStyles = makeStyles({
   wrapper: {
@@ -156,7 +156,7 @@ export default function RegistrationTable({
                     appearance="tint"
                     color={item.verification?.toLowerCase() === 'attested' ? 'success' : 'subtle'}
                   >
-                    {item.verification || '—'}
+                    {formatBotVerification(item.verification || '—')}
                   </Badge>
                 </TableCell>
                 <TableCell>
